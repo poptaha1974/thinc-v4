@@ -31,19 +31,34 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Tuple
+from typing import Any, Dict, Iterable, List, Tuple, cast
 
 # =============================================================================
 # Compatibility with THINC v3.1
 # =============================================================================
 
 APP_DIR = Path(__file__).resolve().parent
-if str(APP_DIR) not in sys.path:
-    sys.path.insert(0, str(APP_DIR))
+REPO_ROOT = APP_DIR.parents[1]
+LEGACY_DIR = REPO_ROOT / "thinc_v4_0_final_verified_20260620" / "thinc_v4_final"
+for import_dir in (APP_DIR, REPO_ROOT, LEGACY_DIR):
+    if import_dir.exists() and str(import_dir) not in sys.path:
+        sys.path.insert(0, str(import_dir))
 
-_V3_IMPORT_ERROR: Optional[Exception] = None
+from .identity import (
+    ATTRIBUTION_NOTICE,
+    COPYRIGHT_NOTICE,
+    IDENTITY_TAGLINE,
+    INVENTOR,
+    INVENTOR_AR,
+    IP_STATEMENT,
+    MODEL_NAME,
+    VERSION,
+    WATERMARK,
+)
+
+_V3_IMPORT_ERROR: Exception | None = None
 try:  # preferred if the canonical name exists
-    from THINC_v3_1_Master_Framework import (  # type: ignore
+    from THINC_v3_1_Master_Framework import (
         CampaignPerformanceData,
         CNCROverlay,
         CompositeScoreV3,
@@ -61,9 +76,9 @@ try:  # preferred if the canonical name exists
         get_watermark as get_v3_watermark,
         run_all_tests as run_v3_tests,
     )
-except Exception as err1:  # fallback to the uploaded filename
+except Exception:  # fallback to the uploaded filename
     try:
-        from THINC_v3_1_Master_Framework_Chatgpt import (  # type: ignore
+        from THINC_v3_1_Master_Framework_Chatgpt import (
             CampaignPerformanceData,
             CNCROverlay,
             CompositeScoreV3,
@@ -89,15 +104,37 @@ except Exception as err1:  # fallback to the uploaded filename
 # SECTION 0 · IDENTITY
 # =============================================================================
 
-FRAMEWORK_NAME = "THINC"
-FRAMEWORK_VERSION = "v4.0 — Adaptive Commerce Intelligence Edition"
+FRAMEWORK_NAME = MODEL_NAME
+FRAMEWORK_VERSION = f"v{VERSION} — Adaptive Commerce Intelligence Edition"
 FRAMEWORK_FULL_NAME = "Taha's Holistic Integration of Needs & Consumer behavior"
-AUTHOR_NAME_AR = "الدكتور إيهاب طه"
-AUTHOR_NAME_EN = "Dr. Ehab Taha"
+AUTHOR_NAME_AR = INVENTOR_AR
+AUTHOR_NAME_EN = INVENTOR
 TRADEMARK_HOLDER = "EgyPioneers — طلائع شباب مصر"
 ACADEMY_NAME = "Egy-Pioneers Academy / Insta Learn Academy"
 PROGRAM_POSITIONING = "ابنِ مشروع تجارة إلكترونية مدعوم بالكامل من أول فكرة إلى أول عملية بيع."
 COPYRIGHT_YEAR = 2026
+
+
+def validate_finite_number(value: float, name: str) -> float:
+    """Validate that a numeric value is finite."""
+    numeric = float(value)
+    if not math.isfinite(numeric):
+        raise ValueError(f"{name} must be a finite number")
+    return numeric
+
+
+def clamp_score(value: float, lower: float = 0.0, upper: float = 10.0) -> float:
+    """Clamp a finite score to an inclusive range."""
+    numeric = validate_finite_number(value, "score")
+    return max(lower, min(upper, numeric))
+
+
+def validate_score(value: float, name: str, lower: float = 0.0, upper: float = 10.0) -> float:
+    """Validate a finite score in an inclusive range."""
+    numeric = validate_finite_number(value, name)
+    if not lower <= numeric <= upper:
+        raise ValueError(f"{name} must be between {lower:g} and {upper:g}")
+    return numeric
 
 
 def compute_identity_hash() -> str:
@@ -110,9 +147,9 @@ def compute_identity_hash() -> str:
 
 def verify_attribution() -> bool:
     return (
-        AUTHOR_NAME_AR == "الدكتور إيهاب طه"
-        and AUTHOR_NAME_EN == "Dr. Ehab Taha"
-        and FRAMEWORK_NAME == "THINC"
+        AUTHOR_NAME_AR == INVENTOR_AR
+        and AUTHOR_NAME_EN == INVENTOR
+        and FRAMEWORK_NAME == MODEL_NAME
         and FRAMEWORK_FULL_NAME.startswith("Taha's")
     )
 
@@ -414,13 +451,13 @@ class EgyptianizationEngine:
         return EgyptianLanguageProfile(
             generation=generation,
             skill_level=skill_level,
-            tone=base["tone"],
-            preferred_words=base["preferred"] + skill_modifiers["extra"],
-            avoided_words=base["avoided"],
+            tone=cast(str, base["tone"]),
+            preferred_words=list(base["preferred"]) + list(skill_modifiers["extra"]),
+            avoided_words=cast(List[str], base["avoided"]),
             trust_builders=skill_modifiers["trust"],
-            pain_words=base["pain"],
-            aspiration_words=base["aspiration"],
-            sample_hook=base["hook"],
+            pain_words=cast(List[str], base["pain"]),
+            aspiration_words=cast(List[str], base["aspiration"]),
+            sample_hook=cast(str, base["hook"]),
         )
 
     @staticmethod
@@ -490,11 +527,10 @@ class CompetitorProfile:
     operational_strength: float = 5.0
     weakness: str = ""
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         for name in ["offer_strength", "creative_strength", "trust_strength", "operational_strength"]:
             val = getattr(self, name)
-            if not 0 <= val <= 10:
-                raise ValueError(f"{name} must be between 0 and 10")
+            validate_score(val, name)
 
 
 @dataclass
@@ -569,10 +605,9 @@ class FounderOS:
     focus_score: float = 5.0
     financial_discipline_score: float = 5.0
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         for name, value in asdict(self).items():
-            if not 0 <= value <= 10:
-                raise ValueError(f"{name} must be between 0 and 10")
+            validate_score(value, name)
 
     def founder_readiness(self) -> Dict[str, Any]:
         weights = {
@@ -656,10 +691,14 @@ class AIOperatingLayer:
 
     @staticmethod
     def cost_saving_message(monthly_club_fee_egp: float, estimated_individual_cost_egp: float) -> str:
+        monthly_club_fee_egp = validate_finite_number(monthly_club_fee_egp, "monthly_club_fee_egp")
+        estimated_individual_cost_egp = validate_finite_number(estimated_individual_cost_egp, "estimated_individual_cost_egp")
         if monthly_club_fee_egp <= 0:
             raise ValueError("Club fee must be > 0")
-        saving = estimated_individual_cost_egp - monthly_club_fee_egp
-        pct = saving / estimated_individual_cost_egp * 100 if estimated_individual_cost_egp else 0
+        if estimated_individual_cost_egp <= 0:
+            raise ValueError("Estimated individual cost must be > 0")
+        saving = max(0.0, estimated_individual_cost_egp - monthly_club_fee_egp)
+        pct = saving / estimated_individual_cost_egp * 100
         return (
             f"لو اشتركت في الأدوات منفردًا قد تدفع تقريبًا {estimated_individual_cost_egp:,.0f} جنيه شهريًا. "
             f"داخل النادي تدفع اشتراكًا رمزيًا {monthly_club_fee_egp:,.0f} جنيه وفق سياسة الاستخدام، "
@@ -784,7 +823,7 @@ class THINCV4Engine:
             ).calculate()
             v3_score = float(v3_comp["score"])
         else:
-            v3_score = round((project.persona_completeness / 10) * 0.4 + project.taha_index * 0.6, 2)
+            v3_score = round(clamp_score((project.persona_completeness / 100) * 10) * 0.4 + clamp_score(project.taha_index) * 0.6, 2)
 
         founder = project.founder_os.founder_readiness()["score"]
         business = project.business_architecture.readiness_score()
@@ -808,7 +847,7 @@ class THINCV4Engine:
             "competitive_differentiation": competitive,
             "academy_operating_system": academy,
         }
-        final = round(sum(components[k] * weights[k] for k in weights), 2)
+        final = round(clamp_score(sum(components[k] * weights[k] for k in weights)), 2)
 
         profile = EgyptianizationEngine.build_profile(project.target_generation, project.skill_level)
         message = EgyptianizationEngine.generate_offer_message(profile)
@@ -912,7 +951,7 @@ def run_all_tests() -> Dict[str, Any]:
     passed: List[str] = []
     failed: List[str] = []
 
-    def check(name: str, condition: bool):
+    def check(name: str, condition: bool) -> None:
         (passed if condition else failed).append(name)
 
     check("identity attribution", verify_attribution())
@@ -978,18 +1017,23 @@ def print_summary() -> None:
     print(get_watermark())
 
 
-if __name__ == "__main__":
+def main() -> None:
+    """CLI entrypoint for THINC v4.0."""
     if "--test" in sys.argv:
         results = run_all_tests()
         print(json.dumps(results, ensure_ascii=False, indent=2))
         if results["failed"]:
-            sys.exit(1)
+            raise SystemExit(1)
     elif "--example" in sys.argv:
-        rep = example_academy_project()
-        print(json.dumps(rep.to_dict(), ensure_ascii=False, indent=2))
+        report = example_academy_project()
+        print(json.dumps(report.to_dict(), ensure_ascii=False, indent=2))
         print(get_watermark())
-    elif "--export-theories" in sys.argv:
-        out = ScientificTheoryRegistry.export_csv(APP_DIR / "thinc_v4_theory_registry.csv")
+    elif "--export-registry" in sys.argv or "--export-theories" in sys.argv:
+        out = ScientificTheoryRegistry.export_csv(REPO_ROOT / "thinc_v4_theory_registry.csv")
         print(f"Exported: {out}")
     else:
         print_summary()
+
+
+if __name__ == "__main__":
+    main()
