@@ -1,0 +1,16 @@
+# Changelog
+
+## 4.0.0 — 2026-06-20
+
+- Added `src/` package layout with `thinc_v4` package and compatibility entrypoints for existing CLI and Streamlit commands.
+- Added `src/thinc_v4/identity.py` as the single source of truth for THINC v4.0 identity: inventor, owner, version, watermark, attribution, copyright, and IP statement.
+- Preserved and strengthened attribution to Dr. Ehab Taha (الدكتور إيهاب طه) across source headers, README, LICENSE, NOTICE, and tests.
+- Added proprietary LICENSE and NOTICE files with explicit ownership and IP protection language.
+- Added `pyproject.toml`, pinned requirements, Ruff, MyPy, pytest coverage configuration, pre-commit hooks, Makefile, and GitHub Actions CI.
+- Added `.env.example` to document environment-variable-driven integration stubs and avoid hardcoded secrets.
+- Added finite-number validation and score clamping helpers to protect scoring from NaN/inf and out-of-range values.
+- Fixed v3 fallback scoring normalization so persona completeness is treated as 0–100 and converted to a 0–10 component before weighting.
+- Fixed AI Operating Layer cost-saving messaging so invalid costs are rejected and negative savings are never reported.
+- Fixed root import drift by adding canonical `THINC_v4_0_Master_Framework.py` and package imports while preserving legacy files.
+- Added tests for identity protection, registry CSV parity, scoring edge cases, AI cost-savings behavior, and Streamlit importability.
+- Updated README with architecture overview, usage, quality gates, security guidance, and prominent “Invented by Dr. Ehab Taha” attribution.
