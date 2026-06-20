@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.1 — 2026-06-20
+
+- Fixed CI lint configuration by removing invalid Ruff selector `UP045`, which is unsupported by the pinned Ruff version.
+- Confirmed Ruff and MyPy remain pinned to explicit reproducible versions in `pyproject.toml` and `requirements_thinc_v4.txt`.
+- Re-ran lint, type-check, and tests locally without changing or weakening THINC identity, attribution, ownership, watermarking, or Arabic/Egyptian dialect support.
+
 ## 4.0.0 — 2026-06-20
 
 - Added `src/` package layout with `thinc_v4` package and compatibility entrypoints for existing CLI and Streamlit commands.

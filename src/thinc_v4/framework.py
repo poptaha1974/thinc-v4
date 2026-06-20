@@ -31,7 +31,7 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Tuple, cast
+from typing import Any, Dict, Iterable, List, Tuple, cast
 
 # =============================================================================
 # Compatibility with THINC v3.1
@@ -56,7 +56,7 @@ from .identity import (
     WATERMARK,
 )
 
-_V3_IMPORT_ERROR: Optional[Exception] = None
+_V3_IMPORT_ERROR: Exception | None = None
 try:  # preferred if the canonical name exists
     from THINC_v3_1_Master_Framework import (  # type: ignore[import-not-found]
         CampaignPerformanceData,

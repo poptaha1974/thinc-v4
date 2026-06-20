@@ -35,7 +35,7 @@ exclude = ["thinc_v4_0_final_verified_20260620", "THINC_v4_0_Master_Framework (1
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
-ignore = ["E501", "E402", "F403", "F405", "F401", "UP006", "UP009", "UP017", "UP035", "UP045", "I001", "B904"]
+ignore = ["E501", "E402", "F403", "F405", "F401", "UP006", "UP009", "UP017", "UP035", "I001", "B904"]
 
 [tool.mypy]
 python_version = "3.11"
