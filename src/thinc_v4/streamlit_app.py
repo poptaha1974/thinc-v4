@@ -60,10 +60,15 @@ st.set_page_config(
 st.markdown(
     """
 <style>
-.stApp {
-    direction: rtl;
-    text-align: right;
+/* Force RTL globally for the app to ensure Arabic displays right-to-left */
+html, body, .stApp, .main, .block-container {
+    direction: rtl !important;
+    text-align: right !important;
+    unicode-bidi: embed;
     font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.stApp {
     background-color: #020617;
     color: #f8fafc;
 }
