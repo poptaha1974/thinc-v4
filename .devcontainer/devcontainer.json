@@ -1,0 +1,14 @@
+{
+"name": "THINC v4.0 Dev (Dr. Ehab Taha)",
+"image": "mcr.microsoft.com/devcontainers/python:3.11",
+"postCreateCommand": "python -m pip install -e .[dev]",
+"forwardPorts": [8501],
+"customizations": {
+"vscode": {
+"extensions": [
+"ms-python.python",
+"charliermarsh.ruff"
+]
+}
+}
+}
