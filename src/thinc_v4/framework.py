@@ -58,7 +58,7 @@ from .identity import (
 
 _V3_IMPORT_ERROR: Exception | None = None
 try:  # preferred if the canonical name exists
-    from THINC_v3_1_Master_Framework import (  # type: ignore[import-not-found]
+    from THINC_v3_1_Master_Framework import (
         CampaignPerformanceData,
         CNCROverlay,
         CompositeScoreV3,
@@ -78,7 +78,7 @@ try:  # preferred if the canonical name exists
     )
 except Exception:  # fallback to the uploaded filename
     try:
-        from THINC_v3_1_Master_Framework_Chatgpt import (  # type: ignore[import-not-found]
+        from THINC_v3_1_Master_Framework_Chatgpt import (
             CampaignPerformanceData,
             CNCROverlay,
             CompositeScoreV3,
@@ -452,9 +452,9 @@ class EgyptianizationEngine:
             generation=generation,
             skill_level=skill_level,
             tone=cast(str, base["tone"]),
-            preferred_words=cast(List[str], base["preferred"]) + cast(List[str], skill_modifiers["extra"]),
+            preferred_words=list(base["preferred"]) + list(skill_modifiers["extra"]),
             avoided_words=cast(List[str], base["avoided"]),
-            trust_builders=cast(List[str], skill_modifiers["trust"]),
+            trust_builders=skill_modifiers["trust"],
             pain_words=cast(List[str], base["pain"]),
             aspiration_words=cast(List[str], base["aspiration"]),
             sample_hook=cast(str, base["hook"]),

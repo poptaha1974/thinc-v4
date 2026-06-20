@@ -41,7 +41,6 @@ ignore = ["E501", "E402", "F403", "F405", "F401", "UP006", "UP009", "UP017", "UP
 python_version = "3.11"
 strict = true
 ignore_missing_imports = true
-disable_error_code = ["unused-ignore", "redundant-cast", "untyped-decorator"]
 exclude = ["thinc_v4_0_final_verified_20260620", "THINC_v4_0_Master_Framework \\(1\\).py"]
 
 [tool.pytest.ini_options]

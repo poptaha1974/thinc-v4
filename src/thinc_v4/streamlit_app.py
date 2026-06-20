@@ -14,6 +14,7 @@ from __future__ import annotations
 import json
 import sys
 from pathlib import Path
+from typing import TYPE_CHECKING, cast
 
 import pandas as pd
 import streamlit as st
@@ -100,10 +101,13 @@ h1, h2, h3 { color: #22c55e; }
 )
 
 
-@st.cache_data(show_spinner=False)  # type: ignore[misc]
 def cached_run_all_tests() -> dict[str, object]:
     """Cache framework tests so Streamlit reruns do not re-execute the full suite."""
     return run_all_tests()
+
+
+if not TYPE_CHECKING:
+    cached_run_all_tests = st.cache_data(show_spinner=False)(cached_run_all_tests)
 
 
 st.sidebar.title("🧠 THINC™ v4.0")
@@ -197,9 +201,9 @@ elif page == "🇪🇬 Egyptianization":
     st.title("🇪🇬 Egyptianization Engine")
     col1, col2 = st.columns(2)
     with col1:
-        generation = st.selectbox("الجيل", list(EgyptianAudienceGeneration), format_func=lambda x: x.value)
+        generation = cast(EgyptianAudienceGeneration, st.selectbox("الجيل", list(EgyptianAudienceGeneration), format_func=lambda x: x.value))
     with col2:
-        skill = st.selectbox("مستوى الخبرة", list(AudienceSkillLevel), format_func=lambda x: x.value)
+        skill = cast(AudienceSkillLevel, st.selectbox("مستوى الخبرة", list(AudienceSkillLevel), format_func=lambda x: x.value))
 
     profile = EgyptianizationEngine.build_profile(generation, skill)
     msg = EgyptianizationEngine.generate_offer_message(profile)
@@ -294,7 +298,7 @@ elif page == "🧑‍💼 Founder OS":
 # -----------------------------------------------------------------------------
 elif page == "🤖 AI Stack":
     st.title("🤖 AI Operating Layer")
-    task = st.selectbox("اختر المهمة", list(AITaskType), format_func=lambda x: x.value)
+    task = cast(AITaskType, st.selectbox("اختر المهمة", list(AITaskType), format_func=lambda x: x.value))
     tools = AIOperatingLayer.recommend_stack(task)
     df = pd.DataFrame([t.__dict__ | {"task_types": " | ".join(tt.value for tt in t.task_types)} for t in tools])
     st.dataframe(df, use_container_width=True, hide_index=True)
@@ -326,8 +330,8 @@ elif page == "🧬 Full Assessment":
     project_name = st.text_input("اسم المشروع", value="برنامج بناء مشروع تجارة إلكترونية مدعوم بالكامل")
     col1, col2 = st.columns(2)
     with col1:
-        generation = st.selectbox("الجيل المستهدف", list(EgyptianAudienceGeneration), index=3, format_func=lambda x: x.value)
-        skill = st.selectbox("مستوى الجمهور", list(AudienceSkillLevel), index=1, format_func=lambda x: x.value)
+        generation = cast(EgyptianAudienceGeneration, st.selectbox("الجيل المستهدف", list(EgyptianAudienceGeneration), index=3, format_func=lambda x: x.value))
+        skill = cast(AudienceSkillLevel, st.selectbox("مستوى الجمهور", list(AudienceSkillLevel), index=1, format_func=lambda x: x.value))
         persona = st.slider("Persona Completeness %", 0.0, 100.0, 88.0, 1.0)
         taha = st.slider("Taha Index", 0.0, 10.0, 8.5, 0.5)
     with col2:
@@ -402,10 +406,10 @@ elif page == "✅ Tests":
     st.title("✅ Framework Tests")
     res = cached_run_all_tests()
     c1, c2, c3, c4 = st.columns(4)
-    c1.metric("Passed", res["passed"])
-    c2.metric("Failed", res["failed"])
+    c1.metric("Passed", str(res["passed"]))
+    c2.metric("Failed", str(res["failed"]))
     c3.metric("Success Rate", f"{res['success_rate']}%")
-    c4.metric("v3 status", res["v3_status"])
+    c4.metric("v3 status", str(res["v3_status"]))
     if res["failed"] == 0:
         st.success("كل اختبارات THINC v4.0 نجحت.")
     else:
