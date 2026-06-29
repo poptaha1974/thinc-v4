@@ -18,6 +18,7 @@ from __future__ import annotations
 import json
 import os
 import sys
+import urllib.error
 import urllib.request
 
 MESSAGE = "THINC Agent test successful from thinc-v4."
@@ -44,11 +45,17 @@ def main() -> None:
         method="POST",
     )
 
-    with urllib.request.urlopen(req, timeout=10) as resp:  # noqa: S310
-        body = json.loads(resp.read())
+    try:
+        with urllib.request.urlopen(req, timeout=10) as resp:  # noqa: S310
+            body = json.loads(resp.read())
+    except urllib.error.HTTPError as exc:
+        raw = exc.read().decode(errors="replace")
+        sys.exit(f"HTTP {exc.code} from Slack API: {raw[:200]}")
+    except urllib.error.URLError as exc:
+        sys.exit(f"Network error contacting Slack API: {exc.reason}")
 
     if body.get("ok"):
-        print(f"✓ Message delivered to channel {channel}.")
+        print("✓ Message delivered to Slack channel.")
     else:
         error = body.get("error", "unknown_error")
         sys.exit(f"Slack API error: {error}")
