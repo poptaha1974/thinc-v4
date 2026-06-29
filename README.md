@@ -38,6 +38,21 @@ CI runs Ruff linting, MyPy type checking, and pytest with coverage.
 
 No secrets are hardcoded. External integrations must be configured through environment variables; see `.env.example`.
 
+## Slack Connectivity Test
+
+`scripts/slack_test.py` sends a single test message to verify that `SLACK_BOT_TOKEN` is valid and that the bot can post in the target channel.
+
+**Prerequisites:** the Slack bot must have the `chat:write` scope and be invited to the target channel.
+
+```bash
+export SLACK_BOT_TOKEN=xoxb-...    # never commit; set in your shell or CI secret store
+export SLACK_CHANNEL_ID=C0123...   # the channel ID (not display name)
+python scripts/slack_test.py
+```
+
+The token is read exclusively from the environment and is **never** printed, logged, or echoed anywhere.
+
+
 ## Ownership Notice
 
 THINC™ v4.0 — Invented by Dr. Ehab Taha (الدكتور إيهاب طه). Copyright © 2026 Dr. Ehab Taha. All rights reserved.
