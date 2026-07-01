@@ -21,8 +21,8 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
-          META_AD_ACCOUNT_ID: ${{ secrets.META_AD_ACCOUNT_ID }}
-          META_CAMPAIGN_ID: ${{ secrets.META_CAMPAIGN_ID }}
-          SHOPIFY_STORE_URL: ${{ secrets.SHOPIFY_STORE_URL }}
           SHOPIFY_ACCESS_TOKEN: ${{ secrets.SHOPIFY_ACCESS_TOKEN }}
+          META_AD_ACCOUNT_ID: ${{ vars.META_AD_ACCOUNT_ID }}
+          META_ACTIVE_AD_ID: ${{ vars.META_ACTIVE_AD_ID }}
+          SHOPIFY_ADMIN_URL: ${{ vars.SHOPIFY_ADMIN_URL }}
         run: python scripts/daily_monitor.py
