@@ -24,5 +24,5 @@ jobs:
           SHOPIFY_ACCESS_TOKEN: ${{ secrets.SHOPIFY_ACCESS_TOKEN }}
           META_AD_ACCOUNT_ID: ${{ vars.META_AD_ACCOUNT_ID }}
           META_ACTIVE_AD_ID: ${{ vars.META_ACTIVE_AD_ID }}
-          SHOPIFY_ADMIN_URL: ${{ vars.SHOPIFY_ADMIN_URL }}
+          SHOPIFY_STORE_URL: ${{ vars.SHOPIFY_STORE_URL }}
         run: python scripts/daily_monitor.py
