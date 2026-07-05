@@ -19,12 +19,25 @@ from services.api.schemas import (
     Decision,
     FounderReadinessRequest,
     FounderReadinessResponse,
+    GiftSocialFitRequest,
+    GiftSocialFitResponse,
     HealthResponse,
     IntegrationMode,
     IntegrationStatusItem,
     IntegrationStatusResponse,
     RiskLevel,
+    SocialCultureOptionsResponse,
+    SocialCultureProfileRequest,
+    SocialCultureProfileResponse,
     TheorySummaryResponse,
+)
+from thinc_v4.egyptian_social_culture import (
+    EgyptianGenerationalCohort,
+    EgyptianSocialCulturalEngine,
+    GiftOccasion,
+    GiftSocialFitInput,
+    LifeStage,
+    PriceBand,
 )
 from thinc_v4.framework import FounderOS, ScientificTheoryRegistry, get_watermark
 
@@ -59,6 +72,14 @@ def _round(value: float | None, digits: int = 2) -> float | None:
     if value is None:
         return None
     return round(value, digits)
+
+
+def _enum_from_value(enum_cls, value: str):
+    for item in enum_cls:
+        if value in {item.name, item.value}:
+            return item
+    valid = ", ".join([f"{item.name} / {item.value}" for item in enum_cls])
+    raise ValueError(f"Invalid value '{value}'. Valid values: {valid}")
 
 
 def _score_campaign(
@@ -251,6 +272,64 @@ def founder_readiness(payload: FounderReadinessRequest) -> FounderReadinessRespo
         score=float(readiness["score"]),
         verdict=str(readiness["verdict"]),
         recommendations=founder.coaching_recommendations(),
+    )
+
+
+@app.get("/api/social-culture/options", response_model=SocialCultureOptionsResponse)
+def social_culture_options() -> SocialCultureOptionsResponse:
+    return SocialCultureOptionsResponse(
+        cohorts=[item.value for item in EgyptianGenerationalCohort],
+        life_stages=[item.value for item in LifeStage],
+        occasions=[item.value for item in GiftOccasion],
+        price_bands=[item.value for item in PriceBand],
+        blind_spot_checklist=EgyptianSocialCulturalEngine.blind_spot_checklist(),
+    )
+
+
+@app.post("/api/social-culture/profile", response_model=SocialCultureProfileResponse)
+def social_culture_profile(payload: SocialCultureProfileRequest) -> SocialCultureProfileResponse:
+    cohort = _enum_from_value(EgyptianGenerationalCohort, payload.cohort)
+    life_stage = _enum_from_value(LifeStage, payload.life_stage)
+    profile = EgyptianSocialCulturalEngine.build_cohort_profile(cohort, life_stage)
+    return SocialCultureProfileResponse(
+        cohort=profile.cohort.value,
+        life_stage=profile.life_stage.value,
+        dominant_mindset=profile.dominant_mindset,
+        interests=profile.interests,
+        buying_style=profile.buying_style,
+        family_influence=profile.family_influence,
+        status_sensitivity=profile.status_sensitivity,
+        embarrassment_triggers=profile.embarrassment_triggers,
+        trust_signals=profile.trust_signals,
+        preferred_channels=profile.preferred_channels,
+        words_to_use=profile.words_to_use,
+        words_to_avoid=profile.words_to_avoid,
+        notes=profile.notes,
+    )
+
+
+@app.post("/api/social-culture/gift-fit", response_model=GiftSocialFitResponse)
+def gift_social_fit(payload: GiftSocialFitRequest) -> GiftSocialFitResponse:
+    data = GiftSocialFitInput(
+        cohort=_enum_from_value(EgyptianGenerationalCohort, payload.cohort),
+        life_stage=_enum_from_value(LifeStage, payload.life_stage),
+        occasion=_enum_from_value(GiftOccasion, payload.occasion),
+        price_band=_enum_from_value(PriceBand, payload.price_band),
+        has_packaging=payload.has_packaging,
+        has_exchange_policy=payload.has_exchange_policy,
+        has_social_proof=payload.has_social_proof,
+        is_practical=payload.is_practical,
+        looks_more_expensive_than_price=payload.looks_more_expensive_than_price,
+        has_clear_use_case=payload.has_clear_use_case,
+    )
+    result = EgyptianSocialCulturalEngine.evaluate_gift_social_fit(data)
+    return GiftSocialFitResponse(
+        score=result.score,
+        risk_level=result.risk_level.value,
+        positioning_sentence=result.positioning_sentence,
+        blind_spots=result.blind_spots,
+        recommendations=result.recommendations,
+        suggested_hooks=result.suggested_hooks,
     )
 
 
