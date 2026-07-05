@@ -141,3 +141,54 @@ class HealthResponse(BaseModel):
     service: str
     engine: str
     mode: str
+
+
+class SocialCultureProfileRequest(BaseModel):
+    cohort: str
+    life_stage: str
+
+
+class SocialCultureProfileResponse(BaseModel):
+    cohort: str
+    life_stage: str
+    dominant_mindset: str
+    interests: list[str]
+    buying_style: str
+    family_influence: str
+    status_sensitivity: str
+    embarrassment_triggers: list[str]
+    trust_signals: list[str]
+    preferred_channels: list[str]
+    words_to_use: list[str]
+    words_to_avoid: list[str]
+    notes: list[str]
+
+
+class GiftSocialFitRequest(BaseModel):
+    cohort: str
+    life_stage: str
+    occasion: str
+    price_band: str
+    has_packaging: bool = False
+    has_exchange_policy: bool = False
+    has_social_proof: bool = False
+    is_practical: bool = True
+    looks_more_expensive_than_price: bool = False
+    has_clear_use_case: bool = False
+
+
+class GiftSocialFitResponse(BaseModel):
+    score: float
+    risk_level: str
+    positioning_sentence: str
+    blind_spots: list[str]
+    recommendations: list[str]
+    suggested_hooks: list[str]
+
+
+class SocialCultureOptionsResponse(BaseModel):
+    cohorts: list[str]
+    life_stages: list[str]
+    occasions: list[str]
+    price_bands: list[str]
+    blind_spot_checklist: list[str]
