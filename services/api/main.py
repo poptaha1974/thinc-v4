@@ -1,18 +1,11 @@
 # -*- coding: utf-8 -*-
-"""FastAPI service for THINC v4.
-
-This service is the integration bridge between:
-- thinc-v4: proprietary scoring and decision-support engine.
-- admatch-insights: React/TanStack dashboard frontend.
-
-Run locally:
-    uvicorn services.api.main:app --reload
-"""
+"""FastAPI service for THINC v4."""
 from __future__ import annotations
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from services.api.gift_intelligence_routes import router as gift_intelligence_router
 from services.api.schemas import (
     CampaignAnalysisRequest,
     CampaignAnalysisResponse,
@@ -55,6 +48,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(gift_intelligence_router)
+
 
 def _safe_div(numerator: float, denominator: float) -> float | None:
     if denominator <= 0:
@@ -93,11 +88,6 @@ def _score_campaign(
     inventory_units: int,
     delivered_orders: int,
 ) -> tuple[float, Decision, RiskLevel, list[str], list[str]]:
-    """Return a simple MVP score and decision.
-
-    This is deliberately transparent and conservative. Later versions can call
-    deeper THINC scoring classes, but the API contract should remain stable.
-    """
     score = 5.0
     blind_spots: list[str] = []
     recommendations: list[str] = []
@@ -197,19 +187,12 @@ def analyze_campaign(payload: CampaignAnalysisRequest) -> CampaignAnalysisRespon
     real_cpa = _safe_div(campaign.spend, campaign.delivered_orders)
     confirmation_rate = _pct(campaign.confirmed_orders, campaign.meta_leads)
     delivery_rate = _pct(campaign.delivered_orders, campaign.confirmed_orders)
-
-    if meta_cpa is None or real_cpa is None or meta_cpa <= 0:
-        attribution_gap_pct = None
-    else:
-        attribution_gap_pct = (real_cpa / meta_cpa - 1) * 100
+    attribution_gap_pct = None if meta_cpa is None or real_cpa is None or meta_cpa <= 0 else (real_cpa / meta_cpa - 1) * 100
 
     revenue = campaign.delivered_orders * product.price
     cogs = campaign.delivered_orders * product.cost
     failed_confirmed = max(campaign.confirmed_orders - campaign.delivered_orders, 0)
-    shipping_cost = (
-        campaign.delivered_orders * economics.shipping_success_cost
-        + failed_confirmed * economics.shipping_return_cost
-    )
+    shipping_cost = campaign.delivered_orders * economics.shipping_success_cost + failed_confirmed * economics.shipping_return_cost
     packaging_cost = campaign.confirmed_orders * economics.packaging_cost_per_order
     taxable_base = max(revenue - cogs, 0)
     tax = taxable_base * economics.vat_rate
@@ -336,29 +319,9 @@ def gift_social_fit(payload: GiftSocialFitRequest) -> GiftSocialFitResponse:
 @app.get("/api/integrations/status", response_model=IntegrationStatusResponse)
 def integration_status() -> IntegrationStatusResponse:
     items = [
-        IntegrationStatusItem(
-            integration="Meta Ads API",
-            mode=IntegrationMode.DEMO,
-            connected=False,
-            message="Demo data only. Live OAuth integration is pending.",
-        ),
-        IntegrationStatusItem(
-            integration="WhatsApp Business API",
-            mode=IntegrationMode.DEMO,
-            connected=False,
-            message="Demo status only. Production credentials are not configured.",
-        ),
-        IntegrationStatusItem(
-            integration="Shopify",
-            mode=IntegrationMode.DEMO,
-            connected=False,
-            message="Demo status only. Live Shopify integration is pending.",
-        ),
-        IntegrationStatusItem(
-            integration="Shipping Provider",
-            mode=IntegrationMode.DEMO,
-            connected=False,
-            message="Demo status only. Delivery source integration is pending.",
-        ),
+        IntegrationStatusItem(integration="Meta Ads API", mode=IntegrationMode.DEMO, connected=False, message="Demo data only. Live OAuth integration is pending."),
+        IntegrationStatusItem(integration="WhatsApp Business API", mode=IntegrationMode.DEMO, connected=False, message="Demo status only. Production credentials are not configured."),
+        IntegrationStatusItem(integration="Shopify", mode=IntegrationMode.DEMO, connected=False, message="Demo status only. Live Shopify integration is pending."),
+        IntegrationStatusItem(integration="Shipping Provider", mode=IntegrationMode.DEMO, connected=False, message="Demo status only. Delivery source integration is pending."),
     ]
     return IntegrationStatusResponse(items=items)
