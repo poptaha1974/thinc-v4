@@ -1,0 +1,327 @@
+{
+  "name": "Egy Pioneers - Lead Qualification & Sales Automation",
+  "nodes": [
+    {
+      "id": "node-1-webhook",
+      "name": "FunnelFast Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "continueOnFail": true,
+      "parameters": {
+        "path": "egy-pioneers-lead",
+        "httpMethod": "POST",
+        "responseMode": "responseNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "node-2-claude",
+      "name": "Claude AI - Lead Analysis",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [460, 300],
+      "continueOnFail": true,
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "HTTP-Referer",
+              "value": "https://egy-pioneers.com"
+            },
+            {
+              "name": "X-Title",
+              "value": "Egy Pioneers Lead Qualification"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "body": {
+          "model": "anthropic/claude-sonnet-4",
+          "messages": [
+            {
+              "role": "system",
+              "content": "أنت خبير تصنيف عملاء لأكاديمية تعليمية مصرية (Egy Pioneers).\nصنّف العميل بناءً على رسالته:\n\nHOT  (70-100): يسأل عن السعر، المواعيد، طريقة التسجيل، أو يقول \"عايز أسجل\"\nWARM (40-69):  يسأل أسئلة عامة عن المحتوى أو الكورس بدون نية شراء واضحة\nCOLD (0-39):   رسالة عامة، سبام، أو غير مهتم\n\nأجب بـ JSON فقط:\n{\"classification\":\"HOT|WARM|COLD\",\"score\":0-100,\"reason\":\"...\",\"suggested_action\":\"...\"}"
+            },
+            {
+              "role": "user",
+              "content": "={{ $('FunnelFast Webhook').item.json.body.message }}"
+            }
+          ],
+          "max_tokens": 300
+        },
+        "options": {}
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_WITH_OPENROUTER_CREDENTIAL_ID",
+          "name": "OpenRouter API Key"
+        }
+      }
+    },
+    {
+      "id": "node-3-if-hot",
+      "name": "Is HOT Lead?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [680, 300],
+      "continueOnFail": true,
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.choices[0].message.content }}",
+              "operation": "contains",
+              "value2": "\"HOT\""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "node-4-sales-alert",
+      "name": "Send HOT Alert to Sales",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [900, 200],
+      "continueOnFail": true,
+      "parameters": {
+        "method": "POST",
+        "url": "=https://services.leadconnectorhq.com/conversations/{{ $('FunnelFast Webhook').item.json.body.conversation_id }}/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "json",
+        "body": {
+          "type": "Note",
+          "message": "=🔥 HOT LEAD — {{ $('FunnelFast Webhook').item.json.body.contact_name }} يحتاج متابعة فورية!\n\nالرسالة: {{ $('FunnelFast Webhook').item.json.body.message }}\nالتصنيف: {{ $('Claude AI - Lead Analysis').item.json.choices[0].message.content }}"
+        },
+        "options": {}
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_WITH_FUNNELFAST_CREDENTIAL_ID",
+          "name": "FunnelFast API Key"
+        }
+      }
+    },
+    {
+      "id": "node-5-tag-contact",
+      "name": "Tag Contact as HOT",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [900, 340],
+      "continueOnFail": true,
+      "parameters": {
+        "method": "POST",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('FunnelFast Webhook').item.json.body.contact_id }}/tags",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "json",
+        "body": {
+          "tags": ["HOT-Lead", "Egy-Pioneers-Campaign"]
+        },
+        "options": {}
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_WITH_FUNNELFAST_CREDENTIAL_ID",
+          "name": "FunnelFast API Key"
+        }
+      }
+    },
+    {
+      "id": "node-6-pipeline",
+      "name": "Create Pipeline Opportunity",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [900, 480],
+      "continueOnFail": true,
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/opportunities/",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "json",
+        "body": {
+          "pipelineId": "QnXMQbBGOhcMfVLsyJqH",
+          "stageId": "c0b9f77f-1e12-4a7e-8c3d-5f6a7b8c9d0e",
+          "contactId": "={{ $('FunnelFast Webhook').item.json.body.contact_id }}",
+          "name": "=HOT Lead - {{ $('FunnelFast Webhook').item.json.body.contact_name }}"
+        },
+        "options": {}
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_WITH_FUNNELFAST_CREDENTIAL_ID",
+          "name": "FunnelFast API Key"
+        }
+      }
+    },
+    {
+      "id": "node-7-sheets",
+      "name": "Add to HOT Leads Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [1120, 340],
+      "continueOnFail": true,
+      "parameters": {
+        "operation": "append",
+        "documentId": "1v7uMgtMMVwQPBIE-9ZZcQ02PmeTx9c2NPAzQK3sPmx8",
+        "sheetName": "HOT Leads",
+        "dataMode": "autoMapInputData",
+        "columns": {
+          "value": {
+            "التاريخ": "={{ $now.format('YYYY-MM-DD HH:mm') }}",
+            "الاسم": "={{ $('FunnelFast Webhook').item.json.body.contact_name }}",
+            "الرقم": "={{ $('FunnelFast Webhook').item.json.body.phone }}",
+            "الرسالة الأولى": "={{ $('FunnelFast Webhook').item.json.body.message }}",
+            "التصنيف": "HOT",
+            "نقاط الحرارة": "={{ $('Claude AI - Lead Analysis').item.json.choices[0].message.content }}",
+            "الحالة": "جديد - محتاج متابعة"
+          }
+        },
+        "options": {}
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "REPLACE_WITH_GOOGLE_CREDENTIAL_ID",
+          "name": "Google Sheets OAuth2"
+        }
+      }
+    },
+    {
+      "id": "node-8-hash",
+      "name": "Hash User Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 480],
+      "continueOnFail": true,
+      "parameters": {
+        "jsCode": "const crypto = require('crypto');\n\nconst phone = ($('FunnelFast Webhook').item.json.body.phone ||\n               $('FunnelFast Webhook').item.json.body.contact_phone || '')\n               .replace('+', '');\nconst name  = ($('FunnelFast Webhook').item.json.body.contact_name ||\n               $('FunnelFast Webhook').item.json.body.contactName  || '')\n               .split(' ')[0].toLowerCase();\n\nconst phoneHash   = crypto.createHash('sha256').update(phone).digest('hex');\nconst nameHash    = crypto.createHash('sha256').update(name).digest('hex');\nconst countryHash = crypto.createHash('sha256').update('eg').digest('hex');\n\nreturn [{\n  json: {\n    data: [\n      {\n        event_name:    'Lead',\n        event_time:    Math.floor(Date.now() / 1000),\n        action_source: 'system_generated',\n        user_data: {\n          ph:      [phoneHash],\n          fn:      [nameHash],\n          country: [countryHash]\n        },\n        custom_data: {\n          lead_classification: 'HOT',\n          source:              'WhatsApp_Campaign_Egy_Pioneers',\n          content_name:        'Egy Pioneers Course'\n        }\n      }\n    ]\n  }\n}];"
+      }
+    },
+    {
+      "id": "node-9-meta-capi",
+      "name": "Meta CAPI - HOT Lead Feedback",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [1340, 480],
+      "continueOnFail": true,
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v18.0/1604627917208516/events",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendBody": true,
+        "contentType": "json",
+        "body": "={{ JSON.stringify($('Hash User Data').item.json) }}",
+        "options": {}
+      },
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "REPLACE_WITH_META_CAPI_CREDENTIAL_ID",
+          "name": "Meta CAPI Access Token"
+        }
+      }
+    },
+    {
+      "id": "node-10-respond",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1560, 300],
+      "continueOnFail": true,
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"status\": \"received\" }",
+        "options": {}
+      }
+    }
+  ],
+  "connections": {
+    "FunnelFast Webhook": {
+      "main": [
+        [{ "node": "Claude AI - Lead Analysis", "type": "main", "index": 0 }]
+      ]
+    },
+    "Claude AI - Lead Analysis": {
+      "main": [
+        [{ "node": "Is HOT Lead?", "type": "main", "index": 0 }]
+      ]
+    },
+    "Is HOT Lead?": {
+      "main": [
+        [
+          { "node": "Send HOT Alert to Sales",    "type": "main", "index": 0 },
+          { "node": "Tag Contact as HOT",          "type": "main", "index": 0 },
+          { "node": "Create Pipeline Opportunity", "type": "main", "index": 0 },
+          { "node": "Add to HOT Leads Sheet",      "type": "main", "index": 0 },
+          { "node": "Hash User Data",              "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "Respond to Webhook", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Send HOT Alert to Sales": {
+      "main": [
+        [{ "node": "Respond to Webhook", "type": "main", "index": 0 }]
+      ]
+    },
+    "Tag Contact as HOT": {
+      "main": [
+        [{ "node": "Respond to Webhook", "type": "main", "index": 0 }]
+      ]
+    },
+    "Create Pipeline Opportunity": {
+      "main": [
+        [{ "node": "Respond to Webhook", "type": "main", "index": 0 }]
+      ]
+    },
+    "Add to HOT Leads Sheet": {
+      "main": [
+        [{ "node": "Respond to Webhook", "type": "main", "index": 0 }]
+      ]
+    },
+    "Hash User Data": {
+      "main": [
+        [{ "node": "Meta CAPI - HOT Lead Feedback", "type": "main", "index": 0 }]
+      ]
+    },
+    "Meta CAPI - HOT Lead Feedback": {
+      "main": [
+        [{ "node": "Respond to Webhook", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "meta": {
+    "instanceId": "allhomz.app.n8n.cloud"
+  },
+  "pinData": {},
+  "versionId": "1.0.0",
+  "triggerCount": 1,
+  "tags": [
+    { "name": "egy-pioneers" },
+    { "name": "lead-qualification" },
+    { "name": "sales-automation" }
+  ]
+}
