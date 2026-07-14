@@ -197,7 +197,7 @@ class OutcomeRegistry:
         return self._read(self.outcomes_path)
 
     # -- pairing & coverage ----------------------------------------------
-    def paired(self, window_days: Optional[int] = None) -> List[Dict[str, Any]]:
+    def paired(self, window_days: int | None = None) -> List[Dict[str, Any]]:
         """أزواج (توقع، نتيجة) — المادة الخام لتقرير الدقة والمعايرة."""
         outcome_map: Dict[str, Dict[str, str]] = {}
         for o in self.outcomes():
@@ -206,9 +206,9 @@ class OutcomeRegistry:
             outcome_map[o["prediction_id"]] = o
         pairs: List[Dict[str, Any]] = []
         for p in self.predictions():
-            o = outcome_map.get(p["prediction_id"])
-            if o is not None:
-                pairs.append({"prediction": p, "outcome": o})
+            matched = outcome_map.get(p["prediction_id"])
+            if matched is not None:
+                pairs.append({"prediction": p, "outcome": matched})
         return pairs
 
     def coverage_report(self, max_pending_days: int = 90) -> Dict[str, Any]:

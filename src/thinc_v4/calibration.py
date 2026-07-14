@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -41,7 +42,7 @@ COMPONENT_COLUMNS = {
 
 def load_weights(path: Path = WEIGHTS_PATH) -> Dict[str, Any]:
     with path.open(encoding="utf-8") as fh:
-        payload = json.load(fh)
+        payload: Dict[str, Any] = json.load(fh)
     total = sum(payload["weights"].values())
     if abs(total - 1.0) > 1e-6:
         raise ValueError(f"Weights must sum to 1.0, got {total}")
@@ -97,8 +98,8 @@ def _pairs_to_xy(pairs: List[Dict[str, Any]]) -> Tuple[List[float], List[bool], 
 
 def _auc(scores: List[float], successes: List[bool]) -> float:
     """Mann-Whitney AUC بدون اعتماد على مكتبات خارجية."""
-    pos = [s for s, y in zip(scores, successes) if y]
-    neg = [s for s, y in zip(scores, successes) if not y]
+    pos = [s for s, y in zip(scores, successes, strict=False) if y]
+    neg = [s for s, y in zip(scores, successes, strict=False) if not y]
     if not pos or not neg:
         return float("nan")
     wins = 0.0
@@ -116,12 +117,12 @@ def _pearson(xs: List[float], ys: List[float]) -> float:
     if n < 3:
         return float("nan")
     mx, my = sum(xs) / n, sum(ys) / n
-    cov = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
+    cov = sum((x - mx) * (y - my) for x, y in zip(xs, ys, strict=False))
     vx = sum((x - mx) ** 2 for x in xs)
     vy = sum((y - my) ** 2 for y in ys)
     if vx == 0 or vy == 0:
         return float("nan")
-    return round(cov / (vx**0.5 * vy**0.5), 3)
+    return round(float(cov) / (math.sqrt(float(vx)) * math.sqrt(float(vy))), 3)
 
 
 def accuracy_report(registry: OutcomeRegistry) -> AccuracyReport:
@@ -130,9 +131,9 @@ def accuracy_report(registry: OutcomeRegistry) -> AccuracyReport:
     scores, successes, components = _pairs_to_xy(pairs)
     n = len(pairs)
 
-    tp = sum(1 for s, y in zip(scores, successes) if s >= SUCCESS_SCORE_THRESHOLD and y)
-    fp = sum(1 for s, y in zip(scores, successes) if s >= SUCCESS_SCORE_THRESHOLD and not y)
-    fn = sum(1 for s, y in zip(scores, successes) if s < SUCCESS_SCORE_THRESHOLD and y)
+    tp = sum(1 for s, y in zip(scores, successes, strict=False) if s >= SUCCESS_SCORE_THRESHOLD and y)
+    fp = sum(1 for s, y in zip(scores, successes, strict=False) if s >= SUCCESS_SCORE_THRESHOLD and not y)
+    fn = sum(1 for s, y in zip(scores, successes, strict=False) if s < SUCCESS_SCORE_THRESHOLD and y)
     tn = n - tp - fp - fn
 
     accuracy = round((tp + tn) / n, 3) if n else float("nan")
@@ -141,7 +142,7 @@ def accuracy_report(registry: OutcomeRegistry) -> AccuracyReport:
 
     bins: List[Dict[str, Any]] = []
     for lo, hi in [(0, 4), (4, 5.5), (5.5, 7), (7, 8.5), (8.5, 10.01)]:
-        members = [(s, y) for s, y in zip(scores, successes) if lo <= s < hi]
+        members = [(s, y) for s, y in zip(scores, successes, strict=False) if lo <= s < hi]
         if members:
             bins.append({
                 "score_range": f"{lo}–{min(hi, 10)}",
