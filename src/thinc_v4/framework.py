@@ -217,6 +217,10 @@ class ScientificTheory:
     update_cadence: UpdateCadence = UpdateCadence.STABLE
     egyptianization_note: str = "يتم تكييفها لغويًا وسلوكيًا حسب السوق المصري والعربي."
     caution: str = "تستخدم كإطار قرار واحتمال، وليس كحقيقة حتمية."
+    # v4.1 — توثيق الاختبار الميداني المحلي (المرحلة 3 من خطة المعايرة)
+    field_tests_count: int = 0
+    field_test_result: str = ""  # "supported" | "not_supported" | "mixed" | ""
+    last_tested: str = ""  # ISO date of the most recent documented field test
 
 
 class ScientificTheoryRegistry:
@@ -342,6 +346,7 @@ class ScientificTheoryRegistry:
                     "id", "name_en", "name_ar", "domain", "evidence_level",
                     "purpose_in_thinc", "applied_to", "update_cadence",
                     "egyptianization_note", "caution",
+                    "field_tests_count", "field_test_result", "last_tested",
                 ],
             )
             writer.writeheader()
@@ -533,11 +538,46 @@ class CompetitorProfile:
             validate_score(val, name)
 
 
+@dataclass(frozen=True)
+class DifferentiationAsset:
+    """أصل تمايز واحد في المصفوفة المنظمة — Boolean بدليل، لا تحليل نص.
+
+    v4.1: يستبدل عدّ الكلمات المفتاحية (heuristic قابلة للتلاعب) بحقائق مُثبتة.
+    """
+
+    id: str
+    name_ar: str
+    present: bool = False
+    evidence: str = ""  # لينك / مستند / صورة — إلزامي لو present=True
+
+    def __post_init__(self) -> None:
+        if self.present and not self.evidence.strip():
+            raise ValueError(
+                f"Differentiation asset {self.id!r} marked present without evidence — "
+                "مفيش تمايز بدون إثبات."
+            )
+
+
+def default_differentiation_assets() -> List[DifferentiationAsset]:
+    """أصول التمايز السبعة القياسية لبرامج الأكاديمية (كلها غائبة افتراضيًا)."""
+    return [
+        DifferentiationAsset("real_operations", "تشغيل فعلي (مصادر، تخزين، شحن، تحصيل)"),
+        DifferentiationAsset("physical_location", "مكان فعلي يبني الثقة"),
+        DifferentiationAsset("merchants_club", "نادي/مجتمع تجار نشط"),
+        DifferentiationAsset("ai_tooling", "أدوات ذكاء اصطناعي تشغيلية"),
+        DifferentiationAsset("guarantee", "ضمان/سياسة استرداد واضحة"),
+        DifferentiationAsset("financing", "تمويل أو تقسيط فعلي"),
+        DifferentiationAsset("execution_followup", "متابعة تنفيذ فردية موثقة"),
+    ]
+
+
 @dataclass
 class CompetitiveIntelligence:
     competitors: List[CompetitorProfile] = field(default_factory=list)
     market_gap: str = ""
     recommended_positioning: str = PROGRAM_POSITIONING
+    # v4.1 — المصفوفة المنظمة؛ لو فاضية نرجع للـ heuristic القديمة للتوافق الخلفي
+    differentiation_assets: List[DifferentiationAsset] = field(default_factory=list)
 
     def average_competitor_strength(self) -> float:
         if not self.competitors:
@@ -547,7 +587,17 @@ class CompetitiveIntelligence:
             scores.append((c.offer_strength + c.creative_strength + c.trust_strength + c.operational_strength) / 4)
         return round(sum(scores) / len(scores), 2)
 
+    def structured_differentiation_score(self) -> float:
+        """v4.1: الدرجة تُحسب من أصول مُثبتة بأدلة، معدّلة بقوة المنافسين."""
+        proven = sum(1 for a in self.differentiation_assets if a.present)
+        base = 3 + proven * 1.0
+        base -= max(0.0, self.average_competitor_strength() - 7) * 0.5
+        return round(max(1, min(10, base)), 2)
+
     def differentiation_score(self) -> float:
+        if self.differentiation_assets:
+            return self.structured_differentiation_score()
+        # Legacy keyword heuristic — retained only for inputs created before v4.1
         if not self.competitors:
             return 7.0
         unique_assets = 0
@@ -786,6 +836,9 @@ class THINCV4Report:
     recommendations: List[str]
     theory_count: int
     theory_domains: Dict[str, int]
+    model_version: str = ""
+    weights_version: str = ""
+    prediction_id: str = ""
     generated_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
     def to_dict(self) -> Dict[str, Any]:
@@ -793,6 +846,33 @@ class THINCV4Report:
         d["language_profile"]["generation"] = self.language_profile.generation.value
         d["language_profile"]["skill_level"] = self.language_profile.skill_level.value
         return d
+
+
+DEFAULT_COMPONENT_WEIGHTS: Dict[str, float] = {
+    "v3_behavioral_commerce_core": 0.35,
+    "founder_os": 0.15,
+    "business_architecture": 0.15,
+    "category_design": 0.12,
+    "competitive_differentiation": 0.10,
+    "academy_operating_system": 0.13,
+}
+
+
+def load_component_weights() -> Tuple[Dict[str, float], str]:
+    """v4.1: الأوزان تُقرأ من weights.json المُصدَّر (المعايرة البايزية تحدثه).
+
+    لو الملف غير موجود أو تالف نرجع للأوزان الافتراضية بأمان.
+    """
+    weights_path = APP_DIR / "weights.json"
+    try:
+        with weights_path.open(encoding="utf-8") as fh:
+            payload = json.load(fh)
+        weights = {k: float(v) for k, v in payload["weights"].items()}
+        if set(weights) != set(DEFAULT_COMPONENT_WEIGHTS) or abs(sum(weights.values()) - 1.0) > 1e-6:
+            raise ValueError("invalid weights payload")
+        return weights, str(payload.get("version", "unversioned"))
+    except (OSError, ValueError, KeyError, json.JSONDecodeError):
+        return dict(DEFAULT_COMPONENT_WEIGHTS), "builtin-fallback"
 
 
 class THINCV4Engine:
@@ -811,7 +891,18 @@ class THINCV4Engine:
         return "F — أوقف وأعد التصميم"
 
     @classmethod
-    def assess(cls, project: THINCV4ProjectInput) -> THINCV4Report:
+    def assess(
+        cls,
+        project: THINCV4ProjectInput,
+        outcome_registry: Any = None,
+        cohort_id: str = "",
+        assessor_id: str = "unassigned",
+    ) -> THINCV4Report:
+        """يقيّم المشروع، ولو تم تمرير outcome_registry يسجل التوقع تلقائيًا.
+
+        v4.1: كل تقييم في بيئة التشغيل (Streamlit/الأكاديمية) يجب أن يمر بسجل
+        النتائج؛ الاستدعاء بدون registry متاح للاختبارات والتجارب فقط.
+        """
         # v3 composite is optional; if v3 unavailable, fallback to local calculation
         if _V3_IMPORT_ERROR is None:
             v3_comp = CompositeScoreV3(
@@ -831,14 +922,7 @@ class THINCV4Engine:
         competitive = project.competitive_intelligence.differentiation_score()
         academy = project.academy_os.value_stack_score()
 
-        weights = {
-            "v3_behavioral_commerce_core": 0.35,
-            "founder_os": 0.15,
-            "business_architecture": 0.15,
-            "category_design": 0.12,
-            "competitive_differentiation": 0.10,
-            "academy_operating_system": 0.13,
-        }
+        weights, weights_version = load_component_weights()
         components = {
             "v3_behavioral_commerce_core": v3_score,
             "founder_os": founder,
@@ -866,7 +950,7 @@ class THINCV4Engine:
         if project.academy_os.value_stack_score() >= 8:
             recommendations.append("استخدم Value Stack في العرض: تدريب + تشغيل + مكان فعلي + نادي + AI Tools + Workshops.")
 
-        return THINCV4Report(
+        report = THINCV4Report(
             project_name=project.project_name,
             final_score=final,
             grade=cls._grade(final),
@@ -876,7 +960,28 @@ class THINCV4Engine:
             recommendations=recommendations,
             theory_count=ScientificTheoryRegistry.count(),
             theory_domains=ScientificTheoryRegistry.by_domain(),
+            model_version=f"{FRAMEWORK_NAME} v{VERSION}",
+            weights_version=weights_version,
         )
+
+        if outcome_registry is not None:
+            from .outcomes import PredictionRecord, anonymize_student
+
+            record = PredictionRecord(
+                student_ref=anonymize_student(project.project_name),
+                cohort_id=cohort_id or "uncohorted",
+                final_score=final,
+                grade=report.grade,
+                components=components,
+                target_generation=project.target_generation.value,
+                skill_level=project.skill_level.value,
+                model_version=report.model_version,
+                weights_version=weights_version,
+                assessor_id=assessor_id,
+            )
+            report.prediction_id = outcome_registry.log_prediction(record)
+
+        return report
 
 
 # =============================================================================

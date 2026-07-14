@@ -34,6 +34,9 @@ thinc-v4-2-governance = "thinc_v4.v4_2.governance:main"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+thinc_v4 = ["weights.json"]
+
 [tool.ruff]
 line-length = 120
 target-version = "py311"
