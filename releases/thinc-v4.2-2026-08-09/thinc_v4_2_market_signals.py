@@ -10,7 +10,7 @@ import os
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from enum import Enum
-from typing import Any, Dict, List, Optional, Sequence, Type, TypeVar
+from typing import Any, Dict, List, Sequence, Type, TypeVar
 
 
 EnumT = TypeVar("EnumT", bound=Enum)
@@ -34,7 +34,7 @@ def _coerce_enum(enum_cls: Type[EnumT], raw: Any, field_name: str) -> EnumT:
     raise ValueError(f"Unsupported {field_name}: {raw!r}. Allowed: {allowed}")
 
 
-def _parse_datetime(raw: Any) -> tuple[Optional[datetime], List[str]]:
+def _parse_datetime(raw: Any) -> tuple[datetime | None, List[str]]:
     if raw in (None, ""):
         return None, []
     if isinstance(raw, datetime):
@@ -88,8 +88,8 @@ class MarketSignalEvidence:
     query: str = ""
     country: str = ""
     timeframe: str = ""
-    collected_at: Optional[datetime] = None
-    collection_method: Optional[CollectionMethod] = None
+    collected_at: datetime | None = None
+    collection_method: CollectionMethod | None = None
     source_reference: str = ""
     summary: str = ""
     metrics: Dict[str, Any] = field(default_factory=dict)
@@ -100,7 +100,7 @@ class MarketSignalEvidence:
     ingestion_errors: List[str] = field(default_factory=list, repr=False)
 
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> "MarketSignalEvidence":
+    def from_dict(cls, data: Dict[str, Any]) -> MarketSignalEvidence:
         if not isinstance(data, dict):
             raise ValueError("Each market evidence record must be an object.")
         if "source" not in data:
@@ -342,7 +342,7 @@ class MarketSignalTriangulationEngine:
         cls,
         record: MarketSignalEvidence,
         now: datetime,
-    ) -> tuple[str, Optional[float], List[str]]:
+    ) -> tuple[str, float | None, List[str]]:
         errors = record.validation_errors()
         if record.status is EvidenceStatus.INVALID or errors:
             return EvidenceStatus.INVALID.value, None, errors
@@ -374,7 +374,7 @@ class MarketSignalTriangulationEngine:
         cls,
         evidence: Sequence[MarketSignalEvidence],
         stage: DecisionStage,
-        now: Optional[datetime] = None,
+        now: datetime | None = None,
     ) -> MarketSignalGateResult:
         stage = _coerce_enum(DecisionStage, stage, "decision stage")
         evaluated_at = now or datetime.now(timezone.utc)
