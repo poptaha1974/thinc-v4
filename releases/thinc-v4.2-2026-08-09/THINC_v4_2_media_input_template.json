@@ -1,0 +1,115 @@
+{
+  "template_notice": "SYNTHETIC SCHEMA EXAMPLE ONLY — replace every market_evidence record with fresh observed evidence before making a THINC decision.",
+  "economics": {
+    "selling_price": 1000,
+    "product_cost": 500,
+    "packaging_cost": 20,
+    "company_shipping_cost": 70,
+    "collection_fees": 20,
+    "expected_return_cost_per_order": 30,
+    "variable_operations_cost": 10,
+    "confirmation_rate_pct": 80,
+    "delivery_rate_from_confirmed_pct": 75,
+    "safety_margin_pct": 30
+  },
+  "config": {
+    "sales_channel": "website",
+    "total_daily_budget": 1000,
+    "angle_variants": 4,
+    "hook_variants": 4,
+    "editing_variants": 3,
+    "offer_variants": 2,
+    "pixel_ready": true,
+    "capi_ready": true,
+    "purchase_event_configured": true,
+    "sales_messaging_objective_available": false,
+    "country": "Egypt",
+    "audience_description": "Women 18-44 in Egypt; broad audience; identical across variants",
+    "exclude_existing_customers_days": 180,
+    "budget_mode": "Controlled ABO",
+    "evidence_mode": "standard",
+    "decision_stage": "pre_test_research"
+  },
+  "niche_validation": {
+    "discovery_path": {
+      "market": "replace with the market family",
+      "niche": "replace with the niche",
+      "micro_niche": "replace with one reachable and buying micro-niche",
+      "persona": "replace with the evidenced persona",
+      "problem_jtbd": "replace with the functional, emotional, and social Job",
+      "product": "replace with the tested product or solution"
+    },
+    "reverse_validation_path": {
+      "product": "replace with the tested product or solution",
+      "problem_jtbd": "replace with the verified Job the product serves",
+      "persona": "replace with the actual customer revealed by evidence",
+      "micro_niche": "replace with the actual reachable and buying micro-niche",
+      "niche": "replace with the verified niche",
+      "market": "replace with the verified market family"
+    },
+    "product_solves_problem": false,
+    "persona_matches_problem": false,
+    "offer_strength": "weak",
+    "economics_viable": false,
+    "critical_risks": [],
+    "unresolved_evidence": [
+      "SYNTHETIC TEMPLATE — replace every placeholder with observed evidence"
+    ]
+  },
+  "market_evidence": [
+    {
+      "source": "google_trends",
+      "status": "COLLECTED",
+      "query": "replace with product and problem queries",
+      "country": "Egypt",
+      "timeframe": "replace with observed 12-month and 5-year windows",
+      "collected_at": "2026-08-09T02:09:09+00:00",
+      "collection_method": "file_upload",
+      "source_reference": "replace-with-google-trends-export.csv",
+      "summary": "SYNTHETIC EXAMPLE — replace with an interpretation of normalized interest, direction, and seasonality.",
+      "metrics": {
+        "example_only": true,
+        "replace_with_observed_metrics": true
+      },
+      "limitations": [
+        "Google Trends is normalized interest, not search volume or sales."
+      ]
+    },
+    {
+      "source": "meta_ad_library",
+      "status": "COLLECTED",
+      "query": "replace with product, problem, and competitor queries",
+      "country": "Egypt",
+      "timeframe": "replace with the active-ad observation window",
+      "collected_at": "2026-08-09T02:09:09+00:00",
+      "collection_method": "file_upload",
+      "source_reference": "replace-with-meta-ad-library-record.json",
+      "summary": "SYNTHETIC EXAMPLE — replace with observed advertisers, durations, hooks, formats, offers, and disclaimers.",
+      "metrics": {
+        "example_only": true,
+        "replace_with_observed_metrics": true
+      },
+      "limitations": [
+        "Meta Ad Library activity does not reveal CTR, CPA, spend, sales, or profitability."
+      ]
+    },
+    {
+      "source": "marketplace",
+      "status": "COLLECTED",
+      "query": "replace with product and substitute queries",
+      "country": "Egypt",
+      "timeframe": "replace with the listing observation window",
+      "collected_at": "2026-08-09T02:09:09+00:00",
+      "collection_method": "file_upload",
+      "source_reference": "replace-with-marketplace-record.json",
+      "summary": "SYNTHETIC EXAMPLE — replace with observed prices, ratings, reviews, availability, and published sales indicators.",
+      "metrics": {
+        "example_only": true,
+        "replace_with_observed_metrics": true
+      },
+      "limitations": [
+        "Seller or listing count alone measures competition, not demand."
+      ]
+    }
+  ]
+}
