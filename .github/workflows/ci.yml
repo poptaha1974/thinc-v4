@@ -12,6 +12,35 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install --upgrade pip
       - run: pip install -e '.[dev]'
-      - run: make lint
-      - run: make type
-      - run: make test
+      - name: Ruff lint
+        run: make lint
+      - name: MyPy strict (src + tests + scripts)
+        run: make type
+      - name: Pytest (v4.0 + v4.2 suites)
+        run: make test
+
+  v4_2_smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: pip install -e '.[dev]'
+      - name: v4.2 engine self-test
+        run: python -m thinc_v4.v4_2.master_framework --test
+      - name: v4.2 governance coverage
+        run: python scripts/verify_governance.py
+      - name: v4.2 Karseell reference run (must not be launchable)
+        run: |
+          python -m thinc_v4.v4_2.media_runner \
+            tests/data/v4_2/Karseell_THINC_v4_2_input_2026-08-09.json \
+            --output /tmp/karseell_v4_2_report.json
+          python - <<'PY'
+          import json
+          report = json.loads(open("/tmp/karseell_v4_2_report.json", encoding="utf-8").read())
+          assert report["decision"] == "NO_LAUNCH_BEFORE_MODIFICATION", report["decision"]
+          assert report["niche_validation"]["strategic_decision"] == "REFINE_OFFER"
+          print("v4.2 reference run OK:", report["decision"])
+          PY

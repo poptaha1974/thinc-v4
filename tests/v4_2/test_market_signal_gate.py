@@ -8,10 +8,7 @@ from datetime import datetime, timedelta, timezone
 from unittest.mock import patch
 
 
-try:
-    market = importlib.import_module("thinc_v4_2_market_signals")
-except ModuleNotFoundError:
-    market = None
+market = importlib.import_module("thinc_v4.v4_2.market_signals")
 
 
 def fresh_meta(now: datetime):

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from thinc_v4_2_niche_validation import (
+from thinc_v4.v4_2.niche_validation import (
     NicheFeedbackEngine,
     NicheValidationEngine,
 )
