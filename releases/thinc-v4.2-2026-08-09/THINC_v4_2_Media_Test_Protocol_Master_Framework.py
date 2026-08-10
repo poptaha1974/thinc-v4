@@ -53,7 +53,7 @@ APP_DIR = Path(__file__).resolve().parent
 if str(APP_DIR) not in sys.path:
     sys.path.insert(0, str(APP_DIR))
 
-_V3_IMPORT_ERROR: Optional[Exception] = None
+_V3_IMPORT_ERROR: Exception | None = None
 try:  # preferred if the canonical name exists
     from THINC_v3_1_Master_Framework import (  # type: ignore
         CampaignPerformanceData,
@@ -73,7 +73,7 @@ try:  # preferred if the canonical name exists
         get_watermark as get_v3_watermark,
         run_all_tests as run_v3_tests,
     )
-except Exception as err1:  # fallback to the uploaded filename
+except Exception:  # fallback to the uploaded filename
     try:
         from THINC_v3_1_Master_Framework_Chatgpt import (  # type: ignore
             CampaignPerformanceData,
@@ -959,8 +959,8 @@ class ProductIntelligenceInput:
     differentiators: List[str]
     proof_assets: List[str]
     usage_context: str = ""
-    price: Optional[float] = None
-    competitor_reference_price: Optional[float] = None
+    price: float | None = None
+    competitor_reference_price: float | None = None
     forbidden_claims: List[str] = field(default_factory=list)
 
 
@@ -1293,7 +1293,7 @@ class MontageStrategyEngine:
         angle: AdvertisingAngle,
         product: ProductIntelligenceInput,
         duration_seconds: int = 25,
-        format: Optional[CreativeFormat] = None,
+        format: CreativeFormat | None = None,
         cta: str = "اطلبيه دلوقتي قبل انتهاء العرض.",
     ) -> CreativeBlueprint:
         duration_seconds = max(15, min(45, int(duration_seconds)))
@@ -1338,7 +1338,7 @@ class ControlledCreativeExperimentEngine:
         top_angles: List[AdvertisingAngle],
         base_offer: str,
         base_cta: str,
-        editing_styles: Optional[List[str]] = None,
+        editing_styles: List[str] | None = None,
     ) -> Dict[str, List[CreativeVariant]]:
         if not top_angles:
             raise ValueError("At least one advertising angle is required.")
@@ -1465,7 +1465,7 @@ class MediaTestProtocolEngine:
         metrics: Dict[str, Any],
         name: str,
         reasons: List[str],
-    ) -> Optional[float]:
+    ) -> float | None:
         value = metrics.get(name)
         if value is None:
             reasons.append(f"{name} is required by the existing SCALE policy")
@@ -1633,7 +1633,7 @@ class MediaTestProtocolEngine:
         cls,
         economics_input: MediaEconomicsInput,
         config: MediaTestConfig,
-        market_evidence: Optional[List[MarketSignalEvidence]] = None,
+        market_evidence: List[MarketSignalEvidence] | None = None,
     ) -> MediaTestProtocolReport:
         if config.total_daily_budget <= 0:
             raise ValueError("total_daily_budget must be positive.")
@@ -1861,7 +1861,7 @@ class CreativeIntelligenceReport:
     ranked_angles: List[AdvertisingAngle]
     top_blueprint: CreativeBlueprint
     experiment_matrix: Dict[str, List[CreativeVariant]]
-    media_test_protocol: Optional[MediaTestProtocolReport] = None
+    media_test_protocol: MediaTestProtocolReport | None = None
 
     def to_dict(self) -> Dict[str, Any]:
         data = asdict(self)
@@ -1880,9 +1880,9 @@ class THINCCreativeIntelligenceLayer:
         persona: EgyptianConsumerPersona,
         base_offer: str,
         base_cta: str,
-        media_economics: Optional[MediaEconomicsInput] = None,
-        media_config: Optional[MediaTestConfig] = None,
-        market_evidence: Optional[List[MarketSignalEvidence]] = None,
+        media_economics: MediaEconomicsInput | None = None,
+        media_config: MediaTestConfig | None = None,
+        market_evidence: List[MarketSignalEvidence] | None = None,
     ) -> CreativeIntelligenceReport:
         if (media_economics is None) != (media_config is None):
             raise ValueError("media_economics and media_config must be supplied together.")
@@ -2147,7 +2147,7 @@ def run_all_tests() -> Dict[str, Any]:
         metrics: Dict[str, Any],
         *,
         country: str = "Egypt",
-        collected_at: Optional[datetime] = None,
+        collected_at: datetime | None = None,
         summary: str = "Documented evidence for an embedded behavioral test.",
     ) -> MarketSignalEvidence:
         return MarketSignalEvidence(
