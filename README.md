@@ -18,7 +18,12 @@ inside the installable package instead of a loose `releases/` folder:
 - `src/thinc_v4/v4_2/` — the THINC v4.2 layer:
   - `market_signals.py` — auditable market-signal evidence gate.
   - `niche_validation.py` — bidirectional niche family-tree validation and launch gates.
-  - `master_framework.py` — creative intelligence, media test protocol, and research layers.
+  - `master_framework.py` — stable facade (re-exports + CLI); the engine itself is split into
+    `identity`, `theories`, `egyptianization`, `business`, `competitive`, `category`, `founder`,
+    `ai_layer`, `academy`, `composite`, `creative_models`, `media_models`, `creative_engines`,
+    `media_protocol`, `reporting`, `research`, `examples`, `selftest` — see
+    [`docs/v4_2/ARCHITECTURE.md`](docs/v4_2/ARCHITECTURE.md).
+  - `_v3_compat.py` — the single optional bridge to THINC v3.1.
   - `media_runner.py` — JSON-in / report-out CLI (`thinc-v4-2`).
   - `governance.py` — requirement registry / traceability coverage (`thinc-v4-2-governance`).
 - `tests/v4_2/` — the v4.2 suites, run by the same `make test` gate.

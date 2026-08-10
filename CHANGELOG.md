@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.2.0 — 2026-08-11 (modularization)
+
+- Split the 2,365-line v4.2 master framework into focused modules under `src/thinc_v4/v4_2/`: `identity`, `theories`, `egyptianization`, `business`, `competitive`, `category`, `founder`, `ai_layer`, `academy`, `composite`, `creative_models`, `media_models`, `creative_engines`, `media_protocol`, `reporting`, `research`, `examples`, `selftest`.
+- Kept `master_framework.py` as a stable facade (re-exports + CLI only), so existing imports and `python -m thinc_v4.v4_2.master_framework` keep working.
+- Consolidated the optional THINC v3.1 bridge into `_v3_compat.py` with a typed `V3` module handle, removing duplicated `try/except ImportError` blocks from engine code.
+- Added `tests/v4_2/test_module_architecture.py`: module-size ceiling, expected module set, facade purity, `__all__` completeness, acyclic import graph, and no engine → facade imports.
+- Added `docs/v4_2/ARCHITECTURE.md` documenting the module map and the enforced dependency rules.
+- Kept the refactor script `tools/split_master_framework.py` for auditability.
+- Verified behavior parity: the Karseell reference run still returns `NO_LAUNCH_BEFORE_MODIFICATION` / `REFINE_OFFER`, self-tests 45/45, Ruff clean, MyPy strict clean, 109 tests passing.
+
 ## 4.2.0 — 2026-08-11
 
 - Moved the THINC v4.2 layer out of `releases/thinc-v4.2-2026-08-09/` and into the installable package as `src/thinc_v4/v4_2/` (`master_framework`, `market_signals`, `niche_validation`, `media_runner`, `governance`).
