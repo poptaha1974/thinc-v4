@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased — documentation layout
+
+- Moved the eleven service-layer documents out of the `docs/` root into `docs/api/`, so the API architecture no longer sits beside the packaged-engine docs under a colliding `ARCHITECTURE.md` name.
+- Added `docs/api/README.md` as an index mapping each document to the endpoint or engine it describes.
+- Moved the calibration execution plan to `docs/v4_1/EXECUTION_PLAN.md`.
+- Updated every internal reference (roadmap, scope note, root README, service README) to the new paths.
+- Added `tests/test_docs_layout.py`: fails if a service-layer doc drifts back to the `docs/` root, if the index loses an entry, or if any relative Markdown link in the repository points at a missing file.
+
 ## Unreleased — Intelligence OS service layer (PR #5 remediation)
 
 - Fixed a runtime `AttributeError` in `external_social_research`: five call sites compared an observation's *domain* against `SEARCH_TRENDS`, which is a `ResearchSourceType` member and not a research domain, so any request carrying a search signal returned HTTP 500. Search signals are now classified through the source type via `_is_search_signal()` / `_has_search_signal()`, and the research-gap check reports missing search coverage on the same basis.

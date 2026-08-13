@@ -8,7 +8,7 @@ This document turns the existing repositories into a connected product architect
 
 > **Scope.** This file covers the *service layer* (the FastAPI Intelligence OS
 > under `services/api/` and its engines). For the layout of the packaged THINC
-> engine itself, see [`docs/v4_2/ARCHITECTURE.md`](v4_2/ARCHITECTURE.md).
+> engine itself, see [`docs/v4_2/ARCHITECTURE.md`](../v4_2/ARCHITECTURE.md).
 
 ---
 

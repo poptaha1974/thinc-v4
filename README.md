@@ -29,6 +29,9 @@ inside the installable package instead of a loose `releases/` folder:
 - `tests/v4_2/` — the v4.2 suites, run by the same `make test` gate.
 - `tests/data/v4_2/` — reference inputs (Karseell) used by regression tests.
 - `docs/v4_2/`, `docs/governance/`, `docs/cases/thinc-v4.2/` — v4.2 docs, approved-decision registry, traceability matrix, and case outputs.
+- `docs/api/` — the service layer: FastAPI Intelligence OS contract, data model, roadmap, legal guardrails, and the engine notes behind each endpoint (see [`docs/api/README.md`](docs/api/README.md)).
+- `docs/v4_1/` — the calibration line's execution plan.
+- `services/api/` — the FastAPI apps themselves (`main`, `learning_app`, `research_app`).
 - `src/thinc_v4/generational/` — Layer 8 Generational Intelligence (Egyptian generations, formative events, value-shift index, decision modifiers).
 - `src/thinc_v4/pixel_bridge/` — Pixel Feedback Bridge that closes the loop from real Meta Pixel / CAPI purchase events back into Layer 8 norms and formative events.
 - `examples/karseell/` — real-product validation run (Karseell Maca Collagen, AlHhomz store): test script, Markdown report, and JSON snapshot.

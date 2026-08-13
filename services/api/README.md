@@ -61,3 +61,7 @@ Error` and swallowed the helpful message.
 ```bash
 pytest tests/services -q
 ```
+
+## Documentation
+
+Full service-layer documentation lives in [`docs/api/`](../../docs/api/README.md).
