@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.2.1 — 2026-08-13
+
+- Fixed a time-dependent test inherited from the v4.2 suite: `test_karseell_reference_is_not_launchable` asserted a `PASS` evidence gate against an archived 2026-08-09 capture, so it started failing on 2026-08-13 once the capture aged past its 1-7 day freshness limits (this broke CI on `main` right after the 4.2.0 merges).
+- The reference capture is now rebased in-test (block shift, relative spacing preserved) so freshness is measured against a controlled offset instead of the calendar.
+- Added `test_karseell_reference_as_captured_is_held_for_research`, pinning the documented stale-evidence behavior: the gate reports `HOLD_FOR_RESEARCH` while the launch decision stays `NO_LAUNCH_BEFORE_MODIFICATION`.
+- Documented in the CI smoke job that the Karseell step asserts the launch gate, not evidence freshness.
+
 ## 4.2.0 — 2026-08-11 (documented release package)
 
 - Added `scripts/build_release.py`: one command produces the wheel, sdist, `SHA256SUMS`, a CycloneDX 1.5 SBOM, `RELEASE_MANIFEST.json` (provenance) and `RELEASE_NOTES.md`.

@@ -3,12 +3,53 @@ from __future__ import annotations
 import json
 import os
 import unittest
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest.mock import patch
 
 from thinc_v4.v4_2.master_framework import AutoUpdateResearchLayer
 from thinc_v4.v4_2.media_runner import build_report
+
+
+KARSEELL_REFERENCE = (
+    Path(__file__).resolve().parents[1]
+    / "data"
+    / "v4_2"
+    / "Karseell_THINC_v4_2_input_2026-08-09.json"
+)
+
+
+def _karseell_payload():
+    """The Karseell reference capture exactly as archived on 2026-08-09."""
+
+    return json.loads(KARSEELL_REFERENCE.read_text(encoding="utf-8"))
+
+
+def _rebased_karseell_payload(reference_age=timedelta(hours=6)):
+    """Return the reference capture with its evidence timestamps rebased.
+
+    Freshness limits are relative to *now* (1-7 days depending on the source),
+    so an archived fixture would decay into `STALE` as time passes and make this
+    test fail on a calendar date rather than on a behavior change. The capture is
+    shifted forward as a block - relative spacing between the observations is
+    preserved - so the newest observation sits `reference_age` before now.
+    """
+
+    payload = _karseell_payload()
+    evidence = payload.get("market_evidence") or []
+    stamps = [
+        datetime.fromisoformat(item["collected_at"])
+        for item in evidence
+        if item.get("collected_at")
+    ]
+    if not stamps:
+        return payload
+    shift = (datetime.now(timezone.utc) - reference_age) - max(stamps)
+    for item in evidence:
+        collected_at = item.get("collected_at")
+        if collected_at:
+            item["collected_at"] = (datetime.fromisoformat(collected_at) + shift).isoformat()
+    return payload
 
 
 def base_payload():
@@ -278,13 +319,9 @@ class MarketSignalIntegrationTests(unittest.TestCase):
         self.assertFalse(google["evidence_available"])
 
     def test_karseell_reference_is_not_launchable(self):
-        path = (
-            Path(__file__).resolve().parents[1]
-            / "data"
-            / "v4_2"
-            / "Karseell_THINC_v4_2_input_2026-08-09.json"
-        )
-        payload = json.loads(path.read_text(encoding="utf-8"))
+        """Fresh evidence: the gate passes, but the offer still may not launch."""
+
+        payload = _rebased_karseell_payload()
 
         report = build_report(payload)
 
@@ -296,6 +333,19 @@ class MarketSignalIntegrationTests(unittest.TestCase):
         self.assertEqual(
             report["niche_validation"]["launch_gate"],
             "NO_LAUNCH_BEFORE_MODIFICATION",
+        )
+        self.assertEqual(report["decision"], "NO_LAUNCH_BEFORE_MODIFICATION")
+
+    def test_karseell_reference_as_captured_is_held_for_research(self):
+        """The archived capture is past its freshness window, so it must hold."""
+
+        payload = _karseell_payload()
+
+        report = build_report(payload)
+
+        self.assertEqual(
+            report["market_signal_gate"]["decision"],
+            "HOLD_FOR_RESEARCH",
         )
         self.assertEqual(report["decision"], "NO_LAUNCH_BEFORE_MODIFICATION")
 
