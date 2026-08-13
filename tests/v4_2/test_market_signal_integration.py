@@ -7,8 +7,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import patch
 
-from THINC_v4_2_Media_Test_Protocol_Master_Framework import AutoUpdateResearchLayer
-from thinc_v4_2_media_runner import build_report
+from thinc_v4.v4_2.master_framework import AutoUpdateResearchLayer
+from thinc_v4.v4_2.media_runner import build_report
 
 
 def base_payload():
@@ -280,6 +280,8 @@ class MarketSignalIntegrationTests(unittest.TestCase):
     def test_karseell_reference_is_not_launchable(self):
         path = (
             Path(__file__).resolve().parents[1]
+            / "data"
+            / "v4_2"
             / "Karseell_THINC_v4_2_input_2026-08-09.json"
         )
         payload = json.loads(path.read_text(encoding="utf-8"))

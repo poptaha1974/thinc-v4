@@ -4,7 +4,7 @@ lint:
 format:
 	ruff format .
 type:
-	mypy src
+	mypy
 
 test:
 	pytest

@@ -5,10 +5,10 @@ import unittest
 from collections import Counter
 from pathlib import Path
 
-from scripts.verify_governance import build_coverage_report
+from thinc_v4.v4_2.governance import build_coverage_report
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 REGISTRY = ROOT / "docs/governance/THINC_v4_2_Approved_Decisions_Registry_2026-08-09.csv"
 TRACEABILITY = ROOT / "docs/governance/THINC_v4_2_Requirements_Traceability_Matrix_2026-08-09.csv"
 

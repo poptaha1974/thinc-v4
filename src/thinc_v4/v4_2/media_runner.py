@@ -6,10 +6,11 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Any, Dict, Mapping
+from enum import Enum
+from typing import Any, Dict, Mapping, TypeVar
 
-from THINC_v4_2_Media_Test_Protocol_Master_Framework import (
-    DecisionStage,
+from .market_signals import DecisionStage, FileEvidenceProvider
+from .master_framework import (
     EvidenceMode,
     MediaEconomicsInput,
     MediaTestConfig,
@@ -17,14 +18,16 @@ from THINC_v4_2_Media_Test_Protocol_Master_Framework import (
     SalesChannel,
     TestBudgetMode,
 )
-from thinc_v4_2_market_signals import FileEvidenceProvider
-from thinc_v4_2_niche_validation import (
+from .niche_validation import (
     NicheFeedbackEngine,
     NicheValidationEngine,
 )
 
 
-def _enum_value(enum_cls, raw: str):
+EnumT = TypeVar("EnumT", bound=Enum)
+
+
+def _enum_value(enum_cls: type[EnumT], raw: str) -> EnumT:
     value = str(raw).strip().lower()
     for item in enum_cls:
         if value in {str(item.value).lower(), item.name.lower()}:

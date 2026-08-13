@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.2.0 — 2026-08-11
+
+- Moved the THINC v4.2 layer out of `releases/thinc-v4.2-2026-08-09/` and into the installable package as `src/thinc_v4/v4_2/` (`master_framework`, `market_signals`, `niche_validation`, `media_runner`, `governance`).
+- Bumped the distribution version to `4.2.0` and added `src/thinc_v4/_version.py` as the single source of truth, with tests enforcing parity against `pyproject.toml`.
+- Kept layer identities separate: `thinc_v4.identity.VERSION` stays `4.0` for the v4.0 layer, while `thinc_v4.v4_2.LAYER_VERSION` is `4.2`.
+- Added console entry points `thinc-v4-2` (media/niche report runner) and `thinc-v4-2-governance` (requirement coverage).
+- Relocated v4.2 tests to `tests/v4_2/`, reference inputs to `tests/data/v4_2/`, and v4.2 documentation/governance/case files to `docs/`.
+- Fixed the CI `quality` failure: the 19 Ruff findings in the v4.2 sources are resolved (PEP 604 annotations, unused variable, quoted annotation).
+- Brought the v4.2 sources to zero MyPy strict errors with real type fixes (CSV JSON-field tuple annotation, `collected_at` None guard, typed Egyptianization tables, annotated `__post_init__`/`check` helpers, distinct report variables, generic `_enum_value`).
+- Extended MyPy in CI to `src`, `tests`, and `scripts` via `files` in `pyproject.toml`, with annotation-strictness relaxed only for legacy unittest suites and operational scripts.
+- Added a `v4_2_smoke` CI job running the v4.2 engine self-test, governance coverage, and the Karseell reference run asserted to stay `NO_LAUNCH_BEFORE_MODIFICATION`.
+- Added `.gitignore` so build, cache, and virtualenv artifacts stay out of the repository.
+
 ## 4.0.2 — 2026-06-20
 
 - Fixed CI MyPy strict-mode failures by removing unused import ignores and redundant list casts.
