@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Made the Markdown link check scan only git-tracked files. It previously walked the tree, so a stray `.pytest_cache/README.md` was collected locally but not in CI (238 tests locally vs 237 in CI for the same commit) and generated or third-party Markdown could fail a suite over links we do not control.
+- Added a guard on the guard: the file list must contain the known entry points and at least 25 tracked documents, so a broken listing cannot silently scan nothing.
+
 ## 4.3.0 — 2026-08-13
 
 First distribution that ships every merged layer together: the v4.0 framework, the
