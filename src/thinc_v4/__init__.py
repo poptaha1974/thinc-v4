@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""THINC package — distribution version 4.2.0.
+"""THINC package — distribution version 4.3.0.
 
 Inventor / Author / Owner: Dr. Ehab Taha (الدكتور إيهاب طه).
 
@@ -7,6 +7,8 @@ Layers:
 - `thinc_v4.framework` — the v4.0 layer over v3.1.
 - `thinc_v4.v4_2` — the v4.2 layer (creative intelligence, media testing,
   market-signal gate, bidirectional niche governance).
+- `thinc_v4.outcomes` / `thinc_v4.calibration` / `thinc_v4.retention` — the v4.1
+  outcome-tracking, Bayesian calibration (±20% per cycle) and retention line.
 
 Extension subpackages:
 - `thinc_v4.generational` — Layer 8 Generational Intelligence (Egyptian

@@ -12,11 +12,11 @@ from pathlib import Path
 import thinc_v4
 from thinc_v4 import v4_2
 
-EXPECTED_VERSION = "4.2.0"
+EXPECTED_VERSION = "4.3.0"
 PYPROJECT = Path(__file__).resolve().parents[1] / "pyproject.toml"
 
 
-def test_package_version_is_4_2_0() -> None:
+def test_package_version_matches_the_declared_release() -> None:
     assert thinc_v4.__version__ == EXPECTED_VERSION
     assert thinc_v4.PACKAGE_VERSION == EXPECTED_VERSION
 
@@ -26,9 +26,36 @@ def test_pyproject_version_matches_package() -> None:
     assert data["project"]["version"] == thinc_v4.__version__
 
 
-def test_v4_2_layer_version_is_declared() -> None:
+def test_layer_versions_are_independent_of_the_distribution_version() -> None:
+    """One distribution ships several layers; never derive one version from another."""
+
+    from thinc_v4 import identity
+
     assert v4_2.LAYER_VERSION == "4.2"
-    assert thinc_v4.__version__.startswith(v4_2.LAYER_VERSION + ".")
+    assert identity.VERSION == "4.0"
+    # 4.3.0 ships the 4.0 framework, the 4.2 engine and the 4.1 calibration line,
+    # so the distribution version must not be tied to any single layer.
+    assert thinc_v4.__version__ != v4_2.LAYER_VERSION
+    assert not thinc_v4.__version__.startswith(identity.VERSION + ".")
+
+
+def test_all_shipped_layers_are_importable() -> None:
+    import importlib
+
+    for module in (
+        "thinc_v4.framework",
+        "thinc_v4.v4_2.master_framework",
+        "thinc_v4.calibration",
+        "thinc_v4.outcomes",
+        "thinc_v4.retention",
+        "thinc_v4.generational",
+        "thinc_v4.pixel_bridge",
+        "thinc_v4.gift_decision_intelligence",
+        "thinc_v4.egyptian_social_culture",
+        "thinc_v4.adaptive_market_learning",
+        "thinc_v4.external_social_research",
+    ):
+        assert importlib.import_module(module)
 
 
 def test_v4_2_layer_watermark_keeps_attribution() -> None:

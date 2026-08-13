@@ -1,7 +1,8 @@
-# THINC v4.2 — Invented by Dr. Ehab Taha
+# THINC — Invented by Dr. Ehab Taha
 
 **Inventor / Author / Owner:** Dr. Ehab Taha (الدكتور إيهاب طه).  
-**Distribution version:** 4.2.0 (v4.0 layer + v4.2 layer in one package).  
+**Distribution version:** 4.3.0.  
+**Shipped layers:** v4.0 framework · v4.2 engine · v4.1 calibration & Layer 8 · Intelligence OS service layer.  
 **Status:** Proprietary behavioral commerce operating system for Egy-Pioneers Academy.
 
 > THINC v4.0 is the original intellectual property, invention, and proprietary business methodology of Dr. Ehab Taha (الدكتور إيهاب طه). All branding, attribution, watermarks, Arabic/Egyptian dialect support, and ownership statements must be preserved and must not be removed or weakened.
@@ -14,7 +15,7 @@ inside the installable package instead of a loose `releases/` folder:
 - `src/thinc_v4/identity.py` — single source of truth for inventor, version, watermark, copyright, and IP statements.
 - `src/thinc_v4/framework.py` — THINC v4.0 scoring engine, scientific registry, Egyptianization, business architecture, competitive intelligence, Founder OS, AI Operating Layer, and Academy OS.
 - `src/thinc_v4/streamlit_app.py` — Streamlit operational dashboard preserving Arabic/Egyptian dialect outputs.
-- `src/thinc_v4/_version.py` — distribution version (`4.2.0`); `pyproject.toml` parity is enforced by tests.
+- `src/thinc_v4/_version.py` — distribution version (`4.3.0`), the single source of truth; `pyproject.toml` parity is enforced by tests. Layer versions are independent of it.
 - `src/thinc_v4/v4_2/` — the THINC v4.2 layer:
   - `market_signals.py` — auditable market-signal evidence gate.
   - `niche_validation.py` — bidirectional niche family-tree validation and launch gates.
@@ -80,7 +81,7 @@ make verify-release   # sha256sum -c SHA256SUMS
 
 The build runs all quality gates first and aborts if THINC attribution was
 modified. Archives are reproducible for a given commit. See
-[`docs/v4_2/RELEASE.md`](docs/v4_2/RELEASE.md) for verification steps and the
+[`docs/RELEASE.md`](docs/RELEASE.md) for verification steps and the
 tag-driven release workflow.
 
 ## Security & Configuration
@@ -104,4 +105,4 @@ The token is read exclusively from the environment and is **never** printed, log
 
 ## Ownership Notice
 
-THINC™ v4.2 — Invented by Dr. Ehab Taha (الدكتور إيهاب طه). Copyright © 2026 Dr. Ehab Taha. All rights reserved.
+THINC™ — Invented by Dr. Ehab Taha (الدكتور إيهاب طه). Copyright © 2026 Dr. Ehab Taha. All rights reserved.

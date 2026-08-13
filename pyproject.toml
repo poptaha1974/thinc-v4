@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "thinc-v4"
-version = "4.2.0"
-description = "THINC v4.2 — Creative Intelligence, Media Testing & Niche Governance — Invented by Dr. Ehab Taha"
+version = "4.3.0"
+description = "THINC — Creative Intelligence, Media Testing, Niche Governance, Calibration, Layer 8 & Intelligence OS — Invented by Dr. Ehab Taha"
 readme = "README.md"
 requires-python = ">=3.11"
 authors = [{ name = "Dr. Ehab Taha" }]

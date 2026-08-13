@@ -1,13 +1,28 @@
 # Changelog
 
-## Unreleased — release publishing robustness
+## 4.3.0 — 2026-08-13
+
+First distribution that ships every merged layer together: the v4.0 framework, the
+modular v4.2 engine, the v4.1 calibration line, Layer 8 with the Pixel Feedback
+Bridge, and the Intelligence OS service layer. The version moves to 4.3.0 because
+the shipped content changed — 4.2.0 must keep describing the artifacts published
+under it.
+
+### Version and documentation
+
+- Bumped the distribution to `4.3.0` (`src/thinc_v4/_version.py` + `pyproject.toml`) so the merged layers ship under their own version instead of re-publishing `4.2.0` with different content.
+- Documented that layer versions are independent of the distribution version, and replaced the test that derived one from the other with an explicit independence check plus an importability check for all eleven shipped modules.
+- Moved `docs/v4_2/RELEASE.md` to `docs/RELEASE.md` (it is a distribution-level document, not a v4.2-layer one) and made it version-agnostic with a `<version>` placeholder and a tag command that reads the version from `pyproject.toml`.
+- Clarified in `docs/v4_2/ARCHITECTURE.md` that it documents the v4.2 *layer*, whose version is separate from the distribution's.
+
+### Release publishing robustness
 
 - Fixed a release-publishing hazard found while re-tagging `v4.2.0`: deleting a tag turns its GitHub release into an orphaned draft (slug `untagged-…`), so the previous "does a release exist?" check edited the detached draft and left the tag with duplicate drafts and no published release.
 - The workflow now reuses a release only when it is still attached to the tag and not a draft; otherwise it deletes the stale draft and recreates the release with `--verify-tag --latest`.
 - Added a post-publish assertion: exactly one release must exist for the tag, and it must not be a draft.
 - Documented in `docs/v4_2/RELEASE.md` that new content should get a new version, and what happens if a tag is moved anyway.
 
-## Unreleased — documentation layout
+### Documentation layout
 
 - Moved the eleven service-layer documents out of the `docs/` root into `docs/api/`, so the API architecture no longer sits beside the packaged-engine docs under a colliding `ARCHITECTURE.md` name.
 - Added `docs/api/README.md` as an index mapping each document to the endpoint or engine it describes.
@@ -15,7 +30,7 @@
 - Updated every internal reference (roadmap, scope note, root README, service README) to the new paths.
 - Added `tests/test_docs_layout.py`: fails if a service-layer doc drifts back to the `docs/` root, if the index loses an entry, or if any relative Markdown link in the repository points at a missing file.
 
-## Unreleased — Intelligence OS service layer (PR #5 remediation)
+### Intelligence OS service layer
 
 - Fixed a runtime `AttributeError` in `external_social_research`: five call sites compared an observation's *domain* against `SEARCH_TRENDS`, which is a `ResearchSourceType` member and not a research domain, so any request carrying a search signal returned HTTP 500. Search signals are now classified through the source type via `_is_search_signal()` / `_has_search_signal()`, and the research-gap check reports missing search coverage on the same basis.
 - Fixed the silently-dropped cohort profile in `egyptian_social_culture.evaluate_gift_social_fit()`: the computed `SocialNormProfile` was unused (flagged by Ruff `F841`), so the gift evaluation reflected only the occasion. Cohort-specific embarrassment triggers, trust signals, words to avoid, and preferred channels are now surfaced in blind spots and recommendations — deliberately without touching the numeric score, which stays a model decision.
@@ -25,20 +40,20 @@
 - Added test coverage for the previously untested service layer: `tests/services/` (main API, gift intelligence, adaptive learning, external research — happy paths, boundary rejections, and the COD truth rule) and `tests/test_intelligence_os_engines.py` for the engines, including regressions for the search-signal bug and the cohort-usage gap. Suite: 202 tests.
 - Documented the domain/source-type distinction, the 422 error contract, and clarified that `docs/ARCHITECTURE.md` covers the service layer while `docs/v4_2/ARCHITECTURE.md` covers the packaged engine.
 
-## Unreleased — dashboard competitor table
+### Dashboard competitor table
 
 - Fixed the competitor table in the **active** dashboard `src/thinc_v4/streamlit_app.py`: it built rows with `[asdict for asdict in [c.__dict__ for c in comp.competitors]]`, which shadowed the imported `dataclasses.asdict`, never called it, and rendered whatever `__dict__` happened to contain (order and internals included). PR #3 only patched the archived snapshot, so the live surface stayed broken.
 - Added `framework.competitor_rows()`: a pure, testable row builder using `dataclasses.asdict` with an explicit column order, so the table stays stable when `CompetitorProfile` gains fields.
 - Mirrored the fix in the archived snapshot so both surfaces agree.
 - Added tests for column order, values, DataFrame rendering, and a regression guard that fails if the `__dict__` pattern ever returns to either dashboard.
 
-## Unreleased — v4.1 calibration layer (distribution stays 4.2.0)
+### v4.1 calibration layer
 
 - Rebased the v4.1 calibration line onto the 4.2.0 package: outcome tracking (`outcomes.py`), predictive-accuracy reporting and Bayesian weight calibration with a ±20% per-cycle cap (`calibration.py`), and the retention engine (`retention.py`).
 - `framework.load_component_weights()` now reads calibrated weights from `weights.json`, falling back safely to the built-in defaults.
 - Made the calibrated weights file relocatable: `THINC_WEIGHTS_PATH` overrides the packaged `weights.json`, `save_weights()` creates missing parent directories, and a read-only target raises a clear error instead of an opaque `OSError` (an installed package lives in a read-only `site-packages`).
 - Narrowed the ignore rule from `data/` to `/data/` so reference fixtures under `tests/data/` can never be silently untracked.
-- Distribution version stays `4.2.0`; the calibration line does not change the package version.
+- The calibration line does not carry its own distribution version; it ships inside this release.
 
 ## 4.2.3 — 2026-08-13
 
@@ -95,7 +110,7 @@
 - Extended MyPy in CI to `src`, `tests`, and `scripts` via `files` in `pyproject.toml`, with annotation-strictness relaxed only for legacy unittest suites and operational scripts.
 - Added a `v4_2_smoke` CI job running the v4.2 engine self-test, governance coverage, and the Karseell reference run asserted to stay `NO_LAUNCH_BEFORE_MODIFICATION`.
 - Added `.gitignore` so build, cache, and virtualenv artifacts stay out of the repository.
-## Layer 8 + Pixel Feedback Bridge — 2026-08-13 (shipped in distribution 4.2.0)
+## Layer 8 + Pixel Feedback Bridge — 2026-08-13 (shipped in distribution 4.3.0)
 
 - **Generational Intelligence (Layer 8) is now a first-class v4.0 subpackage**:
   added `src/thinc_v4/generational/` which re-exports `Layer8_GenerationalIntelligence`,
@@ -119,7 +134,7 @@
   subpackages and tightened the package docstring accordingly.
 - Preserved THINC v4.0 identity, ownership, watermarking, attribution, and
   Arabic/Egyptian dialect behavior unchanged.
-- Rebased onto the 4.2.0 package: this layer no longer changes the distribution version (it previously declared `4.1.0`), because the version is now owned solely by `src/thinc_v4/_version.py` and enforced by a parity test.
+- Rebased onto the packaged distribution: this layer no longer changes the distribution version (it previously declared `4.1.0`), because the version is owned solely by `src/thinc_v4/_version.py` and enforced by a parity test.
 - Merged the package docstring and namespace re-exports so `PACKAGE_VERSION`/`__version__` stay exported alongside `generational` and `pixel_bridge`.
 - Fixed an import-time crash: `thinc_v4.pixel_bridge.bridge` imported `THINC_v3_1_Master_Framework` unguarded, so `import thinc_v4` failed in any environment without the bundled v3.1 snapshot (an installed wheel). The suite hid it because `conftest.py` had already put the legacy directory on `sys.path`.
 - Promoted the v3.1 loader to `thinc_v4/_v3_compat.py` as the single package-wide resolver (`V3`, `V3_IMPORT_ERROR`, `v3_available()`, `require_v3()`); `thinc_v4/v4_2/_v3_compat.py` is now a thin re-export, and the generational and pixel-bridge layers use the same loader.
