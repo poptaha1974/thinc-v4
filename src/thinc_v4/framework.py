@@ -862,8 +862,12 @@ def load_component_weights() -> Tuple[Dict[str, float], str]:
     """v4.1: الأوزان تُقرأ من weights.json المُصدَّر (المعايرة البايزية تحدثه).
 
     لو الملف غير موجود أو تالف نرجع للأوزان الافتراضية بأمان.
+    يمكن توجيه القراءة لملف أوزان خارجي عبر THINC_WEIGHTS_PATH.
     """
-    weights_path = APP_DIR / "weights.json"
+    override = os.environ.get("THINC_WEIGHTS_PATH", "").strip()
+    weights_path = Path(override).expanduser() if override else APP_DIR / "weights.json"
+    if override and not weights_path.exists():
+        weights_path = APP_DIR / "weights.json"
     try:
         with weights_path.open(encoding="utf-8") as fh:
             payload = json.load(fh)

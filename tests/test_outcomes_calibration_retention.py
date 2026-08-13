@@ -219,3 +219,52 @@ def test_structured_differentiation_overrides_keyword_heuristic() -> None:
     )
     # keyword stuffing must NOT inflate the structured score (3 base + 1 proven = 4)
     assert ci.differentiation_score() == 4.0
+
+
+# --- writable weights location (v4.2 packaging safety) -----------------------
+
+
+def test_weights_path_resolution_order(tmp_path: Path, monkeypatch) -> None:
+    from thinc_v4.calibration import (
+        PACKAGED_WEIGHTS_PATH,
+        WEIGHTS_PATH_ENV,
+        resolve_weights_path,
+    )
+
+    monkeypatch.delenv(WEIGHTS_PATH_ENV, raising=False)
+    assert resolve_weights_path() == PACKAGED_WEIGHTS_PATH
+
+    external = tmp_path / "state" / "weights.json"
+    monkeypatch.setenv(WEIGHTS_PATH_ENV, str(external))
+    assert resolve_weights_path() == external
+
+    explicit = tmp_path / "explicit.json"
+    assert resolve_weights_path(explicit) == explicit
+
+
+def test_save_weights_creates_the_override_directory(tmp_path: Path, monkeypatch) -> None:
+    from thinc_v4.calibration import WEIGHTS_PATH_ENV, load_weights, save_weights
+
+    target = tmp_path / "nested" / "dir" / "weights.json"
+    monkeypatch.setenv(WEIGHTS_PATH_ENV, str(target))
+
+    payload = load_weights()  # falls back to the packaged file until one is written
+    save_weights(payload)
+
+    assert target.exists()
+    assert abs(sum(load_weights()["weights"].values()) - 1.0) < 1e-6
+
+
+def test_save_weights_reports_a_read_only_target(tmp_path: Path, monkeypatch) -> None:
+    from thinc_v4.calibration import WEIGHTS_PATH_ENV, load_weights, save_weights
+
+    read_only = tmp_path / "locked"
+    read_only.mkdir()
+    payload = load_weights()
+    read_only.chmod(0o500)
+    monkeypatch.setenv(WEIGHTS_PATH_ENV, str(read_only / "weights.json"))
+    try:
+        with pytest.raises(RuntimeError, match=WEIGHTS_PATH_ENV):
+            save_weights(payload)
+    finally:
+        read_only.chmod(0o700)

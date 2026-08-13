@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -25,7 +26,12 @@ from typing import Any, Dict, List, Tuple
 
 from .outcomes import OutcomeRegistry
 
-WEIGHTS_PATH = Path(__file__).resolve().parent / "weights.json"
+#: The weights shipped inside the installed package (read-only in site-packages).
+PACKAGED_WEIGHTS_PATH = Path(__file__).resolve().parent / "weights.json"
+#: Environment variable used to point calibration at a writable weights file.
+WEIGHTS_PATH_ENV = "THINC_WEIGHTS_PATH"
+#: Backwards-compatible alias.
+WEIGHTS_PATH = PACKAGED_WEIGHTS_PATH
 MAX_WEIGHT_SHIFT = 0.20  # ±20% حد أمان لكل دورة
 MIN_OUTCOMES_FOR_CALIBRATION = 25
 SUCCESS_SCORE_THRESHOLD = 7.0  # درجة THINC التي تُعتبر توقعًا بالنجاح
@@ -40,8 +46,28 @@ COMPONENT_COLUMNS = {
 }
 
 
-def load_weights(path: Path = WEIGHTS_PATH) -> Dict[str, Any]:
-    with path.open(encoding="utf-8") as fh:
+def resolve_weights_path(path: Path | None = None) -> Path:
+    """Resolve the weights file: explicit path > `THINC_WEIGHTS_PATH` > packaged.
+
+    Calibration rewrites this file, and an installed package usually lives in a
+    read-only `site-packages`, so deployments must be able to point it at a
+    writable location without patching the code.
+    """
+
+    if path is not None:
+        return Path(path).expanduser()
+    override = os.environ.get(WEIGHTS_PATH_ENV, "").strip()
+    if override:
+        return Path(override).expanduser()
+    return PACKAGED_WEIGHTS_PATH
+
+
+def load_weights(path: Path | None = None) -> Dict[str, Any]:
+    resolved = resolve_weights_path(path)
+    if path is None and not resolved.exists() and resolved != PACKAGED_WEIGHTS_PATH:
+        # a configured-but-not-yet-created override falls back to the shipped file
+        resolved = PACKAGED_WEIGHTS_PATH
+    with resolved.open(encoding="utf-8") as fh:
         payload: Dict[str, Any] = json.load(fh)
     total = sum(payload["weights"].values())
     if abs(total - 1.0) > 1e-6:
@@ -49,8 +75,17 @@ def load_weights(path: Path = WEIGHTS_PATH) -> Dict[str, Any]:
     return payload
 
 
-def save_weights(payload: Dict[str, Any], path: Path = WEIGHTS_PATH) -> None:
-    with path.open("w", encoding="utf-8") as fh:
+def save_weights(payload: Dict[str, Any], path: Path | None = None) -> None:
+    resolved = resolve_weights_path(path)
+    resolved.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        handle = resolved.open("w", encoding="utf-8")
+    except OSError as exc:
+        raise RuntimeError(
+            f"Cannot write calibrated weights to {resolved}. "
+            f"Set {WEIGHTS_PATH_ENV} to a writable path (installed packages are read-only)."
+        ) from exc
+    with handle as fh:
         json.dump(payload, fh, ensure_ascii=False, indent=2)
         fh.write("\n")
 
@@ -171,7 +206,7 @@ def accuracy_report(registry: OutcomeRegistry) -> AccuracyReport:
 def bayesian_calibrate(
     registry: OutcomeRegistry,
     min_outcomes: int = MIN_OUTCOMES_FOR_CALIBRATION,
-    weights_path: Path = WEIGHTS_PATH,
+    weights_path: Path | None = None,
     dry_run: bool = False,
 ) -> Dict[str, Any]:
     """دورة معايرة واحدة.

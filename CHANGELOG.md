@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.3.0 — 2026-08-13 (v4.1 calibration layer)
+
+- Rebased the v4.1 calibration line onto the 4.2.0 package: outcome tracking (`outcomes.py`), predictive-accuracy reporting and Bayesian weight calibration with a ±20% per-cycle cap (`calibration.py`), and the retention engine (`retention.py`).
+- `framework.load_component_weights()` now reads calibrated weights from `weights.json`, falling back safely to the built-in defaults.
+- Made the calibrated weights file relocatable: `THINC_WEIGHTS_PATH` overrides the packaged `weights.json`, `save_weights()` creates missing parent directories, and a read-only target raises a clear error instead of an opaque `OSError` (an installed package lives in a read-only `site-packages`).
+- Narrowed the ignore rule from `data/` to `/data/` so reference fixtures under `tests/data/` can never be silently untracked.
+- Distribution version stays `4.2.0`; the calibration line does not change the package version.
+
 ## 4.2.3 — 2026-08-13
 
 - Fixed release provenance: the workflow's external "rebuild and diff" step rebuilt with `--skip-gates` into `dist/`, overwriting the gated `RELEASE_MANIFEST.json` and `RELEASE_NOTES.md`, so the published record claimed `quality_gates: SKIPPED` even though every gate had passed.
