@@ -13,3 +13,5 @@ venv/
 .coverage
 coverage.xml
 htmlcov/
+# local outcome/calibration data (root only — never tests/data/)
+/data/
