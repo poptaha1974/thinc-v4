@@ -1,0 +1,211 @@
+{
+  "analysis_notice": "LIVE GOOGLE TRENDS, META AD LIBRARY, AND MARKETPLACE EVIDENCE COLLECTED FOR EGYPT ON 2026-08-09. Economics remain a public-source stress test, not Dr. Ehab's confirmed commercial costs.",
+  "product": {
+    "name": "Karseell Maca Power Collagen Hair Mask",
+    "variant": "500 ml",
+    "country": "Egypt",
+    "analysis_date": "2026-08-09"
+  },
+  "economics": {
+    "selling_price": 999,
+    "product_cost": 746.85,
+    "packaging_cost": 20,
+    "company_shipping_cost": 80,
+    "collection_fees": 25,
+    "expected_return_cost_per_order": 35,
+    "variable_operations_cost": 15,
+    "confirmation_rate_pct": 80,
+    "delivery_rate_from_confirmed_pct": 75,
+    "safety_margin_pct": 30
+  },
+  "economics_basis": {
+    "selling_price_basis": "Scenario at EGP 999, near the upper-middle of observed Egyptian marketplace offers.",
+    "product_cost_basis": "Stress-test floor only: public factory listing at USD 15 multiplied by USD/EGP 49.79 on 2026-08-09; excludes international freight, customs, taxes, inspection, warehousing, and supplier-specific discounts.",
+    "unconfirmed_fields": [
+      "actual supplier invoice price",
+      "international freight and customs",
+      "actual last-mile shipping contract",
+      "actual collection fees",
+      "actual confirmation, delivery, and return rates"
+    ]
+  },
+    "config": {
+    "sales_channel": "website",
+    "total_daily_budget": 1000,
+    "angle_variants": 4,
+    "hook_variants": 4,
+    "editing_variants": 3,
+    "offer_variants": 2,
+    "pixel_ready": true,
+    "capi_ready": true,
+    "purchase_event_configured": true,
+    "sales_messaging_objective_available": false,
+    "country": "Egypt",
+    "audience_description": "Women 20-44 in Egypt with dry, frizzy, heat-damaged, dyed, or chemically treated hair; broad test with controlled creative variables",
+    "exclude_existing_customers_days": 180,
+    "budget_mode": "Controlled ABO",
+    "evidence_mode": "standard",
+        "decision_stage": "pre_test_research"
+    },
+    "niche_validation": {
+        "discovery_path": {
+            "market": "Beauty & Personal Care",
+            "niche": "Hair Care",
+            "micro_niche": "Egyptian women seeking at-home care for dry, frizzy, heat-damaged, dyed, or chemically treated hair with high sensitivity to counterfeit risk",
+            "persona": "Trust-sensitive Egyptian woman aged 20-44 who compares reviews and proof before buying hair care online",
+            "problem_jtbd": "Improve visible softness, shine, manageability, and the appearance of frizz at home while avoiding a counterfeit product",
+            "product": "Karseell Maca Power Collagen Hair Mask 500ml"
+        },
+        "reverse_validation_path": {
+            "product": "Karseell Maca Power Collagen Hair Mask 500ml",
+            "problem_jtbd": "Improve visible softness, shine, manageability, and the appearance of frizz at home while avoiding a counterfeit product",
+            "persona": "Trust-sensitive Egyptian woman aged 20-44 who compares reviews and proof before buying hair care online",
+            "micro_niche": "Egyptian women seeking at-home care for dry, frizzy, heat-damaged, dyed, or chemically treated hair with high sensitivity to counterfeit risk",
+            "niche": "Hair Care",
+            "market": "Beauty & Personal Care"
+        },
+        "product_solves_problem": true,
+        "persona_matches_problem": true,
+        "offer_strength": "weak",
+        "economics_viable": false,
+        "critical_risks": [
+            "Product authenticity and chain of supply are not verified",
+            "Egyptian notification and trading-compliance evidence is unresolved"
+        ],
+        "unresolved_evidence": [
+            "Actual supplier invoice price and landed cost",
+            "International freight, customs, inspection, and warehousing",
+            "Batch-level authenticity and supplier authorization",
+            "Actual confirmation, delivery, return, and replacement rates"
+        ]
+    },
+    "market_evidence": [
+    {
+      "source": "google_trends",
+      "status": "COLLECTED",
+      "query": "Karseell",
+      "country": "Egypt",
+      "timeframe": "Past 12 months; Web Search; weekly series through 2026-08-09",
+      "collected_at": "2026-08-09T05:54:40+03:00",
+      "collection_method": "browser_assisted",
+      "source_reference": "https://trends.google.com/trends/explore?geo=EG&q=Karseell",
+      "summary": "Google Trends returned a query-specific Egypt series for Karseell over the past 12 months. Across 53 completed weekly observations, mean normalized interest was 40.85, median 45, and peak 100. The latest completed week was 53. Recent eight-week mean was 30.25 versus 66.75 in the prior eight weeks, but the last four completed weeks recovered to 50, 47, 52, and 53. Alexandria and Cairo were the top visible subregions, and 'karseell shampoo' was a rising related query at +200%.",
+      "metrics": {
+        "normalized_index_scale": "0-100",
+        "completed_weekly_observations": 53,
+        "mean_interest": 40.85,
+        "median_interest": 45,
+        "peak_interest": 100,
+        "nonzero_weeks": 38,
+        "zero_or_insufficient_volume_weeks": 15,
+        "latest_completed_week": "2026-08-02",
+        "latest_completed_week_interest": 53,
+        "recent_8_week_mean": 30.25,
+        "prior_8_week_mean": 66.75,
+        "last_4_completed_weeks": [50, 47, 52, 53],
+        "top_visible_subregions": [
+          "Alexandria Governorate: 100",
+          "Cairo Governorate: 93",
+          "Dakahlia Governorate: 75",
+          "Giza Governorate: 69",
+          "Damietta Governorate: 62"
+        ],
+        "rising_related_query": "karseell shampoo +200%",
+        "signal_direction": "mixed"
+      },
+      "limitations": [
+        "Google Trends is a normalized index, not absolute search volume.",
+        "Zero-index weeks can mean insufficient sampled volume and are not interpreted as literal zero demand.",
+        "The current week beginning 2026-08-09 is incomplete and excluded from summary metrics.",
+        "Only the exact English brand query was used in this pass; Arabic and generic category terms remain a useful expansion test."
+      ],
+      "collector": "OpenAI browser-assisted research run for THINC v4.2",
+      "raw_evidence_hash": "sha256:938ba5aa5bce02da30b6bb2176b6f57dfe3587a7c9903670e4f5766a48150cd1"
+    },
+    {
+      "source": "meta_ad_library",
+      "status": "COLLECTED",
+      "query": "Karseell",
+      "country": "Egypt",
+      "timeframe": "Active ads visible on 2026-08-09",
+      "collected_at": "2026-08-09T05:54:40+03:00",
+      "collection_method": "browser_assisted",
+      "source_reference": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=EG&is_targeted_country=false&media_type=all&q=Karseell&search_type=keyword_unordered&sort_data%5Bmode%5D=total_impressions&sort_data%5Bdirection%5D=desc",
+      "summary": "Meta Ad Library reported approximately 43 active keyword results in Egypt for Karseell. Twenty-one rendered cards were audited and 11 visibly mentioned Karseell in the advertiser, ad copy, or destination text, across eight distinct direct visible advertisers. Direct visible ads had start dates from 2026-02-16 through 2026-08-03. Recurring angles were authenticity, barcode inspection, hydration, frizz reduction, softness and shine, salon-like results at home, bundles, discounts, and free shipping.",
+      "metrics": {
+        "reported_keyword_results_approx": 43,
+        "visible_cards_audited": 21,
+        "visible_cards_with_direct_karseell_mention": 11,
+        "direct_visible_advertisers": 8,
+        "oldest_direct_visible_start": "2026-02-16",
+        "latest_direct_visible_start": "2026-08-03",
+        "sample_direct_library_ids": [
+          "2776586546046769",
+          "1478619167331166",
+          "1793862101602085",
+          "4186485658162864",
+          "918710784619450",
+          "1772805010830180",
+          "2516176652230683",
+          "1988632565868374",
+          "1731485804839103",
+          "1089731003714999",
+          "27162941736726766"
+        ],
+        "recurring_angles": [
+          "authenticity and original product",
+          "barcode inspection before payment",
+          "deep hydration and frizz reduction",
+          "softness and shine",
+          "salon-like result at home",
+          "bundles, discounts, and free shipping"
+        ],
+        "signal_direction": "positive"
+      },
+      "limitations": [
+        "The approximately 43 results are keyword matches, not 43 verified direct competitors.",
+        "Only 21 currently rendered cards were audited; 11 were visibly direct Karseell matches.",
+        "Meta Ad Library does not expose CTR, CPA, spend, sales, or profitability for ordinary commercial ads.",
+        "Competitor claims were recorded as creative messaging, not accepted as scientific or regulatory proof."
+      ],
+      "collector": "OpenAI browser-assisted research run for THINC v4.2",
+      "competitor_or_marketplace": "Karseell Egypt; Karseell care stor; تاج الجمال; صيدلية د.السيد الهطش; Pinky Glow; Elemshaty Pharmacy; hair care; Pharma Store",
+      "raw_evidence_hash": "sha256:938ba5aa5bce02da30b6bb2176b6f57dfe3587a7c9903670e4f5766a48150cd1"
+    },
+    {
+      "source": "marketplace",
+      "status": "COLLECTED",
+      "query": "Karseell Maca Power Collagen Hair Mask 500ml across Amazon Egypt, Noon Egypt, Jumia Egypt, and Faces Egypt",
+      "country": "Egypt",
+      "timeframe": "Current public listings observed on 2026-08-09",
+      "collected_at": "2026-08-09T04:30:00+03:00",
+      "collection_method": "browser_assisted",
+      "source_reference": "https://www.amazon.eg/-/en/Karseell-Collagen-Hair-Treatment-Mask/dp/B074XSKTCQ ; https://www.amazon.eg/-/en/Karseell-Collagen-Conditioning-Essence-Damaged/dp/B0D2QV8F7Z ; https://www.noon.com/egypt-en/beauty/hair-care/hair-and-scalp-treatments-24161/hair-treatment-masks/karseell/nacomi/ ; https://www.jumia.com.eg/slp/karseell-hair-mask ; https://www.faces.eg/en/brands/karseell",
+      "summary": "Thirty visible price points across major Egyptian marketplaces ranged from EGP 450 to EGP 1,499, with a median of EGP 719.73 and an interquartile range of EGP 606.48-950.50. Amazon Egypt showed examples with 4.3-4.4 star ratings, 450-650 ratings, and one listing marked 200+ bought in the past month. The wide dispersion and same-size duplication indicate established demand and intense seller competition, but also material authenticity and price-trust risk.",
+      "metrics": {
+        "observed_price_points": 30,
+        "price_min_egp": 450,
+        "price_q1_egp": 606.48,
+        "price_median_egp": 719.73,
+        "price_mean_egp": 786.51,
+        "price_q3_egp": 950.5,
+        "price_max_egp": 1499,
+        "amazon_example_rating_1": 4.3,
+        "amazon_example_rating_count_1": 450,
+        "amazon_example_bought_last_month_1": "200+",
+        "amazon_example_rating_2": 4.4,
+        "amazon_example_rating_count_2": 650,
+        "faces_price_egp": 1140,
+        "jumia_visible_price_egp": 1025,
+        "signal_direction": "positive_demand_with_high_competition_and_authenticity_risk"
+      },
+      "limitations": [
+        "Marketplace ratings and purchase badges may be listing-specific, duplicated across variants, or inherited from catalog merges.",
+        "Price dispersion does not prove which listings are genuine, comparable, in stock, or delivered by authorized sellers.",
+        "Seller count and ratings do not reveal advertising profitability."
+      ],
+      "collector": "OpenAI research run for THINC v4.2",
+      "competitor_or_marketplace": "Amazon Egypt; Noon Egypt; Jumia Egypt; Faces Egypt"
+    }
+  ]
+}

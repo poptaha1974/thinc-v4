@@ -1,0 +1,14 @@
+{
+  "version": "v4.0.0-prior",
+  "calibrated_on_n_outcomes": 0,
+  "calibrated_at": null,
+  "note": "Prior weights set by Dr. Ehab Taha's expert judgment (30 years). Bayesian calibration updates these per cohort with a ±20% safety cap.",
+  "weights": {
+    "v3_behavioral_commerce_core": 0.35,
+    "founder_os": 0.15,
+    "business_architecture": 0.15,
+    "category_design": 0.12,
+    "competitive_differentiation": 0.10,
+    "academy_operating_system": 0.13
+  }
+}

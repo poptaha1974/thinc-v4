@@ -1,0 +1,36 @@
+id,domain,decision_or_requirement,state,source,implementation_evidence,notes
+NFT-001,Niche Family Tree,"Discovery path: Market > Niche > Micro-Niche > Persona > Problem/JTBD > Product",IMPLEMENTED,"Open chat — formally adopted path 1",,"Use when discovering an opportunity"
+NFT-002,Niche Family Tree,"Reverse validation path: Product > Problem/JTBD > Persona > Micro-Niche > Niche > Market",IMPLEMENTED,"Open chat — formally adopted path 2",,"Use when a product already exists"
+NFT-003,Niche Family Tree,"Both paths must converge at a specific customer + evidenced problem + suitable solution + viable economics",IMPLEMENTED,"Open chat — formal convergence rule",,
+NFT-004,Decision,"Product does not solve the real problem -> REJECT",IMPLEMENTED,"Open chat — adopted decision table",,
+NFT-005,Decision,"Problem exists but actual customer differs -> REPOSITION",IMPLEMENTED,"Open chat — adopted decision table",,
+NFT-006,Decision,"Customer/problem fit but offer is weak -> REFINE_OFFER",IMPLEMENTED,"Open chat — adopted decision table",,
+NFT-007,Decision,"Paths align and all gates pass -> ACCEPT_AND_TEST",IMPLEMENTED,"Open chat — adopted decision table",,
+NFT-008,Launch Governance,"Reverse-validation/economics veto: no launch before modification",PENDING_CONFIRMATION,"Open chat — recommended but no preserved explicit yes/no reply","Fail-closed behavior will be implemented without labelling the policy finally approved","Needs explicit final status in Decisions Log"
+NFT-009,Teaching Model,"Family metaphor maps Market/Niche/Micro-Niche/Persona/Problem/Product",IMPLEMENTED,"Open chat + niche-family-tree.html",,
+NFT-010,Example Governance,"Baby Organizer Bag is a temporary example only",EXPLICITLY_EXCLUDED,"Open chat — explicit model rule",,"Never store as a model default"
+NFT-011,Feedback,"Reverse validation before launch is distinct from learning feedback after testing",IMPLEMENTED,"Open chat — clarification accepted by continuation",,
+NFT-012,Feedback,"Post-test actions: KEEP / REFINE / SPLIT / PIVOT / REJECT",PENDING_CONFIRMATION,"Open chat — proposed executable vocabulary",,"Preserve as proposed until Dr. Ehab confirms labels"
+NFT-013,Feedback,"One failed product or micro-niche cannot reject the whole niche; rejection requires repeated evidence across multiple micro-niches and solutions",PENDING_CONFIRMATION,"Open chat — proposed guardrail consistent with PRA",,"Implemented as safety guardrail; terminology remains reviewable"
+NFT-014,PRA,"Strong niche + weak product -> return to Opportunity Map and change product",IMPLEMENTED,"Open chat + Notion PRA decision matrix",,
+NFT-015,Reporting,"Every full analysis must show both paths and convergence",IMPLEMENTED,"Open chat — identified coverage requirement",,
+NFT-016,Reporting,"A component PASS is not a THINC Full Analysis PASS",IMPLEMENTED,"Open chat — corrected Karseell classification",,
+NFT-017,Workflow,"Niche Family Tree validation precedes positioning, creative, and launch decisions",PENDING_CONFIRMATION,"Open chat — recommended integration order",,
+GOV-001,Governance,"Maintain an Approved Decisions Registry with stable IDs",IMPLEMENTED,"Open chat — anti-blind-spot safeguard",,
+GOV-002,Governance,"Maintain bidirectional traceability: decision > code > test > report",IMPLEMENTED,"Open chat — anti-blind-spot safeguard",,
+GOV-003,Governance,"Automated completeness gate returns INCOMPLETE with exact missing components",IMPLEMENTED,"Open chat — anti-blind-spot safeguard",,
+GOV-004,Governance,"No Full Analysis label unless every mandatory component is present",IMPLEMENTED,"Open chat — completeness contract",,
+GOV-005,Governance,"Every release reports total/implemented/pending/excluded/untested/report-hidden counts",IMPLEMENTED,"Open chat — release coverage requirement",,
+GOV-006,Governance,"Presence in educational material or chat does not count as implementation",IMPLEMENTED,"Open chat — root-cause finding",,
+GOV-007,Governance,"An omitted approved item must fail a test instead of being discovered after delivery",IMPLEMENTED,"Open chat — target guarantee",,
+MS-001,Market Signals,"Google Trends + Meta Ad Library + Marketplace evidence gate for Egypt",IMPLEMENTED,"2026-08-09 Karseell evidence capture","thinc_v4_2_market_signals.py + 24 behavioral tests","Browser-assisted/file ingestion; automated providers pending"
+MS-002,Market Signals,"Market Signal PASS permits next research/test design step; it is not commercial launch approval",IMPLEMENTED,"Open chat — Karseell correction",,
+MS-003,Market Signals,"Meta keyword-result counts are not all verified direct competitors",IMPLEMENTED,"Karseell Meta Ad Library limitations","Karseell evidence snapshot limitations",,
+MS-004,Market Signals,"Provider credentials alone are not evidence; automated provider remains separate",IMPLEMENTED,"THINC v4.2 market-signal design and tests","AutoUpdateResearchLayer.status test",,
+KAR-001,Karseell,"Market/Niche/Micro-Niche/Persona/Problem/Product path must be explicit",IMPLEMENTED,"Open chat — corrected Karseell analysis",,
+KAR-002,Karseell,"Fear of counterfeit/original proof is part of the Job and critical risk",IMPLEMENTED,"Meta/marketplace evidence + open chat synthesis",,
+KAR-003,Karseell,"Rising Karseell Shampoo query creates a routine/line hypothesis, not proof",IMPLEMENTED,"Google Trends capture",,
+KAR-004,Karseell,"Target Purchase CPA is EGP 32.40 in the current scenario and supplier cost/authenticity remain unresolved",IMPLEMENTED,"2026-08-09 engine output + open chat",,
+KAR-005,Karseell,"Expected combined decision: market PASS; strategic REFINE_OFFER; launch NO_LAUNCH_BEFORE_MODIFICATION",IMPLEMENTED,"Open chat — corrected application",,
+PRA-001,PRA,"Do not average THINC and PRA into one score that hides a strong niche/weak product or the reverse",IMPLEMENTED,"Notion PRA section 12","Notion PRA documentation","Must be reflected in v4.2 orchestration"
+PRA-002,PRA,"Critical safety/legal/supplier risk can stop an opportunity regardless of score",IMPLEMENTED,"Notion PRA gates and governance","Notion PRA documentation","Must be reflected in v4.2 launch gate"

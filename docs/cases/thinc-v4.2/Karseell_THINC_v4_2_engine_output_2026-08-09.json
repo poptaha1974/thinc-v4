@@ -1,0 +1,443 @@
+{
+  "decision": "NO_LAUNCH_BEFORE_MODIFICATION",
+  "decision_reasons": [
+    "All mandatory evidence is fresh and valid for Egypt.",
+    "Refine the offer, proof, price, or risk reversal.",
+    "Rebuild unit economics before any paid launch.",
+    "Resolve critical risk: Product authenticity and chain of supply are not verified",
+    "Resolve critical risk: Egyptian notification and trading-compliance evidence is unresolved",
+    "Collect missing evidence: Actual supplier invoice price and landed cost",
+    "Collect missing evidence: International freight, customs, inspection, and warehousing",
+    "Collect missing evidence: Batch-level authenticity and supplier authorization",
+    "Collect missing evidence: Actual confirmation, delivery, return, and replacement rates"
+  ],
+  "market_signal_gate": {
+    "decision": "PASS",
+    "stage": "pre_test_research",
+    "coverage_status_by_source": {
+      "google_trends": "COLLECTED",
+      "meta_ad_library": "COLLECTED",
+      "marketplace": "COLLECTED",
+      "first_party_campaign": "NOT_APPLICABLE"
+    },
+    "freshness_status_by_source": {
+      "google_trends": "FRESH",
+      "meta_ad_library": "FRESH",
+      "marketplace": "FRESH",
+      "first_party_campaign": "NOT_APPLICABLE"
+    },
+    "contradictions": [],
+    "reasons": [
+      "All mandatory evidence is fresh and valid for Egypt."
+    ],
+    "required_actions": [],
+    "evidence_snapshot": [
+      {
+        "source": "google_trends",
+        "status": "COLLECTED",
+        "query": "Karseell",
+        "country": "Egypt",
+        "timeframe": "Past 12 months; Web Search; weekly series through 2026-08-09",
+        "collected_at": "2026-08-09T05:54:40+03:00",
+        "collection_method": "browser_assisted",
+        "source_reference": "https://trends.google.com/trends/explore?geo=EG&q=Karseell",
+        "summary": "Google Trends returned a query-specific Egypt series for Karseell over the past 12 months. Across 53 completed weekly observations, mean normalized interest was 40.85, median 45, and peak 100. The latest completed week was 53. Recent eight-week mean was 30.25 versus 66.75 in the prior eight weeks, but the last four completed weeks recovered to 50, 47, 52, and 53. Alexandria and Cairo were the top visible subregions, and 'karseell shampoo' was a rising related query at +200%.",
+        "metrics": {
+          "normalized_index_scale": "0-100",
+          "completed_weekly_observations": 53,
+          "mean_interest": 40.85,
+          "median_interest": 45,
+          "peak_interest": 100,
+          "nonzero_weeks": 38,
+          "zero_or_insufficient_volume_weeks": 15,
+          "latest_completed_week": "2026-08-02",
+          "latest_completed_week_interest": 53,
+          "recent_8_week_mean": 30.25,
+          "prior_8_week_mean": 66.75,
+          "last_4_completed_weeks": [
+            50,
+            47,
+            52,
+            53
+          ],
+          "top_visible_subregions": [
+            "Alexandria Governorate: 100",
+            "Cairo Governorate: 93",
+            "Dakahlia Governorate: 75",
+            "Giza Governorate: 69",
+            "Damietta Governorate: 62"
+          ],
+          "rising_related_query": "karseell shampoo +200%",
+          "signal_direction": "mixed"
+        },
+        "limitations": [
+          "Google Trends is a normalized index, not absolute search volume.",
+          "Zero-index weeks can mean insufficient sampled volume and are not interpreted as literal zero demand.",
+          "The current week beginning 2026-08-09 is incomplete and excluded from summary metrics.",
+          "Only the exact English brand query was used in this pass; Arabic and generic category terms remain a useful expansion test."
+        ],
+        "collector": "OpenAI browser-assisted research run for THINC v4.2",
+        "competitor_or_marketplace": "",
+        "raw_evidence_hash": "sha256:938ba5aa5bce02da30b6bb2176b6f57dfe3587a7c9903670e4f5766a48150cd1",
+        "evaluated_status": "FRESH",
+        "age_days": 0.042,
+        "validation_errors": []
+      },
+      {
+        "source": "meta_ad_library",
+        "status": "COLLECTED",
+        "query": "Karseell",
+        "country": "Egypt",
+        "timeframe": "Active ads visible on 2026-08-09",
+        "collected_at": "2026-08-09T05:54:40+03:00",
+        "collection_method": "browser_assisted",
+        "source_reference": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=EG&is_targeted_country=false&media_type=all&q=Karseell&search_type=keyword_unordered&sort_data%5Bmode%5D=total_impressions&sort_data%5Bdirection%5D=desc",
+        "summary": "Meta Ad Library reported approximately 43 active keyword results in Egypt for Karseell. Twenty-one rendered cards were audited and 11 visibly mentioned Karseell in the advertiser, ad copy, or destination text, across eight distinct direct visible advertisers. Direct visible ads had start dates from 2026-02-16 through 2026-08-03. Recurring angles were authenticity, barcode inspection, hydration, frizz reduction, softness and shine, salon-like results at home, bundles, discounts, and free shipping.",
+        "metrics": {
+          "reported_keyword_results_approx": 43,
+          "visible_cards_audited": 21,
+          "visible_cards_with_direct_karseell_mention": 11,
+          "direct_visible_advertisers": 8,
+          "oldest_direct_visible_start": "2026-02-16",
+          "latest_direct_visible_start": "2026-08-03",
+          "sample_direct_library_ids": [
+            "2776586546046769",
+            "1478619167331166",
+            "1793862101602085",
+            "4186485658162864",
+            "918710784619450",
+            "1772805010830180",
+            "2516176652230683",
+            "1988632565868374",
+            "1731485804839103",
+            "1089731003714999",
+            "27162941736726766"
+          ],
+          "recurring_angles": [
+            "authenticity and original product",
+            "barcode inspection before payment",
+            "deep hydration and frizz reduction",
+            "softness and shine",
+            "salon-like result at home",
+            "bundles, discounts, and free shipping"
+          ],
+          "signal_direction": "positive"
+        },
+        "limitations": [
+          "The approximately 43 results are keyword matches, not 43 verified direct competitors.",
+          "Only 21 currently rendered cards were audited; 11 were visibly direct Karseell matches.",
+          "Meta Ad Library does not expose CTR, CPA, spend, sales, or profitability for ordinary commercial ads.",
+          "Competitor claims were recorded as creative messaging, not accepted as scientific or regulatory proof."
+        ],
+        "collector": "OpenAI browser-assisted research run for THINC v4.2",
+        "competitor_or_marketplace": "Karseell Egypt; Karseell care stor; تاج الجمال; صيدلية د.السيد الهطش; Pinky Glow; Elemshaty Pharmacy; hair care; Pharma Store",
+        "raw_evidence_hash": "sha256:938ba5aa5bce02da30b6bb2176b6f57dfe3587a7c9903670e4f5766a48150cd1",
+        "evaluated_status": "FRESH",
+        "age_days": 0.042,
+        "validation_errors": []
+      },
+      {
+        "source": "marketplace",
+        "status": "COLLECTED",
+        "query": "Karseell Maca Power Collagen Hair Mask 500ml across Amazon Egypt, Noon Egypt, Jumia Egypt, and Faces Egypt",
+        "country": "Egypt",
+        "timeframe": "Current public listings observed on 2026-08-09",
+        "collected_at": "2026-08-09T04:30:00+03:00",
+        "collection_method": "browser_assisted",
+        "source_reference": "https://www.amazon.eg/-/en/Karseell-Collagen-Hair-Treatment-Mask/dp/B074XSKTCQ ; https://www.amazon.eg/-/en/Karseell-Collagen-Conditioning-Essence-Damaged/dp/B0D2QV8F7Z ; https://www.noon.com/egypt-en/beauty/hair-care/hair-and-scalp-treatments-24161/hair-treatment-masks/karseell/nacomi/ ; https://www.jumia.com.eg/slp/karseell-hair-mask ; https://www.faces.eg/en/brands/karseell",
+        "summary": "Thirty visible price points across major Egyptian marketplaces ranged from EGP 450 to EGP 1,499, with a median of EGP 719.73 and an interquartile range of EGP 606.48-950.50. Amazon Egypt showed examples with 4.3-4.4 star ratings, 450-650 ratings, and one listing marked 200+ bought in the past month. The wide dispersion and same-size duplication indicate established demand and intense seller competition, but also material authenticity and price-trust risk.",
+        "metrics": {
+          "observed_price_points": 30,
+          "price_min_egp": 450,
+          "price_q1_egp": 606.48,
+          "price_median_egp": 719.73,
+          "price_mean_egp": 786.51,
+          "price_q3_egp": 950.5,
+          "price_max_egp": 1499,
+          "amazon_example_rating_1": 4.3,
+          "amazon_example_rating_count_1": 450,
+          "amazon_example_bought_last_month_1": "200+",
+          "amazon_example_rating_2": 4.4,
+          "amazon_example_rating_count_2": 650,
+          "faces_price_egp": 1140,
+          "jumia_visible_price_egp": 1025,
+          "signal_direction": "positive_demand_with_high_competition_and_authenticity_risk"
+        },
+        "limitations": [
+          "Marketplace ratings and purchase badges may be listing-specific, duplicated across variants, or inherited from catalog merges.",
+          "Price dispersion does not prove which listings are genuine, comparable, in stock, or delivered by authorized sellers.",
+          "Seller count and ratings do not reveal advertising profitability."
+        ],
+        "collector": "OpenAI research run for THINC v4.2",
+        "competitor_or_marketplace": "Amazon Egypt; Noon Egypt; Jumia Egypt; Faces Egypt",
+        "raw_evidence_hash": "",
+        "evaluated_status": "FRESH",
+        "age_days": 0.101,
+        "validation_errors": []
+      }
+    ]
+  },
+  "objective_plan": {
+    "objective": "Sales",
+    "conversion_location": "Website",
+    "destination": "Product / checkout website",
+    "performance_goal": "Maximize number of conversions",
+    "optimization_event": "Purchase",
+    "readiness": "READY",
+    "prerequisites": [
+      "Meta Pixel is installed and firing correctly",
+      "Purchase event is configured and deduplicated",
+      "Conversions API is recommended for server-side resilience",
+      "Checkout and order confirmation flow have been tested"
+    ],
+    "rationale": [
+      "The business outcome is a purchase, so optimization must remain aligned with Purchase.",
+      "Traffic or video-view optimization can identify cheap visitors or viewers rather than buyers."
+    ]
+  },
+  "economics": {
+    "contribution_margin_before_ads": 77.15,
+    "break_even_delivered_cpa": 77.15,
+    "target_delivered_cpa": 54.0,
+    "target_confirmed_cpa": 40.5,
+    "target_purchase_cpa": 32.4,
+    "confirmation_rate_pct": 80,
+    "delivery_rate_from_confirmed_pct": 75,
+    "expected_purchase_to_delivery_rate_pct": 60.0
+  },
+  "campaign_structure": {
+    "naming": "[PRODUCT]_[VARIABLE]_TEST_[OBJECTIVE]",
+    "budget_method": "Controlled ABO",
+    "ad_sets": "One identical ad set per variant during controlled testing",
+    "ads_per_ad_set": 1,
+    "audience": "Women 20-44 in Egypt with dry, frizzy, heat-damaged, dyed, or chemically treated hair; broad test with controlled creative variables",
+    "country": "Egypt",
+    "placements": "Advantage+ placements unless a placement-specific hypothesis is being tested",
+    "exclusions": "Exclude existing customers/purchasers for 180 days where data is available",
+    "change_control": "Change one variable only in each stage",
+    "final_kpi": "Delivered profit and Delivered CPA"
+  },
+  "stages": [
+    {
+      "stage": "Angle Test",
+      "variable_tested": "Advertising angle",
+      "variants": 4,
+      "recommended_days": 4,
+      "daily_budget_total": 1000,
+      "daily_budget_per_variant": 250.0,
+      "target_spend_per_variant": 64.8,
+      "estimated_stage_budget": 4000,
+      "controlled_variables": [
+        "Audience",
+        "Offer",
+        "CTA",
+        "Editing style",
+        "Landing page / messaging script"
+      ],
+      "graduation_gate": [
+        "At least one conversion-quality signal",
+        "Compare Purchase/qualified-order CPA",
+        "Keep top 1–2 angles"
+      ]
+    },
+    {
+      "stage": "Hook Test",
+      "variable_tested": "First 2–3 seconds",
+      "variants": 4,
+      "recommended_days": 3,
+      "daily_budget_total": 1000,
+      "daily_budget_per_variant": 250.0,
+      "target_spend_per_variant": 48.6,
+      "estimated_stage_budget": 3000,
+      "controlled_variables": [
+        "Winning angle",
+        "Body",
+        "Offer",
+        "CTA",
+        "Editing style"
+      ],
+      "graduation_gate": [
+        "Hook and hold improve without damaging purchase quality",
+        "Select one winning hook"
+      ]
+    },
+    {
+      "stage": "Editing Test",
+      "variable_tested": "Editing / format",
+      "variants": 3,
+      "recommended_days": 3,
+      "daily_budget_total": 1000,
+      "daily_budget_per_variant": 333.33,
+      "target_spend_per_variant": 48.6,
+      "estimated_stage_budget": 3000,
+      "controlled_variables": [
+        "Winning angle",
+        "Winning hook",
+        "Offer",
+        "CTA"
+      ],
+      "graduation_gate": [
+        "Choose format by delivered-order economics, not watch time alone"
+      ]
+    },
+    {
+      "stage": "Offer & CTA Test",
+      "variable_tested": "Offer or CTA — one at a time",
+      "variants": 2,
+      "recommended_days": 3,
+      "daily_budget_total": 1000,
+      "daily_budget_per_variant": 500.0,
+      "target_spend_per_variant": 48.6,
+      "estimated_stage_budget": 3000,
+      "controlled_variables": [
+        "Winning angle",
+        "Winning hook",
+        "Winning edit",
+        "Audience"
+      ],
+      "graduation_gate": [
+        "Improved conversion rate",
+        "Delivered CPA remains within target"
+      ]
+    },
+    {
+      "stage": "Winner Validation",
+      "variable_tested": "No new creative variable",
+      "variants": 1,
+      "recommended_days": 5,
+      "daily_budget_total": 1000,
+      "daily_budget_per_variant": 1000.0,
+      "target_spend_per_variant": 129.6,
+      "estimated_stage_budget": 5000,
+      "controlled_variables": [
+        "Creative",
+        "Audience",
+        "Offer",
+        "CTA",
+        "Tracking"
+      ],
+      "graduation_gate": [
+        "Delivered profit is positive",
+        "Delivery rate is stable",
+        "Scale gate is met"
+      ]
+    }
+  ],
+  "stop_loss": {
+    "attention_review_impressions": 1500,
+    "hard_review_impressions": 2000,
+    "soft_stop_spend": 32.4,
+    "hard_stop_spend": 56.7,
+    "soft_stop_conditions": [
+      "Spend reaches about 1× target Purchase CPA (32.40)",
+      "No Add to Cart / Checkout signal",
+      "Weak outbound CTR and weak early retention together"
+    ],
+    "hard_stop_conditions": [
+      "Spend reaches about 1.75× target Purchase CPA (56.70) with no purchase/order",
+      "Creative is weak at attention, intent, and conversion layers",
+      "No tracking or checkout defect explains the result"
+    ],
+    "diagnostic_checks_before_kill": [
+      "Verify website, checkout, form, or WhatsApp destination",
+      "Verify Pixel/CAPI and event firing when using a website",
+      "Verify price, stock, shipping, and offer clarity",
+      "Verify the call-center response time and qualification script"
+    ]
+  },
+  "scale_policy": {
+    "minimum_delivered_orders": 10,
+    "recommended_delivered_orders": 10,
+    "minimum_stable_days": 3,
+    "minimum_delivery_rate_pct": 65.0,
+    "maximum_delivered_cpa": 54.0,
+    "required_conditions": [
+      "Delivered profit is positive",
+      "Delivered CPA is at or below the target",
+      "Delivery rate is at least 65% or the business-specific minimum",
+      "Results are stable for the minimum number of days",
+      "No operational bottleneck in stock, confirmation, or fulfillment"
+    ],
+    "scaling_method": [
+      "Increase budget in controlled steps rather than a single large jump",
+      "Keep the proven creative unchanged while validating the higher spend",
+      "Continue generating iterations from the winning angle to avoid fatigue",
+      "Recalculate CPA thresholds whenever price, cost, or delivery rates change"
+    ]
+  },
+  "warnings": [],
+  "media_protocol_decision": "PASS",
+  "niche_validation": {
+    "discovery_path": {
+      "market": "Beauty & Personal Care",
+      "niche": "Hair Care",
+      "micro_niche": "Egyptian women seeking at-home care for dry, frizzy, heat-damaged, dyed, or chemically treated hair with high sensitivity to counterfeit risk",
+      "persona": "Trust-sensitive Egyptian woman aged 20-44 who compares reviews and proof before buying hair care online",
+      "problem_jtbd": "Improve visible softness, shine, manageability, and the appearance of frizz at home while avoiding a counterfeit product",
+      "product": "Karseell Maca Power Collagen Hair Mask 500ml"
+    },
+    "reverse_validation_path": {
+      "product": "Karseell Maca Power Collagen Hair Mask 500ml",
+      "problem_jtbd": "Improve visible softness, shine, manageability, and the appearance of frizz at home while avoiding a counterfeit product",
+      "persona": "Trust-sensitive Egyptian woman aged 20-44 who compares reviews and proof before buying hair care online",
+      "micro_niche": "Egyptian women seeking at-home care for dry, frizzy, heat-damaged, dyed, or chemically treated hair with high sensitivity to counterfeit risk",
+      "niche": "Hair Care",
+      "market": "Beauty & Personal Care"
+    },
+    "convergence": {
+      "aligned": false,
+      "path_alignment": true,
+      "specific_customer": true,
+      "evidenced_problem": true,
+      "suitable_solution": true,
+      "economics_viable": false,
+      "market_signal_pass": true
+    },
+    "strategic_decision": "REFINE_OFFER",
+    "launch_gate": "NO_LAUNCH_BEFORE_MODIFICATION",
+    "critical_risks": [
+      "Product authenticity and chain of supply are not verified",
+      "Egyptian notification and trading-compliance evidence is unresolved"
+    ],
+    "unresolved_evidence": [
+      "Actual supplier invoice price and landed cost",
+      "International freight, customs, inspection, and warehousing",
+      "Batch-level authenticity and supplier authorization",
+      "Actual confirmation, delivery, return, and replacement rates"
+    ],
+    "required_actions": [
+      "Refine the offer, proof, price, or risk reversal.",
+      "Rebuild unit economics before any paid launch.",
+      "Resolve critical risk: Product authenticity and chain of supply are not verified",
+      "Resolve critical risk: Egyptian notification and trading-compliance evidence is unresolved",
+      "Collect missing evidence: Actual supplier invoice price and landed cost",
+      "Collect missing evidence: International freight, customs, inspection, and warehousing",
+      "Collect missing evidence: Batch-level authenticity and supplier authorization",
+      "Collect missing evidence: Actual confirmation, delivery, return, and replacement rates"
+    ],
+    "feedback_plan": {
+      "after_controlled_test": [
+        "Update Product and Offer confidence from delivered-order economics.",
+        "Update Persona and Micro-Niche confidence from qualified buyers and objections.",
+        "Escalate to Niche-level rejection only after repeated contrary evidence across multiple micro-niches and solutions."
+      ],
+      "allowed_actions_pending_final_label_confirmation": [
+        "KEEP",
+        "REFINE",
+        "SPLIT",
+        "PIVOT",
+        "REJECT"
+      ]
+    },
+    "completeness_gate": {
+      "status": "COMPLETE",
+      "missing_components": []
+    }
+  },
+  "completeness_gate": {
+    "status": "COMPLETE",
+    "missing_components": []
+  },
+  "analysis_status": "COMPLETE",
+  "niche_feedback": null
+}

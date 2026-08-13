@@ -42,6 +42,7 @@ try:
         ScientificTheoryRegistry,
         THINCV4Engine,
         THINCV4ProjectInput,
+        competitor_rows,
         example_academy_project,
         get_watermark,
         run_all_tests,
@@ -274,7 +275,7 @@ elif page == "🧭 Category & Competition":
         market_gap="السوق مليان كورسات نظرية، لكن قليل جدًا برامج فيها تشغيل حقيقي ومكان فعلي ودعم AI ونادي تجار.",
     )
     st.metric("Differentiation Score", f"{comp.differentiation_score()}/10")
-    st.dataframe(pd.DataFrame([asdict for asdict in [c.__dict__ for c in comp.competitors]]), use_container_width=True)
+    st.dataframe(pd.DataFrame(competitor_rows(comp.competitors)), use_container_width=True)
 
 # -----------------------------------------------------------------------------
 # Founder OS
