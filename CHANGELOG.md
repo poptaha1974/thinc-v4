@@ -96,6 +96,10 @@
   Arabic/Egyptian dialect behavior unchanged.
 - Rebased onto the 4.2.0 package: this layer no longer changes the distribution version (it previously declared `4.1.0`), because the version is now owned solely by `src/thinc_v4/_version.py` and enforced by a parity test.
 - Merged the package docstring and namespace re-exports so `PACKAGE_VERSION`/`__version__` stay exported alongside `generational` and `pixel_bridge`.
+- Fixed an import-time crash: `thinc_v4.pixel_bridge.bridge` imported `THINC_v3_1_Master_Framework` unguarded, so `import thinc_v4` failed in any environment without the bundled v3.1 snapshot (an installed wheel). The suite hid it because `conftest.py` had already put the legacy directory on `sys.path`.
+- Promoted the v3.1 loader to `thinc_v4/_v3_compat.py` as the single package-wide resolver (`V3`, `V3_IMPORT_ERROR`, `v3_available()`, `require_v3()`); `thinc_v4/v4_2/_v3_compat.py` is now a thin re-export, and the generational and pixel-bridge layers use the same loader.
+- The pixel bridge now exposes `is_available()` and raises a clear `RuntimeError` naming the consumer on first use when v3.1 is absent, instead of crashing on import.
+- Added `tests/test_v3_compat_isolation.py`: a static guard against unguarded v3.1 imports anywhere in the package, plus behavioural tests for the degraded path. Verified in a clean virtualenv that the built wheel imports without v3.1.
 
 
 ## 4.0.2 — 2026-06-20

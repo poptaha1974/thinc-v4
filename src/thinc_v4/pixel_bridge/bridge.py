@@ -33,33 +33,34 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-# Allow imports from the bundled v3.1 framework regardless of how the package
-# is consumed (editable install, CI checkout, or zip snapshot).
-_HERE = Path(__file__).resolve().parent
-_REPO_ROOT = _HERE.parents[3]
-_LEGACY_DIR = _REPO_ROOT / "thinc_v4_0_final_verified_20260620" / "thinc_v4_final"
-for _candidate in (_HERE, _REPO_ROOT, _LEGACY_DIR):
-    if _candidate.exists() and str(_candidate) not in sys.path:
-        sys.path.insert(0, str(_candidate))
+# v3.1 is resolved once, package-wide, and never at import-time cost: importing
+# this module must not crash when the v3.1 framework is absent (an installed
+# wheel, for example). Consumers call `is_available()` or hit a clear
+# RuntimeError from `require_v3()` on first use.
+from .._v3_compat import V3, V3_IMPORT_ERROR, require_v3, v3_available
 
-try:
-    from THINC_v3_1_Master_Framework import (
-        EGYPTIAN_FORMATIVE_EVENTS,
-        GENERATIONAL_NORMS,
-        EgyptianGeneration,
-        GenerationalIntelligenceEngine,
-        OrderStatus,
-        get_watermark,
-    )
-except Exception:  # pragma: no cover - fallback to legacy bundled name
-    from THINC_v3_1_Master_Framework_Chatgpt import (
-        EGYPTIAN_FORMATIVE_EVENTS,
-        GENERATIONAL_NORMS,
-        EgyptianGeneration,
-        GenerationalIntelligenceEngine,
-        OrderStatus,
-        get_watermark,
-    )
+EGYPTIAN_FORMATIVE_EVENTS: Any = getattr(V3, "EGYPTIAN_FORMATIVE_EVENTS", {})
+GENERATIONAL_NORMS: Any = getattr(V3, "GENERATIONAL_NORMS", {})
+EgyptianGeneration: Any = getattr(V3, "EgyptianGeneration", None)
+GenerationalIntelligenceEngine: Any = getattr(V3, "GenerationalIntelligenceEngine", None)
+OrderStatus: Any = getattr(V3, "OrderStatus", None)
+
+
+def is_available() -> bool:
+    """True when the v3.1 symbols the bridge depends on are importable."""
+
+    return v3_available()
+
+
+def get_watermark() -> str:
+    """v3.1 watermark when available, otherwise the package watermark."""
+
+    if V3 is not None:
+        watermark: str = V3.get_watermark()
+        return watermark
+    from ..identity import WATERMARK
+
+    return WATERMARK
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

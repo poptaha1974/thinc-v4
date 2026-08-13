@@ -15,6 +15,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from .._v3_compat import V3 as _V3  # noqa: F401  (ensures sys.path is prepared once)
 from ..identity import INVENTOR, INVENTOR_AR, WATERMARK
 
 # --- Re-export Layer 8 symbols from the bundled v3.1 framework -----------------
