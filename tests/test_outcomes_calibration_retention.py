@@ -256,6 +256,11 @@ def test_save_weights_creates_the_override_directory(tmp_path: Path, monkeypatch
 
 
 def test_save_weights_reports_a_read_only_target(tmp_path: Path, monkeypatch) -> None:
+    import os
+
+    if hasattr(os, "geteuid") and os.geteuid() == 0:
+        pytest.skip("root ignores directory write permissions — cannot simulate a read-only target")
+
     from thinc_v4.calibration import WEIGHTS_PATH_ENV, load_weights, save_weights
 
     read_only = tmp_path / "locked"
