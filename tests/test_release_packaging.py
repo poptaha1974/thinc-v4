@@ -130,3 +130,12 @@ def test_release_extra_pins_a_cyclonedx_cli_with_the_environment_command() -> No
     cyclonedx = next(pin for pin in pins if pin.startswith("cyclonedx-bom"))
     major = int(cyclonedx.split("==")[1].split(".")[0])
     assert major >= 5, f"{cyclonedx} predates the 'environment' subcommand"
+
+
+def test_release_workflow_recovers_from_a_moved_tag() -> None:
+    """A deleted-and-recreated tag must not leave an orphaned draft release."""
+
+    workflow = (ROOT / ".github/workflows/release.yml").read_text(encoding="utf-8")
+    assert "--verify-tag" in workflow
+    assert "stale or draft release" in workflow
+    assert "Confirm exactly one published release for the tag" in workflow
