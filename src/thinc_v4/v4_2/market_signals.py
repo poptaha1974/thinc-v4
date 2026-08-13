@@ -10,7 +10,7 @@ import os
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from enum import Enum
-from typing import Any, Dict, List, Optional, Sequence, Type, TypeVar
+from typing import Any, Dict, List, Sequence, Type, TypeVar
 
 
 EnumT = TypeVar("EnumT", bound=Enum)
