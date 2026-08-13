@@ -32,6 +32,9 @@ jobs:
         run: python -m thinc_v4.v4_2.master_framework --test
       - name: v4.2 governance coverage
         run: python scripts/verify_governance.py
+      # Asserts the launch gate, which is time-independent. The archived capture
+      # is deliberately past its freshness window, so the evidence gate itself
+      # reports HOLD_FOR_RESEARCH; that must never unlock a launch.
       - name: v4.2 Karseell reference run (must not be launchable)
         run: |
           python -m thinc_v4.v4_2.media_runner \
