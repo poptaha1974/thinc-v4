@@ -67,3 +67,54 @@ def test_streamlit_module_importable() -> None:
     pytest.importorskip("pandas")
     pytest.importorskip("streamlit")
     import thinc_v4.streamlit_app  # noqa: F401
+
+
+def test_competitor_rows_are_explicit_and_ordered() -> None:
+    """The dashboard table must not depend on `__dict__` ordering or leak internals."""
+
+    from thinc_v4.framework import competitor_rows
+
+    rows = competitor_rows(
+        [
+            CompetitorProfile("كورس دروبشيبينج", "تعليم فقط", "2000-7000", 5, 5, 4, 2, "لا يوجد تشغيل فعلي"),
+            CompetitorProfile("أكاديمية تسويق", "شهادة ومحاضرات", "3000-12000", 6, 6, 6, 3, "ضعف التطبيق"),
+        ]
+    )
+
+    assert [row["name"] for row in rows] == ["كورس دروبشيبينج", "أكاديمية تسويق"]
+    assert list(rows[0]) == [
+        "name",
+        "positioning",
+        "price_range",
+        "offer_strength",
+        "creative_strength",
+        "trust_strength",
+        "operational_strength",
+        "weakness",
+    ]
+    assert rows[0]["offer_strength"] == 5
+    assert rows[1]["weakness"] == "ضعف التطبيق"
+
+
+def test_competitor_rows_render_as_a_dataframe() -> None:
+    pd = pytest.importorskip("pandas")
+
+    from thinc_v4.framework import competitor_rows
+
+    frame = pd.DataFrame(competitor_rows([CompetitorProfile("منافس", "موقع", "1000", 5, 5, 5, 5, "ضعف")]))
+    assert list(frame.columns)[0] == "name"
+    assert frame.shape == (1, 8)
+
+
+def test_no_dunder_dict_tables_remain_in_the_dashboard() -> None:
+    """Regression guard for the broken `[asdict for asdict in [c.__dict__ ...]]` table."""
+
+    dashboards = [
+        Path(__file__).resolve().parents[1] / "src/thinc_v4/streamlit_app.py",
+        Path(__file__).resolve().parents[1]
+        / "thinc_v4_0_final_verified_20260620/thinc_v4_final/thinc_v4_streamlit_app.py",
+    ]
+    for dashboard in dashboards:
+        text = dashboard.read_text(encoding="utf-8")
+        assert "asdict for asdict in" not in text, dashboard.name
+        assert "c.__dict__ for c in comp.competitors" not in text, dashboard.name
