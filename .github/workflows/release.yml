@@ -1,0 +1,83 @@
+name: THINC Release Package
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      skip_gates:
+        description: 'Skip lint/type/test gates (not recommended)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: python -m pip install --upgrade pip
+      - run: pip install -e '.[dev,release]'
+
+      - name: Build documented release package (SHA-256 + SBOM)
+        run: |
+          python scripts/build_release.py ${{ inputs.skip_gates && '--skip-gates' || '' }}
+
+      - name: Verify checksums
+        working-directory: dist
+        run: sha256sum -c SHA256SUMS
+
+      - name: Verify reproducibility (rebuild and compare digests)
+        run: |
+          cp dist/SHA256SUMS /tmp/SHA256SUMS.first
+          rm -rf dist
+          python scripts/build_release.py --skip-gates
+          # the SBOM embeds a build timestamp, so only the archives must match
+          grep -E '\.(whl|tar\.gz)$' /tmp/SHA256SUMS.first | sort > /tmp/first.txt
+          grep -E '\.(whl|tar\.gz)$' dist/SHA256SUMS | sort > /tmp/second.txt
+          diff /tmp/first.txt /tmp/second.txt && echo "Reproducible build confirmed"
+
+      - name: Install the built wheel in a clean environment and smoke-test it
+        run: |
+          python -m venv /tmp/verify
+          /tmp/verify/bin/pip install --quiet dist/thinc_v4-*.whl
+          /tmp/verify/bin/python -c "import thinc_v4, thinc_v4.v4_2 as v; print(thinc_v4.__version__, v.LAYER_VERSION)"
+          /tmp/verify/bin/python -m thinc_v4.v4_2.master_framework --test > /tmp/selftest.json
+          python -c "import json;r=json.load(open('/tmp/selftest.json'));assert r['failed']==0, r;print('wheel self-test OK', r['passed'])"
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: thinc-release-package
+          path: |
+            dist/*.whl
+            dist/*.tar.gz
+            dist/SHA256SUMS
+            dist/sbom.cyclonedx.json
+            dist/RELEASE_MANIFEST.json
+            dist/RELEASE_NOTES.md
+          if-no-files-found: error
+
+      - name: Attach artifacts to the GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "THINC ${GITHUB_REF_NAME}" \
+            --notes-file dist/RELEASE_NOTES.md \
+            dist/*.whl dist/*.tar.gz dist/SHA256SUMS \
+            dist/sbom.cyclonedx.json dist/RELEASE_MANIFEST.json \
+          || gh release upload "${GITHUB_REF_NAME}" \
+            dist/*.whl dist/*.tar.gz dist/SHA256SUMS \
+            dist/sbom.cyclonedx.json dist/RELEASE_MANIFEST.json --clobber

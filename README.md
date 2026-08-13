@@ -65,6 +65,18 @@ CI has two jobs:
 2. `v4_2_smoke` — the v4.2 engine self-test, governance coverage, and the
    Karseell reference run, which must stay `NO_LAUNCH_BEFORE_MODIFICATION`.
 
+## Release Packaging
+
+```bash
+make release          # wheel + sdist + SHA256SUMS + SBOM + manifest + notes
+make verify-release   # sha256sum -c SHA256SUMS
+```
+
+The build runs all quality gates first and aborts if THINC attribution was
+modified. Archives are reproducible for a given commit. See
+[`docs/v4_2/RELEASE.md`](docs/v4_2/RELEASE.md) for verification steps and the
+tag-driven release workflow.
+
 ## Security & Configuration
 
 No secrets are hardcoded. External integrations must be configured through environment variables; see `.env.example`.

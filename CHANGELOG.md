@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.2.0 — 2026-08-11 (documented release package)
+
+- Added `scripts/build_release.py`: one command produces the wheel, sdist, `SHA256SUMS`, a CycloneDX 1.5 SBOM, `RELEASE_MANIFEST.json` (provenance) and `RELEASE_NOTES.md`.
+- The build enforces gates before packaging: Ruff, MyPy strict, pytest, the v4.2 self-test, `pyproject`↔package version parity, and `verify_attribution()` — a modified attribution aborts the release.
+- Made archives reproducible: `SOURCE_DATE_EPOCH` pinned to the HEAD commit, sdist rewritten with fixed member mtimes/ownership/permissions and a pinned gzip header. Rebuilds of the same commit produce identical wheel and sdist digests.
+- Added `.github/workflows/release.yml` (tag `v*` or manual): rebuild, `sha256sum -c`, reproducibility diff, clean-virtualenv wheel install + self-test, artifact upload, and GitHub Release attachment.
+- Added `make release` / `make verify-release` and `docs/v4_2/RELEASE.md` with the full verification procedure.
+- Added `tests/test_release_packaging.py` covering the digest helper, version single-source-of-truth, deterministic sdist normalization, and the workflow's verification steps.
+- Added a `release` extra (`build`, `cyclonedx-bom`) to `pyproject.toml`.
+
 ## 4.2.0 — 2026-08-11 (modularization)
 
 - Split the 2,365-line v4.2 master framework into focused modules under `src/thinc_v4/v4_2/`: `identity`, `theories`, `egyptianization`, `business`, `competitive`, `category`, `founder`, `ai_layer`, `academy`, `composite`, `creative_models`, `media_models`, `creative_engines`, `media_protocol`, `reporting`, `research`, `examples`, `selftest`.
