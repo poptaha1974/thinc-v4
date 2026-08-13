@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.2.2 — 2026-08-13
+
+- Fixed the SBOM pin: the `release` extra pinned `cyclonedx-bom==4.6.1`, whose CLI has no `environment` subcommand, so the v4.2.0 release build silently fell back to the minimal SBOM. Pinned `cyclonedx-bom==7.3.1`, which produces the full dependency SBOM (75 components).
+- `RELEASE_MANIFEST.json` now records `sbom.generator` and `sbom.components`, and the fallback path prints an explicit warning instead of degrading silently.
+- The release workflow now fails if the SBOM was produced by the fallback generator or looks too thin, so a tooling downgrade can never ship unnoticed.
+- Added packaging tests for the generator contract and for the `cyclonedx-bom` major-version floor.
+
 ## 4.2.1 — 2026-08-13
 
 - Fixed a time-dependent test inherited from the v4.2 suite: `test_karseell_reference_is_not_launchable` asserted a `PASS` evidence gate against an archived 2026-08-09 capture, so it started failing on 2026-08-13 once the capture aged past its 1-7 day freshness limits (this broke CI on `main` right after the 4.2.0 merges).

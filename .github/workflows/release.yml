@@ -37,6 +37,17 @@ jobs:
         working-directory: dist
         run: sha256sum -c SHA256SUMS
 
+      - name: Verify the SBOM was produced by the pinned generator
+        run: |
+          python - <<'PY'
+          import json
+          manifest = json.load(open("dist/RELEASE_MANIFEST.json", encoding="utf-8"))
+          sbom = manifest["sbom"]
+          assert sbom["generator"] == "cyclonedx-py", f"SBOM fell back to {sbom['generator']}"
+          assert sbom["components"] >= 5, f"SBOM looks too thin: {sbom['components']} components"
+          print("SBOM generator:", sbom["generator"], "components:", sbom["components"])
+          PY
+
       - name: Verify reproducibility (rebuild and compare digests)
         run: |
           cp dist/SHA256SUMS /tmp/SHA256SUMS.first

@@ -23,7 +23,7 @@ dev = [
 ]
 release = [
   "build==1.2.1",
-  "cyclonedx-bom==4.6.1",
+  "cyclonedx-bom==7.3.1",
 ]
 
 [project.scripts]
