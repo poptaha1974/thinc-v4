@@ -88,8 +88,23 @@ def test_sdist_normalization_is_deterministic(tmp_path: Path) -> None:
 def test_release_workflow_verifies_checksums_and_reproducibility() -> None:
     workflow = (ROOT / ".github/workflows/release.yml").read_text(encoding="utf-8")
     assert "sha256sum -c SHA256SUMS" in workflow
-    assert "Reproducible build confirmed" in workflow
     assert "master_framework --test" in workflow
+    assert 'gates["status"] == "PASSED"' in workflow
+    assert 'repro["verified"] is True' in workflow
+
+
+def test_release_workflow_never_overwrites_the_gated_build() -> None:
+    """A gate-skipping rebuild must not replace the published artifacts."""
+
+    workflow = (ROOT / ".github/workflows/release.yml").read_text(encoding="utf-8")
+    packaging_steps = workflow.split("- name: Upload release artifacts")[0]
+    assert "--skip-gates" not in packaging_steps.replace("inputs.skip_gates && '--skip-gates'", "")
+
+
+def test_reproducibility_is_recorded_in_the_manifest() -> None:
+    text = SCRIPT.read_text(encoding="utf-8")
+    assert '"reproducibility": reproducibility' in text
+    assert "double build in one invocation" in text
 
 
 def test_release_workflow_rejects_a_fallback_sbom() -> None:

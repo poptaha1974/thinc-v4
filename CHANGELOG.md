@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.2.3 — 2026-08-13
+
+- Fixed release provenance: the workflow's external "rebuild and diff" step rebuilt with `--skip-gates` into `dist/`, overwriting the gated `RELEASE_MANIFEST.json` and `RELEASE_NOTES.md`, so the published record claimed `quality_gates: SKIPPED` even though every gate had passed.
+- Reproducibility is now proven inside `build_release.py` (second build in a scratch directory, archive digests compared) and recorded under `reproducibility` in the manifest, leaving the gated artifacts untouched.
+- Added `--skip-reproducibility-check` for fast local iterations, and a `Reproducibility` section to the release notes.
+- The release workflow now asserts the published manifest reports `quality_gates: PASSED`, zero self-test failures, and `reproducibility.verified: true`.
+- Release publishing is now idempotent: an existing release gets its notes re-synced with the replaced artifacts instead of keeping stale digests.
+- Added tests that the workflow never packages a gate-skipped build and that reproducibility is recorded.
+
 ## 4.2.2 — 2026-08-13
 
 - Fixed the SBOM pin: the `release` extra pinned `cyclonedx-bom==4.6.1`, whose CLI has no `environment` subcommand, so the v4.2.0 release build silently fell back to the minimal SBOM. Pinned `cyclonedx-bom==7.3.1`, which produces the full dependency SBOM (75 components).
