@@ -25,9 +25,9 @@ This roadmap converts the repositories into one coherent product ecosystem.
 
 ### Deliverables
 
-- `docs/ARCHITECTURE.md`
-- `docs/DATA_MODEL.md`
-- `docs/API_CONTRACT.md`
+- `docs/api/ARCHITECTURE.md`
+- `docs/api/DATA_MODEL.md`
+- `docs/api/API_CONTRACT.md`
 - `services/api/main.py`
 - `services/api/schemas.py`
 - `admatch-insights/src/lib/thincApi.ts`
