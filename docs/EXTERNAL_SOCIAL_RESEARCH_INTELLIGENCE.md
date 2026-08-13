@@ -84,6 +84,14 @@ POST /api/external-research/daily-egypt-intelligence
 
 ## 5. Egyptian research domains
 
+> **Domains vs source types.** Search trends are a *source type*
+> (`ResearchSourceType.SEARCH_TRENDS`), not a research domain. A rising-search
+> observation is recorded with a business domain (usually
+> `product_category_trend`) plus a source whose type is `search_trends`; the
+> engine classifies it through the source, so sending `search_trends` as a
+> `domain` is rejected with HTTP 422.
+
+
 The engine can classify observations into:
 
 - inflation and prices,

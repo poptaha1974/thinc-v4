@@ -2,7 +2,9 @@
 """API routes for THINC Gift Decision Intelligence."""
 from __future__ import annotations
 
-from typing import Any
+from enum import Enum
+
+from typing import Any, TypeVar
 
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
@@ -71,7 +73,10 @@ class GiftDecisionResponse(BaseModel):
     next_best_actions: list[str]
 
 
-def _enum_from_value(enum_cls: Any, value: str):
+EnumT = TypeVar("EnumT", bound=Enum)
+
+
+def _enum_from_value(enum_cls: type[EnumT], value: str) -> EnumT:
     for item in enum_cls:
         if value in {item.name, item.value}:
             return item

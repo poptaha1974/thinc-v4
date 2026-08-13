@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased — Intelligence OS service layer (PR #5 remediation)
+
+- Fixed a runtime `AttributeError` in `external_social_research`: five call sites compared an observation's *domain* against `SEARCH_TRENDS`, which is a `ResearchSourceType` member and not a research domain, so any request carrying a search signal returned HTTP 500. Search signals are now classified through the source type via `_is_search_signal()` / `_has_search_signal()`, and the research-gap check reports missing search coverage on the same basis.
+- Fixed the silently-dropped cohort profile in `egyptian_social_culture.evaluate_gift_social_fit()`: the computed `SocialNormProfile` was unused (flagged by Ruff `F841`), so the gift evaluation reflected only the occasion. Cohort-specific embarrassment triggers, trust signals, words to avoid, and preferred channels are now surfaced in blind spots and recommendations — deliberately without touching the numeric score, which stays a model decision.
+- Added `services/api/errors.py`: invalid enum input now returns HTTP 422 with the helpful message instead of a 500.
+- Extended MyPy strict to `services` (with `services/__init__.py`, `services/api/__init__.py` and the `pydantic.mypy` plugin) and annotated the route helpers, health endpoints, and enum coercion generics. 76 files now type-check clean.
+- Cleared the remaining Ruff findings (`UP037` quoted annotation, `F841`, `F541`).
+- Added test coverage for the previously untested service layer: `tests/services/` (main API, gift intelligence, adaptive learning, external research — happy paths, boundary rejections, and the COD truth rule) and `tests/test_intelligence_os_engines.py` for the engines, including regressions for the search-signal bug and the cohort-usage gap. Suite: 202 tests.
+- Documented the domain/source-type distinction, the 422 error contract, and clarified that `docs/ARCHITECTURE.md` covers the service layer while `docs/v4_2/ARCHITECTURE.md` covers the packaged engine.
+
 ## Unreleased — dashboard competitor table
 
 - Fixed the competitor table in the **active** dashboard `src/thinc_v4/streamlit_app.py`: it built rows with `[asdict for asdict in [c.__dict__ for c in comp.competitors]]`, which shadowed the imported `dataclasses.asdict`, never called it, and rendered whatever `__dict__` happened to contain (order and internals included). PR #3 only patched the archived snapshot, so the live surface stayed broken.

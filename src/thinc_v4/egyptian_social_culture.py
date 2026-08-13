@@ -25,7 +25,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Dict, List
+from typing import Any, Dict, List
 
 
 class EgyptianGenerationalCohort(Enum):
@@ -141,7 +141,7 @@ class EgyptianSocialCulturalEngine:
         cohort: EgyptianGenerationalCohort,
         life_stage: LifeStage,
     ) -> SocialNormProfile:
-        base: Dict[EgyptianGenerationalCohort, Dict[str, object]] = {
+        base: Dict[EgyptianGenerationalCohort, Dict[str, Any]] = {
             EgyptianGenerationalCohort.SOCIAL_NATIVE: {
                 "mindset": "سريع، بصري، حساس للشكل والترند، لكنه يتجنب الإحراج الاجتماعي.",
                 "interests": ["تيك توك", "إنستجرام", "ترندات", "هدايا مختلفة", "تجربة تصوير", "تخصيص بسيط"],
@@ -419,12 +419,34 @@ class EgyptianSocialCulturalEngine:
             blind_spots.append("الاستخدام غير واضح؛ العميل قد لا يفهم لماذا هذه هدية مناسبة.")
             recommendations.append("اكتب الهدية لمين؟ وفي أي مناسبة؟ ولماذا تصلح؟")
 
+        # The cohort profile was previously computed and discarded, so the
+        # evaluation only reflected the occasion. Cohort-specific triggers are now
+        # surfaced as blind spots and recommendations. They deliberately do NOT
+        # touch the numeric score: changing the score is a model decision, not a
+        # lint fix.
+        if not data.has_packaging and cohort.embarrassment_triggers:
+            blind_spots.append(
+                f"حساسية {cohort.cohort.value}: " + "، ".join(cohort.embarrassment_triggers[:2])
+            )
+        if not data.has_social_proof and cohort.trust_signals:
+            recommendations.append(
+                "إشارات الثقة الأنسب لهذه الشريحة: " + "، ".join(cohort.trust_signals[:3])
+            )
+        if cohort.words_to_avoid:
+            recommendations.append(
+                "تجنّب في الرسالة: " + "، ".join(cohort.words_to_avoid[:3])
+            )
+        if cohort.preferred_channels:
+            recommendations.append(
+                "قنوات مفضّلة للعرض: " + "، ".join(cohort.preferred_channels)
+            )
+
         score = round(max(0.0, min(10.0, score)), 2)
         risk = SocialRisk.LOW if score >= 8 else SocialRisk.MEDIUM if score >= 6 else SocialRisk.HIGH if score >= 4 else SocialRisk.CRITICAL
 
         hooks = [
             f"هدية {data.occasion.value} تحت الألف… شكلها حلو وتنفع بجد.",
-            f"قولنا المناسبة والميزانية، ونرشحلك هدية تليق من غير حيرة.",
+            "قولنا المناسبة والميزانية، ونرشحلك هدية تليق من غير حيرة.",
             f"{occasion.recommended_message_angles[0]} — بتغليف محترم وسعر مناسب.",
         ]
 

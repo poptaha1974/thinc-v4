@@ -2,8 +2,10 @@
 """API routes for THINC External Social Research & Daily Intelligence."""
 from __future__ import annotations
 
+from enum import Enum
+
 from datetime import date, datetime
-from typing import Dict, List
+from typing import Dict, List, TypeVar
 
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
@@ -56,7 +58,10 @@ class DailyEgyptIntelligenceRequest(BaseModel):
     baseline_weights: Dict[str, float] = Field(default_factory=dict)
 
 
-def _enum_from_value(enum_cls, value: str):
+EnumT = TypeVar("EnumT", bound=Enum)
+
+
+def _enum_from_value(enum_cls: type[EnumT], value: str) -> EnumT:
     for item in enum_cls:
         if value in {item.name, item.value}:
             return item

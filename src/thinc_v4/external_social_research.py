@@ -154,6 +154,26 @@ class DailyEgyptIntelligenceOutput:
 class ExternalSocialResearchEngine:
     """Aggregates external Egypt signals into commercial learning updates."""
 
+    @staticmethod
+    def _is_search_signal(observation: ResearchObservation) -> bool:
+        """True when the observation came from a search-trends source.
+
+        Search trends are a `ResearchSourceType`, not an Egyptian research
+        domain (the documented domain list has no search entry). The previous
+        code compared the observation *domain* against a source-type member,
+        which raised `AttributeError` at runtime on every path that reached it.
+        """
+
+        return (
+            observation.source is not None
+            and observation.source.source_type is ResearchSourceType.SEARCH_TRENDS
+        )
+
+    @staticmethod
+    def _has_search_signal(observations: List[ResearchObservation]) -> bool:
+        return any(ExternalSocialResearchEngine._is_search_signal(obs) for obs in observations)
+
+
     DEFAULT_WEIGHTS: Dict[str, float] = {
         "price_sensitivity": 1.0,
         "trust_requirement": 1.0,
@@ -238,7 +258,7 @@ class ExternalSocialResearchEngine:
                 shifts.append("Public mood may become more cautious; avoid aggressive or polarizing messaging.")
             if obs.domain == EgyptResearchDomain.CONSUMER_CONFIDENCE and obs.direction == SignalDirection.DOWN:
                 shifts.append("Customers may delay discretionary purchases unless offer value is clear.")
-            if obs.domain == EgyptResearchDomain.SEARCH_TRENDS and obs.direction == SignalDirection.UP:
+            if ExternalSocialResearchEngine._is_search_signal(obs) and obs.direction == SignalDirection.UP:
                 shifts.append("Search intent is rising; test category-specific landing or content angles.")
             if obs.domain == EgyptResearchDomain.CHANNEL_BEHAVIOR:
                 shifts.append("Channel behavior is changing; creative/message fit should be retested.")
@@ -279,7 +299,7 @@ class ExternalSocialResearchEngine:
                 weights["political_context_caution"] = ExternalSocialResearchEngine._bounded(weights["political_context_caution"] + impact_multiplier)
             if obs.domain == EgyptResearchDomain.RELIGIOUS_SEASONALITY:
                 weights["seasonality"] = ExternalSocialResearchEngine._bounded(weights["seasonality"] + impact_multiplier)
-            if obs.domain == EgyptResearchDomain.SEARCH_TRENDS:
+            if ExternalSocialResearchEngine._is_search_signal(obs):
                 weights["search_trend_momentum"] = ExternalSocialResearchEngine._bounded(weights["search_trend_momentum"] + impact_multiplier)
             if obs.domain == EgyptResearchDomain.PRODUCT_CATEGORY_TREND:
                 weights["category_demand"] = ExternalSocialResearchEngine._bounded(weights["category_demand"] + impact_multiplier)
@@ -307,7 +327,7 @@ class ExternalSocialResearchEngine:
         opportunities: List[str] = []
         for obs in observations:
             if obs.direction == SignalDirection.UP:
-                if obs.domain == EgyptResearchDomain.SEARCH_TRENDS:
+                if ExternalSocialResearchEngine._is_search_signal(obs):
                     opportunities.append("Rising search intent: create topical content, landing page, or category-specific offer test.")
                 if obs.domain == EgyptResearchDomain.PRODUCT_CATEGORY_TREND:
                     opportunities.append("Category momentum detected: test controlled budget before competitors saturate the angle.")
@@ -327,7 +347,7 @@ class ExternalSocialResearchEngine:
             guidance.append("Move reviews, real photos, exchange policy, and delivery proof earlier in the creative and WhatsApp script.")
         if CommercialImplication.BRAND_TONE_ADJUSTMENT in implications or EgyptResearchDomain.POLITICAL_CONTEXT in domains:
             guidance.append("Use calm, non-polarizing language; avoid aggressive urgency when public mood is sensitive.")
-        if EgyptResearchDomain.SEARCH_TRENDS in domains:
+        if ExternalSocialResearchEngine._has_search_signal(observations):
             guidance.append("Use search trend terms as hooks, SEO content, and Meta interest tests, but validate with conversion data.")
         if EgyptResearchDomain.SUPPLY_CHAIN in domains:
             guidance.append("Do not scale before confirming supplier price, stock, replacement options, and delivery capacity.")
@@ -340,13 +360,15 @@ class ExternalSocialResearchEngine:
         required = {
             EgyptResearchDomain.INFLATION_PRICES: "daily/weekly price and inflation context",
             EgyptResearchDomain.CONSUMER_CONFIDENCE: "consumer confidence or purchase-intent proxy",
-            EgyptResearchDomain.SEARCH_TRENDS: "search trend momentum",
             EgyptResearchDomain.COMPETITOR_MARKET: "competitor movement",
             EgyptResearchDomain.CHANNEL_BEHAVIOR: "channel behavior shift",
         }
         for domain, label in required.items():
             if domain not in domains:
                 gaps.append(f"Missing {label} signal.")
+        # search momentum is a source-type coverage question, not a domain one
+        if not ExternalSocialResearchEngine._has_search_signal(observations):
+            gaps.append("Missing search trend momentum signal.")
         return gaps or ["Core external research coverage is acceptable for today."]
 
     @staticmethod

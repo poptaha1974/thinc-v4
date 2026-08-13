@@ -2,9 +2,13 @@
 """FastAPI service for THINC v4."""
 from __future__ import annotations
 
+from enum import Enum
+from typing import TypeVar
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from services.api.errors import install_error_handlers
 from services.api.gift_intelligence_routes import router as gift_intelligence_router
 from services.api.schemas import (
     CampaignAnalysisRequest,
@@ -40,6 +44,8 @@ app = FastAPI(
     version="1.0.0-mvp",
 )
 
+install_error_handlers(app)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000", "http://localhost:5173", "http://localhost:8787"],
@@ -69,7 +75,10 @@ def _round(value: float | None, digits: int = 2) -> float | None:
     return round(value, digits)
 
 
-def _enum_from_value(enum_cls, value: str):
+EnumT = TypeVar("EnumT", bound=Enum)
+
+
+def _enum_from_value(enum_cls: type[EnumT], value: str) -> EnumT:
     for item in enum_cls:
         if value in {item.name, item.value}:
             return item

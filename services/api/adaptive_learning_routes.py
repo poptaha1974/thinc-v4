@@ -2,7 +2,9 @@
 """API routes for THINC Adaptive Market Learning."""
 from __future__ import annotations
 
-from typing import Dict, List
+from enum import Enum
+
+from typing import Dict, List, TypeVar
 
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
@@ -59,7 +61,10 @@ class LearningRequest(BaseModel):
     current_weights: Dict[str, float] = Field(default_factory=dict)
 
 
-def _enum_from_value(enum_cls, value: str):
+EnumT = TypeVar("EnumT", bound=Enum)
+
+
+def _enum_from_value(enum_cls: type[EnumT], value: str) -> EnumT:
     for item in enum_cls:
         if value in {item.name, item.value}:
             return item

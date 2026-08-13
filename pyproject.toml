@@ -53,8 +53,11 @@ ignore = ["E501", "E402", "F403", "F405", "F401", "UP006", "UP009", "UP017", "UP
 [tool.mypy]
 python_version = "3.11"
 strict = true
+# Pydantic models declare optional fields through Field(...) defaults, which the
+# plugin teaches MyPy to read; without it every model constructor looks incomplete.
+plugins = ["pydantic.mypy"]
 ignore_missing_imports = true
-files = ["src", "tests", "scripts"]
+files = ["src", "services", "tests", "scripts"]
 mypy_path = ["src"]
 exclude = ["thinc_v4_0_final_verified_20260620", "THINC_v4_0_Master_Framework \\(1\\).py"]
 

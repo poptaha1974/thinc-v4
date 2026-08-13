@@ -54,7 +54,7 @@ class CampaignInput(BaseModel):
     objective: str | None = None
 
     @model_validator(mode="after")
-    def validate_order_flow(self) -> "CampaignInput":
+    def validate_order_flow(self) -> CampaignInput:
         if self.confirmed_orders > self.meta_leads and self.meta_leads > 0:
             raise ValueError("confirmed_orders cannot exceed meta_leads unless a source mismatch model is added")
         if self.delivered_orders > self.confirmed_orders and self.confirmed_orders > 0:
@@ -75,7 +75,7 @@ class EconomicsInput(BaseModel):
 class CampaignAnalysisRequest(BaseModel):
     product: ProductInput
     campaign: CampaignInput
-    economics: EconomicsInput = Field(default_factory=EconomicsInput)
+    economics: EconomicsInput = Field(default_factory=lambda: EconomicsInput())
 
 
 class CampaignAnalysisResponse(BaseModel):
