@@ -1,4 +1,9 @@
-# THINC 4.2.0 — Documented Release Package
+# THINC — Documented Release Package
+
+> Distribution-level document. The current version lives in
+> `src/thinc_v4/_version.py` (mirrored in `pyproject.toml`, enforced by a test);
+> `<version>` below stands for it. Layer versions (4.0 framework, 4.2 engine,
+> 4.1 calibration / Layer 8) are independent of the distribution version.
 
 **Inventor / Author / Owner:** Dr. Ehab Taha (الدكتور إيهاب طه).
 
@@ -23,8 +28,8 @@ make release
 
 | File | Purpose |
 |---|---|
-| `thinc_v4-4.2.0-py3-none-any.whl` | installable wheel |
-| `thinc_v4-4.2.0.tar.gz` | source distribution |
+| `thinc_v4-<version>-py3-none-any.whl` | installable wheel |
+| `thinc_v4-<version>.tar.gz` | source distribution |
 | `SHA256SUMS` | SHA-256 for every artifact, `sha256sum -c` compatible |
 | `sbom.cyclonedx.json` | CycloneDX 1.5 SBOM of the package and its resolved dependency environment |
 | `RELEASE_MANIFEST.json` | machine-readable provenance: version, git commit and cleanliness, builder platform, quality-gate results, reproducibility proof, SBOM generator, artifact digests, THINC identity hash |
@@ -35,7 +40,7 @@ make release
 The build refuses to package unless all of these pass:
 
 1. `ruff check .`
-2. `mypy` (strict, over `src` + `tests` + `scripts`)
+2. `mypy` (strict, over `src` + `services` + `tests` + `scripts`)
 3. `pytest -q`
 4. `python -m thinc_v4.v4_2.master_framework --test` (v4.2 self-test, 45 checks)
 5. `pyproject.toml` version == `thinc_v4.__version__`
@@ -73,7 +78,7 @@ python -c "import json;m=json.load(open('RELEASE_MANIFEST.json'));print(m['versi
 python -c "import json;d=json.load(open('sbom.cyclonedx.json'));print(d['bomFormat'],d['specVersion'],len(d['components']),'components')"
 
 # clean-room smoke test
-python -m venv /tmp/verify && /tmp/verify/bin/pip install thinc_v4-4.2.0-py3-none-any.whl
+python -m venv /tmp/verify && /tmp/verify/bin/pip install thinc_v4-*-py3-none-any.whl
 /tmp/verify/bin/python -m thinc_v4.v4_2.master_framework --test
 ```
 
@@ -87,14 +92,15 @@ never ship a thin SBOM unnoticed.
 
 ## Publishing
 
-Tagging `v4.2.0` triggers `.github/workflows/release.yml`, which rebuilds the
+Tagging `v<version>` triggers `.github/workflows/release.yml`, which rebuilds the
 package, verifies checksums, proves reproducibility, installs the wheel in a
 clean virtualenv, runs the v4.2 self-test against the installed wheel, and then
 attaches all artifacts to the GitHub Release.
 
 ```bash
-git tag -a v4.2.0 -m "THINC v4.2.0"
-git push origin v4.2.0
+VERSION=$(python -c "import tomllib,pathlib;print(tomllib.loads(pathlib.Path('pyproject.toml').read_text())['project']['version'])")
+git tag -a "v${VERSION}" -m "THINC v${VERSION}"
+git push origin "v${VERSION}"
 ```
 
 ### Re-publishing an existing tag
@@ -109,4 +115,4 @@ detects that case, deletes the stale draft, recreates the release with
 exists for the tag — so a moved tag can no longer leave duplicate drafts behind.
 
 ---
-THINC™ v4.2 — Invented by Dr. Ehab Taha (الدكتور إيهاب طه). © 2026 all rights reserved.
+THINC™ — Invented by Dr. Ehab Taha (الدكتور إيهاب طه). © 2026 all rights reserved.

@@ -1,9 +1,11 @@
 # THINC v4.2 — Module Architecture
 
 **Inventor / Author / Owner:** Dr. Ehab Taha (الدكتور إيهاب طه).
-**Distribution version:** 4.2.0.
+**Scope:** the v4.2 engine layer (`src/thinc_v4/v4_2/`). The layer version is
+`4.2`; the distribution that ships it is versioned separately in
+`src/thinc_v4/_version.py`.
 
-Before 4.2.0 the v4.2 layer was one 2,365-line file
+Before the 4.2.0 release the v4.2 layer was one 2,365-line file
 (`THINC_v4_2_Media_Test_Protocol_Master_Framework.py`). It is now split into
 focused modules under `src/thinc_v4/v4_2/`, with `master_framework.py` kept as a
 **stable facade** so every existing import keeps working.
