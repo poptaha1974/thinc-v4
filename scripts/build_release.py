@@ -32,6 +32,7 @@ import shutil
 import subprocess
 import sys
 import tarfile
+import tempfile
 import tomllib
 from datetime import datetime, timezone
 from pathlib import Path
@@ -118,16 +119,40 @@ def quality_gates(skip: bool) -> dict[str, Any]:
     return gates
 
 
-def build_distributions(source_date_epoch: str) -> list[Path]:
-    if DIST.exists():
-        shutil.rmtree(DIST)
+def build_distributions(source_date_epoch: str, outdir: Path = DIST) -> list[Path]:
+    if outdir.exists():
+        shutil.rmtree(outdir)
     env = dict(os.environ)
     env["SOURCE_DATE_EPOCH"] = source_date_epoch
     env["PYTHONHASHSEED"] = "0"
-    must_run([sys.executable, "-m", "build", "--sdist", "--wheel", "--outdir", str(DIST)], env=env)
-    for archive in DIST.glob("*.tar.gz"):
+    must_run([sys.executable, "-m", "build", "--sdist", "--wheel", "--outdir", str(outdir)], env=env)
+    for archive in outdir.glob("*.tar.gz"):
         _normalize_sdist(archive, int(source_date_epoch))
-    return sorted(p for p in DIST.iterdir() if p.suffix in {".gz", ".whl"})
+    return sorted(p for p in outdir.iterdir() if p.suffix in {".gz", ".whl"})
+
+
+def verify_reproducible(source_date_epoch: str, artifacts: list[Path]) -> dict[str, Any]:
+    """Rebuild the archives in a scratch directory and compare digests.
+
+    Running the check inside the same invocation keeps the published manifest and
+    notes describing the *gated* build, instead of being overwritten by a second,
+    gate-skipping build.
+    """
+
+    expected = {path.name: sha256_of(path) for path in artifacts}
+    with tempfile.TemporaryDirectory(prefix="thinc-repro-") as scratch:
+        rebuilt = build_distributions(source_date_epoch, Path(scratch) / "dist")
+        actual = {path.name: sha256_of(path) for path in rebuilt}
+    mismatches = sorted(
+        name for name in expected if expected[name] != actual.get(name)
+    )
+    if mismatches:
+        raise SystemExit(f"build is not reproducible: {mismatches}")
+    return {
+        "verified": True,
+        "method": "double build in one invocation, archive digests compared",
+        "archives": sorted(expected),
+    }
 
 
 def _normalize_sdist(archive: Path, mtime: int) -> None:
@@ -265,6 +290,11 @@ def _annotate_sbom(target: Path, version: str, artifacts: list[Path], git: dict[
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--skip-gates", action="store_true", help="skip lint/type/test gates")
+    parser.add_argument(
+        "--skip-reproducibility-check",
+        action="store_true",
+        help="skip the second build used to prove reproducibility",
+    )
     args = parser.parse_args()
 
     version = project_version()
@@ -273,6 +303,10 @@ def main() -> int:
 
     gates = quality_gates(args.skip_gates)
     artifacts = build_distributions(source_date_epoch)
+    reproducibility: dict[str, Any] = {"verified": False, "method": "SKIPPED"}
+    if not args.skip_reproducibility_check:
+        reproducibility = verify_reproducible(source_date_epoch, artifacts)
+        print("Reproducible build confirmed")
     sbom_path = build_sbom(version, artifacts, git)
 
     from thinc_v4 import __version__ as package_version
@@ -308,6 +342,7 @@ def main() -> int:
             "attribution_verified": True,
         },
         "quality_gates": gates,
+        "reproducibility": reproducibility,
         "artifacts": [
             {"name": path.name, "bytes": path.stat().st_size, "sha256": digests[path.name]}
             for path in checksum_targets
@@ -345,6 +380,10 @@ def main() -> int:
         "## Quality gates",
         "",
         f"```\n{json.dumps(gates, ensure_ascii=False, indent=2)}\n```",
+        "",
+        "## Reproducibility",
+        "",
+        f"```\n{json.dumps(reproducibility, ensure_ascii=False, indent=2)}\n```",
         "",
         "## Verification",
         "",

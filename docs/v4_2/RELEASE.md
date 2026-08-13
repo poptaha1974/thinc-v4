@@ -27,7 +27,7 @@ make release
 | `thinc_v4-4.2.0.tar.gz` | source distribution |
 | `SHA256SUMS` | SHA-256 for every artifact, `sha256sum -c` compatible |
 | `sbom.cyclonedx.json` | CycloneDX 1.5 SBOM of the package and its resolved dependency environment |
-| `RELEASE_MANIFEST.json` | machine-readable provenance: version, git commit and cleanliness, builder platform, quality-gate results, artifact digests, THINC identity hash |
+| `RELEASE_MANIFEST.json` | machine-readable provenance: version, git commit and cleanliness, builder platform, quality-gate results, reproducibility proof, SBOM generator, artifact digests, THINC identity hash |
 | `RELEASE_NOTES.md` | human-readable release record with the digest table and verification steps |
 
 ## Quality gates run before packaging
@@ -48,7 +48,14 @@ Use `--skip-gates` only for local experiments; CI never skips them for a tag.
 `SOURCE_DATE_EPOCH` is pinned to the HEAD commit time, and the sdist is rewritten
 with fixed member mtimes, ownership, and permissions plus a pinned gzip header.
 Rebuilding the same commit with the same toolchain yields **identical** wheel and
-sdist digests; CI proves this by building twice and diffing the digests.
+sdist digests.
+
+The proof runs *inside* the same invocation: the archives are rebuilt in a scratch
+directory and their digests compared, and the result is recorded under
+`reproducibility` in the manifest. This is deliberate — an external
+"build again and diff" step would overwrite the gated manifest and notes with a
+gate-skipping build, making the published record claim `SKIPPED`.
+Use `--skip-reproducibility-check` only for fast local iterations.
 
 The SBOM intentionally embeds a build timestamp, so only the archives are
 compared for bit-for-bit equality.
@@ -69,6 +76,14 @@ python -c "import json;d=json.load(open('sbom.cyclonedx.json'));print(d['bomForm
 python -m venv /tmp/verify && /tmp/verify/bin/pip install thinc_v4-4.2.0-py3-none-any.whl
 /tmp/verify/bin/python -m thinc_v4.v4_2.master_framework --test
 ```
+
+## SBOM generator
+
+The `release` extra pins `cyclonedx-bom==7.3.1`, whose CLI provides the
+`environment` subcommand used here (~75 components). The script keeps a minimal
+built-in fallback, records which generator ran in `sbom.generator`, and the
+release workflow **fails** if the fallback was used — so a tooling downgrade can
+never ship a thin SBOM unnoticed.
 
 ## Publishing
 
