@@ -90,15 +90,46 @@ jobs:
           set -euo pipefail
           ASSETS=(dist/*.whl dist/*.tar.gz dist/SHA256SUMS
                   dist/sbom.cyclonedx.json dist/RELEASE_MANIFEST.json)
-          if gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1; then
-            # keep the notes in sync with the artifacts that are being replaced
+
+          # Deleting and re-pushing a tag turns its release into an orphaned
+          # draft, so a plain "does a release exist?" check can end up editing a
+          # detached draft and leaving the tag with no visible release. Only
+          # reuse a release that is still attached to this tag and not a draft.
+          reusable=false
+          if gh release view "${GITHUB_REF_NAME}" --json tagName,isDraft > /tmp/release.json 2>/dev/null; then
+            tag_name=$(jq -r '.tagName' /tmp/release.json)
+            is_draft=$(jq -r '.isDraft' /tmp/release.json)
+            if [ "${tag_name}" = "${GITHUB_REF_NAME}" ] && [ "${is_draft}" = "false" ]; then
+              reusable=true
+            else
+              echo "::warning::Found a stale or draft release for ${GITHUB_REF_NAME} (tag=${tag_name}, draft=${is_draft}); recreating it."
+              gh release delete "${GITHUB_REF_NAME}" --yes --cleanup-tag=false || true
+            fi
+          fi
+
+          if [ "${reusable}" = "true" ]; then
             gh release edit "${GITHUB_REF_NAME}" \
               --title "THINC ${GITHUB_REF_NAME}" \
-              --notes-file dist/RELEASE_NOTES.md
+              --notes-file dist/RELEASE_NOTES.md \
+              --draft=false --latest
             gh release upload "${GITHUB_REF_NAME}" "${ASSETS[@]}" --clobber
           else
             gh release create "${GITHUB_REF_NAME}" \
               --title "THINC ${GITHUB_REF_NAME}" \
               --notes-file dist/RELEASE_NOTES.md \
+              --verify-tag --latest \
               "${ASSETS[@]}"
           fi
+
+      - name: Confirm exactly one published release for the tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          count=$(gh api "repos/${GITHUB_REPOSITORY}/releases" \
+            --jq "[.[] | select(.tag_name == \"${GITHUB_REF_NAME}\")] | length")
+          draft=$(gh release view "${GITHUB_REF_NAME}" --json isDraft --jq .isDraft)
+          echo "releases for ${GITHUB_REF_NAME}: ${count} (draft=${draft})"
+          test "${count}" -eq 1
+          test "${draft}" = "false"

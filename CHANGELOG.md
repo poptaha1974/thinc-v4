@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — release publishing robustness
+
+- Fixed a release-publishing hazard found while re-tagging `v4.2.0`: deleting a tag turns its GitHub release into an orphaned draft (slug `untagged-…`), so the previous "does a release exist?" check edited the detached draft and left the tag with duplicate drafts and no published release.
+- The workflow now reuses a release only when it is still attached to the tag and not a draft; otherwise it deletes the stale draft and recreates the release with `--verify-tag --latest`.
+- Added a post-publish assertion: exactly one release must exist for the tag, and it must not be a draft.
+- Documented in `docs/v4_2/RELEASE.md` that new content should get a new version, and what happens if a tag is moved anyway.
+
 ## Unreleased — documentation layout
 
 - Moved the eleven service-layer documents out of the `docs/` root into `docs/api/`, so the API architecture no longer sits beside the packaged-engine docs under a colliding `ARCHITECTURE.md` name.

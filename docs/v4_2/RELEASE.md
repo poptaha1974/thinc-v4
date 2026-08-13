@@ -97,5 +97,16 @@ git tag -a v4.2.0 -m "THINC v4.2.0"
 git push origin v4.2.0
 ```
 
+### Re-publishing an existing tag
+
+Prefer a **new version** for new content: two different archives published under
+one version number cannot be told apart by a consumer holding only the version.
+
+If a tag must be moved anyway, note that deleting it turns its release into an
+orphaned *draft* (GitHub renames the slug to `untagged-…`). The workflow now
+detects that case, deletes the stale draft, recreates the release with
+`--verify-tag --latest`, and then asserts that exactly one **published** release
+exists for the tag — so a moved tag can no longer leave duplicate drafts behind.
+
 ---
 THINC™ v4.2 — Invented by Dr. Ehab Taha (الدكتور إيهاب طه). © 2026 all rights reserved.
