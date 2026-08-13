@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-06-15T19:54:16.169817",
+  "product_title": "حمام كريم Karseell Maca Collagen 500ml",
+  "scenarios": {
+    "single": {
+      "price": 1090,
+      "composite_score": 7.62,
+      "grade": "B — منتج قوي، اختبر ووسّع",
+      "break_even_cpa": 363.08,
+      "profitability": 7.9,
+      "gross_profit": 518.68
+    },
+    "bundle": {
+      "price": 1690,
+      "composite_score": 7.72,
+      "grade": "B — منتج قوي، اختبر ووسّع",
+      "break_even_cpa": 474.61,
+      "profitability": 8.2,
+      "gross_profit": 678.02
+    }
+  },
+  "generational_alignment": 0.186,
+  "persona_completeness": 100.0,
+  "taha_index": 8.0,
+  "decision_modifiers": {
+    "force_reality_check": false,
+    "mandatory_hook": "AUTHENTICITY",
+    "framing": [
+      "loss_aversion",
+      "value_protection"
+    ],
+    "payment_integrations": [],
+    "warnings": [
+      "تحول قيمي حاد — Authenticity Hook إلزامي"
+    ]
+  },
+  "version": "v3.1 — Generational Intelligence Edition",
+  "identity_hash": "edc7146d0f9e3f824c60cef40c83b408fbb0a39bc13387f7020df3853df5432b"
+}

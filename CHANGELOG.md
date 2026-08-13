@@ -7,7 +7,7 @@
 - Mirrored the fix in the archived snapshot so both surfaces agree.
 - Added tests for column order, values, DataFrame rendering, and a regression guard that fails if the `__dict__` pattern ever returns to either dashboard.
 
-## 4.3.0 — 2026-08-13 (v4.1 calibration layer)
+## Unreleased — v4.1 calibration layer (distribution stays 4.2.0)
 
 - Rebased the v4.1 calibration line onto the 4.2.0 package: outcome tracking (`outcomes.py`), predictive-accuracy reporting and Bayesian weight calibration with a ±20% per-cycle cap (`calibration.py`), and the retention engine (`retention.py`).
 - `framework.load_component_weights()` now reads calibrated weights from `weights.json`, falling back safely to the built-in defaults.
@@ -70,6 +70,37 @@
 - Extended MyPy in CI to `src`, `tests`, and `scripts` via `files` in `pyproject.toml`, with annotation-strictness relaxed only for legacy unittest suites and operational scripts.
 - Added a `v4_2_smoke` CI job running the v4.2 engine self-test, governance coverage, and the Karseell reference run asserted to stay `NO_LAUNCH_BEFORE_MODIFICATION`.
 - Added `.gitignore` so build, cache, and virtualenv artifacts stay out of the repository.
+## Layer 8 + Pixel Feedback Bridge — 2026-08-13 (shipped in distribution 4.2.0)
+
+- **Generational Intelligence (Layer 8) is now a first-class v4.0 subpackage**:
+  added `src/thinc_v4/generational/` which re-exports `Layer8_GenerationalIntelligence`,
+  `GenerationalIntelligenceEngine`, `EgyptianGeneration`, `GenerationalIdentity`,
+  `FormativeMemory`, `ValueWorldview`, `BehavioralPredictors`, and `LifeStage`
+  from the bundled v3.1 framework, with a defensive fallback when the canonical
+  module name is unavailable and an `is_available()` guard.
+- **Pixel Feedback Bridge (Meta Pixel ↔ Layer 8)** is now a first-class v4.0
+  subpackage: added `src/thinc_v4/pixel_bridge/` containing `PixelPurchaseEvent`,
+  `GenerationalRollup`, and the `PixelFeedbackBridge` engine. The bridge
+  enforces the Golden Rule (Purchase counted only after delivery + payment
+  settlement), computes generational rollups, detects behavioural drift, and
+  closes the loop into `GENERATIONAL_NORMS` and `EGYPTIAN_FORMATIVE_EVENTS`.
+- Added `examples/karseell/` capturing a real-product validation run
+  (Karseell Maca Collagen from the AlHhomz Shopify store) with the test
+  script, full Markdown report, and JSON snapshot.
+- Added `tests/test_generational_and_pixel_bridge.py` covering subpackage
+  availability, Layer 8 re-exports, Egyptian generation enum membership,
+  pixel-bridge instantiation, and the documented public API surface.
+- Updated the top-level `thinc_v4` namespace to re-export the two extension
+  subpackages and tightened the package docstring accordingly.
+- Preserved THINC v4.0 identity, ownership, watermarking, attribution, and
+  Arabic/Egyptian dialect behavior unchanged.
+- Rebased onto the 4.2.0 package: this layer no longer changes the distribution version (it previously declared `4.1.0`), because the version is now owned solely by `src/thinc_v4/_version.py` and enforced by a parity test.
+- Merged the package docstring and namespace re-exports so `PACKAGE_VERSION`/`__version__` stay exported alongside `generational` and `pixel_bridge`.
+- Fixed an import-time crash: `thinc_v4.pixel_bridge.bridge` imported `THINC_v3_1_Master_Framework` unguarded, so `import thinc_v4` failed in any environment without the bundled v3.1 snapshot (an installed wheel). The suite hid it because `conftest.py` had already put the legacy directory on `sys.path`.
+- Promoted the v3.1 loader to `thinc_v4/_v3_compat.py` as the single package-wide resolver (`V3`, `V3_IMPORT_ERROR`, `v3_available()`, `require_v3()`); `thinc_v4/v4_2/_v3_compat.py` is now a thin re-export, and the generational and pixel-bridge layers use the same loader.
+- The pixel bridge now exposes `is_available()` and raises a clear `RuntimeError` naming the consumer on first use when v3.1 is absent, instead of crashing on import.
+- Added `tests/test_v3_compat_isolation.py`: a static guard against unguarded v3.1 imports anywhere in the package, plus behavioural tests for the degraded path. Verified in a clean virtualenv that the built wheel imports without v3.1.
+
 
 ## 4.0.2 — 2026-06-20
 
