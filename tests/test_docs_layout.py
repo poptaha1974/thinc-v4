@@ -10,6 +10,7 @@ for the service layer — which is why the service-layer docs now live under
 from __future__ import annotations
 
 import re
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -33,15 +34,24 @@ SERVICE_LAYER_DOCS = {
 }
 
 LINK_PATTERN = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
-SKIP_DIRS = {".git", ".venv", "dist", "build", "node_modules", "__pycache__"}
 
 
 def markdown_files() -> list[Path]:
-    return [
-        path
-        for path in ROOT.rglob("*.md")
-        if not any(part in SKIP_DIRS for part in path.parts)
-    ]
+    """Only the Markdown we own.
+
+    Walking the tree would also pick up generated or third-party files such as
+    ``dist/RELEASE_NOTES.md`` or ``.pytest_cache/README.md``, which makes the
+    collected test count depend on whether a build or a previous run happened —
+    and would fail this suite over links we do not control.
+    """
+
+    listed = subprocess.run(
+        ["git", "-C", str(ROOT), "ls-files", "-z", "*.md"],
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout
+    return [ROOT / name for name in listed.split("\0") if name]
 
 
 def test_service_layer_docs_live_under_docs_api() -> None:
@@ -62,6 +72,16 @@ def test_api_docs_index_lists_every_document() -> None:
     index = (API_DOCS / "README.md").read_text(encoding="utf-8")
     missing = [name for name in sorted(SERVICE_LAYER_DOCS) if name not in index]
     assert missing == []
+
+
+def test_the_link_scan_covers_every_tracked_markdown_file() -> None:
+    """Guard the guard: a broken file list would silently scan nothing."""
+
+    scanned = markdown_files()
+    assert len(scanned) >= 25
+    assert ROOT / "README.md" in scanned
+    assert ROOT / "docs/api/README.md" in scanned
+    assert all(path.exists() for path in scanned)
 
 
 @pytest.mark.parametrize("path", markdown_files(), ids=lambda p: str(p.relative_to(ROOT)))
