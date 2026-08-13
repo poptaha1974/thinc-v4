@@ -263,7 +263,20 @@ elif page == "🧭 Category & Competition":
         market_gap="السوق مليان كورسات نظرية، لكن قليل جدًا برامج فيها تشغيل حقيقي ومكان فعلي ودعم AI ونادي تجار.",
     )
     st.metric("Differentiation Score", f"{comp.differentiation_score()}/10")
-    st.dataframe(pd.DataFrame([asdict for asdict in [c.__dict__ for c in comp.competitors]]), use_container_width=True)
+    competitor_columns = [
+        "name",
+        "positioning",
+        "price_range",
+        "offer_strength",
+        "creative_strength",
+        "trust_strength",
+        "operational_strength",
+        "weakness",
+    ]
+    st.dataframe(
+        pd.DataFrame([{c: getattr(x, c) for c in competitor_columns} for x in comp.competitors]),
+        use_container_width=True,
+    )
 
 # -----------------------------------------------------------------------------
 # Founder OS

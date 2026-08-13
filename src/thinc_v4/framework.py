@@ -571,6 +571,32 @@ def default_differentiation_assets() -> List[DifferentiationAsset]:
     ]
 
 
+def competitor_rows(competitors: Iterable[CompetitorProfile]) -> List[Dict[str, Any]]:
+    """Flatten competitor profiles into ordered rows for tables and exports.
+
+    Uses `dataclasses.asdict` with an explicit column order so dashboards stay
+    stable when new fields are added to `CompetitorProfile`.
+    """
+
+    columns = [
+        "name",
+        "positioning",
+        "price_range",
+        "offer_strength",
+        "creative_strength",
+        "trust_strength",
+        "operational_strength",
+        "weakness",
+    ]
+    rows: List[Dict[str, Any]] = []
+    for competitor in competitors:
+        data = asdict(competitor)
+        row = {column: data[column] for column in columns if column in data}
+        row.update({key: value for key, value in data.items() if key not in row})
+        rows.append(row)
+    return rows
+
+
 @dataclass
 class CompetitiveIntelligence:
     competitors: List[CompetitorProfile] = field(default_factory=list)

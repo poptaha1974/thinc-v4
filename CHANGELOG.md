@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — dashboard competitor table
+
+- Fixed the competitor table in the **active** dashboard `src/thinc_v4/streamlit_app.py`: it built rows with `[asdict for asdict in [c.__dict__ for c in comp.competitors]]`, which shadowed the imported `dataclasses.asdict`, never called it, and rendered whatever `__dict__` happened to contain (order and internals included). PR #3 only patched the archived snapshot, so the live surface stayed broken.
+- Added `framework.competitor_rows()`: a pure, testable row builder using `dataclasses.asdict` with an explicit column order, so the table stays stable when `CompetitorProfile` gains fields.
+- Mirrored the fix in the archived snapshot so both surfaces agree.
+- Added tests for column order, values, DataFrame rendering, and a regression guard that fails if the `__dict__` pattern ever returns to either dashboard.
+
 ## 4.3.0 — 2026-08-13 (v4.1 calibration layer)
 
 - Rebased the v4.1 calibration line onto the 4.2.0 package: outcome tracking (`outcomes.py`), predictive-accuracy reporting and Bayesian weight calibration with a ±20% per-cycle cap (`calibration.py`), and the retention engine (`retention.py`).
