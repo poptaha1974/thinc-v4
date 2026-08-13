@@ -90,3 +90,28 @@ def test_release_workflow_verifies_checksums_and_reproducibility() -> None:
     assert "sha256sum -c SHA256SUMS" in workflow
     assert "Reproducible build confirmed" in workflow
     assert "master_framework --test" in workflow
+
+
+def test_release_workflow_rejects_a_fallback_sbom() -> None:
+    workflow = (ROOT / ".github/workflows/release.yml").read_text(encoding="utf-8")
+    assert "SBOM fell back to" in workflow
+
+
+def test_sbom_generator_is_recorded_in_the_manifest() -> None:
+    module = load_build_release()
+    text = SCRIPT.read_text(encoding="utf-8")
+    assert module.PRIMARY_SBOM_GENERATOR == "cyclonedx-py"
+    assert module.FALLBACK_SBOM_GENERATOR == "builtin-fallback"
+    assert '"generator": SBOM_GENERATOR' in text
+
+
+def test_release_extra_pins_a_cyclonedx_cli_with_the_environment_command() -> None:
+    """`cyclonedx_py environment` exists in 5.x+; older 4.x used a different CLI."""
+
+    import tomllib
+
+    data = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+    pins = data["project"]["optional-dependencies"]["release"]
+    cyclonedx = next(pin for pin in pins if pin.startswith("cyclonedx-bom"))
+    major = int(cyclonedx.split("==")[1].split(".")[0])
+    assert major >= 5, f"{cyclonedx} predates the 'environment' subcommand"

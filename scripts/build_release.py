@@ -160,8 +160,16 @@ def _normalize_sdist(archive: Path, mtime: int) -> None:
             gz.write(buffer.getvalue())
 
 
+#: Set by `build_sbom` so the manifest records which generator actually ran.
+SBOM_GENERATOR = "unknown"
+PRIMARY_SBOM_GENERATOR = "cyclonedx-py"
+FALLBACK_SBOM_GENERATOR = "builtin-fallback"
+
+
 def build_sbom(version: str, artifacts: list[Path], git: dict[str, str]) -> Path:
     """Generate a CycloneDX SBOM, falling back to a self-built document."""
+
+    global SBOM_GENERATOR
 
     target = DIST / "sbom.cyclonedx.json"
     generated = run(
@@ -184,11 +192,17 @@ def build_sbom(version: str, artifacts: list[Path], git: dict[str, str]) -> Path
         ]
     )
     if generated.returncode == 0 and target.exists():
-        print("SBOM: generated with cyclonedx-py")
+        SBOM_GENERATOR = PRIMARY_SBOM_GENERATOR
+        print(f"SBOM: generated with {PRIMARY_SBOM_GENERATOR}")
         _annotate_sbom(target, version, artifacts, git)
         return target
 
+    SBOM_GENERATOR = FALLBACK_SBOM_GENERATOR
     print("SBOM: cyclonedx-py unavailable, writing a minimal CycloneDX 1.5 document")
+    sys.stderr.write(
+        "WARNING: falling back to the minimal SBOM. Install the pinned "
+        "'cyclonedx-bom' from the 'release' extra for a full dependency SBOM.\n"
+    )
     data = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
     dependencies = data["project"].get("dependencies", [])
     components: list[dict[str, Any]] = []
@@ -298,7 +312,13 @@ def main() -> int:
             {"name": path.name, "bytes": path.stat().st_size, "sha256": digests[path.name]}
             for path in checksum_targets
         ],
-        "sbom": {"file": sbom_path.name, "format": "CycloneDX", "spec_version": "1.5"},
+        "sbom": {
+            "file": sbom_path.name,
+            "format": "CycloneDX",
+            "spec_version": "1.5",
+            "generator": SBOM_GENERATOR,
+            "components": len(json.loads(sbom_path.read_text(encoding="utf-8")).get("components", [])),
+        },
     }
     (DIST / "RELEASE_MANIFEST.json").write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
