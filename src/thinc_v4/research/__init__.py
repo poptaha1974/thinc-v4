@@ -18,10 +18,14 @@ Layout:
 - `semantic_filter` — keeps off-topic (medical, sports, technical) papers out
 - `registry` — theory registry and deduplicated paper store
 - `proposals` — proposal generation, review, and application
+- `ingestion` — the only module that touches the network, behind an injected fetcher
+- `auto_updater` — the supervised cycle and its CLI (`thinc-v4-research`)
 """
 from __future__ import annotations
 
+from .auto_updater import AutoUpdater
 from .evidence import grade_and_annotate, grade_paper
+from .ingestion import FetchOutcome, JsonFetcher, ResearchIngestor
 from .models import (
     EVIDENCE_WEIGHTS,
     EvidenceLevel,
@@ -45,6 +49,10 @@ from .semantic_filter import FilterVerdict, SemanticFilter
 
 __all__ = [
     "EVIDENCE_WEIGHTS",
+    "AutoUpdater",
+    "FetchOutcome",
+    "JsonFetcher",
+    "ResearchIngestor",
     "EvidenceLevel",
     "FilterVerdict",
     "PapersStore",

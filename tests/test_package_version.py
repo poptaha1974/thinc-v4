@@ -12,7 +12,7 @@ from pathlib import Path
 import thinc_v4
 from thinc_v4 import v4_2
 
-EXPECTED_VERSION = "4.3.0"
+EXPECTED_VERSION = "4.4.0"
 PYPROJECT = Path(__file__).resolve().parents[1] / "pyproject.toml"
 
 
@@ -54,6 +54,8 @@ def test_all_shipped_layers_are_importable() -> None:
         "thinc_v4.egyptian_social_culture",
         "thinc_v4.adaptive_market_learning",
         "thinc_v4.external_social_research",
+        "thinc_v4.research",
+        "thinc_v4.weights_schema",
     ):
         assert importlib.import_module(module)
 
