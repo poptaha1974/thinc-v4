@@ -9,10 +9,15 @@
     "current_version": "1.0",
     "status": "active",
     "description_ar": "الناس بتحس بألم الخسارة ضعف متعة الربح - أساسي في تصميم العروض والضمانات.",
-    "supporting_papers": [],
-    "contradicting_papers": [],
+    "supporting_papers": [
+      "11b256b4-60ab-4dc9-aefa-e931a171dc77"
+    ],
+    "contradicting_papers": [
+      "437a551b-fd89-4c5c-8790-1d8ea21c71e0",
+      "48d1a9aa-bf55-44aa-8d36-a9f32c58cf17"
+    ],
     "confidence_score": 0.95,
-    "last_updated": "2026-08-14T15:07:14.025600Z",
+    "last_updated": "2026-08-14T15:40:19.958957Z",
     "added_at": "2026-08-14T15:07:14.025609Z",
     "tags": [
       "prospect theory",

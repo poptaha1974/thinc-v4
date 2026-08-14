@@ -270,5 +270,56 @@
     "related_theories": [],
     "fetched_at": "2026-08-14T15:07:16.713728Z",
     "relevance_score": 0.0
+  },
+  "437a551b-fd89-4c5c-8790-1d8ea21c71e0": {
+    "paper_id": "437a551b-fd89-4c5c-8790-1d8ea21c71e0",
+    "source": "manual-review",
+    "external_id": "doi:10.1016/j.joep.2025.102801",
+    "title": "Loss aversion is not robust: A re-meta-analysis",
+    "authors": [
+      "Eldad Yechiam",
+      "Dana Zeif"
+    ],
+    "publication_year": 2025,
+    "journal": "Journal of Economic Psychology",
+    "doi": "10.1016/j.joep.2025.102801",
+    "url": "https://doi.org/10.1016/j.joep.2025.102801",
+    "abstract": "Re-analysis of Brown et al. (2024): for symmetric gains and losses with no ordering, the loss aversion parameter is approximately 1.07 and not significantly above 1.0.",
+    "cited_by_count": 6,
+    "evidence_level": "meta_analysis",
+    "keywords": [
+      "loss aversion",
+      "meta-analysis",
+      "robustness"
+    ],
+    "related_theories": [],
+    "fetched_at": "2026-08-14T15:40:19.958085Z",
+    "relevance_score": 0.0
+  },
+  "48d1a9aa-bf55-44aa-8d36-a9f32c58cf17": {
+    "paper_id": "48d1a9aa-bf55-44aa-8d36-a9f32c58cf17",
+    "source": "manual-review",
+    "external_id": "doi:10.1016/j.joep.2024.102740",
+    "title": "A meta-analysis of loss aversion in risky contexts",
+    "authors": [
+      "Lukasz Walasek",
+      "Timothy L. Mullett",
+      "Neil Stewart"
+    ],
+    "publication_year": 2024,
+    "journal": "Journal of Economic Psychology",
+    "doi": "10.1016/j.joep.2024.102740",
+    "url": "https://doi.org/10.1016/j.joep.2024.102740",
+    "abstract": "Random-effects meta-analysis of lambda estimated from choices between mixed gambles finds a small coefficient of 1.31, 95% CI [1.10, 1.53].",
+    "cited_by_count": 0,
+    "evidence_level": "meta_analysis",
+    "keywords": [
+      "loss aversion",
+      "meta-analysis",
+      "risky choice"
+    ],
+    "related_theories": [],
+    "fetched_at": "2026-08-14T15:40:19.958099Z",
+    "relevance_score": 0.0
   }
 }
