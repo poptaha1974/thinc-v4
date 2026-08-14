@@ -131,7 +131,8 @@ jobs:
           git config user.name "THINC Research Bot"
           git config user.email "poptaha1974@users.noreply.github.com"
 
-          WORKTREE=$(mktemp -d)
+          WORKTREE="${RUNNER_TEMP}/research-state-worktree"
+          rm -rf "$WORKTREE"
           if git ls-remote --exit-code --heads origin research-state > /dev/null 2>&1; then
             git fetch origin research-state
             git worktree add "$WORKTREE" research-state
@@ -142,17 +143,56 @@ jobs:
             find "$WORKTREE" -mindepth 1 -maxdepth 1 -not -name .git -exec rm -rf {} +
           fi
 
-          # the response cache is disposable and can be large; state only
-          rsync -a --delete --exclude cache/ research-state/ "$WORKTREE"/
+          # `--exclude .git` is load-bearing: rsync --delete removes anything in the
+          # destination that is absent from the source, and the worktree's .git link
+          # is not part of the state. Deleting it detaches the worktree, and a later
+          # `git status` inside an `if` condition then fails *silently*, so the run
+          # reports success while publishing nothing.
+          rsync -a --delete --exclude cache/ --exclude .git research-state/ "$WORKTREE"/
+          test -e "$WORKTREE/.git" || {
+            echo "::error::the worktree lost its .git link; refusing to continue"
+            exit 1
+          }
+
           cd "$WORKTREE"
-          if git status --porcelain | grep -q .; then
+          git status --porcelain > /tmp/state-status.txt
+          if [ -s /tmp/state-status.txt ]; then
             git add -A
             git commit -q -m "research: monthly cycle $(date -u +%Y-%m-%d) (proposals pending review)"
-            git push -q origin research-state
+            git push -q origin HEAD:research-state
             echo "state published"
           else
             echo "no state change to publish"
           fi
+
+      - name: Confirm the published state is reachable
+        env:
+          GH_TOKEN: ${{ github.token }}
+          THINC_RESEARCH_DIR: ${{ github.workspace }}/research-state
+        run: |
+          set -euo pipefail
+          PENDING=$(python -c "
+          import json, pathlib
+          path = pathlib.Path('research-state/proposals.json')
+          data = json.loads(path.read_text(encoding='utf-8')) if path.exists() else []
+          print(sum(1 for entry in data if entry.get('approved') is None))
+          ")
+          if [ "${PENDING}" -eq 0 ]; then
+            echo "no pending proposals; nothing to publish"
+            exit 0
+          fi
+          # A queue that exists locally but not on the branch is unreviewable, and that
+          # is exactly how the first run failed: the step said success and pushed nothing.
+          git ls-remote --exit-code --heads origin research-state > /dev/null || {
+            echo "::error::${PENDING} proposals are pending but the research-state branch is missing"
+            exit 1
+          }
+          git fetch -q origin research-state
+          git ls-tree -r --name-only FETCH_HEAD | grep -qx "proposals.json" || {
+            echo "::error::research-state carries no proposals.json"
+            exit 1
+          }
+          echo "published state verified: ${PENDING} proposals reachable on research-state"
 
       - name: Open a review issue when proposals are pending
         env:
