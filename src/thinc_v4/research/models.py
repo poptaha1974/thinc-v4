@@ -161,11 +161,20 @@ class Theory(BaseModel):
             return 0.5
         return round(len(self.supporting_papers) / total, 3)
 
-    def matches(self, text: str) -> bool:
-        """Whether `text` (already lowercased) mentions this theory or a tag."""
+    def matches(self, text: str, *, include_tags: bool = False) -> bool:
+        """Whether `text` (already lowercased) refers to this theory.
+
+        By default only the theory's own name counts. Tag matching is opt-in
+        because tags are cross-links between theories — "loss aversion" is a tag of
+        the endowment effect — so tag-based recall attributed one paper's evidence
+        to several theories at once. Approved by Dr. Ehab Taha on 2026-08-14 to
+        narrow proposal generation to name matches.
+        """
 
         if self.name_en.lower() in text:
             return True
+        if not include_tags:
+            return False
         return any(tag.lower() in text for tag in self.tags if tag)
 
 

@@ -1,5 +1,21 @@
 # Changelog
 
+## Unreleased
+
+### Narrowed evidence attribution
+
+- Proposal generation now attributes a paper's evidence only to the theory the paper **names**. Tags are curated cross-links between theories — "loss aversion" is a tag of the endowment effect — so tag-based recall raised the endowment effect's confidence from a paper that never studied it. Approved by Dr. Ehab Taha on 2026-08-14.
+- `Theory.matches()` and `TheoryRegistry.related_to()` take `include_tags=False` by default; tag recall stays available for exploration (searching, not proposing).
+
+### Monthly research cycle enabled
+
+- Added `.github/workflows/research-monthly.yml`: the cycle runs on the 1st of each month at 01:15 UTC (03:15 Cairo in winter, 04:15 in summer) and on manual dispatch.
+- State lives on a dedicated `research-state` branch, never on `main`, so a scheduled job cannot rewrite released code while deduplication still works across months.
+- The workflow **asserts that a cron cycle changed no theory confidence** and fails if any drifted, which is what makes an unattended schedule safe.
+- Pending proposals are surfaced by opening a review issue with the justifications and the review commands, instead of a queue that grows unseen.
+- A failed or rate-limited query raises a visible warning, so an empty cycle is never mistaken for "no new research".
+- `run_cycle()` now materializes the registry it ran against, so "nothing changed" is distinguishable from "no cycle ran" — the earlier behaviour left no registry file after an empty run, which would have failed the workflow's own guard.
+
 ## 4.4.0 — 2026-08-14
 
 Ends the split between the packaged distribution and the self-updating edition: the

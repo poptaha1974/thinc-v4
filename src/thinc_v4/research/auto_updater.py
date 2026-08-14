@@ -102,6 +102,11 @@ class AutoUpdater:
         run = UpdateRun(
             triggered_by=triggered_by, sources_queried=["openalex", "semantic_scholar"]
         )
+        # Materialize the registry that this cycle ran against. Without this an empty
+        # cycle leaves no registry file at all, so a reviewer (or a scheduled job)
+        # cannot tell "nothing changed" apart from "the registry was never there".
+        if not self.registry.path.exists():
+            self.registry.save()
         queries = self.build_queries()
         if max_queries is not None:
             queries = queries[:max_queries]
