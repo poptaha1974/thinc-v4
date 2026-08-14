@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased — research line ported into the package (4.4.0 phases 2-3)
+
+- Added `src/thinc_v4/research/`: `models`, `evidence` (Cochrane grading), `semantic_filter`, `registry` (theory registry + deduplicated paper store), and `proposals` (generation, review, application). Ported from the self-updating edition (v4.2.1 EG) under the package's gates: Ruff, MyPy strict, and tests that never touch the network.
+- The ten founding theories now ship as read-only seed data (`research/data/theories_seed.json`) with their curated confidences; working state goes to a writable directory (`THINC_RESEARCH_DIR`, default `~/.thinc/research`), the same discipline the calibrated weights use.
+- **Fixed a defect in the ported theory-name heuristic**: the pattern passed `re.IGNORECASE`, which makes `[A-Z]` match lowercase, so the "capitalised name" intent was lost and the match ran back over the sentence — "A meta-analysis of the Decoy Effect" produced the theory id `meta_analysis_of_the_decoy_effect`. Capitalisation is now required and at most three words are taken.
+- A `weight_change` proposal is applied through the canonical weights schema, so a proposal naming a legacy short key cannot write an unrecognised key, and a change that breaks the sum-to-1 invariant is refused with the weights file left untouched.
+- An unreadable theory registry now raises instead of silently starting empty (which would drop every tracked theory); the same for the paper and proposal stores.
+- Preserved exactly: the Cochrane evidence weights, the citation and recency multipliers, `net_evidence()`, the filter's keyword and journal lists with their shipped precedence, and the Human-in-the-Loop contract that no proposal is ever auto-applied. Approving an `evidence_update` applies the reviewed value rather than recomputing from the ratio, which used to jump confidence to 1.0.
+- `evidence_weight()` accepts `now_year`, so tests pin the recency multiplier instead of depending on the calendar.
+- Added `tests/research/` (76 tests), including regression guards for the four contaminated papers (healthcare, concussion, coronary disease, eating disorders) that the unfiltered run once proposed as behavioural evidence.
+
 ## Unreleased — canonical weight keys (4.4.0 phase 1)
 
 - Added `src/thinc_v4/weights_schema.py`: the six canonical component keys, the legacy short-key aliases used by the self-updating edition (`v3_core` → `v3_behavioral_commerce_core`, …), key translation, and validation.

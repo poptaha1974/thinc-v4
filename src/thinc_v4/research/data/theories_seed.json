@@ -1,0 +1,189 @@
+{
+  "loss_aversion": {
+    "theory_id": "loss_aversion",
+    "name_en": "Loss Aversion",
+    "name_ar": "تأثير الخوف من الخسارة",
+    "category": "behavioral_economics",
+    "original_author": "Kahneman & Tversky",
+    "original_year": 1979,
+    "current_version": "1.0",
+    "status": "active",
+    "description_ar": "الناس بتحس بألم الخسارة ضعف متعة الربح - أساسي في تصميم العروض والضمانات.",
+    "confidence_score": 0.95,
+    "tags": [
+      "prospect theory",
+      "endowment effect",
+      "risk aversion",
+      "framing"
+    ]
+  },
+  "anchoring": {
+    "theory_id": "anchoring",
+    "name_en": "Anchoring",
+    "name_ar": "تأثير المرساة",
+    "category": "behavioral_economics",
+    "original_author": "Tversky & Kahneman",
+    "original_year": 1974,
+    "current_version": "1.0",
+    "status": "active",
+    "description_ar": "أول رقم بيتشاف بيكون مرجع لكل الأرقام اللي بعده - أساس تسعير الـ premium anchor.",
+    "confidence_score": 0.8,
+    "tags": [
+      "price perception",
+      "cognitive bias",
+      "reference point",
+      "heuristic"
+    ]
+  },
+  "social_proof": {
+    "theory_id": "social_proof",
+    "name_en": "Social Proof",
+    "name_ar": "تأثير الجيران - الإثبات الاجتماعي",
+    "category": "psychology",
+    "original_author": "Robert Cialdini",
+    "original_year": 1984,
+    "current_version": "1.0",
+    "status": "active",
+    "description_ar": "الناس بتقلد أفعال الآخرين خصوصاً في حالات عدم اليقين - أساسي في التقييمات والمراجعات.",
+    "confidence_score": 0.87,
+    "tags": [
+      "conformity",
+      "reviews",
+      "testimonials",
+      "influence",
+      "cialdini"
+    ]
+  },
+  "scarcity": {
+    "theory_id": "scarcity",
+    "name_en": "Scarcity",
+    "name_ar": "الندرة",
+    "category": "psychology",
+    "original_author": "Robert Cialdini",
+    "original_year": 1984,
+    "current_version": "1.0",
+    "status": "active",
+    "description_ar": "الشيء اللي كميته محدودة أو وقته قصير بيبقى قيمته أعلى في نظر المستهلك.",
+    "confidence_score": 0.83,
+    "tags": [
+      "urgency",
+      "limited time",
+      "fomo",
+      "cialdini",
+      "influence"
+    ]
+  },
+  "peak_end": {
+    "theory_id": "peak_end",
+    "name_en": "Peak-End Rule",
+    "name_ar": "قاعدة الذروة والنهاية",
+    "category": "behavioral_economics",
+    "original_author": "Kahneman",
+    "original_year": 1993,
+    "current_version": "1.0",
+    "status": "active",
+    "description_ar": "الناس بتقيم التجربة بذروتها ونهايتها فقط، مش بمتوسطها - مهم في تصميم رحلة العميل.",
+    "confidence_score": 0.75,
+    "tags": [
+      "customer experience",
+      "memory",
+      "cx",
+      "journey",
+      "kahneman"
+    ]
+  },
+  "default_effect": {
+    "theory_id": "default_effect",
+    "name_en": "Default Effect",
+    "name_ar": "تأثير الخيار الافتراضي",
+    "category": "behavioral_economics",
+    "original_author": "Thaler & Sunstein",
+    "original_year": 2008,
+    "current_version": "1.0",
+    "status": "active",
+    "description_ar": "الناس بتميل للخيار الافتراضي المُعد سلفاً - أساس Nudge Theory.",
+    "confidence_score": 0.8,
+    "tags": [
+      "nudge",
+      "choice architecture",
+      "opt-in",
+      "opt-out",
+      "thaler"
+    ]
+  },
+  "reciprocity": {
+    "theory_id": "reciprocity",
+    "name_en": "Reciprocity",
+    "name_ar": "المعاملة بالمثل",
+    "category": "psychology",
+    "original_author": "Robert Cialdini",
+    "original_year": 1984,
+    "current_version": "1.0",
+    "status": "active",
+    "description_ar": "لما بتدي حاجة مجاناً، العميل بيحس بالتزام يرد الجميل - أساس free trials و lead magnets.",
+    "confidence_score": 0.87,
+    "tags": [
+      "free sample",
+      "lead magnet",
+      "gift",
+      "cialdini",
+      "influence"
+    ]
+  },
+  "commitment_consistency": {
+    "theory_id": "commitment_consistency",
+    "name_en": "Commitment and Consistency",
+    "name_ar": "الالتزام والاتساق",
+    "category": "psychology",
+    "original_author": "Robert Cialdini",
+    "original_year": 1984,
+    "current_version": "1.0",
+    "status": "active",
+    "description_ar": "لما العميل يلتزم بخطوة صغيرة (foot-in-the-door)، بيسهل عليه يلتزم بخطوة أكبر.",
+    "confidence_score": 0.74,
+    "tags": [
+      "foot in the door",
+      "micro commitment",
+      "cialdini",
+      "conversion"
+    ]
+  },
+  "cognitive_ease": {
+    "theory_id": "cognitive_ease",
+    "name_en": "Cognitive Ease",
+    "name_ar": "السهولة الإدراكية",
+    "category": "psychology",
+    "original_author": "Kahneman",
+    "original_year": 2011,
+    "current_version": "1.0",
+    "status": "active",
+    "description_ar": "الرسائل السهلة القراءة والمألوفة بتُصدَّق أكتر - مهم في التصميم والـ copywriting.",
+    "confidence_score": 0.72,
+    "tags": [
+      "readability",
+      "fluency",
+      "simplicity",
+      "system 1",
+      "kahneman"
+    ]
+  },
+  "endowment_effect": {
+    "theory_id": "endowment_effect",
+    "name_en": "Endowment Effect",
+    "name_ar": "تأثير التملك",
+    "category": "behavioral_economics",
+    "original_author": "Thaler",
+    "original_year": 1980,
+    "current_version": "1.0",
+    "status": "active",
+    "description_ar": "الناس بتقدر الحاجة اللي بتملكها أعلى من قيمتها الفعلية - أساس free trials و money-back guarantees.",
+    "confidence_score": 0.88,
+    "tags": [
+      "ownership",
+      "trial",
+      "money back",
+      "thaler",
+      "loss aversion"
+    ]
+  }
+}

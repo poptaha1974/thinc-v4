@@ -40,7 +40,7 @@ thinc-v4-weights = "thinc_v4.weights_schema:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-thinc_v4 = ["weights.json"]
+thinc_v4 = ["weights.json", "research/data/*.json"]
 
 [tool.ruff]
 line-length = 120
