@@ -139,3 +139,18 @@ def test_release_workflow_recovers_from_a_moved_tag() -> None:
     assert "--verify-tag" in workflow
     assert "stale or draft release" in workflow
     assert "Confirm exactly one published release for the tag" in workflow
+
+
+def test_monthly_research_workflow_keeps_the_human_in_the_loop() -> None:
+    """The scheduled cycle must propose only, and prove it did not apply anything."""
+
+    workflow = (ROOT / ".github/workflows/research-monthly.yml").read_text(encoding="utf-8")
+
+    assert "cron: '15 1 1 * *'" in workflow, "monthly schedule"
+    assert "Assert the cycle changed no theory confidence" in workflow
+    assert "a cron cycle must not change confidence" in workflow
+    # state is kept off main so a scheduled job never rewrites released code
+    assert "research-state" in workflow
+    assert "branch: main" not in workflow
+    # a reviewer is told, rather than the queue growing silently
+    assert "gh issue create" in workflow

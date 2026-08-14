@@ -158,10 +158,17 @@ class TheoryRegistry:
                 return theory
         return None
 
-    def related_to(self, text: str) -> List[Theory]:
-        """Active theories mentioned in `text` (already lowercased)."""
+    def related_to(self, text: str, *, include_tags: bool = False) -> List[Theory]:
+        """Active theories named in `text` (already lowercased).
 
-        return [theory for theory in self.active() if theory.matches(text)]
+        Tag cross-links are excluded by default, so a paper raises evidence only for
+        the theory it actually names. Pass `include_tags=True` for broad exploration
+        (searching, not proposing).
+        """
+
+        return [
+            theory for theory in self.active() if theory.matches(text, include_tags=include_tags)
+        ]
 
 
 class PapersStore:

@@ -105,7 +105,7 @@ class TestTheory:
         )
         assert theory.net_evidence() == 0.75
 
-    def test_matching_uses_the_english_name_and_tags(self) -> None:
+    def test_matching_follows_the_name_and_ignores_tags_by_default(self) -> None:
         theory = Theory(
             theory_id="loss_aversion",
             name_en="Loss Aversion",
@@ -114,7 +114,10 @@ class TestTheory:
             tags=["prospect theory"],
         )
         assert theory.matches("a study of loss aversion in cairo")
-        assert theory.matches("applying prospect theory to pricing")
+        assert not theory.matches("applying prospect theory to pricing"), (
+            "a tag is a cross-link between theories, not evidence about this one"
+        )
+        assert theory.matches("applying prospect theory to pricing", include_tags=True)
         assert not theory.matches("a study of brand recall")
 
     def test_stored_timestamps_are_timezone_aware(self) -> None:

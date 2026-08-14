@@ -245,6 +245,29 @@ class TestUpdateCycle:
         assert len(history) == 2
         assert [entry["triggered_by"] for entry in history] == ["manual", "cron"]
 
+    def test_an_empty_cycle_still_materializes_the_registry(self, tmp_path: Path) -> None:
+        """A run that fetched nothing must be distinguishable from a run that never happened."""
+
+        updater = self._updater(tmp_path, RecordingFetcher())  # every query fails
+        run = updater.run_cycle("cron", max_queries=1)
+
+        assert run.papers_fetched == 0
+        assert (tmp_path / TheoryRegistry.FILENAME).exists(), (
+            "the scheduled job reads this file to prove the cycle changed no confidence"
+        )
+
+    def test_a_cron_cycle_leaves_every_confidence_untouched(self, tmp_path: Path) -> None:
+        """The invariant the monthly workflow asserts."""
+
+        from thinc_v4.research import load_seed_theories
+
+        updater = self._updater(tmp_path, RecordingFetcher({"openalex": OPENALEX_RESPONSE}))
+        updater.run_cycle("cron", max_queries=2)
+
+        seed = load_seed_theories()
+        for theory_id, theory in seed.items():
+            assert updater.registry.theories[theory_id].confidence_score == theory.confidence_score
+
     def test_stats_summarize_the_state(self, tmp_path: Path) -> None:
         updater = self._updater(tmp_path, RecordingFetcher({"openalex": OPENALEX_RESPONSE}))
         updater.run_cycle("manual", max_queries=1)

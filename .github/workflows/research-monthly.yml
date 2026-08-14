@@ -1,0 +1,203 @@
+name: THINC Research Monthly Cycle
+
+# Monthly self-updating research cycle, approved by Dr. Ehab Taha (2026-08-14).
+#
+# The cycle only ever *proposes*. It fetches papers, filters, grades, deduplicates
+# and writes pending proposals — it never changes a score or a weight. Review and
+# approval stay manual (`thinc-v4-research approve <id>`).
+#
+# State lives on the dedicated `research-state` branch, never on `main`, so the
+# review queue is auditable and deduplication works across months without touching
+# the released code.
+
+on:
+  schedule:
+    # 01:15 UTC on the 1st of each month = 03:15 Cairo in winter (UTC+2),
+    # 04:15 Cairo during summer time (UTC+3). Cron has no timezone, so the local
+    # hour shifts by one across DST; the run is nightly either way.
+    - cron: '15 1 1 * *'
+  workflow_dispatch:
+    inputs:
+      max_queries:
+        description: 'Limit the number of queries (leave empty for the full cycle)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: research-monthly
+  cancel-in-progress: false
+
+jobs:
+  cycle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the released code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install the package
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Restore the research state
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p research-state
+          if git ls-remote --exit-code --heads origin research-state > /dev/null 2>&1; then
+            git fetch origin research-state:research-state
+            git archive research-state | tar -x -C research-state
+            echo "restored previous state:"
+            ls -1 research-state
+          else
+            echo "no previous state; the registry will be seeded from the package"
+          fi
+
+      - name: Run the cycle
+        id: cycle
+        env:
+          THINC_RESEARCH_DIR: ${{ github.workspace }}/research-state
+        run: |
+          set -euo pipefail
+          ARGS=""
+          if [ -n "${{ inputs.max_queries }}" ]; then
+            ARGS="--max-queries ${{ inputs.max_queries }}"
+          fi
+          thinc-v4-research run --triggered-by cron ${ARGS} | tee cycle.log
+          thinc-v4-research stats | tee -a cycle.log
+          {
+            echo 'summary<<REPORT'
+            cat cycle.log
+            echo REPORT
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Warn when every query failed
+        env:
+          THINC_RESEARCH_DIR: ${{ github.workspace }}/research-state
+        run: |
+          set -euo pipefail
+          if grep -q "استعلامات فشلت" cycle.log; then
+            echo "::warning::كل الاستعلامات أو بعضها فشل — راجع حدود المعدل (429) أو توقف المصدر."
+          fi
+
+      - name: Assert the cycle changed no theory confidence
+        env:
+          THINC_RESEARCH_DIR: ${{ github.workspace }}/research-state
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          from thinc_v4.research import load_seed_theories
+
+          state = pathlib.Path("research-state/theory_registry.json")
+          if not state.exists():
+              # a cycle that fetched nothing still writes the registry it used, so a
+              # missing file means no cycle ran at all
+              sys.exit("the cycle wrote no registry; the run did not complete")
+          live = json.loads(state.read_text(encoding="utf-8"))
+          seed = load_seed_theories()
+
+          # Approved changes are applied by hand, so a *cron* run must leave every
+          # confidence exactly as it was. Anything else means the cycle applied
+          # something on its own, which breaks the Human-in-the-Loop contract.
+          drifted = []
+          for theory_id, theory in seed.items():
+              current = live.get(theory_id)
+              if current is None:
+                  continue
+              if abs(float(current["confidence_score"]) - theory.confidence_score) > 1e-9:
+                  drifted.append(
+                      f"{theory_id}: {theory.confidence_score} -> {current['confidence_score']}"
+                  )
+          if drifted:
+              sys.exit("a cron cycle must not change confidence: " + "; ".join(drifted))
+          print(f"confidence unchanged for {len(seed)} seeded theories")
+          PY
+
+      - name: Publish the state to the research-state branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git config user.name "THINC Research Bot"
+          git config user.email "poptaha1974@users.noreply.github.com"
+
+          WORKTREE=$(mktemp -d)
+          if git ls-remote --exit-code --heads origin research-state > /dev/null 2>&1; then
+            git fetch origin research-state
+            git worktree add "$WORKTREE" research-state
+          else
+            git worktree add --detach "$WORKTREE"
+            git -C "$WORKTREE" checkout --orphan research-state
+            git -C "$WORKTREE" rm -rq --cached . 2>/dev/null || true
+            find "$WORKTREE" -mindepth 1 -maxdepth 1 -not -name .git -exec rm -rf {} +
+          fi
+
+          # the response cache is disposable and can be large; state only
+          rsync -a --delete --exclude cache/ research-state/ "$WORKTREE"/
+          cd "$WORKTREE"
+          if git status --porcelain | grep -q .; then
+            git add -A
+            git commit -q -m "research: monthly cycle $(date -u +%Y-%m-%d) (proposals pending review)"
+            git push -q origin research-state
+            echo "state published"
+          else
+            echo "no state change to publish"
+          fi
+
+      - name: Open a review issue when proposals are pending
+        env:
+          GH_TOKEN: ${{ github.token }}
+          THINC_RESEARCH_DIR: ${{ github.workspace }}/research-state
+        run: |
+          set -euo pipefail
+          PENDING=$(python -c "
+          import json, pathlib
+          path = pathlib.Path('research-state/proposals.json')
+          data = json.loads(path.read_text(encoding='utf-8')) if path.exists() else []
+          print(sum(1 for entry in data if entry.get('approved') is None))
+          ")
+          echo "pending proposals: ${PENDING}"
+          if [ "${PENDING}" -eq 0 ]; then
+            echo "nothing to review"
+            exit 0
+          fi
+
+          {
+            echo "## دورة التحديث الشهرية — ${PENDING} اقتراحًا في انتظار المراجعة"
+            echo
+            echo "لا شيء طُبِّق. المراجعة والاعتماد يدويان."
+            echo
+            echo '```'
+            cat cycle.log
+            echo '```'
+            echo
+            echo "### للمراجعة محليًا"
+            echo '```bash'
+            echo "git fetch origin research-state && git worktree add /tmp/thinc-state research-state"
+            echo "THINC_RESEARCH_DIR=/tmp/thinc-state thinc-v4-research pending"
+            echo "THINC_RESEARCH_DIR=/tmp/thinc-state thinc-v4-research approve <id> --notes \"معتمد\""
+            echo '```'
+            echo
+            echo "بعد الاعتماد، ارفع الحالة المحدَّثة إلى فرع \`research-state\`."
+            echo
+            echo "---"
+            echo "THINC™ — من ابتكار الدكتور إيهاب طه."
+          } > issue.md
+
+          gh issue create \
+            --title "مراجعة اقتراحات THINC — $(date -u +%Y-%m)" \
+            --body-file issue.md \
+            --label "research" 2>/dev/null \
+          || gh issue create \
+            --title "مراجعة اقتراحات THINC — $(date -u +%Y-%m)" \
+            --body-file issue.md

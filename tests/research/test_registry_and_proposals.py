@@ -180,14 +180,14 @@ class TestProposalGeneration:
         assert loss.current_value == 0.95
         assert loss.proposed_value == 1.0
 
-    def test_tag_overlap_proposes_for_every_related_theory(
+    def test_evidence_is_attributed_only_to_the_named_theory(
         self, generator: ProposalGenerator
     ) -> None:
-        """Documented recall behaviour: curated tags link theories to each other.
+        """Approved 2026-08-14: tag cross-links no longer generate proposals.
 
-        "loss aversion" is a tag of the endowment effect, so one strong paper yields a
-        proposal per related theory. Each one is still reviewed separately, so the
-        breadth costs review time, not accuracy.
+        "loss aversion" is a curated tag of the endowment effect, so tag-based recall
+        used to raise the endowment effect's confidence from a paper that never
+        studied it. Generation now follows the theory's own name only.
         """
 
         proposals = generator.analyze_papers(
@@ -198,10 +198,17 @@ class TestProposalGeneration:
                 )
             ]
         )
-        targets = {p.target for p in proposals}
-        assert "loss_aversion" in targets
-        assert len(targets) > 1
+        assert {p.target for p in proposals} == {"loss_aversion"}
         assert all(p.pending for p in proposals)
+
+    def test_tag_recall_is_still_available_for_exploration(
+        self, generator: ProposalGenerator
+    ) -> None:
+        text = "a meta-analysis of loss aversion in consumer pricing"
+        assert {t.theory_id for t in generator.registry.related_to(text)} == {"loss_aversion"}
+        assert {
+            t.theory_id for t in generator.registry.related_to(text, include_tags=True)
+        } == {"loss_aversion", "endowment_effect"}
 
     def test_weak_evidence_generates_nothing(self, generator: ProposalGenerator) -> None:
         paper = make_paper(
@@ -251,7 +258,9 @@ class TestProposalGeneration:
             level=EvidenceLevel.META_ANALYSIS,
         )
         generator.analyze_papers([paper])
-        assert set(paper.related_theories) >= {"scarcity", "social_proof"}
+        assert set(paper.related_theories) == {"scarcity", "social_proof"}, (
+            "both theories are named in the title, so both are legitimate matches"
+        )
 
     def test_proposals_persist_for_a_later_review_session(
         self, generator: ProposalGenerator
