@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased — canonical weight keys (4.4.0 phase 1)
+
+- Added `src/thinc_v4/weights_schema.py`: the six canonical component keys, the legacy short-key aliases used by the self-updating edition (`v3_core` → `v3_behavioral_commerce_core`, …), key translation, and validation.
+- **Fixed a silent degradation**: `load_component_weights()` compared the key set against the defaults and fell back to the built-in weights on *any* difference, so pointing `THINC_WEIGHTS_PATH` at a short-key weights file produced scores computed with weights the operator never chose — with no message. Legacy keys are now translated and the translation is announced in the reported weights version; only genuinely broken payloads fall back.
+- `calibration.load_weights()` normalizes on read, so calibrating a legacy file no longer fails on a key lookup inside `bayesian_calibrate`, and `save_weights` always persists canonical keys.
+- Broken payloads now raise `WeightsPayloadError` naming the reason: unknown key, missing component, conflicting alias/canonical pair, non-numeric value, or a sum that is not 1.0.
+- Added the `thinc-v4-weights` console script to inspect or migrate a weights file.
+- Added `tests/test_weights_schema.py` (27 tests), including a regression guard that a legacy-key file must not resolve to `builtin-fallback`.
+- Added `docs/v4_4/EXECUTION_PLAN.md`: the five-phase plan for moving the Auto-Updater and theory registry into the package and releasing 4.4.0.
+
 ## Unreleased
 
 - Made the Markdown link check scan only git-tracked files. It previously walked the tree, so a stray `.pytest_cache/README.md` was collected locally but not in CI (238 tests locally vs 237 in CI for the same commit) and generated or third-party Markdown could fail a suite over links we do not control.

@@ -34,6 +34,7 @@ release = [
 thinc-v4 = "thinc_v4.framework:main"
 thinc-v4-2 = "thinc_v4.v4_2.media_runner:main"
 thinc-v4-2-governance = "thinc_v4.v4_2.governance:main"
+thinc-v4-weights = "thinc_v4.weights_schema:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

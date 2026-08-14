@@ -55,6 +55,7 @@ from .identity import (
     VERSION,
     WATERMARK,
 )
+from .weights_schema import annotate_version, normalize_weight_keys
 
 _V3_IMPORT_ERROR: Exception | None = None
 try:  # preferred if the canonical name exists
@@ -889,6 +890,10 @@ def load_component_weights() -> Tuple[Dict[str, float], str]:
 
     لو الملف غير موجود أو تالف نرجع للأوزان الافتراضية بأمان.
     يمكن توجيه القراءة لملف أوزان خارجي عبر THINC_WEIGHTS_PATH.
+
+    v4.4: ملف بالمفاتيح القديمة المختصرة (نسخة التحديث الذاتي) يُترجَم إلى
+    المفاتيح القانونية وتُعلَن الترجمة في رقم النسخة، بدل التراجع الصامت إلى
+    الأوزان المدمجة الذي كان يحسب بأوزان لم يخترها المُشغِّل.
     """
     override = os.environ.get("THINC_WEIGHTS_PATH", "").strip()
     weights_path = Path(override).expanduser() if override else APP_DIR / "weights.json"
@@ -897,11 +902,10 @@ def load_component_weights() -> Tuple[Dict[str, float], str]:
     try:
         with weights_path.open(encoding="utf-8") as fh:
             payload = json.load(fh)
-        weights = {k: float(v) for k, v in payload["weights"].items()}
-        if set(weights) != set(DEFAULT_COMPONENT_WEIGHTS) or abs(sum(weights.values()) - 1.0) > 1e-6:
-            raise ValueError("invalid weights payload")
-        return weights, str(payload.get("version", "unversioned"))
-    except (OSError, ValueError, KeyError, json.JSONDecodeError):
+        weights, translated = normalize_weight_keys(payload["weights"])
+        version = str(payload.get("version", "unversioned"))
+        return weights, annotate_version(version, translated)
+    except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError):
         return dict(DEFAULT_COMPONENT_WEIGHTS), "builtin-fallback"
 
 
