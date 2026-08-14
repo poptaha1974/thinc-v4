@@ -25,6 +25,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
 from .outcomes import OutcomeRegistry
+from .weights_schema import normalize_payload
 
 #: The weights shipped inside the installed package (read-only in site-packages).
 PACKAGED_WEIGHTS_PATH = Path(__file__).resolve().parent / "weights.json"
@@ -63,15 +64,20 @@ def resolve_weights_path(path: Path | None = None) -> Path:
 
 
 def load_weights(path: Path | None = None) -> Dict[str, Any]:
+    """Read a weights file, normalized to the canonical component keys.
+
+    Legacy short keys are translated (see `weights_schema`), so calibrating a file
+    written by the self-updating edition works instead of failing on a key lookup,
+    and anything genuinely broken raises `WeightsPayloadError` naming the reason.
+    """
+
     resolved = resolve_weights_path(path)
     if path is None and not resolved.exists() and resolved != PACKAGED_WEIGHTS_PATH:
         # a configured-but-not-yet-created override falls back to the shipped file
         resolved = PACKAGED_WEIGHTS_PATH
     with resolved.open(encoding="utf-8") as fh:
-        payload: Dict[str, Any] = json.load(fh)
-    total = sum(payload["weights"].values())
-    if abs(total - 1.0) > 1e-6:
-        raise ValueError(f"Weights must sum to 1.0, got {total}")
+        raw: Dict[str, Any] = json.load(fh)
+    payload, _translated = normalize_payload(raw)
     return payload
 
 
