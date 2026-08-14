@@ -25,6 +25,7 @@ from thinc_v4.research import (
     load_seed_theories,
     resolve_research_dir,
 )
+from thinc_v4.research.proposals import CONFIDENCE_CEILING
 from thinc_v4.weights_schema import CANONICAL_WEIGHT_KEYS, WeightsPayloadError
 
 from .conftest import make_paper
@@ -170,7 +171,15 @@ class TestProposalGeneration:
         assert proposal.proposed_value == 0.85
         assert proposal.pending, "generation must never apply anything"
 
-    def test_confidence_step_is_capped_at_one(self, generator: ProposalGenerator) -> None:
+    def test_confidence_never_reaches_certainty(self, generator: ProposalGenerator) -> None:
+        """A confidence of 1.0 is unfalsifiable and contradicts THINC's own philosophy.
+
+        Loss aversion sits at 0.95, so the +0.05 step would land on exactly 1.0. The
+        real 2026-08 cycle produced that proposal from one strong meta-analysis, while
+        peer-reviewed re-analyses of the same dataset report ~1.07 for symmetric
+        designs — the debate must stay expressible.
+        """
+
         paper = make_paper(
             "A meta-analysis of loss aversion in consumer pricing",
             level=EvidenceLevel.META_ANALYSIS,
@@ -178,7 +187,36 @@ class TestProposalGeneration:
         proposals = generator.analyze_papers([paper])
         loss = next(p for p in proposals if p.target == "loss_aversion")
         assert loss.current_value == 0.95
-        assert loss.proposed_value == 1.0
+        assert loss.proposed_value == CONFIDENCE_CEILING
+        assert loss.proposed_value < 1.0
+
+    def test_a_theory_at_the_ceiling_generates_no_proposal(
+        self, generator: ProposalGenerator
+    ) -> None:
+        generator.registry.update_theory("loss_aversion", confidence_score=CONFIDENCE_CEILING)
+        proposals = generator.analyze_papers(
+            [
+                make_paper(
+                    "A meta-analysis of loss aversion in consumer pricing",
+                    level=EvidenceLevel.META_ANALYSIS,
+                )
+            ]
+        )
+        assert [p.target for p in proposals] == []
+
+    def test_a_hand_written_certainty_is_clamped_on_approval(
+        self, generator: ProposalGenerator
+    ) -> None:
+        proposal = UpdateProposal(
+            proposal_type=ProposalType.EVIDENCE_UPDATE,
+            target="anchoring",
+            current_value=0.80,
+            proposed_value=1.0,
+            justification="محاولة رفع إلى اليقين",
+        )
+        generator.store.add([proposal])
+        generator.approve(proposal.proposal_id)
+        assert generator.registry.theories["anchoring"].confidence_score == CONFIDENCE_CEILING
 
     def test_evidence_is_attributed_only_to_the_named_theory(
         self, generator: ProposalGenerator

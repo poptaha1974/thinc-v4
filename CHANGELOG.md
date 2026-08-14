@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Confidence ceiling
+
+- No proposal may reach a confidence of `1.0`; the ceiling is `0.98` (`CONFIDENCE_CEILING`). A certainty is unfalsifiable — no later evidence can lower it — and it contradicts THINC's own probabilistic stance. Applying a hand-written `1.0` is clamped too, and a theory already at the ceiling generates no proposal instead of asking a reviewer to approve a no-op.
+- Prompted by the first real monthly cycle, which proposed 0.95 → 1.0 for loss aversion from Brown et al. (2024, *Journal of Economic Literature*, λ≈1.96). That paper is sound, but Yechiam & Zeif (2025, *Journal of Economic Psychology*) re-analysed its own dataset and report λ≈1.07 for symmetric designs, and Walasek et al. (2024) report 1.31 — a live debate the model must stay able to express.
+
 ### Narrowed evidence attribution
 
 - Proposal generation now attributes a paper's evidence only to the theory the paper **names**. Tags are curated cross-links between theories — "loss aversion" is a tag of the endowment effect — so tag-based recall raised the endowment effect's confidence from a paper that never studied it. Approved by Dr. Ehab Taha on 2026-08-14.
