@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""THINC package — distribution version 4.3.0.
+"""THINC package — distribution version 4.4.0.
 
 Inventor / Author / Owner: Dr. Ehab Taha (الدكتور إيهاب طه).
 
@@ -9,6 +9,9 @@ Layers:
   market-signal gate, bidirectional niche governance).
 - `thinc_v4.outcomes` / `thinc_v4.calibration` / `thinc_v4.retention` — the v4.1
   outcome-tracking, Bayesian calibration (±20% per cycle) and retention line.
+- `thinc_v4.research` — the self-updating research line: theory registry, Cochrane
+  evidence grading, semantic filtering, and Human-in-the-Loop update proposals.
+- `thinc_v4.weights_schema` — the canonical component-weight keys.
 
 Extension subpackages:
 - `thinc_v4.generational` — Layer 8 Generational Intelligence (Egyptian

@@ -1,8 +1,8 @@
 # THINC — Invented by Dr. Ehab Taha
 
 **Inventor / Author / Owner:** Dr. Ehab Taha (الدكتور إيهاب طه).  
-**Distribution version:** 4.3.0.  
-**Shipped layers:** v4.0 framework · v4.2 engine · v4.1 calibration & Layer 8 · Intelligence OS service layer.  
+**Distribution version:** 4.4.0.  
+**Shipped layers:** v4.0 framework · v4.2 engine · v4.1 calibration & Layer 8 · Intelligence OS service layer · self-updating research line.  
 **Status:** Proprietary behavioral commerce operating system for Egy-Pioneers Academy.
 
 > THINC v4.0 is the original intellectual property, invention, and proprietary business methodology of Dr. Ehab Taha (الدكتور إيهاب طه). All branding, attribution, watermarks, Arabic/Egyptian dialect support, and ownership statements must be preserved and must not be removed or weakened.
@@ -15,7 +15,7 @@ inside the installable package instead of a loose `releases/` folder:
 - `src/thinc_v4/identity.py` — single source of truth for inventor, version, watermark, copyright, and IP statements.
 - `src/thinc_v4/framework.py` — THINC v4.0 scoring engine, scientific registry, Egyptianization, business architecture, competitive intelligence, Founder OS, AI Operating Layer, and Academy OS.
 - `src/thinc_v4/streamlit_app.py` — Streamlit operational dashboard preserving Arabic/Egyptian dialect outputs.
-- `src/thinc_v4/_version.py` — distribution version (`4.3.0`), the single source of truth; `pyproject.toml` parity is enforced by tests. Layer versions are independent of it.
+- `src/thinc_v4/_version.py` — distribution version (`4.4.0`), the single source of truth; `pyproject.toml` parity is enforced by tests. Layer versions are independent of it.
 - `src/thinc_v4/v4_2/` — the THINC v4.2 layer:
   - `market_signals.py` — auditable market-signal evidence gate.
   - `niche_validation.py` — bidirectional niche family-tree validation and launch gates.
@@ -32,6 +32,8 @@ inside the installable package instead of a loose `releases/` folder:
 - `docs/v4_2/`, `docs/governance/`, `docs/cases/thinc-v4.2/` — v4.2 docs, approved-decision registry, traceability matrix, and case outputs.
 - `docs/api/` — the service layer: FastAPI Intelligence OS contract, data model, roadmap, legal guardrails, and the engine notes behind each endpoint (see [`docs/api/README.md`](docs/api/README.md)).
 - `docs/v4_1/` — the calibration line's execution plan.
+- `docs/research/README.md` — the self-updating research line (`thinc-v4-research`) and where its state lives.
+- `docs/v4_4/EXECUTION_PLAN.md` — the plan that moved the research line into the package.
 - `services/api/` — the FastAPI apps themselves (`main`, `learning_app`, `research_app`).
 - `src/thinc_v4/generational/` — Layer 8 Generational Intelligence (Egyptian generations, formative events, value-shift index, decision modifiers).
 - `src/thinc_v4/pixel_bridge/` — Pixel Feedback Bridge that closes the loop from real Meta Pixel / CAPI purchase events back into Layer 8 norms and formative events.
