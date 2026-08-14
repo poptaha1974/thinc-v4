@@ -39,6 +39,15 @@ from .registry import ResearchStoreError, TheoryRegistry, _write_json, resolve_r
 
 #: Confidence increment proposed when strong evidence supports an existing theory.
 CONFIDENCE_STEP = 0.05
+#: Highest confidence any proposal may reach.
+#:
+#: THINC is probabilistic by design ("احتمالية لا حتمية"), and a confidence of exactly
+#: 1.0 is a claim no empirical literature supports: it also makes the value
+#: unfalsifiable, since no later evidence can lower a certainty. The first real
+#: monthly cycle proposed 0.95 → 1.0 for loss aversion off one strong meta-analysis,
+#: while peer-reviewed re-analyses of that very dataset report a coefficient near 1.07
+#: for symmetric designs. A ceiling below 1.0 keeps room for exactly that debate.
+CONFIDENCE_CEILING = 0.98
 #: A brand-new theory starts at a discounted share of the paper's evidence weight.
 NEW_THEORY_DISCOUNT = 0.7
 #: Pattern used to guess a theory name from a paper title.
@@ -129,12 +138,18 @@ class ProposalGenerator:
     ) -> List[UpdateProposal]:
         proposals: List[UpdateProposal] = []
         for theory in related:
+            if theory.confidence_score >= CONFIDENCE_CEILING:
+                # already at the ceiling: a proposal here would ask the reviewer to
+                # approve no change at all
+                continue
             proposals.append(
                 UpdateProposal(
                     proposal_type=ProposalType.EVIDENCE_UPDATE,
                     target=theory.theory_id,
                     current_value=theory.confidence_score,
-                    proposed_value=min(1.0, round(theory.confidence_score + CONFIDENCE_STEP, 3)),
+                    proposed_value=min(
+                        CONFIDENCE_CEILING, round(theory.confidence_score + CONFIDENCE_STEP, 3)
+                    ),
                     justification=(
                         f"ورقة {paper.evidence_level.value} من {paper.publication_year} "
                         f"باستشهادات {paper.cited_by_count} تدعم نظرية '{theory.name_ar}'. "
@@ -250,8 +265,9 @@ class ProposalGenerator:
                 f"Proposal {proposal.proposal_id} has a non-numeric confidence"
             ) from exc
         # Apply exactly the reviewed value; recomputing from the ratio would jump
-        # to 1.0 whenever there is no contradicting paper.
-        theory.confidence_score = min(1.0, max(0.0, reviewed))
+        # to 1.0 whenever there is no contradicting paper. The ceiling keeps the
+        # value falsifiable even if a proposal (or a hand edit) asks for certainty.
+        theory.confidence_score = min(CONFIDENCE_CEILING, max(0.0, reviewed))
         for paper_id in proposal.supporting_paper_ids:
             if paper_id not in theory.supporting_papers:
                 theory.supporting_papers.append(paper_id)
