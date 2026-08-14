@@ -1,0 +1,56 @@
+[
+  {
+    "timestamp": "2026-08-14T15:07:16.714651+00:00",
+    "paper_id": "79282e17-2961-4554-b25d-88890e05e5c0",
+    "title": "On the Role of Theory and Modeling in Neuroscience",
+    "journal": "Journal of Neuroscience",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 96
+  },
+  {
+    "timestamp": "2026-08-14T15:07:16.714740+00:00",
+    "paper_id": "52e06102-0541-44f1-961d-af083e513478",
+    "title": "Designing AI Using a Human-Centered Approach: Explainability and Accuracy Toward Trustworthiness",
+    "journal": "IEEE Transactions on Technology and Society",
+    "year": 2023,
+    "reason": "blacklist_journal:ieee",
+    "citations": 94
+  },
+  {
+    "timestamp": "2026-08-14T15:07:16.715309+00:00",
+    "paper_id": "3936a754-204a-4935-b356-f0c40cb91333",
+    "title": "Family business succession and innovation: a systematic literature review",
+    "journal": "Review of Managerial Science",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 137
+  },
+  {
+    "timestamp": "2026-08-14T15:07:16.715379+00:00",
+    "paper_id": "3b8710a6-a20b-4ca1-8114-280062c1766a",
+    "title": "Demand, Services and Social Aspects of Mitigation",
+    "journal": "Cambridge University Press eBooks",
+    "year": 2023,
+    "reason": "blacklist_keyword:climate change",
+    "citations": 131
+  },
+  {
+    "timestamp": "2026-08-14T15:07:16.715398+00:00",
+    "paper_id": "0fef864f-af68-4b05-b855-88f7f565a41d",
+    "title": "Responding to unexpected crises: The roles of slack resources and entrepreneurial attitude to build resilience",
+    "journal": "Small Business Economics",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 107
+  },
+  {
+    "timestamp": "2026-08-14T15:07:16.715552+00:00",
+    "paper_id": "3063ffcc-9ad0-4d61-bea7-789167fefd67",
+    "title": "Designing AI Using a Human-Centered Approach: Explainability and Accuracy Toward Trustworthiness",
+    "journal": "IEEE Transactions on Technology and Society",
+    "year": 2023,
+    "reason": "blacklist_journal:ieee",
+    "citations": 94
+  }
+]

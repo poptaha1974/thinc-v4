@@ -1,0 +1,21 @@
+[
+  {
+    "run_id": "3cbbc72b-8a04-4494-95db-eea047f0f66a",
+    "started_at": "2026-08-14T15:07:14.025727Z",
+    "completed_at": "2026-08-14T15:07:16.723132Z",
+    "sources_queried": [
+      "openalex",
+      "semantic_scholar"
+    ],
+    "papers_fetched": 20,
+    "papers_filtered_out": 6,
+    "papers_new": 9,
+    "proposals_generated": 1,
+    "proposals_approved": 0,
+    "proposals_rejected": 0,
+    "triggered_by": "cron",
+    "status": "completed",
+    "error": null,
+    "queries_failed": []
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "proposal_id": "f2fc185e-574e-49f8-8ff7-8f72a55f1e6c",
+    "created_at": "2026-08-14T15:07:16.722876Z",
+    "proposal_type": "evidence_update",
+    "target": "loss_aversion",
+    "current_value": 0.95,
+    "proposed_value": 1.0,
+    "justification": "ورقة meta_analysis من 2024 باستشهادات 132 تدعم نظرية 'تأثير الخوف من الخسارة'. عنوان الورقة: Meta-analysis of Empirical Estimates of Loss Aversion",
+    "supporting_paper_ids": [
+      "11b256b4-60ab-4dc9-aefa-e931a171dc77"
+    ],
+    "confidence": 0.8,
+    "approved": null,
+    "reviewed_at": null,
+    "reviewer_notes": null
+  }
+]
