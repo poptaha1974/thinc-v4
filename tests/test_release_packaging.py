@@ -154,3 +154,9 @@ def test_monthly_research_workflow_keeps_the_human_in_the_loop() -> None:
     assert "branch: main" not in workflow
     # a reviewer is told, rather than the queue growing silently
     assert "gh issue create" in workflow
+    # rsync --delete would otherwise remove the worktree's .git link, and the
+    # resulting git failure inside an `if` condition is swallowed: the first real
+    # run reported success while publishing nothing
+    assert "--exclude .git" in workflow
+    assert "Confirm the published state is reachable" in workflow
+    assert "the research-state branch is missing" in workflow

@@ -9,6 +9,8 @@
 
 ### Monthly research cycle enabled
 
+- **Fixed a silent publishing failure found on the first real run**: `rsync --delete` removed the state worktree's `.git` link (it is absent from the source tree), so the following `git status` failed — and because it sat inside an `if` condition, the failure was swallowed and the step reported success while pushing nothing. The cycle had fetched 20 papers and generated a proposal, yet the `research-state` branch never appeared, which would have broken deduplication every month and left the review queue unreachable. `.git` is now excluded, the link is asserted, and a new step verifies the queue is actually reachable on the branch whenever proposals are pending.
+
 - Added `.github/workflows/research-monthly.yml`: the cycle runs on the 1st of each month at 01:15 UTC (03:15 Cairo in winter, 04:15 in summer) and on manual dispatch.
 - State lives on a dedicated `research-state` branch, never on `main`, so a scheduled job cannot rewrite released code while deduplication still works across months.
 - The workflow **asserts that a cron cycle changed no theory confidence** and fails if any drifted, which is what makes an unattended schedule safe.
