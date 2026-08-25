@@ -1,114 +1,149 @@
 {
-  "record_notice": "Creative record for ad C01. Placeholders written as {{TOKEN}} MUST be replaced with real values before publishing — see README.md §6.",
-  "schema_version": "1.0",
+  "record_notice": "Ad C01 of the EPA webinar lead campaign. Every value here is transcribed from the Notion records listed under sources; fields that those records do not establish are null with a *_status note. Nothing here is estimated.",
+  "schema_version": "2.0",
+  "as_of": "2026-08-19",
+  "status": "draft_blocked",
   "gate": {
     "name": "Creative QA Gate",
     "version": "1.0",
     "document": "docs/v4_1/THINC-v4.1-Creative-QA-Gate-v1.0.md",
     "stage": "pre_launch",
-    "decision": "PASS",
-    "blocking_issues_open": 0,
-    "conditional_on": "the five pending inputs in README.md §6"
+    "decision": "BLOCKED",
+    "decision_reason": "the creative was never uploaded, the ad copy field is locked until it is, and the technical spec checks have not been run on the final file",
+    "video_sections_applicable": false,
+    "video_sections_note": "sections A (hook) and B (hold) are written for video; C01 is a designed image. They apply in full to C02 once it is cut to 20-25s."
   },
   "campaign": {
     "name": "EPA | Webinar | Website Leads | C01-vs-C02 | W1 | Draft",
-    "name_on_publish": "EPA | Webinar | Website Leads | C01-vs-C02 | W1 | Live",
+    "launch_state": "NO-GO",
     "objective": "leads",
     "conversion_location": "website",
+    "optimization_goal": "maximize_number_of_leads",
     "optimization_event": "Lead",
-    "budget_mode": "ABO",
-    "daily_budget_egp": 500,
-    "duration_days": 7,
-    "bid_strategy": "highest_volume",
-    "attribution": "7d_click_1d_view",
-    "structure": "single_ad_set_two_ads",
-    "structure_reason": "50 Lead events per ad set per week are needed to exit the learning phase; splitting the budget across two cells keeps both in learning all week",
-    "split_test_threshold_egp_per_day": 800,
-    "no_edit_window_hours": 72
-  },
-  "ad": {
-    "name": "EPA | W1 | C01 | PAS-90days | 9x16 | 30s",
-    "variant_id": "C01",
-    "tested_against": "C02",
-    "test_variable": "creative_angle",
-    "angle": "problem_agitate_solve",
-    "angle_c02": "social_proof",
-    "headline": "{{WEBINAR_TITLE}}",
-    "description": "ويبينار مجاني أونلاين — سجّل واحجز مكانك",
-    "cta": "SIGN_UP",
-    "cta_count": 1,
-    "destination": "{{LANDING_URL}}?utm_source=facebook&utm_medium=paid_social&utm_campaign=epa_webinar_w1&utm_content=c01"
-  },
-  "creative_specs": {
-    "aspect_ratio": "9:16",
-    "resolution": "1080x1920",
-    "duration_seconds": 30,
-    "file_size_mb": 28,
-    "on_screen_text_pct": 18,
-    "safe_zone": "text between 20% and 78% of frame height",
-    "captions": "burned_in",
-    "first_frame": "full image, no fade, no logo",
-    "watermark_from_second": 4
-  },
-  "tracking": {
-    "pixel_id": "{{EPA_PIXEL_ID}}",
-    "capi_enabled": true,
-    "event_id_deduplication": true,
-    "lead_event_fires_on": "thank_you_page",
-    "domain_verified": "verify_before_publish",
-    "aggregated_events_priority_1": "Lead",
-    "utm": {
-      "utm_source": "facebook",
-      "utm_medium": "paid_social",
-      "utm_campaign": "epa_webinar_w1",
-      "utm_content": "c01"
-    }
+    "ad_account_id": "1337470373886269",
+    "ad_account_warning": "near account spending limit",
+    "pixel_id": "1604627917208516",
+    "budget_type": "lifetime",
+    "budget_egp": 4200,
+    "flight_start": "2026-08-20T10:00:00+03:00",
+    "flight_end": "2026-08-26T21:00:00+03:00",
+    "timezone": "Africa/Cairo",
+    "flight_warning": "the window expires 2026-08-26 21:00 Cairo and the campaign has not launched; spending 4200 EGP in under a day contradicts the 7-day, 49-slot test design",
+    "dayparting": {
+      "slots": 49,
+      "hours": ["10:00-13:00", "18:00-20:00"],
+      "days": "all seven"
+    },
+    "structure": "single prospecting ad set, two ads, identical audience/placements/page/CTA/link",
+    "offer": "the first 30 minutes of the Wednesday webinar, free"
   },
   "audience": {
+    "advantage_plus": false,
     "location": "Egypt",
-    "age_min": 25,
-    "age_max": 45,
-    "detailed_targeting": "broad",
-    "placements": "advantage_plus",
-    "exclusions": ["past webinar registrants — Lead custom audience, last 90 days"]
+    "age_min": 22,
+    "age_max": 44,
+    "use_as_a_suggestion": false,
+    "genders": "all",
+    "languages": null
   },
-  "targets_w1": {
-    "note": "hook/hold/CPM thresholds come from Creative QA Gate v1.0 (Egyptian market). CPL and landing CVR are an unvalidated prior for a first webinar — replace with W1 actuals before W2.",
-    "currency": "EGP",
-    "hook_rate_pct": { "stop": 15, "watch": [15, 25], "scale": 25 },
-    "hold_rate_pct": { "stop": 25, "watch": [25, 40], "scale": 40 },
-    "ctr_link_pct": { "stop": 0.7, "watch": [0.7, 1.5], "scale": 1.5 },
-    "cpm": { "stop": 150, "watch": [90, 150], "scale": 90 },
-    "cpl": { "stop": 60, "watch": [30, 60], "scale": 30, "calibrated": false },
-    "landing_to_lead_cvr_pct": { "stop": 15, "watch": [15, 25], "scale": 25, "calibrated": false },
-    "frequency": { "stop": 3.0, "watch": [1.5, 3.0], "scale": 1.5 }
+  "placements": ["facebook_feed", "facebook_reels", "instagram_feed", "instagram_reels"],
+  "placements_note": "manual, four only — the Instagram connection warning on egy_pioneers_academy puts half of them at risk",
+  "ad": {
+    "variant_id": "C01",
+    "role": "control",
+    "creative_type": "designed_image",
+    "creative_source": "image 2 of the 5 webinar images, rebuilt",
+    "creative_description": "Egyptian presenter + a سجّل في الويبنار call + the 30-minute line",
+    "creative_upload_state": "ready_not_uploaded",
+    "angle": "ابدأ بخريطة مش بتجربة عشوائية",
+    "angle_type": "loss_aversion",
+    "hook": "ابدأ بخريطة… مش بمحاولات عشوائية",
+    "headline": "ابدأ مشروعك بخريطة واضحة",
+    "cta": "SIGN_UP",
+    "destination": "https://webinar.popehab.com",
+    "browser_add_ons": "None",
+    "primary_text_state": "locked_in_ads_manager_until_media_upload",
+    "utm": {
+      "utm_source": "meta",
+      "utm_medium": "paid_social",
+      "utm_campaign": "epa_webinar_c01_vs_c02_w1",
+      "utm_content": "c01_map"
+    }
   },
-  "kill_criteria": [
-    "K1: spent 1.5x target CPL (> 90 EGP) with zero leads → stop the ad",
-    "K2: CTR < 0.5% after 2,500 impressions → kill the creative",
-    "K3: CPM > 200 EGP for 3 days → widen the audience or stop",
-    "K4: frequency > 3.5 within the week → refresh",
-    "K5: zero leads after 1,500 link clicks → the landing page is the problem, not the ad"
+  "counterpart": {
+    "variant_id": "C02",
+    "role": "challenger",
+    "creative_type": "testimonial_video",
+    "reel_id": "1279720344072800",
+    "published": "2026-07-17",
+    "duration_seconds": 128,
+    "organic_views_at_review": 176,
+    "angle": "سيكولوجية العميل",
+    "angle_type": "social_proof",
+    "social_proof_confidence": 0.87,
+    "required_edit": "cut to 20-25s: a 3s written-headline hook + the strongest 15s + a 4s end card with «سجّل في الويبنار، الأربعاء 6م» and webinar.popehab.com",
+    "unverified": "the audio was never transcribed — manual confirmation is required that it makes no earnings or income claims"
+  },
+  "test_design": {
+    "current_variable": "designed creative versus real testimonial",
+    "superseded_variable": "angle: map (Ad A) versus supply (Ad B), decided 2026-08-17",
+    "changed_on": "2026-08-19",
+    "held_constant": ["audience", "placements", "landing page", "CTA", "link"]
+  },
+  "creative_edits_required": {
+    "applied_status": "not_established_in_the_records",
+    "items": [
+      "replace «أول 30 دقيقة من ويبينار الأربعاء مفتوحة» with «احضر أول 30 دقيقة من ويبينار الأربعاء مجانًا»",
+      "unify the CTA to «احجز أول 30 دقيقة مجانًا»",
+      "no foreign figure presented as the real lecturer — use a real academy photo or a visual process",
+      "reduce the text inside the design and leave the explanation to the primary text"
+    ]
+  },
+  "open_gates": [
+    { "id": 1, "gate": "account spending limit", "detail": "near account spending limit on 1337470373886269 — may halt delivery on publish", "owner": "Dr. Ehab / Meta", "state": "open" },
+    { "id": 2, "gate": "instagram connection", "detail": "warning on egy_pioneers_academy while IG Feed and IG Reels are enabled", "owner": "Dr. Ehab", "state": "open" },
+    { "id": 3, "gate": "media upload", "detail": "the file picker reads from local disk; the asset is on Dr. Ehab's machine", "owner": "Dr. Ehab", "state": "open" },
+    { "id": 4, "gate": "ad copy", "detail": "the field is locked until the media is uploaded", "owner": null, "state": "blocked_by_3" },
+    { "id": 5, "gate": "landing page", "detail": "Conditional GO — three UI edits outstanding", "owner": "landing page team", "state": "conditional" },
+    { "id": 6, "gate": "tracking", "detail": "Evidence Pack not supplied: Test Events screenshot, Event ID, timestamp, save log, n8n production execution", "owner": "tech", "state": "open" },
+    { "id": 7, "gate": "offer", "detail": "the seven deposit terms are not approved in writing", "owner": "Dr. Ehab", "state": "open" },
+    { "id": 8, "gate": "C02 prep", "detail": "the 20-25s cut is not done and the audio is not transcribed", "owner": "editing", "state": "open" },
+    { "id": 9, "gate": "budget window", "detail": "the lifetime flight ends 2026-08-26 21:00 Cairo", "owner": "Dr. Ehab", "state": "critical" }
   ],
-  "resolved_blockers": [
-    { "id": 1, "gate_section": "hook", "issue": "1.5s academy logo intro", "fix": "intro removed; logo demoted to a watermark from second 4" },
-    { "id": 2, "gate_section": "hook", "issue": "offer unreadable without sound in the first 3s", "fix": "burned-in headline on the first frame" },
-    { "id": 3, "gate_section": "hook", "issue": "first second was a fade from black", "fix": "starts on a full first frame" },
-    { "id": 4, "gate_section": "hold", "issue": "two competing CTAs", "fix": "single Sign Up CTA; link-in-bio mention removed" },
-    { "id": 5, "gate_section": "specs", "issue": "on-screen text at ~28% of the frame", "fix": "reduced to ~18%; two lines maximum" },
-    { "id": 6, "gate_section": "specs", "issue": "text inside the platform UI zones", "fix": "all text moved between 20% and 78% of frame height" },
-    { "id": 7, "gate_section": "quality", "issue": "ad headline did not match the landing page headline", "fix": "both set to {{WEBINAR_TITLE}} verbatim" },
-    { "id": 8, "gate_section": "tracking", "issue": "Lead fired on button click instead of on registration", "fix": "moved to the thank-you page" },
-    { "id": 9, "gate_section": "tracking", "issue": "CAPI without event_id produced duplicate events", "fix": "shared event_id across browser and server; deduplication confirmed in Test Events" },
-    { "id": 10, "gate_section": "attribution", "issue": "no utm_content, so C01 and C02 were indistinguishable in the CRM", "fix": "utm_content added and confirmed to reach a CRM field" },
-    { "id": 11, "gate_section": "test_design", "issue": "C01 and C02 sat in separate ad sets with overlapping audiences", "fix": "both moved into one ad set" }
+  "landing_page_edits": [
+    "form submit button → «سجّل واستلم تفاصيل الدخول على واتساب»",
+    "a direct CTA below the testimonial video, not only above it",
+    "footer link unified with «احجز مكانك في أول 30 دقيقة مجانًا»"
   ],
-  "pending_inputs": [
-    { "token": "{{WEBINAR_TITLE}}", "field": "final webinar title" },
-    { "token": "{{WEBINAR_DATETIME}}", "field": "broadcast date and time" },
-    { "token": "{{LANDING_URL}}", "field": "registration page URL" },
-    { "token": "{{EPA_PIXEL_ID}}", "field": "EPA pixel id" },
-    { "token": "{{PAGE}} / {{IG_HANDLE}}", "field": "page and linked Instagram account" }
+  "tracking_test_sequence": [
+    "PageView",
+    "ViewContent or Start Form",
+    "Lead on successful save only",
+    "CompleteRegistration on success",
+    "Contact / WhatsApp handoff",
+    "the lead is saved before the WhatsApp handoff",
+    "UTM, Ad ID and creative/angle arrive",
+    "deduplication by Event ID",
+    "the execution appears in n8n Production",
+    "the lead reaches HOT/WARM/COLD classification"
   ],
-  "status": "draft_ready_to_publish"
+  "measurement": {
+    "funnel": ["Impression", "Click", "LPV", "Start Form", "Lead", "Confirmed", "Attended", "Deposit", "Paid"],
+    "metrics": ["LPV/Click", "Form Completion", "Confirmed/Lead", "Attendance/Confirmed", "Deposit/Attended", "Paid/Deposit", "CPL", "Cost per Attendee", "Cost per Deposit", "CAC", "Revenue", "Contribution Margin"],
+    "thresholds": null,
+    "thresholds_status": "deliberately absent — the plan forbids inventing benchmarks without a baseline; numeric decision limits wait on the test budget, the programme price, the deposit value and terms, the margin, and the current conversion rate",
+    "rules": [
+      "never pause or scale on CTR alone",
+      "the winner is whichever ad produces qualified leads, bookings and payments more efficiently",
+      "a lead is not final success — the deposit after attending the free segment is"
+    ]
+  },
+  "publish_requires_five_go": ["offer", "landing page", "tracking", "assets", "budget"],
+  "sources": [
+    { "record": "C02 — فيديو شهادة طالب (Reel 17 يوليو) — مراجعة THINC وحالة الـDraft", "date": "2026-08-19" },
+    { "record": "EPA — خطة التنفيذ من الآن إلى النشر ثم الديبوزت", "date": "2026-08-17" },
+    { "record": "EPA — اختيار الكريتيف الأساسي من 5 صور الويبينار", "date": "2026-08-17" },
+    { "record": "EPA — Landing Page QA Decision", "date": "2026-08-17" },
+    { "record": "EPA — تحليل زاويتي «من اليد الأولى» و«داخل شركة»", "date": "2026-08-17" }
+  ]
 }
