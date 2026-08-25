@@ -1,0 +1,114 @@
+{
+  "record_notice": "Creative record for ad C01. Placeholders written as {{TOKEN}} MUST be replaced with real values before publishing — see README.md §6.",
+  "schema_version": "1.0",
+  "gate": {
+    "name": "Creative QA Gate",
+    "version": "1.0",
+    "document": "docs/v4_1/THINC-v4.1-Creative-QA-Gate-v1.0.md",
+    "stage": "pre_launch",
+    "decision": "PASS",
+    "blocking_issues_open": 0,
+    "conditional_on": "the five pending inputs in README.md §6"
+  },
+  "campaign": {
+    "name": "EPA | Webinar | Website Leads | C01-vs-C02 | W1 | Draft",
+    "name_on_publish": "EPA | Webinar | Website Leads | C01-vs-C02 | W1 | Live",
+    "objective": "leads",
+    "conversion_location": "website",
+    "optimization_event": "Lead",
+    "budget_mode": "ABO",
+    "daily_budget_egp": 500,
+    "duration_days": 7,
+    "bid_strategy": "highest_volume",
+    "attribution": "7d_click_1d_view",
+    "structure": "single_ad_set_two_ads",
+    "structure_reason": "50 Lead events per ad set per week are needed to exit the learning phase; splitting the budget across two cells keeps both in learning all week",
+    "split_test_threshold_egp_per_day": 800,
+    "no_edit_window_hours": 72
+  },
+  "ad": {
+    "name": "EPA | W1 | C01 | PAS-90days | 9x16 | 30s",
+    "variant_id": "C01",
+    "tested_against": "C02",
+    "test_variable": "creative_angle",
+    "angle": "problem_agitate_solve",
+    "angle_c02": "social_proof",
+    "headline": "{{WEBINAR_TITLE}}",
+    "description": "ويبينار مجاني أونلاين — سجّل واحجز مكانك",
+    "cta": "SIGN_UP",
+    "cta_count": 1,
+    "destination": "{{LANDING_URL}}?utm_source=facebook&utm_medium=paid_social&utm_campaign=epa_webinar_w1&utm_content=c01"
+  },
+  "creative_specs": {
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "duration_seconds": 30,
+    "file_size_mb": 28,
+    "on_screen_text_pct": 18,
+    "safe_zone": "text between 20% and 78% of frame height",
+    "captions": "burned_in",
+    "first_frame": "full image, no fade, no logo",
+    "watermark_from_second": 4
+  },
+  "tracking": {
+    "pixel_id": "{{EPA_PIXEL_ID}}",
+    "capi_enabled": true,
+    "event_id_deduplication": true,
+    "lead_event_fires_on": "thank_you_page",
+    "domain_verified": "verify_before_publish",
+    "aggregated_events_priority_1": "Lead",
+    "utm": {
+      "utm_source": "facebook",
+      "utm_medium": "paid_social",
+      "utm_campaign": "epa_webinar_w1",
+      "utm_content": "c01"
+    }
+  },
+  "audience": {
+    "location": "Egypt",
+    "age_min": 25,
+    "age_max": 45,
+    "detailed_targeting": "broad",
+    "placements": "advantage_plus",
+    "exclusions": ["past webinar registrants — Lead custom audience, last 90 days"]
+  },
+  "targets_w1": {
+    "note": "hook/hold/CPM thresholds come from Creative QA Gate v1.0 (Egyptian market). CPL and landing CVR are an unvalidated prior for a first webinar — replace with W1 actuals before W2.",
+    "currency": "EGP",
+    "hook_rate_pct": { "stop": 15, "watch": [15, 25], "scale": 25 },
+    "hold_rate_pct": { "stop": 25, "watch": [25, 40], "scale": 40 },
+    "ctr_link_pct": { "stop": 0.7, "watch": [0.7, 1.5], "scale": 1.5 },
+    "cpm": { "stop": 150, "watch": [90, 150], "scale": 90 },
+    "cpl": { "stop": 60, "watch": [30, 60], "scale": 30, "calibrated": false },
+    "landing_to_lead_cvr_pct": { "stop": 15, "watch": [15, 25], "scale": 25, "calibrated": false },
+    "frequency": { "stop": 3.0, "watch": [1.5, 3.0], "scale": 1.5 }
+  },
+  "kill_criteria": [
+    "K1: spent 1.5x target CPL (> 90 EGP) with zero leads → stop the ad",
+    "K2: CTR < 0.5% after 2,500 impressions → kill the creative",
+    "K3: CPM > 200 EGP for 3 days → widen the audience or stop",
+    "K4: frequency > 3.5 within the week → refresh",
+    "K5: zero leads after 1,500 link clicks → the landing page is the problem, not the ad"
+  ],
+  "resolved_blockers": [
+    { "id": 1, "gate_section": "hook", "issue": "1.5s academy logo intro", "fix": "intro removed; logo demoted to a watermark from second 4" },
+    { "id": 2, "gate_section": "hook", "issue": "offer unreadable without sound in the first 3s", "fix": "burned-in headline on the first frame" },
+    { "id": 3, "gate_section": "hook", "issue": "first second was a fade from black", "fix": "starts on a full first frame" },
+    { "id": 4, "gate_section": "hold", "issue": "two competing CTAs", "fix": "single Sign Up CTA; link-in-bio mention removed" },
+    { "id": 5, "gate_section": "specs", "issue": "on-screen text at ~28% of the frame", "fix": "reduced to ~18%; two lines maximum" },
+    { "id": 6, "gate_section": "specs", "issue": "text inside the platform UI zones", "fix": "all text moved between 20% and 78% of frame height" },
+    { "id": 7, "gate_section": "quality", "issue": "ad headline did not match the landing page headline", "fix": "both set to {{WEBINAR_TITLE}} verbatim" },
+    { "id": 8, "gate_section": "tracking", "issue": "Lead fired on button click instead of on registration", "fix": "moved to the thank-you page" },
+    { "id": 9, "gate_section": "tracking", "issue": "CAPI without event_id produced duplicate events", "fix": "shared event_id across browser and server; deduplication confirmed in Test Events" },
+    { "id": 10, "gate_section": "attribution", "issue": "no utm_content, so C01 and C02 were indistinguishable in the CRM", "fix": "utm_content added and confirmed to reach a CRM field" },
+    { "id": 11, "gate_section": "test_design", "issue": "C01 and C02 sat in separate ad sets with overlapping audiences", "fix": "both moved into one ad set" }
+  ],
+  "pending_inputs": [
+    { "token": "{{WEBINAR_TITLE}}", "field": "final webinar title" },
+    { "token": "{{WEBINAR_DATETIME}}", "field": "broadcast date and time" },
+    { "token": "{{LANDING_URL}}", "field": "registration page URL" },
+    { "token": "{{EPA_PIXEL_ID}}", "field": "EPA pixel id" },
+    { "token": "{{PAGE}} / {{IG_HANDLE}}", "field": "page and linked Instagram account" }
+  ],
+  "status": "draft_ready_to_publish"
+}

@@ -127,6 +127,12 @@ Hook Rate ✅ + Hold Rate ✅ + CTR ✅ لكن CPM > 120
 - الـ Benchmarks مبنية على معايير ميتا الرسمية ومحسوبة للسوق المصري (EGP).
 - يُحدَّث الـ Benchmark كل ربع سنة بناءً على بيانات الحملات الفعلية.
 
+## 📁 الحملات المُطبَّق عليها
+
+| الحملة | الإعلان | قرار البوابة |
+|---|---|---|
+| [EPA \| Webinar \| Website Leads \| C01-vs-C02 \| W1](../campaigns/EPA-Webinar-Website-Leads-W1/README.md) | [C01](../campaigns/EPA-Webinar-Website-Leads-W1/C01-publish-ready.md) | ✅ PASS — Pre-Launch |
+
 ---
 
 *THINC v4.1 — Creative QA Gate v1.0 | Egy-Pioneers | أغسطس 2026*
