@@ -1,15 +1,15 @@
 {
-  "record_notice": "Ad C01 of the EPA webinar lead campaign. Every value here is transcribed from the Notion records listed under sources; fields that those records do not establish are null with a *_status note. Nothing here is estimated.",
+  "record_notice": "Ad C01 of the EPA webinar lead campaign. Setup fields come from the Notion records; performance comes from the Ads Manager report Dr. Ehab read on 2026-08-25 — not from a reading of my own. Fields the sources do not establish stay null with a *_status note.",
   "schema_version": "2.0",
-  "as_of": "2026-08-19",
-  "status": "draft_blocked",
+  "as_of": "2026-08-25",
+  "status": "live",
   "gate": {
     "name": "Creative QA Gate",
     "version": "1.0",
     "document": "docs/v4_1/THINC-v4.1-Creative-QA-Gate-v1.0.md",
     "stage": "pre_launch",
-    "decision": "BLOCKED",
-    "decision_reason": "the creative was never uploaded, the ad copy field is locked until it is, and the technical spec checks have not been run on the final file",
+    "decision": "LAUNCHED_WITH_OPEN_GATES",
+    "decision_reason": "the campaign launched on 2026-08-20 while gates 2, 6 and 8 were still open; the governing blocker is now the missing commercial loop, not the pre-launch items",
     "video_sections_applicable": false,
     "video_sections_note": "sections A (hook) and B (hold) are written for video; C01 is a designed image. They apply in full to C02 once it is cut to 20-25s."
   },
@@ -31,7 +31,10 @@
     "flight_warning": "the window expires 2026-08-26 21:00 Cairo and the campaign has not launched; spending 4200 EGP in under a day contradicts the 7-day, 49-slot test design",
     "dayparting": {
       "slots": 49,
-      "hours": ["10:00-13:00", "18:00-20:00"],
+      "hours": [
+        "10:00-13:00",
+        "18:00-20:00"
+      ],
       "days": "all seven"
     },
     "structure": "single prospecting ad set, two ads, identical audience/placements/page/CTA/link",
@@ -46,7 +49,12 @@
     "genders": "all",
     "languages": null
   },
-  "placements": ["facebook_feed", "facebook_reels", "instagram_feed", "instagram_reels"],
+  "placements": [
+    "facebook_feed",
+    "facebook_reels",
+    "instagram_feed",
+    "instagram_reels"
+  ],
   "placements_note": "manual, four only — the Instagram connection warning on egy_pioneers_academy puts half of them at risk",
   "ad": {
     "variant_id": "C01",
@@ -54,7 +62,7 @@
     "creative_type": "designed_image",
     "creative_source": "image 2 of the 5 webinar images, rebuilt",
     "creative_description": "Egyptian presenter + a سجّل في الويبنار call + the 30-minute line",
-    "creative_upload_state": "ready_not_uploaded",
+    "creative_upload_state": "uploaded",
     "angle": "ابدأ بخريطة مش بتجربة عشوائية",
     "angle_type": "loss_aversion",
     "hook": "ابدأ بخريطة… مش بمحاولات عشوائية",
@@ -62,13 +70,14 @@
     "cta": "SIGN_UP",
     "destination": "https://webinar.popehab.com",
     "browser_add_ons": "None",
-    "primary_text_state": "locked_in_ads_manager_until_media_upload",
+    "primary_text_state": "saved",
     "utm": {
       "utm_source": "meta",
       "utm_medium": "paid_social",
       "utm_campaign": "epa_webinar_c01_vs_c02_w1",
       "utm_content": "c01_map"
-    }
+    },
+    "ad_name": "EPA | Webinar | C01 | Map | Website | Draft"
   },
   "counterpart": {
     "variant_id": "C02",
@@ -82,13 +91,23 @@
     "angle_type": "social_proof",
     "social_proof_confidence": 0.87,
     "required_edit": "cut to 20-25s: a 3s written-headline hook + the strongest 15s + a 4s end card with «سجّل في الويبنار، الأربعاء 6م» and webinar.popehab.com",
-    "unverified": "the audio was never transcribed — manual confirmation is required that it makes no earnings or income claims"
+    "unverified": "the audio was never transcribed — manual confirmation is required that it makes no earnings or income claims",
+    "launched": false,
+    "launch_note": "C02 never launched — the C01-vs-C02 test did not happen and no creative comparison exists"
   },
   "test_design": {
     "current_variable": "designed creative versus real testimonial",
     "superseded_variable": "angle: map (Ad A) versus supply (Ad B), decided 2026-08-17",
     "changed_on": "2026-08-19",
-    "held_constant": ["audience", "placements", "landing page", "CTA", "link"]
+    "held_constant": [
+      "audience",
+      "placements",
+      "landing page",
+      "CTA",
+      "link"
+    ],
+    "executed": false,
+    "execution_note": "one arm only; the whole budget went to C01"
   },
   "creative_edits_required": {
     "applied_status": "not_established_in_the_records",
@@ -100,15 +119,35 @@
     ]
   },
   "open_gates": [
-    { "id": 1, "gate": "account spending limit", "detail": "near account spending limit on 1337470373886269 — may halt delivery on publish", "owner": "Dr. Ehab / Meta", "state": "open" },
-    { "id": 2, "gate": "instagram connection", "detail": "warning on egy_pioneers_academy while IG Feed and IG Reels are enabled", "owner": "Dr. Ehab", "state": "open" },
-    { "id": 3, "gate": "media upload", "detail": "the file picker reads from local disk; the asset is on Dr. Ehab's machine", "owner": "Dr. Ehab", "state": "open" },
-    { "id": 4, "gate": "ad copy", "detail": "the field is locked until the media is uploaded", "owner": null, "state": "blocked_by_3" },
-    { "id": 5, "gate": "landing page", "detail": "Conditional GO — three UI edits outstanding", "owner": "landing page team", "state": "conditional" },
-    { "id": 6, "gate": "tracking", "detail": "Evidence Pack not supplied: Test Events screenshot, Event ID, timestamp, save log, n8n production execution", "owner": "tech", "state": "open" },
-    { "id": 7, "gate": "offer", "detail": "the seven deposit terms are not approved in writing", "owner": "Dr. Ehab", "state": "open" },
-    { "id": 8, "gate": "C02 prep", "detail": "the 20-25s cut is not done and the audio is not transcribed", "owner": "editing", "state": "open" },
-    { "id": 9, "gate": "budget window", "detail": "the lifetime flight ends 2026-08-26 21:00 Cairo", "owner": "Dr. Ehab", "state": "critical" }
+    {
+      "id": 2,
+      "gate": "instagram connection",
+      "state": "open",
+      "evidence_now": "23.50 EGP spent on Instagram for zero leads"
+    },
+    {
+      "id": 6,
+      "gate": "tracking",
+      "state": "partial",
+      "evidence_now": "pixel and CAPI web work; the commercial loop does not exist"
+    },
+    {
+      "id": 8,
+      "gate": "C02 prep",
+      "state": "open",
+      "evidence_now": "C02 never launched, so the registered test did not run"
+    },
+    {
+      "id": 9,
+      "gate": "budget window",
+      "state": "88.58% spent, ends 2026-08-26 21:00 Cairo"
+    },
+    {
+      "id": 10,
+      "gate": "commercial loop",
+      "state": "open",
+      "evidence_now": "no cost per attendee, no cost per paid enrolment, no ROAS — this is now the governing gate"
+    }
   ],
   "landing_page_edits": [
     "form submit button → «سجّل واستلم تفاصيل الدخول على واتساب»",
@@ -128,22 +167,145 @@
     "the lead reaches HOT/WARM/COLD classification"
   ],
   "measurement": {
-    "funnel": ["Impression", "Click", "LPV", "Start Form", "Lead", "Confirmed", "Attended", "Deposit", "Paid"],
-    "metrics": ["LPV/Click", "Form Completion", "Confirmed/Lead", "Attendance/Confirmed", "Deposit/Attended", "Paid/Deposit", "CPL", "Cost per Attendee", "Cost per Deposit", "CAC", "Revenue", "Contribution Margin"],
+    "funnel": [
+      "Impression",
+      "Click",
+      "LPV",
+      "Start Form",
+      "Lead",
+      "Confirmed",
+      "Attended",
+      "Deposit",
+      "Paid"
+    ],
+    "metrics": [
+      "LPV/Click",
+      "Form Completion",
+      "Confirmed/Lead",
+      "Attendance/Confirmed",
+      "Deposit/Attended",
+      "Paid/Deposit",
+      "CPL",
+      "Cost per Attendee",
+      "Cost per Deposit",
+      "CAC",
+      "Revenue",
+      "Contribution Margin"
+    ],
     "thresholds": null,
     "thresholds_status": "deliberately absent — the plan forbids inventing benchmarks without a baseline; numeric decision limits wait on the test budget, the programme price, the deposit value and terms, the margin, and the current conversion rate",
     "rules": [
       "never pause or scale on CTR alone",
       "the winner is whichever ad produces qualified leads, bookings and payments more efficiently",
       "a lead is not final success — the deposit after attending the free segment is"
+    ],
+    "signal_state": {
+      "pixel_and_capi_web": "working — event_id deduplication in place",
+      "emq_web_lead": 8.7,
+      "ctwa_errors": "out of scope — this is a website leads campaign, not click-to-WhatsApp; the Missing CTWA clid errors must not be read as a failure of this campaign",
+      "commercial_loop": "NOT_COLLECTED — attendance and collection are not linked to contact_id and event_id"
+    }
+  },
+  "publish_requires_five_go": [
+    "offer",
+    "landing page",
+    "tracking",
+    "assets",
+    "budget"
+  ],
+  "sources": [
+    {
+      "record": "C02 — فيديو شهادة طالب (Reel 17 يوليو) — مراجعة THINC وحالة الـDraft",
+      "date": "2026-08-19"
+    },
+    {
+      "record": "EPA — خطة التنفيذ من الآن إلى النشر ثم الديبوزت",
+      "date": "2026-08-17"
+    },
+    {
+      "record": "EPA — اختيار الكريتيف الأساسي من 5 صور الويبينار",
+      "date": "2026-08-17"
+    },
+    {
+      "record": "EPA — Landing Page QA Decision",
+      "date": "2026-08-17"
+    },
+    {
+      "record": "EPA — تحليل زاويتي «من اليد الأولى» و«داخل شركة»",
+      "date": "2026-08-17"
+    }
+  ],
+  "performance_to_2026_08_25": {
+    "source": "Ads Manager report read by Dr. Ehab on 2026-08-25; daily figures are partial",
+    "currency": "EGP",
+    "spend": 3720.52,
+    "budget": 4200,
+    "spend_pct": 88.58,
+    "remaining": 479.48,
+    "impressions": 49022,
+    "reach": 24666,
+    "frequency": 1.99,
+    "link_clicks": 710,
+    "link_ctr_pct": 1.45,
+    "ctr_all_pct": 3.19,
+    "ctr_all_note": "includes every click, not link clicks — roughly 1,564 clicks",
+    "landing_page_views": 503,
+    "click_to_lpv_pct": 70.85,
+    "pixel_leads": 128,
+    "lpv_to_lead_pct": 25.45,
+    "complete_registration": 81,
+    "lead_to_registration_pct": 63.28,
+    "cost_per_lead": 29.07,
+    "cost_per_registration": 45.93,
+    "today_partial": {
+      "spend": 504.09,
+      "link_clicks": 123,
+      "landing_page_views": 94,
+      "leads": 27,
+      "complete_registration": 19,
+      "cost_per_lead": 18.67,
+      "cost_per_registration": 26.53
+    }
+  },
+  "platform_split": {
+    "labelled_as": "last 7 days",
+    "actually_is": "campaign to date minus today — the totals reconcile to 0.01 EGP: 3720.52 - 504.09 = 3216.43 and 128 - 27 = 101",
+    "consequence": "today's improved CPL is not in this split, so no platform can be credited for it yet",
+    "rows": [
+      {
+        "platform": "facebook",
+        "spend": 2914.01,
+        "share_pct": 90.6,
+        "leads": 95,
+        "cost_per_lead": 30.67,
+        "lpv_to_lead_pct": 27.86
+      },
+      {
+        "platform": "audience_network",
+        "spend": 278.91,
+        "share_pct": 8.67,
+        "leads": 6,
+        "cost_per_lead": 46.49,
+        "lpv_to_lead_pct": 9.52
+      },
+      {
+        "platform": "instagram",
+        "spend": 23.5,
+        "share_pct": 0.73,
+        "leads": 0,
+        "cost_per_lead": null,
+        "lpv_to_lead_pct": 0.0
+      }
+    ],
+    "findings": [
+      "the ad set is named Manual F+IG Feed-Reels yet Audience Network carries 8.67% of spend — plan and reality diverge",
+      "Audience Network converts a landing page view at 9.52% against Facebook's 27.86%, on a small sample of 6 leads",
+      "Instagram spent 23.50 EGP for zero leads — too little to judge quality; the likelier reading is that delivery is barely happening there, consistent with the unresolved account connection warning"
     ]
   },
-  "publish_requires_five_go": ["offer", "landing page", "tracking", "assets", "budget"],
-  "sources": [
-    { "record": "C02 — فيديو شهادة طالب (Reel 17 يوليو) — مراجعة THINC وحالة الـDraft", "date": "2026-08-19" },
-    { "record": "EPA — خطة التنفيذ من الآن إلى النشر ثم الديبوزت", "date": "2026-08-17" },
-    { "record": "EPA — اختيار الكريتيف الأساسي من 5 صور الويبينار", "date": "2026-08-17" },
-    { "record": "EPA — Landing Page QA Decision", "date": "2026-08-17" },
-    { "record": "EPA — تحليل زاويتي «من اليد الأولى» و«داخل شركة»", "date": "2026-08-17" }
-  ]
+  "decision_now": {
+    "requested": "SCALE",
+    "verdict": "HOLD",
+    "reason": "delivered contribution profit is NOT_COLLECTED; lead cost is not customer cost"
+  }
 }
