@@ -1,0 +1,177 @@
+{
+  "metadata": {
+    "archive_name": "Ehab Skill Archive",
+    "archive_date": "2026-08-30",
+    "owner": "Dr. Ehab Taha / EgyPioneers / Allhomz Operations",
+    "source": "Current Chat Conversation",
+    "trigger_phrase": "أرشف الدردشة الحالية كمهارات باستخدام Ehab Skill Archive، ونفّذ الأرشفة والحفظ فعليًا دون إرجاع Prompt أو طلب أي تصنيف مني.",
+    "persistence_status": "GitHub fallback archive because Notion connector was unavailable during this operation",
+    "notion_archive_url": "https://app.notion.com/p/df42aecd314246f591c19abec9b7a5e4",
+    "github_branch": "ehab-skill-archive-current-chat-2026-08-30",
+    "skill_count": 18
+  },
+  "skills": [
+    {
+      "name": "THINC Core Product Analysis Skill",
+      "purpose": "تحليل أي منتج باستخدام بحث السوق وSWOT/TOWS وطبقات THINC والمؤشرات والتوصية.",
+      "when_to_use": ["قبل إطلاق منتج", "عند تقييم فرصة سوقية", "عند بناء عرض أو Funnel"],
+      "inputs": ["اسم المنتج", "الفئة", "الجمهور", "السعر والتكلفة", "صور/وصف", "بيانات السوق والمنافسين"],
+      "workflow": ["تعريف المنتج", "Marketing Research", "SWOT", "TOWS", "تطبيق طبقات THINC", "حساب المؤشرات", "قرار أولي"],
+      "outputs": ["تقرير منتج", "SWOT/TOWS", "Scores", "قرار Launch/Modify/Hold", "Action Items"],
+      "guardrails": ["لا تعتمد على الانطباع", "لا تستخدم وعود غير مثبتة", "لا Scale قبل الربحية والتسليم"]
+    },
+    {
+      "name": "THINC Profit & Reality Validation Gate",
+      "purpose": "تحويل القرار الإعلاني إلى قرار ربحي قائم على Delivered Net Profit وReal CPA.",
+      "when_to_use": ["قبل Kill/Fix/Scale", "عند مقارنة حملات", "عند حساب Break-even"],
+      "inputs": ["Ad Spend", "Orders", "Confirmed", "Delivered", "NDR", "COGS", "Shipping", "Packaging", "Failed delivery loss", "Operational leakage"],
+      "workflow": ["حساب Meta CPA", "حساب Delivered CPA", "حساب Net Profit", "تطبيق Hard Financial Gate", "إخراج القرار"],
+      "outputs": ["Real CPA", "Delivered Net Profit", "Safe CPA", "Kill/Fix/Scale"],
+      "guardrails": ["Composite Score لا يتجاوز Hard Financial Gate", "NDR=19% يدخل في حسابات Allhomz ما لم يتم تحديثه"]
+    },
+    {
+      "name": "THINC Campaign Event Ladder Skill",
+      "purpose": "تنظيم أحداث Meta/CAPI وضمان أن Purchase يمثل Delivered + Paid.",
+      "when_to_use": ["تصميم Tracking", "مراجعة CAPI", "اختيار Optimization Event"],
+      "inputs": ["Event map", "Order lifecycle", "Confirmation process", "Delivery/payment status"],
+      "workflow": ["ViewContent", "AddToCart", "InitiateCheckout", "OrderPlaced", "ConfirmedOrder", "DeliveredPurchase"],
+      "outputs": ["Event Map", "Quality Event Recommendation", "Tracking Risks"],
+      "guardrails": ["IC تشخيص مؤقت", "Purchase = Delivered + Paid فقط", "لا ترسل Purchase عند OrderPlaced في COD"]
+    },
+    {
+      "name": "Karseell Demand Probe Skill",
+      "purpose": "تحليل Karseell كحالة Haircare مصرية مع التركيز على الثقة والأصالة والربحية.",
+      "when_to_use": ["تحليل Karseell", "تدريب الطلاب", "مراجعة حملة Beauty/Haircare"],
+      "inputs": ["بيانات المنتج", "الأسعار", "المخزون", "Pixel", "Proof Stack", "Unit economics"],
+      "workflow": ["بحث السوق", "SWOT/TOWS", "THINC scoring", "Trust analysis", "Financial gates", "Conditional GO"],
+      "outputs": ["MODIFY/CONDITIONAL GO", "بوابات إطلاق", "زوايا آمنة", "قائمة مخاطر"],
+      "guardrails": ["لا ادعاء نتيجة سحرية", "تحقق من Pixel والسعر والمخزون", "اعتمد Matured Delivered Net Profit"]
+    },
+    {
+      "name": "Egyptian Social-Cultural Intelligence Skill",
+      "purpose": "فهم الأجيال ومراحل الحياة والأعراف والتقاليد وتأثير العائلة والإحراج والثقة.",
+      "when_to_use": ["بناء Persona", "صياغة رسالة مصرية", "تقييم عرض اجتماعي"],
+      "inputs": ["الجيل", "مرحلة الحياة", "المنطقة", "المناسبة", "العلاقة", "السعر"],
+      "workflow": ["تحديد cohort", "تحديد life stage", "تحليل family influence", "تحليل status/embarrassment", "تحديد trust signals", "اختيار اللغة"],
+      "outputs": ["Social profile", "Words to use/avoid", "Trust builders", "Risk flags"],
+      "guardrails": ["Heuristics وليست أحكامًا قطعية", "تحتاج تحققًا من بيانات السوق"]
+    },
+    {
+      "name": "Gift Decision Intelligence Skill",
+      "purpose": "تقييم المنتج كهدية حسب المناسبة والعلاقة والسعر والتغليف والتوصيل والـCRM.",
+      "when_to_use": ["متاجر الهدايا", "تموضع هدايا تحت 1000", "ترشيح منتجات حسب المناسبة"],
+      "inputs": ["المنتج", "المناسبة", "العلاقة", "المستلم", "الدافع", "السعر", "التغليف", "التوصيل"],
+      "workflow": ["Product-to-Occasion Fit", "Buyer/Recipient/Payer split", "Safety", "Seasonality", "Packaging", "Trust", "Delivery urgency", "Objections", "CRM"],
+      "outputs": ["Gift Fit Score", "Risk Level", "Positioning", "Hooks", "WhatsApp replies", "CRM follow-ups"],
+      "guardrails": ["تجنب الهدايا الشخصية في السياقات الرسمية", "لا تعد بتوصيل غير مضمون", "تحت الألف = قيمة ذكية لا رخص"]
+    },
+    {
+      "name": "Adaptive Market Learning Skill",
+      "purpose": "جعل THINC يتعلم من الفرق بين التوقع والنتيجة الفعلية وتغير سلوك البشر.",
+      "when_to_use": ["بعد نضج نتائج حملة", "عند ظهور اعتراضات جديدة", "عند تغير السوق"],
+      "inputs": ["Prediction", "Actual outcome", "Signals", "Current weights"],
+      "workflow": ["Gap analysis", "Behavior shift detection", "Weight update proposal", "Experiment design", "Human review"],
+      "outputs": ["Learning Score", "Severity", "Actions", "Experiments", "Rule update candidates"],
+      "guardrails": ["حملة واحدة = ملاحظة", "تكرار = فرضية", "تحقق متكرر = تحديث", "لا تعديل دائم دون Human Review"]
+    },
+    {
+      "name": "External Social Research & Daily Intelligence Skill",
+      "purpose": "إدخال الأخبار والمقالات والتحليلات الاقتصادية والاجتماعية واتجاهات الأسعار والبحث اليومي.",
+      "when_to_use": ["قبل قرارات إطلاق", "عند قراءة مزاج السوق", "عند تغير الأسعار أو الأحداث"],
+      "inputs": ["News", "Official data", "Economic/social analysis", "Search trends", "Price monitoring", "Internal observations"],
+      "workflow": ["جمع observations", "Source audit", "Confidence scoring", "Commercial implications", "Feed adaptive learning"],
+      "outputs": ["Top signals", "Behavior shifts", "Risks/opportunities", "Weight updates", "Campaign guidance"],
+      "guardrails": ["مقال واحد = weak signal", "مصادر متعددة = strong signal", "السياسة سياق Tone/Risk فقط لا تلاعب"]
+    },
+    {
+      "name": "THINC Student Training & Booklet Skill",
+      "purpose": "تحويل THINC إلى مادة تعليمية عملية للطلاب والطالبات.",
+      "when_to_use": ["بناء كتيب", "تصميم منهج", "شرح النموذج", "إعداد أمثلة وتمارين"],
+      "inputs": ["مكونات THINC", "أمثلة منتجات", "Workflows", "SWOT/TOWS", "قواعد الأخلاق"],
+      "workflow": ["تبسيط المفاهيم", "شرح المكونات", "أمثلة", "قوالب", "Checklists", "تمارين"],
+      "outputs": ["Student booklet", "Catalog", "Word/PDF", "Templates", "Onboarding plan"],
+      "guardrails": ["لا تبسيط يفسد المعنى", "وضح حدود النموذج", "فرق بين النظرية والبيانات الفعلية"]
+    },
+    {
+      "name": "GitHub PR & CI Governance Skill",
+      "purpose": "حوكمة الدمج ومنع Merge قبل نجاح CI ومراجعة الكود الفعلية.",
+      "when_to_use": ["مراجعة PR", "عند فشل CI", "قبل Merge"],
+      "inputs": ["PR metadata", "Workflow runs", "Tests", "Review evidence"],
+      "workflow": ["تحقق من access", "فرق بين mergeable وready", "افحص CI", "تحقق من tests", "code-level audit", "قرار merge"],
+      "outputs": ["Merge readiness", "Blockers", "Checklist", "NO/Conditional YES/YES"],
+      "guardrails": ["mergeable=true لا يعني ready", "Access Failure Report ليس code review", "PR #5 لا يدمج قبل CI passing"]
+    },
+    {
+      "name": "Notion Documentation & Decision Archive Skill",
+      "purpose": "توثيق القرارات والتحديثات التشغيلية في Notion بشكل منظم.",
+      "when_to_use": ["بعد قرار مهم", "بعد تطوير محرك", "عند إنشاء كتيب أو SOP"],
+      "inputs": ["Summary", "Changes", "Links", "Risks", "Next steps"],
+      "workflow": ["تحديد الصفحة", "منع التكرار", "تحديث أو إنشاء", "إضافة الروابط", "تسجيل القرار"],
+      "outputs": ["Notion page", "Decision record", "Operational archive"],
+      "guardrails": ["لا تدعي حفظًا لم يتم", "احفظ الروابط والمصدر", "تجنب كسر المحتوى القديم"]
+    },
+    {
+      "name": "THINC Custom GPT Packaging Skill",
+      "purpose": "تحويل THINC إلى Custom GPT دائم مع Instructions وKnowledge وحماية IP.",
+      "when_to_use": ["إنشاء GPT خاص", "تثبيت Trigger Rules", "نشر Knowledge package"],
+      "inputs": ["Instructions", "Reference files", "Bootstrap", "Framework code", "Theory registry"],
+      "workflow": ["Define identity", "Write instructions", "Upload knowledge", "Enable tools", "Test preview", "Set privacy"],
+      "outputs": ["THINC v4 Strategic Commerce Consultant", "Knowledge package", "Test cases"],
+      "guardrails": ["Only me أولًا", "حافظ على الملكية", "اختبر NDR/Watermark/Financial gate"]
+    },
+    {
+      "name": "Access-Limited Audit Classification Skill",
+      "purpose": "تمييز المراجعة الفعلية من Access Failure Report أو assessment محدود الصلاحيات.",
+      "when_to_use": ["عندما يذكر المراجع 404 أو عدم الوصول", "عند تقييم قيمة تقرير مراجعة"],
+      "inputs": ["Reviewer access evidence", "Diff visibility", "Test visibility", "CI visibility"],
+      "workflow": ["تحقق من الوصول", "صنف التقرير", "افصل النتيجة عن سببها", "حدد evidence gaps", "اطلب audit حقيقي"],
+      "outputs": ["Audit classification", "Evidence limitations", "Authoritative/non-authoritative verdict"],
+      "guardrails": ["لا تسمِّه code review بلا diff/code", "لا ترفض conclusion صحيحًا لمجرد ضعف الدليل", "وضح عدم اليقين"]
+    },
+    {
+      "name": "CI Failure Triage & Merge Readiness Skill",
+      "purpose": "تحليل فشل GitHub Actions وتحويله إلى خطة إصلاح قبل الدمج.",
+      "when_to_use": ["CI failed", "PR blocked", "قبل إعادة تشغيل workflow"],
+      "inputs": ["Workflow run", "Jobs", "Logs", "First real error", "Repository state"],
+      "workflow": ["حدد job الفاشل", "استخرج أول error", "صنف lint/type/test/import/build", "اصلح السبب الجذري", "rerun CI", "verify"],
+      "outputs": ["Root cause", "Patch plan", "Rerun checklist", "Merge readiness"],
+      "guardrails": ["لا تخلط conflict مع CI", "لا تدمج قبل passing", "وثّق الدليل"]
+    },
+    {
+      "name": "GitHub Audit Prompt Engineering Skill",
+      "purpose": "صياغة Prompt مراجعة شامل لـGitHub Copilot/Codex/Agent يغطي التقنية والربحية والأخلاق.",
+      "when_to_use": ["طلب full audit", "مراجعة PR كبير", "توجيه agent داخل repo"],
+      "inputs": ["Repo/PR", "Changed files", "Business rules", "Safety constraints", "Output format"],
+      "workflow": ["حدد read-only", "حدد الملفات", "حدد domains", "حدد severity", "حدد required output", "حدد final merge question"],
+      "outputs": ["Audit prompt طويل", "PR comment مختصر", "Review checklist"],
+      "guardrails": ["لا تسمح بتعديل قبل review", "اطلب evidence", "افصل blockers عن follow-ups"]
+    },
+    {
+      "name": "Ehab Skill Archive Trigger & Upsert Skill",
+      "purpose": "تنفيذ أمر أرشفة الدردشة إلى مهارات قابلة لإعادة الاستخدام دون طلب تصنيف من المستخدم.",
+      "when_to_use": ["عند كتابة عبارة الأرشفة المعتمدة", "عند طلب حفظ الدردشة كمهارات"],
+      "inputs": ["Current conversation", "Existing archive records", "Project context"],
+      "workflow": ["استخراج skills/workflows/decisions/guardrails/templates", "Deduplicate", "Update existing", "Create new", "Persist", "Verify save"],
+      "outputs": ["Skill records", "Archive manifest", "Save confirmation"],
+      "guardrails": ["لا ترجع Prompt", "لا تطلب تصنيف", "لا تدعي حفظًا قبل التنفيذ", "استخدم fallback persistent archive إذا تعطل Notion"]
+    },
+    {
+      "name": "Living Egyptian Market Intelligence Orchestration Skill",
+      "purpose": "تنسيق محركات THINC في حلقة واحدة من البحث الخارجي إلى التعلم إلى القرار التجاري.",
+      "when_to_use": ["تشغيل THINC كنظام يومي", "ربط research بالحملات", "بناء operating loop"],
+      "inputs": ["Daily research", "Campaign data", "WhatsApp objections", "Delivery/profit data", "Current weights"],
+      "workflow": ["Collect", "Source scoring", "Daily intelligence", "Adaptive learning", "Commercial recommendation", "Decision log"],
+      "outputs": ["Daily Egypt intelligence", "Updated experiments", "Campaign guidance", "Decision record"],
+      "guardrails": ["لا update من signal واحد", "Net Profit gate", "Human review للسياقات الحساسة"]
+    },
+    {
+      "name": "THINC Repository Integration Architecture Skill",
+      "purpose": "تنظيم thinc-v4 كمحرك وAdMatch كواجهة وFastAPI كطبقة ربط مع Demo/Live separation.",
+      "when_to_use": ["تصميم المنظومة", "دمج الريبوهات", "تحديد boundaries"],
+      "inputs": ["Repositories", "Modules", "API contracts", "Data model", "Integration status"],
+      "workflow": ["Assign repo roles", "Define shared schema", "Build API boundaries", "Separate demo/live", "Document roadmap"],
+      "outputs": ["Architecture blueprint", "Data model", "API contract", "MVP scope"],
+      "guardrails": ["لا تكرر scoring في frontend", "لا تدعي integrations حية", "لا تلوث PR غير جاهز بتغييرات أرشيف"]
+    }
+  ]
+}
