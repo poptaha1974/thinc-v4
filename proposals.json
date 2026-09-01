@@ -14,5 +14,90 @@
     "approved": false,
     "reviewed_at": "2026-08-14T15:40:19.957276Z",
     "reviewer_notes": "الورقة مناسبة ومسجَّلة كدليل مؤيد (Brown et al. 2024, JEL 62(2):485-516, λ=1.955 [1.82,2.10]). لكن القيمة 1.0 مرفوضة: (أ) يوجد دليل معارض منشور، أبرزه Yechiam & Zeif (2025, J.Econ.Psych 107:102801) الذي أعاد تحليل نفس بيانات Brown et al. فوجد λ≈1.07 غير مختلف معنويًا عن 1 في التصاميم المتناظرة، وWalasek et al. (2024, J.Econ.Psych 103:102740) بـλ=1.31 [1.10,1.53]؛ (ب) الثقة 1.0 غير قابلة للتكذيب فلا دليل لاحق يمكنه إنزالها، وهذا يخالف فلسفة THINC: احتمالية لا حتمية. الثقة تبقى 0.95 بلا تغيير حتى قرار الدكتور إيهاب طه. وأُضيف سقف 0.98 في المحرك (PR #25)."
+  },
+  {
+    "proposal_id": "5385c4ae-3866-4890-8007-990737418a6a",
+    "created_at": "2026-09-01T06:15:26.852727Z",
+    "proposal_type": "new_theory",
+    "target": "consent_bias",
+    "current_value": null,
+    "proposed_value": {
+      "theory_id": "consent_bias",
+      "name_en": "Consent Bias",
+      "name_ar": "Consent Bias (يحتاج ترجمة)",
+      "category": "behavioral_economics"
+    },
+    "justification": "مصدر قوي (meta_analysis) يقترح نظرية غير موجودة في السجل. العنوان: Opt-In and Opt-Out Consent Procedures for the Reuse of Routinely Recorded Health Data in Scientific Research and Their Consequences for Consent Rate a",
+    "supporting_paper_ids": [
+      "93924c61-0ad9-4540-95c2-92e06c71cccb"
+    ],
+    "confidence": 0.49,
+    "approved": null,
+    "reviewed_at": null,
+    "reviewer_notes": null
+  },
+  {
+    "proposal_id": "f5221c95-9899-47eb-8ee5-93f2f13ca6f4",
+    "created_at": "2026-09-01T06:15:26.853042Z",
+    "proposal_type": "evidence_update",
+    "target": "reciprocity",
+    "current_value": 0.87,
+    "proposed_value": 0.92,
+    "justification": "ورقة systematic_review من 2023 باستشهادات 573 تدعم نظرية 'المعاملة بالمثل'. عنوان الورقة: Social exchange theory: Systematic review and future directions",
+    "supporting_paper_ids": [
+      "187fd028-e048-41e5-bf85-75e2e2facac8"
+    ],
+    "confidence": 0.7,
+    "approved": null,
+    "reviewed_at": null,
+    "reviewer_notes": null
+  },
+  {
+    "proposal_id": "4cc9fa41-4404-4a74-8f16-8bb6f52b41e8",
+    "created_at": "2026-09-01T06:15:26.853420Z",
+    "proposal_type": "evidence_update",
+    "target": "social_proof",
+    "current_value": 0.87,
+    "proposed_value": 0.92,
+    "justification": "ورقة systematic_review من 2023 باستشهادات 12 تدعم نظرية 'تأثير الجيران - الإثبات الاجتماعي'. عنوان الورقة: A Survey on the Principles of Persuasion as a Social Engineering Strategy in Phishing",
+    "supporting_paper_ids": [
+      "33eea0e3-55b2-4c51-a97d-486ff5782ff1"
+    ],
+    "confidence": 0.7,
+    "approved": null,
+    "reviewed_at": null,
+    "reviewer_notes": null
+  },
+  {
+    "proposal_id": "a834e387-018a-4338-8624-300716febbe2",
+    "created_at": "2026-09-01T06:15:26.853435Z",
+    "proposal_type": "evidence_update",
+    "target": "scarcity",
+    "current_value": 0.83,
+    "proposed_value": 0.88,
+    "justification": "ورقة systematic_review من 2023 باستشهادات 12 تدعم نظرية 'الندرة'. عنوان الورقة: A Survey on the Principles of Persuasion as a Social Engineering Strategy in Phishing",
+    "supporting_paper_ids": [
+      "33eea0e3-55b2-4c51-a97d-486ff5782ff1"
+    ],
+    "confidence": 0.7,
+    "approved": null,
+    "reviewed_at": null,
+    "reviewer_notes": null
+  },
+  {
+    "proposal_id": "21617cc7-6594-4e6d-9c56-5859739f37e3",
+    "created_at": "2026-09-01T06:15:26.853447Z",
+    "proposal_type": "evidence_update",
+    "target": "reciprocity",
+    "current_value": 0.87,
+    "proposed_value": 0.92,
+    "justification": "ورقة systematic_review من 2023 باستشهادات 12 تدعم نظرية 'المعاملة بالمثل'. عنوان الورقة: A Survey on the Principles of Persuasion as a Social Engineering Strategy in Phishing",
+    "supporting_paper_ids": [
+      "33eea0e3-55b2-4c51-a97d-486ff5782ff1"
+    ],
+    "confidence": 0.7,
+    "approved": null,
+    "reviewed_at": null,
+    "reviewer_notes": null
   }
 ]

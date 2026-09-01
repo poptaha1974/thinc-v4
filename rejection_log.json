@@ -52,5 +52,1238 @@
     "year": 2023,
     "reason": "blacklist_journal:ieee",
     "citations": 94
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.548056+00:00",
+    "paper_id": "2f3e940f-06eb-4c1e-a996-13e9f8c45e45",
+    "title": "Designing AI Using a Human-Centered Approach: Explainability and Accuracy Toward Trustworthiness",
+    "journal": "IEEE Transactions on Technology and Society",
+    "year": 2023,
+    "reason": "blacklist_journal:ieee",
+    "citations": 98
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.548177+00:00",
+    "paper_id": "6c371491-c5e9-4535-a383-1c40c95fb998",
+    "title": "On the Role of Theory and Modeling in Neuroscience",
+    "journal": "Journal of Neuroscience",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 97
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.548465+00:00",
+    "paper_id": "dc5ba8d9-8f66-4f05-98a7-171653f90cf5",
+    "title": "Mapping Financial Literacy: A Systematic Literature Review of Determinants and Recent Trends",
+    "journal": "Sustainability",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 93
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.548874+00:00",
+    "paper_id": "70301bf7-b01c-4997-8d7b-1df76da3fab4",
+    "title": "Family business succession and innovation: a systematic literature review",
+    "journal": "Review of Managerial Science",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 140
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.548909+00:00",
+    "paper_id": "03e58def-4e04-4941-9902-8a24fc623642",
+    "title": "Demand, Services and Social Aspects of Mitigation",
+    "journal": "Cambridge University Press eBooks",
+    "year": 2023,
+    "reason": "blacklist_keyword:climate change",
+    "citations": 135
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.548977+00:00",
+    "paper_id": "a0a27328-2dbb-464a-b7c4-18633f20f92a",
+    "title": "Responding to unexpected crises: The roles of slack resources and entrepreneurial attitude to build resilience",
+    "journal": "Small Business Economics",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 109
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.549141+00:00",
+    "paper_id": "2d6a67d4-0ed0-4e4a-83b1-71b09e7988ae",
+    "title": "Designing AI Using a Human-Centered Approach: Explainability and Accuracy Toward Trustworthiness",
+    "journal": "IEEE Transactions on Technology and Society",
+    "year": 2023,
+    "reason": "blacklist_journal:ieee",
+    "citations": 98
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.549546+00:00",
+    "paper_id": "3d05e3f1-fa61-415a-b463-93f64cb3874e",
+    "title": "Demand, Services and Social Aspects of Mitigation",
+    "journal": "Cambridge University Press eBooks",
+    "year": 2023,
+    "reason": "blacklist_keyword:climate change",
+    "citations": 135
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.549841+00:00",
+    "paper_id": "64c40352-4667-42d6-9702-784007cc3ba2",
+    "title": "Mapping Financial Literacy: A Systematic Literature Review of Determinants and Recent Trends",
+    "journal": "Sustainability",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 93
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.550172+00:00",
+    "paper_id": "43367435-2a07-47c4-9b1d-319eab76a329",
+    "title": "Electric vehicles destination charging: An overview of charging tariffs, business models and coordination strategies",
+    "journal": "Renewable and Sustainable Energy Reviews",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 88
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.550196+00:00",
+    "paper_id": "35ace9c3-bb5c-4dd4-8774-6b95fcc82308",
+    "title": "Permutation tests for experimental data",
+    "journal": "Experimental Economics",
+    "year": 2023,
+    "reason": "blacklist_keyword:treatment",
+    "citations": 82
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.550270+00:00",
+    "paper_id": "4d949da8-4eed-49d8-b29f-a5ed7591a709",
+    "title": "Confronting the deep problem of consumption: Why individual responsibility for mindful consumption matters",
+    "journal": "Journal of Consumer Affairs",
+    "year": 2023,
+    "reason": "blacklist_keyword:climate change",
+    "citations": 77
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.550457+00:00",
+    "paper_id": "f74d7eb7-1a58-40da-b877-3194b826f112",
+    "title": "Global incidence, prevalence, years lived with disability (YLDs), disability-adjusted life-years (DALYs), and healthy life expectancy (HALE) for 371 diseases and injuries in 204 countries and territor",
+    "journal": "The Lancet",
+    "year": 2024,
+    "reason": "blacklist_journal:lancet",
+    "citations": 4845
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.550469+00:00",
+    "paper_id": "ac9b772b-a56a-4108-8465-9f348d11a0fe",
+    "title": "Performance of ChatGPT on USMLE: Potential for AI-assisted medical education using large language models",
+    "journal": "PLOS Digital Health",
+    "year": 2023,
+    "reason": "blacklist_keyword:medical",
+    "citations": 3773
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.550490+00:00",
+    "paper_id": "b659755b-a12d-4c61-96bd-80bb9f2ef9de",
+    "title": "Large language models encode clinical knowledge",
+    "journal": "Nature",
+    "year": 2023,
+    "reason": "blacklist_keyword:clinicians",
+    "citations": 3697
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.550808+00:00",
+    "paper_id": "54490c76-af65-450c-beac-fc30388ae8dd",
+    "title": "American Geriatrics Society 2023 updated AGS Beers Criteria® for potentially inappropriate medication use in older adults",
+    "journal": "Journal of the American Geriatrics Society",
+    "year": 2023,
+    "reason": "blacklist_keyword:clinicians",
+    "citations": 1484
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.550938+00:00",
+    "paper_id": "8c84a33f-dac9-4e9f-89c2-8a568bfe3d27",
+    "title": "Technology Roadmap for Flexible Sensors",
+    "journal": "ACS Nano",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 1340
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.550977+00:00",
+    "paper_id": "dad8cf71-984c-4b8f-bda5-ebe6dbf0fedd",
+    "title": "Several lines of antioxidant defense against oxidative stress: antioxidant enzymes, nanomaterials with multiple enzyme-mimicking activities, and low-molecular-weight antioxidants",
+    "journal": "Archives of Toxicology",
+    "year": 2024,
+    "reason": "blacklist_keyword:disease",
+    "citations": 1309
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551044+00:00",
+    "paper_id": "fb51b449-0acd-4ef4-a33d-4faa7b069dba",
+    "title": "Molecular docking as a tool for the discovery of molecular targets of nutraceuticals in diseases management",
+    "journal": "Scientific Reports",
+    "year": 2023,
+    "reason": "blacklist_keyword:medicine",
+    "citations": 1178
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551082+00:00",
+    "paper_id": "0a955159-fd30-48d2-bc43-c6d7937545ae",
+    "title": "Global incidence, prevalence, years lived with disability (YLDs), disability-adjusted life-years (DALYs), and healthy life expectancy (HALE) for 371 diseases and injuries in 204 countries and territor",
+    "journal": "The Lancet",
+    "year": 2024,
+    "reason": "blacklist_journal:lancet",
+    "citations": 4845
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551106+00:00",
+    "paper_id": "69f707e8-298e-4505-b273-d871816cf9de",
+    "title": "Revised criteria for diagnosis and staging of Alzheimer's disease: Alzheimer's Association Workgroup",
+    "journal": "Alzheimer s & Dementia",
+    "year": 2024,
+    "reason": "blacklist_keyword:medicine",
+    "citations": 2529
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551163+00:00",
+    "paper_id": "afa2fc68-c4bd-4347-a509-f1927baa1f9a",
+    "title": "GPT-4 Technical Report",
+    "journal": "arXiv (Cornell University)",
+    "year": 2023,
+    "reason": "blacklist_keyword:gpt-4 technical",
+    "citations": 2480
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551251+00:00",
+    "paper_id": "b4785b75-ce94-4a16-b5c5-60ed33d6a311",
+    "title": "Targeting integrin pathways: mechanisms and advances in therapy",
+    "journal": "Signal Transduction and Targeted Therapy",
+    "year": 2023,
+    "reason": "blacklist_keyword:clinical trial",
+    "citations": 1264
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551310+00:00",
+    "paper_id": "76838251-64df-499f-a087-09051dbfa5c8",
+    "title": "Molecular docking as a tool for the discovery of molecular targets of nutraceuticals in diseases management",
+    "journal": "Scientific Reports",
+    "year": 2023,
+    "reason": "blacklist_keyword:medicine",
+    "citations": 1178
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551333+00:00",
+    "paper_id": "73a2dae8-421c-43f6-9985-b970584a479a",
+    "title": "A survey on deep learning tools dealing with data scarcity: definitions, challenges, solutions, tips, and applications",
+    "journal": "Journal Of Big Data",
+    "year": 2023,
+    "reason": "blacklist_keyword:medical",
+    "citations": 875
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551351+00:00",
+    "paper_id": "c3cb3e31-0613-4c4b-8b56-4da58700527d",
+    "title": "Fake news, disinformation and misinformation in social media: a review",
+    "journal": "Social Network Analysis and Mining",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 746
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551452+00:00",
+    "paper_id": "c6299827-e79d-4a67-9475-38993f329118",
+    "title": "A perspective on using partial least squares structural equation modelling in data articles",
+    "journal": "Data in Brief",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 733
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551505+00:00",
+    "paper_id": "1475f430-42fa-4258-82f9-bddcdffe4111",
+    "title": "GPT-4 Technical Report",
+    "journal": "arXiv (Cornell University)",
+    "year": 2023,
+    "reason": "blacklist_keyword:gpt-4 technical",
+    "citations": 2480
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551642+00:00",
+    "paper_id": "d31386b0-94d4-4bca-9efe-d631f32c55ce",
+    "title": "Technology Roadmap for Flexible Sensors",
+    "journal": "ACS Nano",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 1340
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551664+00:00",
+    "paper_id": "3355d27d-18b6-4de0-886d-5a6820724064",
+    "title": "Molecular docking as a tool for the discovery of molecular targets of nutraceuticals in diseases management",
+    "journal": "Scientific Reports",
+    "year": 2023,
+    "reason": "blacklist_keyword:medicine",
+    "citations": 1178
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551672+00:00",
+    "paper_id": "d851d6c2-3fcc-4d33-a490-29bd5d700701",
+    "title": "Dietary tryptophan metabolite released by intratumoral Lactobacillus reuteri facilitates immune checkpoint inhibitor treatment",
+    "journal": "Cell",
+    "year": 2023,
+    "reason": "blacklist_keyword:treatment",
+    "citations": 704
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551710+00:00",
+    "paper_id": "c08ad2dd-ce78-4237-b234-434825067506",
+    "title": "Augmenting large language models with chemistry tools",
+    "journal": "Nature Machine Intelligence",
+    "year": 2024,
+    "reason": "blacklist_keyword:drug",
+    "citations": 694
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551812+00:00",
+    "paper_id": "5cc91a16-7a01-4366-a622-4696e2ed6773",
+    "title": "Highly efficient p-i-n perovskite solar cells that endure temperature variations",
+    "journal": "Science",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 568
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.551888+00:00",
+    "paper_id": "b93d3203-8d66-4468-96f5-2494192b2f7c",
+    "title": "Exploring the Full Potentials of IoT for Better Financial Growth and Stability: A Comprehensive Survey",
+    "journal": "Sensors",
+    "year": 2023,
+    "reason": "blacklist_journal:sensors",
+    "citations": 543
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.552091+00:00",
+    "paper_id": "f786daa9-adab-4855-8921-785ba2f84c64",
+    "title": "Molecularly defined and spatially resolved cell atlas of the whole mouse brain",
+    "journal": "Nature",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 507
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.552152+00:00",
+    "paper_id": "2b6f81e8-8a0b-4728-86f8-35bc47461b7d",
+    "title": "Enhancing K-nearest neighbor algorithm: a comprehensive review and performance analysis of modifications",
+    "journal": "Journal Of Big Data",
+    "year": 2024,
+    "reason": "blacklist_keyword:iot",
+    "citations": 490
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.553650+00:00",
+    "paper_id": "93c4df5d-a73e-40b0-8a43-dc1d42bff35f",
+    "title": "On Artificial Intelligence and Manipulation",
+    "journal": "Topoi",
+    "year": 2023,
+    "reason": "blacklist_keyword:iot",
+    "citations": 105
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.554861+00:00",
+    "paper_id": "988f5378-13b5-462e-9dde-ba43e1be84b5",
+    "title": "Devising and Detecting Phishing Emails Using Large Language Models",
+    "journal": "IEEE Access",
+    "year": 2024,
+    "reason": "blacklist_journal:ieee",
+    "citations": 106
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.554967+00:00",
+    "paper_id": "f944603f-5ba3-484e-aea9-cd64690e7948",
+    "title": "On Artificial Intelligence and Manipulation",
+    "journal": "Topoi",
+    "year": 2023,
+    "reason": "blacklist_keyword:iot",
+    "citations": 105
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.556241+00:00",
+    "paper_id": "b9f70b87-89fa-4ca6-bda9-70a23f94d630",
+    "title": "Devising and Detecting Phishing Emails Using Large Language Models",
+    "journal": "IEEE Access",
+    "year": 2024,
+    "reason": "blacklist_journal:ieee",
+    "citations": 106
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.556281+00:00",
+    "paper_id": "2d08876b-f86b-437b-8e40-f83e789d8b8f",
+    "title": "Global incidence, prevalence, years lived with disability (YLDs), disability-adjusted life-years (DALYs), and healthy life expectancy (HALE) for 371 diseases and injuries in 204 countries and territor",
+    "journal": "The Lancet",
+    "year": 2024,
+    "reason": "blacklist_journal:lancet",
+    "citations": 4845
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.556308+00:00",
+    "paper_id": "1520be40-8659-4f1f-9fab-7aaad1c2ae78",
+    "title": "Climate Change 2023 Synthesis Report",
+    "journal": "Climate Change and Law Collection",
+    "year": 2024,
+    "reason": "blacklist_keyword:climate change",
+    "citations": 2377
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.556536+00:00",
+    "paper_id": "ccfd115d-f25d-4158-9611-a7abeb0c4524",
+    "title": "Nanotechnology: A Revolution in Modern Industry",
+    "journal": "Molecules",
+    "year": 2023,
+    "reason": "blacklist_keyword:medicine",
+    "citations": 1073
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.556644+00:00",
+    "paper_id": "8ae673d4-1c78-44a2-844b-05fc138469a5",
+    "title": "The Impact of ESG (Environmental, Social, and Governance) Considerations on Corporate Mergers and Acquisitions: Strategies for Value Creation",
+    "journal": "International Journal of Innovative Science and Research Technology (IJISRT)",
+    "year": 2024,
+    "reason": "no_required_keyword_matched",
+    "citations": 961
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.556655+00:00",
+    "paper_id": "1a4ad264-5feb-42d0-9c29-0ffd90eb39f2",
+    "title": "The Role of AI in Hospitals and Clinics: Transforming Healthcare in the 21st Century",
+    "journal": "Bioengineering",
+    "year": 2024,
+    "reason": "blacklist_keyword:clinicians",
+    "citations": 889
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.556672+00:00",
+    "paper_id": "6e4c848e-facb-453a-b22c-c03c31defd8a",
+    "title": "A Review of the Role of Artificial Intelligence in Healthcare",
+    "journal": "Journal of Personalized Medicine",
+    "year": 2023,
+    "reason": "blacklist_keyword:patient care",
+    "citations": 875
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.556695+00:00",
+    "paper_id": "de32b82b-16c5-4f33-a6dc-495afb619da9",
+    "title": "A survey on deep learning tools dealing with data scarcity: definitions, challenges, solutions, tips, and applications",
+    "journal": "Journal Of Big Data",
+    "year": 2023,
+    "reason": "blacklist_keyword:medical",
+    "citations": 875
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.556891+00:00",
+    "paper_id": "3e74455b-aa69-4352-9e84-c90402251561",
+    "title": "Plastic Waste: Challenges and Opportunities to Mitigate Pollution and Effective Management",
+    "journal": "International Journal of Environmental Research",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 855
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.556928+00:00",
+    "paper_id": "8a09cd87-b6b3-41b2-9ef3-a8cf521cf3b2",
+    "title": "Global incidence, prevalence, years lived with disability (YLDs), disability-adjusted life-years (DALYs), and healthy life expectancy (HALE) for 371 diseases and injuries in 204 countries and territor",
+    "journal": "The Lancet",
+    "year": 2024,
+    "reason": "blacklist_journal:lancet",
+    "citations": 4845
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.556946+00:00",
+    "paper_id": "30e8a03b-19d9-4980-aa8e-e5ee64e8f77e",
+    "title": "Nanotechnology: A Revolution in Modern Industry",
+    "journal": "Molecules",
+    "year": 2023,
+    "reason": "blacklist_keyword:medicine",
+    "citations": 1073
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.556963+00:00",
+    "paper_id": "a9d723a8-4759-4a22-a59b-50e31e93f3cf",
+    "title": "Deep learning modelling techniques: current progress, applications, advantages, and challenges",
+    "journal": "Artificial Intelligence Review",
+    "year": 2023,
+    "reason": "blacklist_keyword:healthcare",
+    "citations": 1040
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.556999+00:00",
+    "paper_id": "21b4626c-0507-4005-b5a7-5ba44d1c1a79",
+    "title": "Global age-sex-specific mortality, life expectancy, and population estimates in 204 countries and territories and 811 subnational locations, 1950–2021, and the impact of the COVID-19 pandemic: a compr",
+    "journal": "The Lancet",
+    "year": 2024,
+    "reason": "blacklist_journal:lancet",
+    "citations": 1021
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.557022+00:00",
+    "paper_id": "e39876ee-ec94-48e8-a1bf-2f10eed9d840",
+    "title": "A survey on deep learning tools dealing with data scarcity: definitions, challenges, solutions, tips, and applications",
+    "journal": "Journal Of Big Data",
+    "year": 2023,
+    "reason": "blacklist_keyword:medical",
+    "citations": 875
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.557206+00:00",
+    "paper_id": "97d0587e-63df-4d37-a127-315cfeba6f9b",
+    "title": "Plastic Waste: Challenges and Opportunities to Mitigate Pollution and Effective Management",
+    "journal": "International Journal of Environmental Research",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 855
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.557223+00:00",
+    "paper_id": "3f55bd71-0563-4ea3-851b-e3b97e161ac8",
+    "title": "A Review on Large Language Models: Architectures, Applications, Taxonomies, Open Issues and Challenges",
+    "journal": "IEEE Access",
+    "year": 2024,
+    "reason": "blacklist_journal:ieee",
+    "citations": 801
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.557242+00:00",
+    "paper_id": "c76a864d-5f97-4218-9ffc-5a07c9e290bd",
+    "title": "Fake news, disinformation and misinformation in social media: a review",
+    "journal": "Social Network Analysis and Mining",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 746
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.557345+00:00",
+    "paper_id": "7c60bc94-9041-4b72-97df-5c24d8aa7ded",
+    "title": "A perspective on using partial least squares structural equation modelling in data articles",
+    "journal": "Data in Brief",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 733
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.557527+00:00",
+    "paper_id": "5f3ecc88-e7bd-4891-99c8-c0c2b2b21da0",
+    "title": "Plastic Waste: Challenges and Opportunities to Mitigate Pollution and Effective Management",
+    "journal": "International Journal of Environmental Research",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 855
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.557693+00:00",
+    "paper_id": "0a46ccf2-729a-4cca-a5f2-801dbd6222e6",
+    "title": "Accelerating the energy transition towards photovoltaic and wind in China",
+    "journal": "Nature",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 722
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.557730+00:00",
+    "paper_id": "a1e17e9f-8b28-4af3-b575-e35ddbe2090a",
+    "title": "The Lancet Commission on prostate cancer: planning for the surge in cases",
+    "journal": "The Lancet",
+    "year": 2024,
+    "reason": "blacklist_journal:lancet",
+    "citations": 707
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.557811+00:00",
+    "paper_id": "3b98bea5-732e-4c47-a160-d56b2d0e1367",
+    "title": "Water scarcity in agriculture: An overview of causes, impacts and approaches for reducing the risks",
+    "journal": "Heliyon",
+    "year": 2023,
+    "reason": "blacklist_keyword:climate change",
+    "citations": 697
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.557836+00:00",
+    "paper_id": "07a0a982-1f5c-45c0-97b2-af378fddd774",
+    "title": "Strategies to save energy in the context of the energy crisis: a review",
+    "journal": "Environmental Chemistry Letters",
+    "year": 2023,
+    "reason": "blacklist_keyword:disease",
+    "citations": 675
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.557922+00:00",
+    "paper_id": "ee291539-75df-46b6-8069-a1edc1137d49",
+    "title": "Integration of IoT-Enabled Technologies and Artificial Intelligence (AI) for Smart City Scenario: Recent Advancements and Future Trends",
+    "journal": "Sensors",
+    "year": 2023,
+    "reason": "blacklist_journal:sensors",
+    "citations": 641
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.558040+00:00",
+    "paper_id": "7b84e7be-4b0c-4597-8a22-3b39e9aef5bb",
+    "title": "Role of organic farming for achieving sustainability in agriculture",
+    "journal": "Farming System",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 595
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.558140+00:00",
+    "paper_id": "2735109d-53a9-40cb-bad2-0716cac77aef",
+    "title": "Fresh Water availability and Its Global challenge",
+    "journal": "British Journal of Multidisciplinary and Advanced Studies",
+    "year": 2023,
+    "reason": "blacklist_keyword:climate change",
+    "citations": 590
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.558215+00:00",
+    "paper_id": "6aa7db48-d9d3-4507-9851-fa457bbce147",
+    "title": "Exploring the Full Potentials of IoT for Better Financial Growth and Stability: A Comprehensive Survey",
+    "journal": "Sensors",
+    "year": 2023,
+    "reason": "blacklist_journal:sensors",
+    "citations": 543
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.558239+00:00",
+    "paper_id": "7eb1db8c-5e90-4d65-9744-77bf1b099bea",
+    "title": "A review of research into neuroscience in tourism: Launching the annals of tourism research curated collection on neuroscience in tourism",
+    "journal": "Annals of Tourism Research",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 51
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.558253+00:00",
+    "paper_id": "da21384e-0438-44ba-9fa0-d138eb6c9042",
+    "title": "The Metaverse for Healthcare: Trends, Applications, and Future Directions of Digital Therapeutics for Urology",
+    "journal": "International Neurourology Journal",
+    "year": 2023,
+    "reason": "blacklist_keyword:healthcare",
+    "citations": 50
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.558361+00:00",
+    "paper_id": "b653af39-c40f-4607-b893-7b451dd7ad43",
+    "title": "Memory Manipulations in Extended Reality",
+    "journal": null,
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 48
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.559175+00:00",
+    "paper_id": "d66ffb6c-4613-400a-adb3-c59b2f728113",
+    "title": "A review of research into neuroscience in tourism: Launching the annals of tourism research curated collection on neuroscience in tourism",
+    "journal": "Annals of Tourism Research",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 51
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.559282+00:00",
+    "paper_id": "31f027e7-f10b-4a40-bb19-05280493cb5c",
+    "title": "Memory Manipulations in Extended Reality",
+    "journal": null,
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 48
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.560679+00:00",
+    "paper_id": "af7bf1d1-b82f-4042-8ecc-2bafc813fad3",
+    "title": "Disengagement From Games: Characterizing the Experience and Process of Exiting Play Sessions",
+    "journal": "Proceedings of the ACM on Human-Computer Interaction",
+    "year": 2024,
+    "reason": "no_required_keyword_matched",
+    "citations": 20
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.561517+00:00",
+    "paper_id": "1ecf1e96-1b25-42e0-8d41-811e5e648038",
+    "title": "Exposing omitted moderators: Explaining why effect sizes differ in the social sciences",
+    "journal": "Proceedings of the National Academy of Sciences",
+    "year": 2024,
+    "reason": "blacklist_keyword:climate change",
+    "citations": 54
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.562221+00:00",
+    "paper_id": "019482d1-19c2-48d3-a6d7-399497eab231",
+    "title": "The Impact of the Financial Industry and Globalization on Environmental Quality",
+    "journal": "Sustainability",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 27
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.562230+00:00",
+    "paper_id": "4550fd70-4e1a-4fb5-ba3c-5b83a7ce13ef",
+    "title": "Defining interventions and metrics to improve diversity in CNS clinical trial participation: A SNO and RANO effort",
+    "journal": "Neuro-Oncology",
+    "year": 2023,
+    "reason": "blacklist_keyword:clinical trial",
+    "citations": 24
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.562578+00:00",
+    "paper_id": "53c5cc94-89c8-4ee0-ad63-abf172c75094",
+    "title": "Exposing omitted moderators: Explaining why effect sizes differ in the social sciences",
+    "journal": "Proceedings of the National Academy of Sciences",
+    "year": 2024,
+    "reason": "blacklist_keyword:climate change",
+    "citations": 54
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.563934+00:00",
+    "paper_id": "e0ec497f-99e3-40ba-84cd-2a0dc0283189",
+    "title": "Dark patterns and sludge audits: an integrated approach",
+    "journal": "Behavioural Public Policy",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 20
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.564167+00:00",
+    "paper_id": "fed00716-a2ad-4f48-95dd-3e355b7b7284",
+    "title": "From lab to life: challenges and perspectives of fNIRS for haemodynamic-based neurofeedback in real-world environments",
+    "journal": "Philosophical Transactions of the Royal Society B Biological Sciences",
+    "year": 2024,
+    "reason": "no_required_keyword_matched",
+    "citations": 44
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.564952+00:00",
+    "paper_id": "44a91a95-7660-4375-82f5-417e962508da",
+    "title": "Staying in control of technology: predictive policing, democracy, and digital sovereignty",
+    "journal": "Democratization",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 21
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.565132+00:00",
+    "paper_id": "3dcf509d-c375-421e-9280-ea4d0aa0d099",
+    "title": "From attitude to identity? A field experiment on attitude activation, identity formation, and meat reduction",
+    "journal": "Journal of Environmental Psychology",
+    "year": 2023,
+    "reason": "blacklist_keyword:treatment",
+    "citations": 17
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.565145+00:00",
+    "paper_id": "f30a3d85-4d1d-46e3-93f5-c20b8d94fd1b",
+    "title": "Ethical and regulatory challenges of AI technologies in healthcare: A narrative review",
+    "journal": "Heliyon",
+    "year": 2024,
+    "reason": "blacklist_keyword:healthcare",
+    "citations": 968
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.565331+00:00",
+    "paper_id": "76733cf0-1b12-4d2e-97cc-d38b94b0d4e9",
+    "title": "Creativity, Critical Thinking, Communication, and Collaboration: Assessment, Certification, and Promotion of 21st Century Skills for the Future of Work and Education",
+    "journal": "Journal of Intelligence",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 712
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.565418+00:00",
+    "paper_id": "413200bc-8ebf-4cdd-9caa-8b3b996c982d",
+    "title": "Integration of IoT-Enabled Technologies and Artificial Intelligence (AI) for Smart City Scenario: Recent Advancements and Future Trends",
+    "journal": "Sensors",
+    "year": 2023,
+    "reason": "blacklist_journal:sensors",
+    "citations": 641
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.565542+00:00",
+    "paper_id": "e005a06c-f218-43e1-a796-0ada0eeef403",
+    "title": "Roadmap for Optical Metasurfaces",
+    "journal": "ACS Photonics",
+    "year": 2024,
+    "reason": "blacklist_keyword:quantum",
+    "citations": 391
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.565619+00:00",
+    "paper_id": "bf958856-9dd4-4997-bc25-5e071a7c1495",
+    "title": "Social connection as a critical factor for mental and physical health: evidence, trends, challenges, and future implications",
+    "journal": "World Psychiatry",
+    "year": 2024,
+    "reason": "blacklist_keyword:pandemic",
+    "citations": 371
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.565647+00:00",
+    "paper_id": "a03fb9f0-5879-49e9-a000-fc528f37b70a",
+    "title": "Risk factors for eating disorders: findings from a rapid review",
+    "journal": "Journal of Eating Disorders",
+    "year": 2023,
+    "reason": "blacklist_journal:journal of eating disorders",
+    "citations": 340
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.565665+00:00",
+    "paper_id": "fc999db6-7e8c-4a91-a091-a766dbfb96da",
+    "title": "Evolution of artificial intelligence research in Technological Forecasting and Social Change: Research topics, trends, and future directions",
+    "journal": "Technological Forecasting and Social Change",
+    "year": 2023,
+    "reason": "blacklist_keyword:healthcare",
+    "citations": 331
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.565949+00:00",
+    "paper_id": "e51e62d3-77d9-4711-8f82-dff06e6ba64b",
+    "title": "Challenges, opportunities, and prospects of adopting and using smart digital technologies in learning environments: An iterative review",
+    "journal": "Heliyon",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 316
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.565963+00:00",
+    "paper_id": "1ca0a499-2866-47b9-ad51-07cc5045d73a",
+    "title": "Ethical and regulatory challenges of AI technologies in healthcare: A narrative review",
+    "journal": "Heliyon",
+    "year": 2024,
+    "reason": "blacklist_keyword:healthcare",
+    "citations": 968
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.566044+00:00",
+    "paper_id": "8999f679-8ad8-451d-8156-00d60980eee2",
+    "title": "Evolution of artificial intelligence research in Technological Forecasting and Social Change: Research topics, trends, and future directions",
+    "journal": "Technological Forecasting and Social Change",
+    "year": 2023,
+    "reason": "blacklist_keyword:healthcare",
+    "citations": 331
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.566278+00:00",
+    "paper_id": "08211ad1-6862-4e54-ac59-0993162f6a75",
+    "title": "The Race to Retain Healthcare Workers: A Systematic Review on Factors that Impact Retention of Nurses and Physicians in Hospitals",
+    "journal": "INQUIRY The Journal of Health Care Organization Provision and Financing",
+    "year": 2023,
+    "reason": "blacklist_keyword:healthcare",
+    "citations": 274
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.566573+00:00",
+    "paper_id": "10bd9bee-abda-4560-8136-314b6ec0fede",
+    "title": "Barriers and facilitators to the implementation of digital technologies in mental health systems: a qualitative systematic review to inform a policy framework",
+    "journal": "BMC Health Services Research",
+    "year": 2024,
+    "reason": "blacklist_keyword:healthcare",
+    "citations": 183
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.566592+00:00",
+    "paper_id": "6f815b7c-c929-486f-8637-dbe4d0b70a49",
+    "title": "AI Agents vs. Agentic AI: A Conceptual taxonomy, applications and challenges",
+    "journal": "Information Fusion",
+    "year": 2025,
+    "reason": "blacklist_keyword:medical",
+    "citations": 180
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.566780+00:00",
+    "paper_id": "7d426bd8-f146-43c9-99fa-b61a4f691e80",
+    "title": "Creativity, Critical Thinking, Communication, and Collaboration: Assessment, Certification, and Promotion of 21st Century Skills for the Future of Work and Education",
+    "journal": "Journal of Intelligence",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 712
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.566866+00:00",
+    "paper_id": "d9c121a5-a954-45d9-aab7-184586adfe1f",
+    "title": "Integration of IoT-Enabled Technologies and Artificial Intelligence (AI) for Smart City Scenario: Recent Advancements and Future Trends",
+    "journal": "Sensors",
+    "year": 2023,
+    "reason": "blacklist_journal:sensors",
+    "citations": 641
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.566884+00:00",
+    "paper_id": "44ced428-4052-44ac-b358-9d1c872c0dd8",
+    "title": "Evolution of artificial intelligence research in Technological Forecasting and Social Change: Research topics, trends, and future directions",
+    "journal": "Technological Forecasting and Social Change",
+    "year": 2023,
+    "reason": "blacklist_keyword:healthcare",
+    "citations": 331
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.567270+00:00",
+    "paper_id": "4cd1e1e0-0141-4506-abda-5c6cd98b711f",
+    "title": "Disconnection from nature: Expanding our understanding of human–nature relations",
+    "journal": "People and Nature",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 238
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.567535+00:00",
+    "paper_id": "7a37847f-cd2d-4604-a921-ca704776f566",
+    "title": "ESG performance and green innovation: An investigation based on quantile regression",
+    "journal": "Business Strategy and the Environment",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 233
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.567563+00:00",
+    "paper_id": "0dc77f1e-3955-4009-b94e-ae4cc0c07b04",
+    "title": "AI Agents vs. Agentic AI: A Conceptual taxonomy, applications and challenges",
+    "journal": "Information Fusion",
+    "year": 2025,
+    "reason": "blacklist_keyword:medical",
+    "citations": 180
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.567632+00:00",
+    "paper_id": "b67cccb4-900f-4d38-9514-31dac6fb2be4",
+    "title": "The impact of green finance policy on green innovation performance: Evidence from Chinese heavily polluting enterprises",
+    "journal": "Journal of Environmental Management",
+    "year": 2024,
+    "reason": "blacklist_keyword:climate change",
+    "citations": 175
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.567771+00:00",
+    "paper_id": "56ebb3be-28a5-47e2-87c9-3da92b12f29d",
+    "title": "Tainted Love: a Systematic Literature Review of Online Romance Scam Research",
+    "journal": "Interacting with Computers",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 55
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.568338+00:00",
+    "paper_id": "f49213c1-60ba-481d-ac22-d923dffe5651",
+    "title": "Exposure to Higher Rates of False News Erodes Media Trust and Fuels Overconfidence",
+    "journal": "Mass Communication & Society",
+    "year": 2024,
+    "reason": "no_required_keyword_matched",
+    "citations": 20
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.569195+00:00",
+    "paper_id": "35b22456-e687-4901-ae03-b3abd48c43cb",
+    "title": "Tainted Love: a Systematic Literature Review of Online Romance Scam Research",
+    "journal": "Interacting with Computers",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 55
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.569307+00:00",
+    "paper_id": "136fdd5b-4ad9-4432-8d2c-41440af17a0d",
+    "title": "A Circular Built Environment in the Digital Age",
+    "journal": "Circular economy and sustainability",
+    "year": 2024,
+    "reason": "no_required_keyword_matched",
+    "citations": 54
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.569697+00:00",
+    "paper_id": "1799c696-2e63-4bd1-aa25-3181972fe8b1",
+    "title": "Sustainability‐oriented innovation in manufacturing firms: Implementation and evaluation framework",
+    "journal": "Business Strategy and the Environment",
+    "year": 2024,
+    "reason": "no_required_keyword_matched",
+    "citations": 18
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.570124+00:00",
+    "paper_id": "38373985-9f19-4195-beb2-bea064c504aa",
+    "title": "A Circular Built Environment in the Digital Age",
+    "journal": "Circular economy and sustainability",
+    "year": 2024,
+    "reason": "no_required_keyword_matched",
+    "citations": 54
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.570523+00:00",
+    "paper_id": "74e5d3f5-4b56-4b7f-8ce6-ba4083cff038",
+    "title": "Sustainability‐oriented innovation in manufacturing firms: Implementation and evaluation framework",
+    "journal": "Business Strategy and the Environment",
+    "year": 2024,
+    "reason": "no_required_keyword_matched",
+    "citations": 18
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.571493+00:00",
+    "paper_id": "f3aba70d-f62b-4121-b26b-553bd7c17f81",
+    "title": "Methods to increase response to postal and electronic questionnaires",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "year": 2023,
+    "reason": "blacklist_journal:cochrane database of systematic reviews",
+    "citations": 176
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.571530+00:00",
+    "paper_id": "f41cc2a2-3b58-4be4-901c-086bf224b8c4",
+    "title": "Online Health Information–Seeking in the Era of Large Language Models: Cross-Sectional Web-Based Survey Study",
+    "journal": "Journal of Medical Internet Research",
+    "year": 2025,
+    "reason": "blacklist_keyword:health care",
+    "citations": 108
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.571726+00:00",
+    "paper_id": "04da09b9-3c97-4942-9cd1-b7194c67007b",
+    "title": "Development of the Diet Quality Questionnaire for Measurement of Dietary Diversity and Other Diet Quality Indicators",
+    "journal": "Current Developments in Nutrition",
+    "year": 2024,
+    "reason": "blacklist_keyword:disease",
+    "citations": 44
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.571804+00:00",
+    "paper_id": "62a2c159-140a-44eb-8293-26be96be5cf8",
+    "title": "Narrate, Act, and Resonate to Tell a Visual Story: A Systematic Review of How Images Transport Viewers",
+    "journal": "Journal of Advertising",
+    "year": 2024,
+    "reason": "blacklist_keyword:sport",
+    "citations": 35
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.571952+00:00",
+    "paper_id": "9819bfdf-ac5d-4d5d-acb8-2023539e45d4",
+    "title": "Experimental evidence of the effects of large language models versus web search on depth of learning",
+    "journal": "PNAS Nexus",
+    "year": 2025,
+    "reason": "no_required_keyword_matched",
+    "citations": 32
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.572145+00:00",
+    "paper_id": "a4483d40-1d93-4f81-b6d9-9d509a6cd788",
+    "title": "Using ChatGPT is easy, using it effectively is tough? A mixed methods study on K-12 students’ perceptions, interaction patterns, and support for learning with generative AI chatbots",
+    "journal": "Smart Learning Environments",
+    "year": 2025,
+    "reason": "no_required_keyword_matched",
+    "citations": 31
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.572203+00:00",
+    "paper_id": "1f361460-6251-4b1b-b013-9f7e36ff146b",
+    "title": "A survey of anomaly detection methods for power grids",
+    "journal": "International Journal of Information Security",
+    "year": 2023,
+    "reason": "blacklist_keyword:wireless sensor",
+    "citations": 31
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.572430+00:00",
+    "paper_id": "244e40f6-6fbf-47fb-8664-4fd0d6c329cb",
+    "title": "Methods to increase response to postal and electronic questionnaires",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "year": 2023,
+    "reason": "blacklist_journal:cochrane database of systematic reviews",
+    "citations": 176
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.572678+00:00",
+    "paper_id": "b1e4b560-e3b1-4694-9800-c46980e2a88b",
+    "title": "Narrate, Act, and Resonate to Tell a Visual Story: A Systematic Review of How Images Transport Viewers",
+    "journal": "Journal of Advertising",
+    "year": 2024,
+    "reason": "blacklist_keyword:sport",
+    "citations": 35
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.573057+00:00",
+    "paper_id": "66c9244c-9954-45da-8cab-64e332b88a97",
+    "title": "Pay with a smile? Modelling the continuance use intention of facial recognition payment",
+    "journal": "Internet Research",
+    "year": 2024,
+    "reason": "blacklist_keyword:olympic",
+    "citations": 21
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.573078+00:00",
+    "paper_id": "63c3153a-744c-4dbd-af3f-7d252374a4db",
+    "title": "Social identity in trusting artificial intelligence agents: Evidence from lab and online experiments",
+    "journal": "Managerial and Decision Economics",
+    "year": 2024,
+    "reason": "blacklist_keyword:healthcare",
+    "citations": 20
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.573101+00:00",
+    "paper_id": "196409d2-6a74-4f8c-a85f-eb93cc5f0745",
+    "title": "Breaking down silos: the multifaceted nature of obesity and the future of weight management",
+    "journal": "Philosophical Transactions of the Royal Society B Biological Sciences",
+    "year": 2023,
+    "reason": "blacklist_keyword:disease",
+    "citations": 19
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.573314+00:00",
+    "paper_id": "e14c5fff-f275-4aad-9ec5-30b4785eff24",
+    "title": "Tourist Decision-Making and Types of Crises: Risk Attitudes, Knowledge, and Destination Preference Persistence",
+    "journal": "Journal of Hospitality & Tourism Research",
+    "year": 2024,
+    "reason": "blacklist_keyword:epidemic",
+    "citations": 12
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.573325+00:00",
+    "paper_id": "8dd22565-545f-4a24-96f7-f23f54f9b767",
+    "title": "An Infrastructure Framework for Remote Patient Monitoring Interventions and Research",
+    "journal": "Journal of Medical Internet Research",
+    "year": 2024,
+    "reason": "blacklist_keyword:clinicians",
+    "citations": 45
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.573400+00:00",
+    "paper_id": "99f3ea2a-dac6-42ab-94dd-db58e930610d",
+    "title": "Narrate, Act, and Resonate to Tell a Visual Story: A Systematic Review of How Images Transport Viewers",
+    "journal": "Journal of Advertising",
+    "year": 2024,
+    "reason": "blacklist_keyword:sport",
+    "citations": 35
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.573456+00:00",
+    "paper_id": "ce704461-f374-4488-a6e4-2346ca01d68d",
+    "title": "A survey of anomaly detection methods for power grids",
+    "journal": "International Journal of Information Security",
+    "year": 2023,
+    "reason": "blacklist_keyword:wireless sensor",
+    "citations": 31
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.573487+00:00",
+    "paper_id": "f4b9a2d9-568e-4e56-b138-5af273fa27ec",
+    "title": "Immediate backfire? Nudging sustainable food choices and psychological reactance",
+    "journal": "Food Quality and Preference",
+    "year": 2023,
+    "reason": "blacklist_keyword:treatment",
+    "citations": 29
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.573770+00:00",
+    "paper_id": "1025d452-e6e4-4bf4-8723-bf43307ae959",
+    "title": "Pay with a smile? Modelling the continuance use intention of facial recognition payment",
+    "journal": "Internet Research",
+    "year": 2024,
+    "reason": "blacklist_keyword:olympic",
+    "citations": 21
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.573789+00:00",
+    "paper_id": "d49b534b-3f80-4d57-aff2-fa1b1e346c79",
+    "title": "Social identity in trusting artificial intelligence agents: Evidence from lab and online experiments",
+    "journal": "Managerial and Decision Economics",
+    "year": 2024,
+    "reason": "blacklist_keyword:healthcare",
+    "citations": 20
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.573813+00:00",
+    "paper_id": "a3d0d529-5055-4fa9-8468-88dd23c23c80",
+    "title": "Breaking down silos: the multifaceted nature of obesity and the future of weight management",
+    "journal": "Philosophical Transactions of the Royal Society B Biological Sciences",
+    "year": 2023,
+    "reason": "blacklist_keyword:disease",
+    "citations": 19
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.573982+00:00",
+    "paper_id": "740280a5-01d7-4005-a599-5f4fa93d985e",
+    "title": "The extended hollowed mind: why foundational knowledge is indispensable in the age of AI",
+    "journal": "Frontiers in Artificial Intelligence",
+    "year": 2025,
+    "reason": "no_required_keyword_matched",
+    "citations": 17
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.574028+00:00",
+    "paper_id": "b2278d46-d910-440b-86ba-d9e72da480a4",
+    "title": "Tourist Decision-Making and Types of Crises: Risk Attitudes, Knowledge, and Destination Preference Persistence",
+    "journal": "Journal of Hospitality & Tourism Research",
+    "year": 2024,
+    "reason": "blacklist_keyword:epidemic",
+    "citations": 12
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.574395+00:00",
+    "paper_id": "198eb449-de87-4723-aaf5-bca6898f08c4",
+    "title": "Designing AI Using a Human-Centered Approach: Explainability and Accuracy Toward Trustworthiness",
+    "journal": "IEEE Transactions on Technology and Society",
+    "year": 2023,
+    "reason": "blacklist_journal:ieee",
+    "citations": 98
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.574499+00:00",
+    "paper_id": "654c5a56-039a-4b2c-8508-b7a6e81c363e",
+    "title": "On the Role of Theory and Modeling in Neuroscience",
+    "journal": "Journal of Neuroscience",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 97
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.575227+00:00",
+    "paper_id": "d750479c-1c84-459d-8b14-6437c1199572",
+    "title": "Designing AI Using a Human-Centered Approach: Explainability and Accuracy Toward Trustworthiness",
+    "journal": "IEEE Transactions on Technology and Society",
+    "year": 2023,
+    "reason": "blacklist_journal:ieee",
+    "citations": 98
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.575497+00:00",
+    "paper_id": "ad66dd87-b0c7-4ebe-a29c-1347c6c9085e",
+    "title": "SpectrumChain: a disruptive dynamic spectrum-sharing framework for 6G",
+    "journal": "Science China Information Sciences",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 69
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.575787+00:00",
+    "paper_id": "2c404b64-2eb7-4558-a07c-acafa10b973d",
+    "title": "Consumer Response to Novel Foods: A Review of Behavioral Barriers and Drivers",
+    "journal": "Foods",
+    "year": 2024,
+    "reason": "blacklist_keyword:biodiversity",
+    "citations": 62
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.576414+00:00",
+    "paper_id": "3740452b-f1a7-4031-bf74-1b081caf58bc",
+    "title": "Consumer Response to Novel Foods: A Review of Behavioral Barriers and Drivers",
+    "journal": "Foods",
+    "year": 2024,
+    "reason": "blacklist_keyword:biodiversity",
+    "citations": 62
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.576711+00:00",
+    "paper_id": "4ad19e5d-417c-47a4-8368-d3193e0d83dd",
+    "title": "Understanding dark side of online community engagement: an innovation resistance theory perspective",
+    "journal": "Information Systems and e-Business Management",
+    "year": 2023,
+    "reason": "no_required_keyword_matched",
+    "citations": 46
+  },
+  {
+    "timestamp": "2026-09-01T06:15:26.576746+00:00",
+    "paper_id": "52d853c6-3850-4302-8c19-8a2fa87ef871",
+    "title": "Digital Technology for Good: Path and Influence—Based on the Study of ESG Performance of Listed Companies in China",
+    "journal": "Applied Sciences",
+    "year": 2023,
+    "reason": "blacklist_keyword:treatment",
+    "citations": 46
   }
 ]

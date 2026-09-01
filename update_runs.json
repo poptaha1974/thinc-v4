@@ -17,5 +17,24 @@
     "status": "completed",
     "error": null,
     "queries_failed": []
+  },
+  {
+    "run_id": "54b7e78f-adac-4604-9b28-11712ae70710",
+    "started_at": "2026-09-01T06:15:01.002476Z",
+    "completed_at": "2026-09-01T06:15:26.854274Z",
+    "sources_queried": [
+      "openalex",
+      "semantic_scholar"
+    ],
+    "papers_fetched": 300,
+    "papers_filtered_out": 137,
+    "papers_new": 69,
+    "proposals_generated": 5,
+    "proposals_approved": 0,
+    "proposals_rejected": 0,
+    "triggered_by": "cron",
+    "status": "completed",
+    "error": null,
+    "queries_failed": []
   }
 ]
