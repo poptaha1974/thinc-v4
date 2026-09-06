@@ -1,0 +1,14 @@
+interface:
+  display_name: المونتير المحترف
+  short_description: مونتاج احترافي يوازن القصة والاحتفاظ والتحويل
+  default_prompt: Use $professional-video-editor to review this footage and produce
+    a precise edit plan with timeline, sound, captions, platform versions, and QC.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
