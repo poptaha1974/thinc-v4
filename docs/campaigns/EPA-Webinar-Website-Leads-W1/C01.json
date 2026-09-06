@@ -2,7 +2,6 @@
   "record_notice": "Ad C01 of the EPA webinar lead campaign. Setup fields come from the Notion records; performance comes from the Ads Manager report Dr. Ehab read on 2026-08-25 — not from a reading of my own. Fields the sources do not establish stay null with a *_status note.",
   "schema_version": "2.0",
   "as_of": "2026-08-25",
-  "status": "live",
   "gate": {
     "name": "Creative QA Gate",
     "version": "1.0",
@@ -15,7 +14,6 @@
   },
   "campaign": {
     "name": "EPA | Webinar | Website Leads | C01-vs-C02 | W1 | Draft",
-    "launch_state": "NO-GO",
     "objective": "leads",
     "conversion_location": "website",
     "optimization_goal": "maximize_number_of_leads",
@@ -307,5 +305,88 @@
     "requested": "SCALE",
     "verdict": "HOLD",
     "reason": "delivered contribution profit is NOT_COLLECTED; lead cost is not customer cost"
-  }
+  },
+  "state": {
+    "delivery": "ENDED",
+    "delivery_note": "served 2026-08-20 to 2026-08-26 21:00 Cairo; the flight window closed",
+    "governance": "HOLD",
+    "governance_note": "decision by Dr. Ehab Taha on 2026-09-06; this record is not merged or treated as final until the six conditions are met",
+    "pre_launch_gate": "NO-GO",
+    "pre_launch_gate_note": "historical verdict on the 2026-08-19 decision point; superseded by the actual launch and does NOT describe the present state",
+    "reconciliation": "the earlier record carried status=live alongside launch_state=NO-GO because the two named different things and neither was labelled. live stopped being true on 2026-08-26."
+  },
+  "governance": {
+    "decision": "HOLD",
+    "decided_by": "Dr. Ehab Taha",
+    "decided_on": "2026-09-06",
+    "record": "https://app.notion.com/p/3d3fd6397efd81aaae18df1d1729aec6",
+    "authorizes_no_campaign_action": true,
+    "conditions": [
+      {
+        "id": 1,
+        "condition": "reconcile live, NO-GO and stale pre-launch states",
+        "status": "done"
+      },
+      {
+        "id": 2,
+        "condition": "add final campaign-window data",
+        "status": "blocked",
+        "reason": "not available; last documented reading is 2026-08-25 and the flight ran to 2026-08-26"
+      },
+      {
+        "id": 3,
+        "condition": "complete the funnel Lead → Confirmed → Attended → Deposit → Paid",
+        "status": "blocked",
+        "reason": "no attendance or collection data exists"
+      },
+      {
+        "id": 4,
+        "condition": "compute net contribution / net profit from actual costs, not surface ROAS or CPL",
+        "status": "blocked",
+        "reason": "depends on conditions 2 and 3"
+      },
+      {
+        "id": 5,
+        "condition": "state explicitly that C02 did not launch, so no A/B or behavioural causal conclusion is allowed",
+        "status": "done"
+      },
+      {
+        "id": 6,
+        "condition": "review campaign and CRM evidence for consistency",
+        "status": "done"
+      }
+    ]
+  },
+  "prohibited_inferences": {
+    "reason": "C02 never launched: one arm, no control, no randomisation, no registered success criterion",
+    "forbidden": [
+      "any A/B conclusion — there is no second arm to compare against",
+      "any behavioural causal claim — the map angle cannot be called the cause of the 128 leads",
+      "generalising the numbers to another creative or a future launch as expected performance"
+    ],
+    "permitted": "describing what happened to C01 alone, in this window, with this audience and these placements — one operational reading, neither generalised nor causal"
+  },
+  "evidence_consistency": {
+    "meta": {
+      "pixel_leads": 128,
+      "complete_registration": 81
+    },
+    "crm_sheet_2026_08_20_to_25": {
+      "event_rows": 339,
+      "unique_non_empty_numbers": 110,
+      "hot": 75,
+      "warm": 99,
+      "cold": 165
+    },
+    "reconciles": false,
+    "why": "the sheet logs events and runs, may include other sources and duplicates, and is not a deduplicated lead list",
+    "invalid_operation": "dividing spend by sheet rows to produce a cost per customer or an ROI",
+    "intent_not_revenue": [
+      "HOT/WARM/COLD",
+      "WhatsApp opens",
+      "Complete Registration"
+    ],
+    "only_confirmed_reconciliation": "the platform split equals campaign-to-date minus the current day, to 0.01 EGP — an internal arithmetic check, not CRM verification"
+  },
+  "missing_data_policy": "not estimated and not completed arithmetically; stays NOT_COLLECTED until read from source"
 }

@@ -131,7 +131,7 @@ Hook Rate ✅ + Hold Rate ✅ + CTR ✅ لكن CPM > 120
 
 | الحملة | الإعلان | قرار البوابة |
 |---|---|---|
-| [EPA \| Webinar \| Website Leads \| C01-vs-C02 \| W1](../campaigns/EPA-Webinar-Website-Leads-W1/README.md) | [C01](../campaigns/EPA-Webinar-Website-Leads-W1/C01-publish-ready.md) | 🟢 نشط منذ 20 أغسطس — بوابات مفتوحة و C02 لم يُطلق |
+| [EPA \| Webinar \| Website Leads \| C01-vs-C02 \| W1](../campaigns/EPA-Webinar-Website-Leads-W1/README.md) | [C01](../campaigns/EPA-Webinar-Website-Leads-W1/C01-publish-ready.md) | ⏹️ انتهت 26 أغسطس · السجل تحت HOLD · C02 لم يُطلق |
 
 ---
 
