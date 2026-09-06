@@ -68,13 +68,28 @@ a number is usable when it names its source, its market, and its date.
 
 ## 4. Evidence vocabulary
 
-Use the THINC status words where the gate expects them, alongside the skill's own labels:
+THINC keeps three separate vocabularies. Do not mix them: a measurement's state, a gate's
+decision, and your own claim about the footage are three different things.
 
-- `COLLECTED` / `NOT_COLLECTED` / `STALE` — the state of a measurement.
-- `HOLD_FOR_RESEARCH` — a decision cannot be made because evidence is missing or stale.
-  Missing evidence never scores as zero, and never as a pass.
-- **Observed / Inference / Hypothesis / Missing** — the state of anything you say about the
-  footage itself.
+**Evidence status** — the state of one measurement
+(`EvidenceStatus` in `src/thinc_v4/v4_2/market_signals.py`):
 
-An edit brief that mixes these correctly can be audited later. One that flattens them into
-confident prose cannot.
+| Status | Means |
+|---|---|
+| `COLLECTED` | measured, with a collection timestamp |
+| `NOT_COLLECTED` | never measured |
+| `STALE` | measured, but outside its freshness window |
+| `INVALID` | measured wrongly — wrong market, malformed, failed validation |
+| `NOT_APPLICABLE` | the measurement does not apply to this case |
+
+**Gate decision** — what the gate concludes from that evidence (`GateDecision`):
+`PASS`, `HOLD_FOR_RESEARCH`, `BLOCK_SCALE`. `HOLD_FOR_RESEARCH` is the answer when evidence
+is missing or stale — missing evidence never scores as zero, and never as a pass.
+
+**Claim labels** — the state of anything you say about the footage itself:
+**Observed / Inference / Hypothesis / Missing**.
+
+So a pre-launch row you could not measure is `NOT_COLLECTED` (evidence), which makes the gate
+`HOLD_FOR_RESEARCH` (decision) — never `FAIL`, and never a silent pass. An edit brief that
+keeps the three apart can be audited later. One that flattens them into confident prose
+cannot.
