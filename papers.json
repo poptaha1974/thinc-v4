@@ -38,7 +38,7 @@
     "doi": "https://doi.org/10.1016/j.jik.2023.100332",
     "url": "https://openalex.org/W4320018725",
     "abstract": "This study uses text mining technology to construct an index of digital transformation and discusses the impact of digital transformation on enterprise innovation and its mechanisms from theoretical and empirical perspectives. It also analyzes whether digital transformation can significantly enhance enterprises’ value through innovation. The findings are presented as follows: first, digital transformation has a positive and significant impact on enterprise innovation, and this finding holds true when we conduct robustness testing and endogeneity processing. Second, the influence of digital transformation on enterprise innovation varies significantly according to enterprise size, ownership, and industry. Third, risk-taking plays an intermediary role between digital transformation and innovation. Fourth, the innovation incentive effect of digital transformation has a value enhancement function with a two-year lag, while it lacks a value enhancement function in the current year, following year, or next three years. In the modern era of innovation-driven and cross-border integration, this study deepens the theoretical understanding of innovation-driven and digital transformation. It also promotes the deeper integration of real and digital economies in practice.",
-    "cited_by_count": 307,
+    "cited_by_count": 313,
     "evidence_level": "cross_sectional",
     "keywords": [
       "China",
@@ -69,7 +69,7 @@
     "doi": "https://doi.org/10.1016/j.atech.2024.100459",
     "url": "https://openalex.org/W4394806030",
     "abstract": "The transition from traditional agriculture to Digital Agriculture involves various elements that make it challenging. Given the different contexts and particularities, this paper aims to identify and analyze the primary factors and barriers to adopting Digital Agriculture, to promote an understanding of this transition. By conducting a bibliometric assessment and analyzing case studies, the results show that the economic condition, availability of technological infrastructure, technical knowledge, age of farmers, type of organization, reliability of technology, and concerns about security and privacy are important elements in adopting Digital Agriculture. The study also reveals a limitation linked to the data sources used in their preparation by analyzing the case studies. This finding reveals the existence of a gap in the literature concerning the scarcity of indicators capable of measuring the adoption of digital agriculture while at the same time providing a perspective devoid of producer bias. Furthermore, by considering the insights provided by the identification and analysis of those factors and barriers, policymakers can tailor policies to address specific challenges and promote the widespread adoption of digital technologies in agriculture.",
-    "cited_by_count": 169,
+    "cited_by_count": 185,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Agriculture",
@@ -100,7 +100,7 @@
     "doi": "https://doi.org/10.3389/fpsyg.2023.1129835",
     "url": "https://openalex.org/W4322630742",
     "abstract": "The rapid advances of science and technology have provided a large part of the world with all conceivable needs and comfort. However, this welfare comes with serious threats to the planet and many of its inhabitants. An enormous amount of scientific evidence points at global warming, mass destruction of bio-diversity, scarce resources, health risks, and pollution all over the world. These facts are generally acknowledged nowadays, not only by scientists, but also by the majority of politicians and citizens. Nevertheless, this understanding has caused insufficient changes in our decision making and behavior to preserve our natural resources and to prevent upcoming (natural) disasters. In the present study, we try to explain how systematic tendencies or distortions in human judgment and decision-making, known as \"cognitive biases,\" contribute to this situation. A large body of literature shows how cognitive biases affect the outcome of our deliberations. In natural and primordial situations, they may lead to quick, practical, and satisfying decisions, but these decisions may be poor and risky in a broad range of modern, complex, and long-term challenges, like climate change or pandemic prevention. We first briefly present the social-psychological characteristics that are inherent to (or typical for) most sustainability issues. These are: experiential vagueness, long-term effects, complexity and uncertainty, threat of the status quo, threat of social status, personal vs. community interest, and group pressure. For each of these characteristics, we describe how this relates to cognitive biases, from a neuro-evolutionary point of view, and how these evolved biases may affect sustainable choices or behaviors of people. Finally, based on this knowledge, we describe influence techniques (interventions, nudges, incentives) to mitigate or capitalize on these biases in order to foster more sustainable choices and behaviors.",
-    "cited_by_count": 137,
+    "cited_by_count": 141,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Psychology",
@@ -132,7 +132,7 @@
     "doi": "https://doi.org/10.1257/jel.20221698",
     "url": "https://openalex.org/W3183109742",
     "abstract": "Loss aversion is one of the most widely used concepts in behavioral economics. We conduct a large-scale, interdisciplinary meta-analysis to systematically accumulate knowledge from numerous empirical estimates of the loss aversion coefficient reported from 1992 to 2017. We examine 607 empirical estimates of loss aversion from 150 articles in economics, psychology, neuroscience, and several other disciplines. Our analysis indicates that the mean loss aversion coefficient is 1.955 with a 95 percent probability that the true value falls in the interval [1.820, 2.102]. We record several observable characteristics of the study designs. Few characteristics are substantially correlated with differences in the mean estimates. (JEL D81, D91)",
-    "cited_by_count": 133,
+    "cited_by_count": 137,
     "evidence_level": "meta_analysis",
     "keywords": [
       "Econometrics",
@@ -160,7 +160,7 @@
     "doi": "https://doi.org/10.1111/jofi.13212",
     "url": "https://openalex.org/W4319788485",
     "abstract": "ABSTRACT Using detailed transactions data across the United States, we find that single women earn 1.5 percentage points lower annualized returns on housing relative to single men. Forty‐five percent of the gap is explained by transaction timing and location. The remaining gap arises from a 2% gender difference in execution prices at purchase and sale. Consistent with a negotiation channel, women list for less and experience worse negotiated discounts. The gender gap shrinks in tight markets, where negotiation is replaced by quasi‐auctions. Overall, gender differences in housing explain 30% of the gender gap in wealth accumulation for the median household.",
-    "cited_by_count": 100,
+    "cited_by_count": 101,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Gender gap",
@@ -224,7 +224,7 @@
     "doi": "https://doi.org/10.1002/aepp.13343",
     "url": "https://openalex.org/W4318713662",
     "abstract": "Abstract Agricultural and other fields of economics have always co‐evolved and benefitted from each other's insights. Over time, a general convergence of all social sciences began, and various fields of psychology, sociology, anthropology, and political science started to overlap with general and agricultural economics. Within economics, it was especially the rise of behavioral economics, that has steered the field toward the other social sciences. It departs from the assumption of perfectly rational expected utility maximizers and allows for greater diversity in decision‐makers' objectives and constraints. Agricultural economics has been early to recognize the need to make economic choice models more realistic. This can be explained by the particularities of agricultural economics and agriculture. Agricultural economists are tasked with solving specific, practical problems, and thus behavioral deviations from model predictions have always been salient and relevant to policy recommendations. Then, farmers—and to some extent also consumers—make choices in particularly complex and uncertain environments and must use all strategic tools at their disposal to deal with their “bounded rationality”. These include the reliance on culture and other heuristics. Agricultural economics continues to synergize economic theory and practice with insights from other disciplines and real‐world experiences and is an important driver towards further unification of all social sciences.",
-    "cited_by_count": 93,
+    "cited_by_count": 101,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Bounded rationality",
@@ -255,7 +255,7 @@
     "doi": "https://doi.org/10.1080/23322039.2023.2239032",
     "url": "https://openalex.org/W4385283387",
     "abstract": "Modern finance theory assumes that the stock market is efficient, and stock prices reflect all available information. However, behavioral finance theory argues that stock prices can be influenced by psychological and emotional factors. This study aims to examine the impact of behavioral finance factors on investment decisions in the Saudi equity markets through the mediating variable of risk perception. An online questionnaire was distributed to 150 individual investors, out of which 134 were returned and ready for analysis. The data is analyzed using structural equation modeling (SEM). The results show that herding, disposition effect, and blue chip bias have a significant positive impact on risk perception. Overconfidence has a significant positive effect only on investment decision making, but not on risk perception. Risk perception is found to be significantly positively related to investment decision making. All four behavioral finance factors have a significant positive indirect effect on investment decision making through risk perception. This study is conducted in a particular cultural context, namely Saudi Arabia, and may not be generalizable to other cultural contexts. Moreover, this study focused only on four behavioral finance factors, and there may be other factors that could impact risk perception and investment decision making. The results highlight the importance of considering an individual’s perception of risk when making investment decisions, as it can significantly impact their willingness to take risks and ultimately affect the performance of their investment portfolio. The results suggest the need for investors to consider their behavioral biases and for advisors and policymakers to develop strategies to mitigate their impact.",
-    "cited_by_count": 156,
+    "cited_by_count": 160,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Overconfidence effect",
@@ -363,7 +363,7 @@
     "doi": "https://doi.org/10.1016/j.inffus.2023.101805",
     "url": "https://openalex.org/W4366262984",
     "abstract": "Artificial intelligence (AI) is currently being utilized in a wide range of sophisticated applications, but the outcomes of many AI models are challenging to comprehend and trust due to their black-box nature. Usually, it is essential to understand the reasoning behind an AI model’s decision-making. Thus, the need for eXplainable AI (XAI) methods for improving trust in AI models has arisen. XAI has become a popular research subject within the AI field in recent years. Existing survey papers have tackled the concepts of XAI, its general terms, and post-hoc explainability methods but there have not been any reviews that have looked at the assessment methods, available tools, XAI datasets, and other related aspects. Therefore, in this comprehensive study, we provide readers with an overview of the current research and trends in this rapidly emerging area with a case study example. The study starts by explaining the background of XAI, common definitions, and summarizing recently proposed techniques in XAI for supervised machine learning. The review divides XAI techniques into four axes using a hierarchical categorization system: (i) data explainability, (ii) model explainability, (iii) post-hoc explainability, and (iv) assessment of explanations. We also introduce available evaluation metrics as well as open-source packages and datasets with future research directions. Then, the significance of explainability in terms of legal demands, user viewpoints, and application orientation is outlined, termed as XAI concerns. This paper advocates for tailoring explanation content to specific user types. An examination of XAI techniques and evaluation was conducted by looking at 410 critical articles, published between January 2016 and October 2022, in reputed journals and using a wide range of research databases as a source of information. The article is aimed at XAI researchers who are interested in making their AI models more trustworthy, as well as towards researchers from oth",
-    "cited_by_count": 1671,
+    "cited_by_count": 1725,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Trustworthiness",
@@ -392,7 +392,7 @@
     "doi": "https://doi.org/10.1146/annurev-orgpsych-110721-040030",
     "url": "https://openalex.org/W4389121120",
     "abstract": "Despite recognition of the harmful effects of common method bias (CMB), its causes, consequences, and remedies are still not well understood. Therefore, the purpose of this article is to review our current knowledge of CMB and provide recommendations on how to control it. We organize our review into five main sections. First, we explain the harmful effects of CMB (why it is bad). Second, we discuss the complexity caused by the fact that there are multiple sources of CMB, several of which are likely to be present in any study. Third, we present evidence that the conditions under which CMB is likely to occur are relatively widespread, and fourth, we explain why CMB is not easy to fix. Finally, we identify several avenues for future research.",
-    "cited_by_count": 1575,
+    "cited_by_count": 1699,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Computer science",
@@ -472,7 +472,7 @@
     "doi": "https://doi.org/10.1002/jcpy.1356",
     "url": "https://openalex.org/W4367048645",
     "abstract": "Abstract This work offers a multidisciplinary perspective on the Metaverse, focusing on its potential implications for consumer behavior. We begin by proposing a conceptualization of the Metaverse as being uniquely defined by the convergence of five key elements—it is digitally mediated, spatial, immersive, shared, and operates in real‐time. We then discuss how these components might collectively alter our understanding of consumer behavior in three domains: consumer identity, social influence, and ownership. We conclude by outlining an agenda for future research to help broaden our understanding of the Metaversal marketplace and its impact on consumer behavior. This work serves as a starting point to characterize a shift that is unfolding in the marketplace and to consider, through a consumer behavior lens, the numerous changes it may bring.",
-    "cited_by_count": 388,
+    "cited_by_count": 395,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Metaverse",
@@ -504,7 +504,7 @@
     "doi": "https://doi.org/10.51594/ijmer.v6i3.964",
     "url": "https://openalex.org/W4393278147",
     "abstract": "This paper explores the transformative potential of Artificial Intelligence (AI) in personalizing marketing strategies. It delves into the theoretical underpinnings of consumer engagement sand investigates how AI can be leveraged to develop targeted and relevant marketing experiences. AI can personalize messages based on consumer behavior and demographics, influencing the processing route and maximizing engagement. This theory explores the use of game mechanics to motivate and engage users. AI can personalize gamified marketing experiences, tailoring rewards and challenges to individual consumer preferences, driving deeper engagement. Algorithms can analyze vast amounts of customer data to predict individual preferences and behaviors. This allows for targeted advertising, product recommendations, and content that resonates with specific consumer segments. Natural Language Processing (NLP), AI-powered NLP tools analyze customer reviews, social media conversations, and other forms of unstructured data. This allows brands to understand customer sentiment and personalize communication styles for optimal engagement AI-powered chatbots and virtual assistants can provide personalized customer support and product recommendations in real-time, fostering a more interactive and engaging brand experience. Potential Benefits and Considerations Personalized marketing messages and experiences cater to individual needs and preferences, leading to higher satisfaction and loyalty. By tailoring content and offerings to specific consumer segments, brands can establish a more relevant and relatable image. Improved Conversion Rates, Personalized marketing campaigns can be highly targeted and effective, leading to increased conversions and sales. Balancing personalization with data privacy concerns is crucial. Transparency and user control over data collection practices are essential. AI algorithms can perpetuate biases present in training data. Ensuring fairness and inclusivity in AI-pow",
-    "cited_by_count": 244,
+    "cited_by_count": 247,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Personalization",
@@ -534,7 +534,7 @@
     "doi": "https://doi.org/10.1002/mar.21927",
     "url": "https://openalex.org/W4387843112",
     "abstract": "Abstract This meta‐analytic review offers a comprehensive framework for studying social media influencers by integrating multiple theoretical perspectives and measures. It analyzes 250 effect sizes from 53 studies, highlighting the significance of credibility, trustworthiness, and perceived expertise of social media influencers in shaping attitudinal outcomes. Source Credibility Theory emerges as the most robust explanatory framework, while Parasocial Interaction Theory and Congruity Theory also play essential roles. For behavioral outcomes, Source Credibility Theory and Congruity Theory remain influential, with moderate effects observed for homophily and variables from the two‐step flow model. Methodological diversity, geographical context, platform context, product context, and influencer type contribute to variations in effect sizes. These findings provide insights into social media influencer influence dynamics and guide future research. Moreover, they contribute to theory development by shedding light on the mechanisms and conditions underlying social media influencer influence on consumer attitudes and behaviors.",
-    "cited_by_count": 236,
+    "cited_by_count": 256,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Influencer marketing",
@@ -626,7 +626,7 @@
     "doi": "https://doi.org/10.3390/su17094124",
     "url": "https://openalex.org/W4410039637",
     "abstract": "Generation Z is emerging as a powerful force in shaping global consumer behavior, particularly in the market of digital and technological products. This study examines how specific branding dimensions, such as online brand experience, engagement, image, trust, loyalty, awareness, behavioral intention, and brand knowledge, influence Gen Z’s purchase intention, emphasizing sustainable consumption. Sustainable consumption, in this context, refers to the preference for tech products that minimize the environmental impact through eco-friendly design, energy efficiency, and responsible sourcing. Using a quantitative approach, this cross-sectional research explores the effects of online brand experience, engagement, image, trust, loyalty, awareness, behavioral intention, and knowledge on purchasing newly launched technological products that align with sustainability. Data were collected from a Gen Z sample using a combination of convenience and systematic sampling, and multiple regression analysis identified the most significant predictors of purchase intention. The results indicate that online brand experience, brand image, brand trust, and brand loyalty play the most crucial roles, having a greater effects on Gen Z’s purchase intention, while brand awareness and knowledge also contribute. However, brand engagement and behavioral intention have weaker effects. These findings suggest that brands targeting Gen Z should prioritize building a strong, trustworthy, and engaging online presence while highlighting their sustainability efforts, and when Gen Z consumers have favorable digital interactions with a brand, perceive its image positively, trust it, and feel loyal to it, they are more likely to consider purchasing its sustainable offerings. This study enhances the understanding of Gen Z’s consumer behavior and offers insights for businesses seeking to foster sustainable consumption by highlighting the importance of developing marketing strategies that strengthen online br",
-    "cited_by_count": 114,
+    "cited_by_count": 119,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Launched",
@@ -655,7 +655,7 @@
     "doi": "https://doi.org/10.1016/j.heliyon.2024.e29714",
     "url": "https://openalex.org/W4394844493",
     "abstract": "This comprehensive meta-analysis investigates the significant factors influencing consumer decision-making in e-commerce. Predominantly focusing on the parameters of trust, perceived risk, perceived security, and electronic word-of-mouth (e-WOM), this study provides insightful revelations on their integral roles in shaping e-commerce purchasing decisions. The findings demonstrate that trust, perceived risk, perceived security, and e-WOM significantly influence consumers' e-commerce purchasing decisions. Perceived Risk plays a substantial moderating role in the relationship between Trust and e-commerce purchasing decisions, amplifying the importance of managing and minimizing risk in online transactions to cultivate consumer trust. Contrastingly, the roles of Perceived Security and e-WOM do not hold the same moderating effect on the trust-purchasing decision nexus, underscoring the direct yet unmoderated influence these factors have on e-commerce purchasing behaviors. Furthermore, The research reveals no significant size effect difference among respondents from high-income and low-income countries or between general internet users and online shoppers concerning the impact of trust on e-commerce purchasing decisions. This intriguing finding suggests the universal importance of trust in the digital purchasing landscape, irrespective of socio-economic status or the degree of e-commerce engagement. This study thus sheds new light on the complexities of e-commerce decision-making processes. It offers valuable insights for businesses aiming to enhance consumer trust and engagement in the expanding digital marketplace.",
-    "cited_by_count": 111,
+    "cited_by_count": 124,
     "evidence_level": "meta_analysis",
     "keywords": [
       "Purchasing",
@@ -688,7 +688,7 @@
     "doi": "https://doi.org/10.1111/1748-8583.12524",
     "url": "https://openalex.org/W4383913712",
     "abstract": "Abstract ChatGPT and its variants that use generative artificial intelligence (AI) models have rapidly become a focal point in academic and media discussions about their potential benefits and drawbacks across various sectors of the economy, democracy, society, and environment. It remains unclear whether these technologies result in job displacement or creation, or if they merely shift human labour by generating new, potentially trivial or practically irrelevant, information and decisions. According to the CEO of ChatGPT, the potential impact of this new family of AI technology could be as big as “the printing press”, with significant implications for employment, stakeholder relationships, business models, and academic research, and its full consequences are largely undiscovered and uncertain. The introduction of more advanced and potent generative AI tools in the AI market, following the launch of ChatGPT, has ramped up the “AI arms race”, creating continuing uncertainty for workers, expanding their business applications, while heightening risks related to well‐being, bias, misinformation, context insensitivity, privacy issues, ethical dilemmas, and security. Given these developments, this perspectives editorial offers a collection of perspectives and research pathways to extend HRM scholarship in the realm of generative AI. In doing so, the discussion synthesizes the literature on AI and generative AI, connecting it to various aspects of HRM processes, practices, relationships, and outcomes, thereby contributing to shaping the future of HRM research.",
-    "cited_by_count": 855,
+    "cited_by_count": 887,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Generative grammar",
@@ -721,7 +721,7 @@
     "doi": "https://doi.org/10.1016/j.resconrec.2023.107001",
     "url": "https://openalex.org/W4366780296",
     "abstract": "In the past decade, use of the circular economy (CE) concept by scholars and practitioners has grown steadily. In a 2017 article, Kirchherr et al. found that the CE concept is interpreted and implemented in a variety of ways. While multiple interpretations of CE can enrich scholarly perspectives, differentiation and fragmentation can also impede consolidation of the concept. Some scholarship has discussed these trends in context-specific cases, but no large-scale, systematic study has analysed whether such consolidation has taken place across the field. This article fills this gap by analysing 221 recent CE definitions, making several notable findings. First, the concept has seen both consolidation and differentiation in the past five years. Second, definitional trends are emerging that potentially have more meaning for scholarship than for practice. Third, scholars increasingly recommend a fundamental systemic shift to enable CE, particularly within supply chains. Fourth, sustainable development is frequently considered the principal aim of CE, but questions linger about whether CE can mutually support environmental sustainability and economic development. Finally, recent studies argue that CE transition relies on a broad alliance of stakeholders, including producers, consumers, policymakers, and scholars. This study contributes an updated systematic analysis of CE definitions and conceptualizations that serves as an empirical snapshot of current scholarly thinking. It thereby provides a basis for further research on whether conceptual consolidation is needed and how it can be facilitated for practical purposes.",
-    "cited_by_count": 1231,
+    "cited_by_count": 1270,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Consolidation (business)",
@@ -753,7 +753,7 @@
     "doi": "https://doi.org/10.1016/j.jbusres.2023.114344",
     "url": "https://openalex.org/W4387840021",
     "abstract": "Customer emotion in services has been extensively studied, but prior research has overlooked the dynamics of emotion over time. Our research addresses this gap by studying how emotional arousal varies throughout a service encounter. Drawing from the psychology literature, we identify certain features (or patterns) that characterize how arousal varies throughout a service encounter and predict how they may affect customer approach response (e.g., spending, unplanned purchases). We explore the effect of these features in field studies in two stores using a psychophysiological measure (electrodermal activity) to capture arousal over time. We find that (1) the highest arousal level reached during the encounter and (2) the skewness of the distribution of arousal levels (i.e., the frequency of lower arousal levels relative to higher ones) predict customer approach response. This paper opens new avenues for understanding customers from an emotional perspective, which can improve the customer experience in service encounters.",
-    "cited_by_count": 32,
+    "cited_by_count": 33,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Arousal",
@@ -786,7 +786,7 @@
     "doi": "https://doi.org/10.1177/00222437231194319",
     "url": "https://openalex.org/W4385332269",
     "abstract": "What drives the liking of video advertisements? The authors analyzed neural signals during ad exposure from three functional magnetic resonance imaging (fMRI) data sets (113 participants from two countries watching 85 video ads) with automated meta-analytic decoding (Neurosynth). These brain-based measures of psychological processes—including perception and language (information processing), executive function and memory (cognitive functions), and social cognition and emotion (social-affective response)—predicted subsequent self-report ad liking, with emotion and memory being the earliest predictors after the first three seconds. Over the span of ad exposure, while the predictiveness of emotion peaked early and fell, that of social cognition had a peak-and-stable pattern, followed by a late peak of predictiveness in perception and executive function. At the aggregate level, neural signals—especially those associated with social-affective response—improved the prediction of out-of-sample ad liking compared with traditional anatomically based neuroimaging analysis and self-report liking. Finally, early-onset social-affective response predicted population ad liking in a behavioral replication. Overall, this study helps delineate the psychological mechanisms underlying ad processing and ad liking and proposes a novel neuroscience-based approach for generating psychological insights and improving out-of-sample predictions.",
-    "cited_by_count": 24,
+    "cited_by_count": 26,
     "evidence_level": "cohort_study",
     "keywords": [
       "Psychology",
@@ -816,7 +816,7 @@
     "doi": "https://doi.org/10.3389/fnins.2023.1125983",
     "url": "https://openalex.org/W4367678946",
     "abstract": "Introduction: Consumers' emotional responses are the prime target for marketing commercials. Facial expressions provide information about a person's emotional state and technological advances have enabled machines to automatically decode them. Method: With automatic facial coding we investigated the relationships between facial movements (i.e., action unit activity) and self-report of commercials advertisement emotion, advertisement and brand effects. Therefore, we recorded and analyzed the facial responses of 219 participants while they watched a broad array of video commercials. Results: Facial expressions significantly predicted self-report of emotion as well as advertisement and brand effects. Interestingly, facial expressions had incremental value beyond self-report of emotion in the prediction of advertisement and brand effects. Hence, automatic facial coding appears to be useful as a non-verbal quantification of advertisement effects beyond self-report. Discussion: This is the first study to measure a broad spectrum of automatically scored facial responses to video commercials. Automatic facial coding is a promising non-invasive and non-verbal method to measure emotional responses in marketing.",
-    "cited_by_count": 24,
+    "cited_by_count": 26,
     "evidence_level": "cohort_study",
     "keywords": [
       "Facial Action Coding System",
@@ -849,7 +849,7 @@
     "doi": "https://doi.org/10.1177/01461672231219378",
     "url": "https://openalex.org/W4391361139",
     "abstract": "In a preregistered ecological momentary intervention study, we alternately instructed participants to adopt an upward and downward comparison focus. In all, 349 participants reported 8,137 social comparison situations across 6 days and three comparison conditions (baseline, upward, downward). For each comparison, participants reported social comparison direction, motivation, effort intentions, and emotions in five daily reports and one daily end-of-day summary. As predicted, an upward comparison focus resulted in more self-improvement motivation (pushing) and more negative emotions, whereas days with a downward comparison focus resulted in decreased motivation (coasting) but more positive emotions (vs. baseline). However, at the end of the day, people experienced lower goal approach on upward but higher goal approach on downward comparison days. Hence, engaging in strategic upward comparison was motivating in the short term but resulted in surprisingly opposite effects at the end of the day. We offer possible explanations from cognitive and motivational perspectives.",
-    "cited_by_count": 20,
+    "cited_by_count": 21,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Psychology",
@@ -941,7 +941,7 @@
     "doi": "https://doi.org/10.1177/10946705241307681",
     "url": "https://openalex.org/W4407592454",
     "abstract": "This research offers insights into the efficacy of gamification in a failure-recovery context, that is, providing recovery through a gamified experience. Using one field study and three online experiments across different contexts (i.e., retail, restaurant, gym, and hotel), we show that a gamified recovery (i.e., compensation offered through a spin-the-wheel game) can have a positive effect on recovery satisfaction. This effect is mediated by the perceived enjoyment of the game and is moderated by customer choice, failure severity, compensation level, and time pressure. Specifically, we find that gamification has a positive recovery effect when customers are offered a choice, when the failure is mild, when customers receive full compensation or overcompensation (i.e., when they experience a sense of winning), and when they do not face time pressure. However, gamification can backfire and have a negative effect when a failure is severe, when customers receive only partial compensation (i.e., when they experience a sense of loss), and when they face time pressure. Finally, a single-paper meta-analysis provides aggregated evidence of these effects. For managers, our findings provide initial evidence of the usefulness of this recovery strategy and explain how it should be implemented.",
-    "cited_by_count": 11,
+    "cited_by_count": 12,
     "evidence_level": "meta_analysis",
     "keywords": [
       "Compensation (psychology)",
@@ -972,7 +972,7 @@
     "doi": "https://doi.org/10.1080/00913367.2024.2418109",
     "url": "https://openalex.org/W4405222748",
     "abstract": "Electroencephalography (EEG) is well suited to examine the effectiveness of television (TV) commercials because of its high temporal resolution. EEG metrics have been linked to market-level success of advertisements (ads) and to distinctive psychological processes relevant to ad testing research. However, evidence for reliability of these metrics is scarce. We assessed the reliability of six EEG metrics (alpha, beta, gamma, theta, alpha-asymmetry, intersubject correlation [ISC]) commonly used in advertising research in relation to sample size and repetitive ad viewing. We analyzed EEG data from 116 participants viewing 13 TV commercials that promoted various brands. For each metric, reliability was examined by computing the extent to which commercials scored similarly across independent samples of participants. We also assessed the reliability of the temporal pattern of peaks and troughs of each metric within a commercial. Results indicated that the reliability of EEG metrics differed markedly and ranged from poor (alpha-asymmetry) to good (alpha, beta) to excellent (ISC), while repeated viewings of ads improved reliability. Sample sizes between 30 and 40 were required for most metrics to reliably assess overall performance of an ad, whereas more participants were needed to reliably track the temporal pattern. Guidelines have been provided for the neuromarketing industry.",
-    "cited_by_count": 10,
+    "cited_by_count": 12,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Reliability (semiconductor)",
@@ -1035,7 +1035,7 @@
     "doi": "https://doi.org/10.3390/math11102387",
     "url": "https://openalex.org/W4377292686",
     "abstract": "In reality, sellers face challenges in obtaining perfect demand information. Demand is influenced not only by price but also by behavioral factors such as reference effects, which complicate optimal pricing for enterprises. To address this problem, we propose a dynamic pricing model that incorporates demand learning and considers consumer reference effects. Using the Bayesian method and based on historical sales and prices, sellers can learn about demand patterns. We analyze the model to determine the existence of an optimal solution and provide an algorithm to solve it. Our numerical simulation demonstrates that the total consumer demand and the impact of price on demand remain relatively stable over time. However, the factors influencing the reference effects exhibit greater variability. Sellers can also gain insights into market demand through their learning behavior in each phase and adjust production based on market size. For instance, our simulation shows an increase in market demand over time, allowing the seller to adjust the production plan according to the demand change.",
-    "cited_by_count": 9,
+    "cited_by_count": 10,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Market demand schedule",
@@ -1130,7 +1130,7 @@
     "doi": "https://doi.org/10.2196/42131",
     "url": "https://openalex.org/W4322616538",
     "abstract": "BACKGROUND: Scientific researchers who wish to reuse health data pertaining to individuals can obtain consent through an opt-in procedure or opt-out procedure. The choice of procedure may have consequences for the consent rate and representativeness of the study sample and the quality of the research, but these consequences are not well known. OBJECTIVE: This review aimed to provide insight into the consequences for the consent rate and consent bias of the study sample of opt-in procedures versus opt-out procedures for the reuse of routinely recorded health data for scientific research purposes. METHODS: A systematic review was performed based on searches in PubMed, Embase, CINAHL, PsycINFO, Web of Science Core Collection, and the Cochrane Library. Two reviewers independently included studies based on predefined eligibility criteria and assessed whether the statistical methods used in the reviewed literature were appropriate for describing the differences between consenters and nonconsenters. Statistical pooling was conducted, and a description of the results was provided. RESULTS: A total of 15 studies were included in this meta-analysis. Of the 15 studies, 13 (87%) implemented an opt-in procedure, 1 (7%) implemented an opt-out procedure, and 1 (7%) implemented both the procedures. The average weighted consent rate was 84% (60,800/72,418 among the studies that used an opt-in procedure and 96.8% (2384/2463) in the single study that used an opt-out procedure. In the single study that described both procedures, the consent rate was 21% in the opt-in group and 95.6% in the opt-out group. Opt-in procedures resulted in more consent bias compared with opt-out procedures. In studies with an opt-in procedure, consenting individuals were more likely to be males, had a higher level of education, higher income, and higher socioeconomic status. CONCLUSIONS: Consent rates are generally lower when using an opt-in procedure compared with using an opt-out procedure. Furthermore, in",
-    "cited_by_count": 54,
+    "cited_by_count": 55,
     "evidence_level": "meta_analysis",
     "keywords": [
       "Opt-out",
@@ -1159,7 +1159,7 @@
     "doi": "https://doi.org/10.1016/j.techfore.2023.122889",
     "url": "https://openalex.org/W4387242282",
     "abstract": "The human face provides countless pieces of information, not least through the display of emotions, driving intensified research interest. Common research methods, such as self-reports, often neglect the subtlety of unconscious emotional responses or risk distortion due to subjective evaluations. Although emotions can occur unconsciously, they sometimes trigger the smallest physiological changes in terms of muscle movements in the face. Manually associating specific emotions with such subtle changes proves to be both time-consuming and intricate. Facereader software, a tool that evaluates video recordings to categorize facial expressions based on muscle movements, including basic emotions, receives more attention, with Noldus' FaceReader software being a prominent example. Nevertheless, a comprehensive pre-purchase guide detailing potential use cases and operational prerequisites is conspicuously lacking, and insights into processing generated data outputs remain confined. Addressing this gap, this paper contributes preliminarily to creating an overview of the use and handling of Noldus FaceReader in different research areas so far. Our findings illuminate pivotal factors for experimental scenario decision-making, offering valuable guidance for methodological considerations involving FaceReader. Consequently, a proposed pioneering guideline aims at standardizing FaceReader utilization, fostering accurate data management, and nuanced result interpretation.",
-    "cited_by_count": 32,
+    "cited_by_count": 35,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Categorization",
@@ -1191,7 +1191,7 @@
     "doi": "https://doi.org/10.1073/pnas.2218385120",
     "url": "https://openalex.org/W4387040975",
     "abstract": "In the months before the 2020 U.S. election, several political campaign websites added prechecked boxes (defaults), automatically making all donations into recurring weekly contributions unless donors unchecked them. Since these changes occurred at different times for different campaigns, we use a staggered difference-in-differences design to measure the causal effects of defaults on donors' behavior. We estimate that defaults increased campaign donations by over $43 million while increasing requested refunds by almost $3 million. The weekly default only impacted weekly recurring donations, and not other donations, suggesting that donors may not have intended to make weekly donations. The longer defaults were displayed, the more money campaigns raised through weekly donations. Donors did not compensate by changing the amount they donated. We found that the default had a larger impact on smaller donors and on donors who had no prior experience with defaults, causing them to start more chains and donate a larger proportion of their money through weekly recurring donations.",
-    "cited_by_count": 29,
+    "cited_by_count": 30,
     "evidence_level": "cohort_study",
     "keywords": [
       "Default",
@@ -1254,7 +1254,7 @@
     "doi": "https://doi.org/10.1017/bpp.2024.49",
     "url": "https://openalex.org/W4407083802",
     "abstract": "Abstract Dark patterns that manipulate consumer behaviour are now a pervasive feature of digital markets. Depending on the choice architecture utilised, they can affect the perception, behaviour and purchasing patterns of online consumers. Using a novel empirical design, we find strong evidence that individuals across all groups are susceptible to dark patterns, and only weak evidence that user susceptibility is materially affected by commonly used general proxies for consumer vulnerability (such as income, educational attainment or age). Our conclusions provide empirical support for broad restrictions on the use of dark patterns, such as those contained in the EU’s Digital Services Act, that protect all consumer groups. Our study also finds that added friction, in the form of required payment action following successful deployment of dark patterns, reduces their effectiveness. This insight highlights the instances in which dark patterns would be most effective – when no further action is required by the user. Consumer vulnerability is therefore more pronounced when dealing with online providers who store users’ payment details and can rely on a ‘single click’ to complete the purchase.",
-    "cited_by_count": 23,
+    "cited_by_count": 27,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Purchasing",
@@ -1283,7 +1283,7 @@
     "doi": "https://doi.org/10.1007/s10603-023-09554-7",
     "url": "https://openalex.org/W4389751755",
     "abstract": "Abstract Commercial practices that exploit consumer behavioural biases (behavioural exploitation) are an increasingly prevalent issue in online choice architectures. EU policymakers have started to expressly regulate such practices. What remains unclear about this type of regulation is when an online choice architecture exploits biased consumers. What is the legal meaning and significance of exploitation in the digital environment? Even though the concept of exploitation is frequently used in scholarship concerning behavioural exploitation such as “dark patterns”, it is rarely defined. The concept’s normativity is mostly ignored, remains underdeveloped, and lacks solid foundations. This Article aims to close this gap by developing a theory of exploitation for (behavioural) consumer law in the EU that applies to online choice architectures and unfair commercial practices in general. The Article eschews welfare analysis and instead relies on the philosophical discourse on exploitation theory. Even though this discourse is mostly ignored by the literature, the Article submits that this analytical framework fits better with the existing goals and scheme of EU consumer law compared to an approach to legal analysis that is driven by promoting consumer welfare through market efficiency. Ultimately, the Article defends the autonomy theory of exploitation and contends that regulating behavioural exploitation in online choice architectures means regulating for autonomy.",
-    "cited_by_count": 22,
+    "cited_by_count": 23,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Exploit",
@@ -1314,7 +1314,7 @@
     "doi": "https://doi.org/10.1145/3610067",
     "url": "https://openalex.org/W4387328606",
     "abstract": "AI systems are increasingly being used to support human decision making. It is important that AI advice is followed appropriately. However, according to existing literature, users typically under-rely or over-rely on AI systems, and this leads to sub-optimal team performance. In this context, we investigate the role of stated system accuracy by contrasting the lack of system information with the presence of system accuracy in a loan prediction task. We explore how the degree to which humans understand system accuracy influences their reliance on the AI system, by investigating numeracy levels and with the aid of analogies to explain system accuracy in a first of its kind between-subjects study (N=281). We found that explaining the stated accuracy of a system using analogies failed to help users rely on the AI systemappropriately (i.e., the tendency of users to rely on the system when the system is correct, or on themselves otherwise). To eliminate the impact of subjective attitudes towards analogy domains, we conducted a within-subjects study (N=248) where each participant worked on tasks with analogy-based explanations from different domains. Results from this second study confirmed that explaining stated accuracy of the system with analogies was not sufficient to facilitate appropriate reliance on the AI system in the context of loan prediction tasks, irrespective of individual user differences. Based on our findings from the two studies, we reason that the under-reliance on the AI system may be a result of users' overestimation of their own ability to solve the given task. Thus, although familiar analogies can be effective in improving the intelligibility of stated accuracy of the system, an improved understanding of system accuracy does not necessarily lead to improved system reliance and team performance.",
-    "cited_by_count": 36,
+    "cited_by_count": 38,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Analogy",
@@ -1347,7 +1347,7 @@
     "doi": "https://doi.org/10.1016/j.cose.2023.103507",
     "url": "https://openalex.org/W4387107946",
     "abstract": "While cookie disclaimers on websites have been proposed to ensure that users make informed decisions regarding consenting to data collection via cookies, such informed consent is hindered by several factors. One of them is the presence of so-called dark patterns, that is, design elements that are used to lead users to accept more cookies than needed and more than they are aware of. The second factor is lack of transparency on behalf of the service providers with regards to what happens if the user does not consent to cookie usage even despite dark patterns nudging them to do so. The contributions of this paper are (1) evaluating the efficacy of several of these factors while measuring actual behaviour; (2) identifying users' attitude towards cookie disclaimers including how they decide which cookies to accept or reject; (3) assessing the behaviour of websites regarding storing non-necessary cookies despite user's consent. We show that different visual representation of the reject/accept option have a significant impact on users' decision. We also found that the labelling of the reject option has a significant impact. In addition, we confirm previous research regarding biasing text (which has no significant impact on users' decision). Our results on users' attitude towards cookie disclaimers indicate that for several user groups the design of the disclaimer only plays a secondary role when it comes to decision making. We furthermore show that even without user's explicit consent, the majority of websites we investigated still uses non-necessary cookies. We provide recommendations on how to improve the situation for different stakeholders, namely, for developers and policy makers.",
-    "cited_by_count": 25,
+    "cited_by_count": 29,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Transparency (behavior)",
@@ -1376,7 +1376,7 @@
     "doi": "https://doi.org/10.1111/add.70085",
     "url": "https://openalex.org/W4409980251",
     "abstract": "BACKGROUND: Gambling research has highlighted various aspects of deceptive design. For example, land-based casinos are physically designed to encourage people to gamble there for longer. Similarly, various electronic gambling products, such as electronic gaming machines, exhibit \"structural characteristics\" that likely encourage people to continue using them. Here I argue that the deceptive design of online gambling platforms is an important yet relatively neglected topic, representing the digital equivalent of land-based gambling venue design. This topic's importance is underscored by online gambling's international growth. ARGUMENT: Online gambling platforms' deceptive design features can be categorized using three terms from the interdisciplinary field of behavioral science. \"Sludge\" refers to detrimental frictions, which feature for example in online gambling platforms' withdrawal processes. \"Dark patterns\" refers to deceptive user-interface design more broadly, which includes sludge-based features and other design features such as high suggested deposit/bet sizes. Finally, \"dark nudges\" refers to all of these as well as other aspects of deceptive design, such as presenting gambling as a fun activity. CONCLUSIONS: The complexity of online gambling platforms poses challenges for researchers, to understand what effects various design features have on behavior, and also for policymakers, to ensure fairer outcomes for people. Increased awareness and collaboration are needed from many stakeholders to better understand deceptive design features' behavioral impacts and to give them the appropriate regulatory attention in comparison to other determinants of harm.",
-    "cited_by_count": 20,
+    "cited_by_count": 23,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Nudge theory",
@@ -1440,7 +1440,7 @@
     "doi": "https://doi.org/10.3389/fpsyg.2022.1015921",
     "url": "https://openalex.org/W4315640857",
     "abstract": "Social exchange theory (SET) is one of the most influential theories in social sciences, which has implications across various fields. Despite its usefulness being a typical social transaction, there is a need to look at it from the lens of psychological transactions to further its evolution and to identify future directions. After generally reviewing 3,649 articles from the Social Science Citation Index and Scopus, a total of 46 articles were selected for final review using a comprehensive systematic review approach. We have highlighted the need for further research in psychological transactions, reciprocity principles, exchange relations, and the impact of various factors on the exchange process. Among other exchange rules (social, economic, and psychological) and transactions (social, economic, and psychological), this research provides an elevation platform for the less explored exchange rules in psychological transactions. Among other theories in the social sciences, social exchange theory is a theory that shadows many other theories under its umbrella.",
-    "cited_by_count": 573,
+    "cited_by_count": 598,
     "evidence_level": "systematic_review",
     "keywords": [
       "Social exchange theory",
@@ -1471,7 +1471,7 @@
     "doi": "https://doi.org/10.1016/j.jbusres.2023.113838",
     "url": "https://openalex.org/W4328051263",
     "abstract": "Consumer research on conversational agents (CAs) has been growing. To illustrate and map out research in this field, we conducted a systematic literature review (SLR) of published work indexed in the Clarivate Web of Science and Elsevier Scopus databases. Four dominant topical areas were identified through bibliographic coupling. They are 1) consumers’ trust in CAs; 2) Natural Language Processing (NLP) in developing and designing CAs; 3) communication with CAs; 4) impact of CAs on value creation and the value of CAs for business. We leverage these findings to provide an updated synopsis of extant scientific work. Moreover, we draw a framework whereby we identify the: 1) drivers of and motivators for adoption and engagement with CAs; and 2) the outcomes of CA adoption for both users and organizations. Finally, we leverage the framework to develop an agenda for future research.",
-    "cited_by_count": 327,
+    "cited_by_count": 336,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Scopus",
@@ -1501,7 +1501,7 @@
     "doi": "https://doi.org/10.1016/j.jbusres.2023.113708",
     "url": "https://openalex.org/W4318182822",
     "abstract": "This study analyzes the effect of the parasocial relationship on the audience’s intention to adopt the recommendations of micro, macro and mega-influencers, considering the number of followers, perceived popularity and opinion leadership. A sample of 140 Portuguese social media influencers (SMIs) was classified into micro, macro or mega-influencers. 577 valid responses to a questionnaire were analyzed using Andrew Hayes’ macro PROCESS for SPSS. The findings suggest that the indirect effect between the number of followers and the intention to adopt SMIs’ recommendations is mediated by the perceived popularity and opinion leadership, and are moderated by the parasocial relationship. Significant differences are found between micro, macro and mega-influencers in terms of credibility, attractiveness and established relationship. The categorization into micro, macro and mega-influencers is adapted to the context of a small country. This paper provides relevant information on the process of SMI selection.",
-    "cited_by_count": 279,
+    "cited_by_count": 288,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Influencer marketing",
@@ -1532,7 +1532,7 @@
     "doi": "https://doi.org/10.1007/s10869-023-09910-x",
     "url": "https://openalex.org/W4386697415",
     "abstract": "Abstract With artificial intelligence (AI) increasingly involved in the creation of organizational and commercial artifacts, human evaluators’ role as creativity gatekeepers of AI-produced artifacts will become critical for innovation processes. However, when humans evaluate creativity, their judgment is clouded by biases triggered by the characteristics of the creator. Drawing from folk psychology and algorithm aversion research, we examine whether the identity of the producer of a given artifact as artificial intelligence (AI) or human is a source of bias affecting people’s creativity evaluation of such artifact and what drives this effect. With four experimental studies ( N = 2039), of which two were pre-registered, using different experimental designs and evaluation targets, we found that people sometimes—but not always—ascribe lower creativity to a product when they are told that the producer is an AI rather than a human. In addition, we found that people consistently perceive generative AI to exert less effort than humans in the creation of a given artifact, which drives the lower creativity ratings ascribed to generative AI producers. We discuss the implication of these findings for organizational creativity and innovation in the context of human-AI interaction.",
-    "cited_by_count": 188,
+    "cited_by_count": 198,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Creativity",
@@ -1561,7 +1561,7 @@
     "doi": "https://doi.org/10.1080/02650487.2023.2228117",
     "url": "https://openalex.org/W4382140871",
     "abstract": "Consumers, employees and society at large seems to expect more and more that brands take a stand on societal issues. This notion is known as brand activism. This paper explores recent academic research on this issue, to provide guidance for brand managers and other marketers. The concept is defined and delineated, and the impact of brand activism on consumers, employees, investors and (last not but not least) the cause itself is discussed. The paper introduces the Aligned Activism Model, which outlines the key role of alignment between brand, issue, and consumers. This model provides actionable insights for marketers who seek to engage in brand activism. Suggestions for future research are provided for academics who seek to advance knowledge on brand activism.",
-    "cited_by_count": 55,
+    "cited_by_count": 57,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Social activism",
@@ -1593,7 +1593,7 @@
     "doi": "https://doi.org/10.3390/electronics12234792",
     "url": "https://openalex.org/W4389049807",
     "abstract": "Message Queue (MQ) services play a vital role in modern distributed systems as they enable asynchronous communication between services and facilitate the decoupling of various components of the system. Among the many MQ services available, Kafka, Apache Pulsar, Artemis, and RocketMQ are popular choices, each offering unique features and capabilities. As the adoption of MQ services continues to grow, choosing the appropriate service that can meet the requirements of the system has become increasingly challenging. Therefore, a comprehensive comparison of these services is crucial to determine the most suitable one for a specific use-case. This research paper presents a thorough evaluation of these MQ services based on critical metrics such as CPU utilization, memory usage, garbage collection, latency, and throughput. Based on our extensive review, no other research has delved into such a detailed evaluation, thereby establishing our work as a cornerstone in this field. The results of our study offer valuable insights into the strengths and limitations of each service. Our findings indicate that each message queue behaves differently inside the Java Virtual Machine (JVM). This work aims to assist developers and researchers in strategically deploying and optimizing MQ services based on specific system and use-case requirements. In addition to providing machine metrics, our results demonstrate the performance of each message queue under different load scenarios, making it a valuable resource for those seeking to ensure the effective functioning of their MQ services.",
-    "cited_by_count": 30,
+    "cited_by_count": 32,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Computer science",
@@ -1622,7 +1622,7 @@
     "doi": "https://doi.org/10.1080/23311975.2023.2296686",
     "url": "https://openalex.org/W4391401330",
     "abstract": "AbstractThis meta-analytic review conceptualises and synthesises the study factors related to this phenomenon to effectively comprehend online purchasing intention. This study’s \"online purchase intention\" concerns consumers’ propensity or likelihood to purchase via online channels. This review develops a conceptual framework that clarifies the aspects influencing online purchase intention by analysing pertinent data. The variables under investigation encompass usefulness, ease of use, congruence, trust, security, e-WOM and many other demographics and contextual factors. The potential moderators were also identified, and the moderating effect is validated in the study variable as framed in the conceptual framework. This review contributes to the field by offering valuable insights into the determinants of online purchase intention, enabling marketers and researchers to devise effective strategies to optimise consumer behaviour in the online shopping domain.",
-    "cited_by_count": 25,
+    "cited_by_count": 28,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Psychology",
@@ -1684,7 +1684,7 @@
     "doi": "https://doi.org/10.1016/j.rtbm.2024.101111",
     "url": "https://openalex.org/W4392180716",
     "abstract": "Sustainability and Corporate Social Responsibility (CSR) are growing concerns among passengers and airlines. However, the communication of such actions by airline companies is underexplored. Accordingly, this study aims to analyze airlines' CSR and Environmental Sustainability Actions (ESA) communications' impact on customer loyalty, through a Relationship Marketing (RM) perspective. Following a text-mining approach, 6181 Facebook comments were collected. A word frequency matrix was created from the collected data and used as input for PLS-SEM to test raised hypotheses. Results suggest that communication based on ESA and CSR positively affects behavioral loyalty and commitment. RM moderated ESA's communication impact on customer loyalty but not on the relationship between CSR communication and loyalty. These findings suggest that communicating environmental efforts positively affects customer loyalty, providing airline managers with valuable insights that should be considered within communication strategies to enhance return and customer retention.",
-    "cited_by_count": 18,
+    "cited_by_count": 19,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Sustainability",
@@ -1750,7 +1750,7 @@
     "doi": "https://doi.org/10.1016/j.ejor.2024.12.015",
     "url": "https://openalex.org/W4405428023",
     "abstract": "Interactions in social networks have become an integral part of people’s daily lives. In various decision-making situations, individuals usually hold diverse prior beliefs and engage in communication with their social connections to make informed decisions. However, most existing research focuses on isolated steps of this process, overlooking the overall complexity of decision-making in social networks. To bridge this important research gap, our paper aims to explore the key steps involved in the process and develop a holistic framework for analyzing how individuals form, exchange and update beliefs, ultimately leading to opinion dynamics and group decision behaviors in a social network. Specifically, relevant literature that focuses on different steps will be reviewed and drawn together to characterize the decision-making process in a comprehensive and systematic manner: individuals form initial beliefs following the principle of multiple criteria decision-making intuitively, information propagates in the social network and affects individuals’ beliefs differently in a form of social influence, beliefs evolve through dynamic interactions with others, and eventually individuals make their decisions, leading to group decision behaviors in the social network. Applications will be briefly discussed to illustrate the practical implications of this research. Finally, conclusions and future research outlook will be discussed in detail. It is expected that the holistic framework developed on the basis of the comprehensive literature review can provide in-depth insights into decision analysis in social networks and shed light on future research and applications towards effective integration of decision science, operational research, and social network analysis.",
-    "cited_by_count": 14,
+    "cited_by_count": 15,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Group decision-making",
@@ -1879,7 +1879,7 @@
     "doi": "https://doi.org/10.1109/trustcom60117.2023.00222",
     "url": "https://openalex.org/W4399119699",
     "abstract": "Research shows that phishing emails often utilize persuasion techniques, such as social proof, liking, consistency, authority, scarcity, and reciprocity to gain trust to obtain sensitive information or maliciously infect devices. The link between principles of persuasion and social engineering attacks, particularly in phishing email attacks, is an important topic in cyber security as they are the common and effective method used by cybercriminals to obtain sensitive information or access computer systems. This survey paper concluded that spear phishing, a targeted form of phishing, has been found to be specifically effective as attackers can tailor their messages to the specific characteristics, interests, and vulnerabilities of their targets. Understanding the uses of the principles of persuasion in spear phishing is key to the effective defence against it and eventually its elimination. This survey paper systematically summarizes and presents the current state of the art in understanding the use of principles of persuasion in phishing. Through a systematic review of the existing literature, this survey paper identifies a significant gap in the understanding of the impact of principles of persuasion as a social engineering strategy in phishing attacks and highlights the need for further research in this area.",
-    "cited_by_count": 12,
+    "cited_by_count": 14,
     "evidence_level": "systematic_review",
     "keywords": [
       "Persuasion",
@@ -1965,7 +1965,7 @@
     "doi": "https://doi.org/10.1016/j.chb.2024.108386",
     "url": "https://openalex.org/W4401121063",
     "abstract": "This study explores the cognitive load and learning outcomes associated with using large language models (LLMs) versus traditional search engines for information gathering during learning. A total of 91 university students were randomly assigned to either use ChatGPT3.5 or Google to research the socio-scientific issue of nanoparticles in sunscreen to derive valid recommendations and justifications. The study aimed to investigate potential differences in cognitive load, as well as the quality and homogeneity of the students' recommendations and justifications. Results indicated that students using LLMs experienced significantly lower cognitive load. However, despite this reduction, these students demonstrated lower-quality reasoning and argumentation in their final recommendations compared to those who used traditional search engines. Further, the homogeneity of the recommendations and justifications did not differ significantly between the two groups, suggesting that LLMs did not restrict the diversity of students’ perspectives. These findings highlight the nuanced implications of digital tools on learning, suggesting that while LLMs can decrease the cognitive burden associated with information gathering during a learning task, they may not promote deeper engagement with content necessary for high-quality learning per se.",
-    "cited_by_count": 201,
+    "cited_by_count": 229,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Argumentation theory",
@@ -1997,7 +1997,7 @@
     "doi": "https://doi.org/10.3389/fcomp.2025.1531976",
     "url": "https://openalex.org/W4410331522",
     "abstract": "Introduction The rapid advancement of intelligent chatbots has transformed human-AI interaction, offering novel opportunities to enhance user experience (UX) through psychological and design interventions. However, the mechanisms by which chatbot design features influence UX remain understudied, particularly regarding the roles of emotional and cognitive mediators. Methods This study employed a 2 × 2 within-subjects experimental design with 160 participants to investigate the effects of anthropomorphism (high vs. low) and perceived intelligence (high vs. low) in chatbot avatars on UX. Structural equation modeling (SEM) was utilized to analyze the mediating roles of perceived empathy and trust in this relationship. Results Direct effects of anthropomorphism and perceived intelligence on UX were nonsignificant. However, their combined influence was significantly mediated by perceived empathy and trust ( β = 0.48, * p * < 0.01). Specifically, highly anthropomorphic avatars correlated with elevated empathy ( β = 0.32) and trust ( β = 0.27), which in turn improved UX. Discussion These findings underscore the importance of emotional engagement over mere intelligence in designing effective chatbots. This research contributes unique insights into the complex mechanisms governing user interactions with intelligent chatbots, emphasizing the need for design strategies that prioritize emotional connections and cognitive ease.",
-    "cited_by_count": 61,
+    "cited_by_count": 70,
     "evidence_level": "cohort_study",
     "keywords": [
       "Empathy",
@@ -2029,7 +2029,7 @@
     "doi": "https://doi.org/10.1371/journal.pone.0328093",
     "url": "https://openalex.org/W4412170700",
     "abstract": "In today's digital landscape, visual content plays a crucial role in shaping consumer behavior. This study explores how visual electronic word-of-mouth (eWOM) on social media influences online purchase intention, applying the Stimulus-Organism-Response (SOR) framework. Using Partial Least Squares Structural Equation Modeling (PLS-SEM) to analyze data from 335 social media users, this study examines the effects of visual eWOM's quality, quantity, and credibility on consumer perceptions, attitudes, and ultimately their purchase intentions. Our findings reveal that the quality and credibility of visual eWOM significantly enhance perceived information usefulness and its adoption by consumers. Information quantity, however, primarily influences attitudes towards the information, but does not directly drive its adoption. Contrary to expectations, information usefulness alone cannot predict purchase intention. Instead, information adoption emerges as a key mediator, indicating that consumers must actively engage with and internalize visual content for it to impact their buying behavior. This underscores that the effectiveness of visual eWOM is not solely based on its characteristics but depends on consumers' active engagement and processing. These insights highlight the need for content that is not only visually appealing but also credible and engaging to facilitate information adoption and drive purchase intentions. This study enhances the understanding of visual eWOM's impact on online purchasing and provides valuable insights for marketers aiming to optimize digital engagement strategies.",
-    "cited_by_count": 27,
+    "cited_by_count": 33,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Social media",
@@ -2055,7 +2055,7 @@
     "doi": "https://doi.org/10.1016/j.jbusres.2023.114105",
     "url": "https://openalex.org/W4380986920",
     "abstract": "Extant literature typically advocates a positive linear relationship between a myriad of tourist co-creation behaviors and tourism business performance. This study challenges this conventional wisdom by probing the potential curvilinear effects of tourist co-creation on tourism marketing outcomes. The findings across three experiments manifest an inverted U-shaped relationship between the degree of tourist co-creation and an array of tourism marketing performance indicators comprising liking, participation, and recommendation intention. Furthermore, the results reveal that tourist experiential fluency may positively moderate this relationship, thereby offering measures to mitigate the negative impacts of excessive tourist co-creation on the ultimate tourism marketing outputs. This research makes theoretical contributions by cautioning against the possibility of value co-destruction and puts forward practical suggestions for tourism marketers to better manage the tourist co-creation process.",
-    "cited_by_count": 26,
+    "cited_by_count": 27,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Tourism",
@@ -2118,7 +2118,7 @@
     "doi": "https://doi.org/10.3386/w31122",
     "url": "https://openalex.org/W4363624465",
     "abstract": "Newly-developed large language models (LLM)-because of how they are trained and designed -are implicit computational models of humans-a homo silicus. LLMs can be used like economists use homo economicus: they can be given endowments, information, preferences, and so on, and then their behavior can be explored in scenarios via simulation. Experiments using this approach, derived from Charness and Rabin (2002), Kahneman, LLMs could allow researchers to pilot studies via simulation first, searching for novel social science insights to test in the real world.",
-    "cited_by_count": 291,
+    "cited_by_count": 308,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Computer science",
@@ -2147,7 +2147,7 @@
     "doi": "https://doi.org/10.1002/mar.21982",
     "url": "https://openalex.org/W4391713857",
     "abstract": "Abstract Should consumer researchers employ silicon samples and artificially generated data based on large language models, such as GPT, to mimic human respondents' behavior? In this paper, we review recent research that has compared result patterns from silicon and human samples, finding that results vary considerably across different domains. Based on these results, we present specific recommendations for silicon sample use in consumer and marketing research. We argue that silicon samples hold particular promise in upstream parts of the research process such as qualitative pretesting and pilot studies, where researchers collect external information to safeguard follow‐up design choices. We also provide a critical assessment and recommendations for using silicon samples in main studies. Finally, we discuss ethical issues of silicon sample use and present future research avenues.",
-    "cited_by_count": 125,
+    "cited_by_count": 137,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Sample (material)",
@@ -2176,7 +2176,7 @@
     "doi": "https://doi.org/10.1007/s10462-023-10540-1",
     "url": "https://openalex.org/W4382202712",
     "abstract": "Abstract The growing prevalence of interactions between humans and machines, coupled with the rapid development of intelligent and human-like features in technology, necessitates considering the potential implications that an increasingly inter-personal interaction style might have on human behavior. Particularly, since human–human interactions are fundamentally affected by politeness rules, several researchers are investigating if such social norms have some implications also within human–machine interactions. This paper reviews scientific works dealing with politeness issues within human–machine interactions by considering a variety of artificial intelligence systems, such as smart devices, robots, digital assistants, and self-driving cars. This paper aims to analyze scientific results to answer the questions of why technological devices should behave politely toward humans, but above all, why human beings should be polite toward a technological device. As a result of the analysis, this paper wants to outline future research directions for the design of more effective, socially competent, acceptable, and trustworthy intelligent systems.",
-    "cited_by_count": 96,
+    "cited_by_count": 102,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Politeness",
@@ -2208,7 +2208,7 @@
     "doi": "https://doi.org/10.1002/mar.21953",
     "url": "https://openalex.org/W4390985299",
     "abstract": "Abstract Marketers use augmented reality (AR) to place virtual brand‐related information into a consumer's physical context. Grounded in the literature on AR, brand love, metaphor theory, and closeness as interpreted by the neural theory of language, the authors theorize that branded AR content can reduce the perceived physical, spatial distance between a consumer and a brand. This perceived closeness subsequently drives the closeness of the emotional relationship in the form of brand love. Two empirical studies validate this framework. Study 1 shows that using an AR app (vs. non‐AR) increases the perceived physical closeness of the brand, which in turn drives brand love (i.e., relationship closeness). Study 2 replicates this finding in a pre‐/post‐use design. Here, high levels of local presence (i.e., the extent to which consumers perceive a brand as actually being present in their physical environment) drive perceived physical closeness, which leads to brand love. We also find that AR's power to generate brand love increases when the consumer is already familiar with the brand. We discuss managerial implications for AR marketing today and in a metaverse future in which AR content might be prevalent in consumers' everyday perceptions of the real world.",
-    "cited_by_count": 87,
+    "cited_by_count": 89,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Closeness",
@@ -2237,7 +2237,7 @@
     "doi": "https://doi.org/10.1111/bjop.12668",
     "url": "https://openalex.org/W4379966171",
     "abstract": "Systematic differences in the attitudes of men and women towards risk is well established. In this paper, we investigate the joint role of two prominent psychological characteristics in explaining this difference. Our starting point is that risk assessments can be thought of, in general terms, to combine beliefs about the probability of negative outcomes occurring with a subjective valuation of how painful that negative outcome would be. Exploiting large-scale panel data from the United Kingdom, we find that gender differences in financial optimism and financial loss aversion - the stronger psychological response to monetary losses than monetary gains - explain a substantial proportion of the parallel gender difference in willingness to take risks. This result prevails even after controlling for the Big Five personality traits, suggesting that the prominent psychological characteristics capture different aspects of behaviour than the Big Five.",
-    "cited_by_count": 80,
+    "cited_by_count": 83,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Optimism",
@@ -2269,7 +2269,7 @@
     "doi": "https://doi.org/10.1016/j.jbusres.2023.114341",
     "url": "https://openalex.org/W4387721553",
     "abstract": "The debate about which communication strategies are most effective for inducing consumers to behave sustainably remains open, despite growing attention on more sustainable forms of fashion consumption. To further this understanding, we investigate the effectiveness of positive and negative message framing in promoting sustainable fashion consumption, where the beneficial versus detrimental environmental consequences of choosing second-hand clothing were highlighted. Across two experiments, positively framed messages were more effective than negatively framed ones in prompting consumers to engage in sustainable fashion consumption. Elevation was the anticipated emotion responsible for this effect, while consumers’ subjective beliefs about the ethicality of advertising messages promoting sustainable consumption served as a moderator. We discuss the theoretical and managerial implications of this research together with its limitations and directions for future research.",
-    "cited_by_count": 74,
+    "cited_by_count": 80,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Framing (construction)",
@@ -2362,7 +2362,7 @@
     "doi": "https://doi.org/10.1177/00472875231171673",
     "url": "https://openalex.org/W4367180775",
     "abstract": "Prospect theory has been an essential theoretical foundation for behavioral economics, as recognized with the Nobel Prize in economic sciences in 2002. The growing interest in behavioral economics among tourism researchers necessitates a systematic assessment of prospect theory and its application in tourism research to critically examine the current status of tourism decision-making studies. This study therefore clarifies the theoretical background of prospect theory and analyzes 93 published studies to examine how prospect theory has performed in explaining tourism decision-making. The study also evaluates the application of prospect theory in tourism research and provides future research directions with respect to under-researched dimensions, reference points, dynamic decision-making processes, and the logical continuity and systemization of prospect theory.",
-    "cited_by_count": 59,
+    "cited_by_count": 64,
     "evidence_level": "cross_sectional",
     "keywords": [
       "Prospect theory",
@@ -2394,7 +2394,7 @@
     "doi": "https://doi.org/10.1007/s11747-024-01036-7",
     "url": "https://openalex.org/W4400885891",
     "abstract": "Abstract Tackling grand challenges and making sustainable development a reality through sustainable consumption crucially depends upon both companies’ activities as well as individuals’ consumption choices. In opinion polls, many consumers claim to favor sustainable products over conventional ones. However, a large gap remains between their stated purchasing intentions and actual decisions, posing a challenge for companies in predicting product demand and strategically managing their product portfolios. In this study, we develop a conceptual framework to demonstrate how companies can encourage sustainable consumption behavior among their customers by involving them in their corporate sustainability (CS) activities. We introduce psychological ownership as the underlying mechanism explaining how customer involvement in CS activities translates into changes in their consumption choices. We further argue that the link between customer involvement and psychological ownership depends on the type of a company’s CS—that is, whether CS is embedded in or peripheral to the company’s core business. The results from three experiments, including one field experiment conducted in collaboration with a fashion retailer and involving real customer purchase decisions, support our theorizing. The findings reveal the power of customer involvement as a marketing tool in promoting sustainable consumption.",
-    "cited_by_count": 50,
+    "cited_by_count": 55,
     "evidence_level": "cohort_study",
     "keywords": [
       "Business",
@@ -2437,6 +2437,153 @@
     ],
     "related_theories": [],
     "fetched_at": "2026-09-01T06:15:26.547188Z",
+    "relevance_score": 0.0
+  },
+  "0a506b96-b4f8-44c0-b9dc-0c26d316a1a9": {
+    "paper_id": "0a506b96-b4f8-44c0-b9dc-0c26d316a1a9",
+    "source": "openalex",
+    "external_id": "https://openalex.org/W4315607013",
+    "title": "Rational Inattention: A Review",
+    "authors": [
+      "Bartosz Maćkowiak",
+      "Filip Matějka",
+      "Mirko Wiederholt"
+    ],
+    "publication_year": 2023,
+    "journal": "Journal of Economic Literature",
+    "doi": "https://doi.org/10.1257/jel.20211524",
+    "url": "https://openalex.org/W4315607013",
+    "abstract": "We review the recent literature on rational inattention, identify the main theoretical mechanisms, and explain how it helps us understand a variety of phenomena across fields of economics. The theory of rational inattention assumes that agents cannot process all available information, but they can choose which exact pieces of information to attend to. Several important results in economics have been built around imperfect information. Nowadays, many more forms of information than ever before are available due to new technologies, and yet we are able to digest little of it. Which form of imperfect information we possess and act upon is thus largely determined by which information we choose to pay attention to. These choices are driven by current economic conditions and imply behavior that features numerous empirically supported departures from standard models. Combining these insights about human limitations with the optimizing approach of neoclassical economics yields a new, generally applicable model. (JEL D83, D91, E71)",
+    "cited_by_count": 363,
+    "evidence_level": "cross_sectional",
+    "keywords": [
+      "Psychology"
+    ],
+    "related_theories": [],
+    "fetched_at": "2026-10-01T07:11:01.339232Z",
+    "relevance_score": 0.0
+  },
+  "9565bc10-9497-4623-ae74-60c697da2770": {
+    "paper_id": "9565bc10-9497-4623-ae74-60c697da2770",
+    "source": "openalex",
+    "external_id": "https://openalex.org/W4396832378",
+    "title": "An Ontology of Dark Patterns Knowledge: Foundations, Definitions, and a Pathway for Shared Knowledge-Building",
+    "authors": [
+      "Colin M. Gray",
+      "Cristiana Teixeira Santos",
+      "Nataliia Bielova",
+      "Thomas Mildner"
+    ],
+    "publication_year": 2024,
+    "journal": null,
+    "doi": "https://doi.org/10.1145/3613904.3642436",
+    "url": "https://openalex.org/W4396832378",
+    "abstract": "Deceptive and coercive design practices are increasingly used by companies to extract profit, harvest data, and limit consumer choice. Dark patterns represent the most common contemporary amalgamation of these problematic practices, connecting designers, technologists, scholars, regulators, and legal professionals in transdisciplinary dialogue. However, a lack of universally accepted definitions across the academic, legislative, practitioner, and regulatory space has likely limited the impact that scholarship on dark patterns might have in supporting sanctions and evolved design practices. In this paper, we seek to support the development of a shared language of dark patterns, harmonizing ten existing regulatory and academic taxonomies of dark patterns and proposing a three-level ontology with standardized definitions for 64 synthesized dark pattern types across low-, meso-, and high-level patterns. We illustrate how this ontology can support translational research and regulatory action, including transdisciplinary pathways to extend our initial types through new empirical work across application and technology domains.",
+    "cited_by_count": 111,
+    "evidence_level": "cross_sectional",
+    "keywords": [
+      "Ontology",
+      "Knowledge management",
+      "Scholarship",
+      "Computer science",
+      "Data science",
+      "Legislature",
+      "Political science",
+      "Epistemology"
+    ],
+    "related_theories": [],
+    "fetched_at": "2026-10-01T07:11:08.533541Z",
+    "relevance_score": 0.0
+  },
+  "0d98f503-f8f9-4621-9ba9-34d52966ce00": {
+    "paper_id": "0d98f503-f8f9-4621-9ba9-34d52966ce00",
+    "source": "openalex",
+    "external_id": "https://openalex.org/W4392353733",
+    "title": "A survey on large language model (LLM) security and privacy: The Good, The Bad, and The Ugly",
+    "authors": [
+      "Yifan Yao",
+      "Jinhao Duan",
+      "Kaidi Xu",
+      "Yuanfang Cai",
+      "Zhibo Sun"
+    ],
+    "publication_year": 2024,
+    "journal": "High-Confidence Computing",
+    "doi": "https://doi.org/10.1016/j.hcc.2024.100211",
+    "url": "https://openalex.org/W4392353733",
+    "abstract": "Large Language Models (LLMs), such as ChatGPT and Bard, have revolutionized natural language understanding and generation. They possess deep language comprehension, human-like text generation capabilities, contextual awareness, and robust problem-solving skills, making them invaluable in various domains (e.g., search engines, customer support, translation). In the meantime, LLMs have also gained traction in the security community, revealing security vulnerabilities and showcasing their potential in security-related tasks. This paper explores the intersection of LLMs with security and privacy. Specifically, we investigate how LLMs positively impact security and privacy, potential risks and threats associated with their use, and inherent vulnerabilities within LLMs. Through a comprehensive literature review, the paper categorizes the papers into “The Good” (beneficial LLM applications), “The Bad” (offensive applications), and “The Ugly” (vulnerabilities of LLMs and their defenses). We have some interesting findings. For example, LLMs have proven to enhance code security (code vulnerability detection) and data privacy (data confidentiality protection), outperforming traditional methods. However, they can also be harnessed for various attacks (particularly user-level attacks) due to their human-like reasoning abilities. We have identified areas that require further research efforts. For example, Research on model and parameter extraction attacks is limited and often theoretical, hindered by LLM parameter scale and confidentiality. Safe instruction tuning, a recent development, requires more exploration. We hope that our work can shed light on the LLMs’ potential to both bolster and jeopardize cybersecurity.",
+    "cited_by_count": 1047,
+    "evidence_level": "cross_sectional",
+    "keywords": [
+      "Internet privacy",
+      "Computer security",
+      "Computer science"
+    ],
+    "related_theories": [],
+    "fetched_at": "2026-10-01T07:11:11.947992Z",
+    "relevance_score": 0.0
+  },
+  "eee9aa4f-68f2-4fb9-acf9-b746487f70a5": {
+    "paper_id": "eee9aa4f-68f2-4fb9-acf9-b746487f70a5",
+    "source": "openalex",
+    "external_id": "https://openalex.org/W4412833277",
+    "title": "Polish Farmers′ Perceptions of the Benefits and Risks of Investing in Biogas Plants and the Role of GISs in Site Selection",
+    "authors": [
+      "Anna Kochanek",
+      "Józef Ciuła",
+      "Mariusz Cembruch-Nowakowski",
+      "Tomasz Zacłona"
+    ],
+    "publication_year": 2025,
+    "journal": "Energies",
+    "doi": "https://doi.org/10.3390/en18153981",
+    "url": "https://openalex.org/W4412833277",
+    "abstract": "In the past decade, agricultural biogas plants have become one of the key tools driving the energy transition in rural areas. Nevertheless, their development in Poland still lags behind that in Western European countries, suggesting the existence of barriers that go beyond technological or regulatory issues. This study aims to examine how Polish farmers perceive the risks and expected benefits associated with investing in biogas plants and which of these perceptions influence their willingness to invest. The research was conducted in the second quarter of 2025 among farmers planning to build micro biogas plants as well as owners of existing biogas facilities. Geographic Information System (GIS) tools were also used in selecting respondents and identifying potential investment sites, helping to pinpoint areas with favorable spatial and environmental conditions. The findings show that both current and prospective biogas plant operators view complex legal requirements, social risk, and financial uncertainty as the main obstacles. However, both groups are primarily motivated by the desire for on-farm energy self-sufficiency and the environmental benefits of improved agricultural waste management. Owners of operational installations—particularly small and medium-sized ones—tend to rate all categories of risk significantly lower than prospective investors, suggesting that practical experience and knowledge-sharing can effectively alleviate perceived risks related to renewable energy investments.",
+    "cited_by_count": 9,
+    "evidence_level": "cross_sectional",
+    "keywords": [
+      "Biogas",
+      "Business",
+      "Risk perception",
+      "Renewable energy",
+      "Agriculture",
+      "Investment (military)",
+      "Environmental economics",
+      "Perception"
+    ],
+    "related_theories": [],
+    "fetched_at": "2026-10-01T07:11:28.222400Z",
+    "relevance_score": 0.0
+  },
+  "14788fbb-1b7f-4187-86a8-7f0350da9766": {
+    "paper_id": "14788fbb-1b7f-4187-86a8-7f0350da9766",
+    "source": "openalex",
+    "external_id": "https://openalex.org/W4391815155",
+    "title": "A review of touch research in consumer psychology",
+    "authors": [
+      "Aradhna Krishna",
+      "Andrea Webb Luangrath",
+      "Joann Peck"
+    ],
+    "publication_year": 2024,
+    "journal": "Journal of Consumer Psychology",
+    "doi": "https://doi.org/10.1002/jcpy.1413",
+    "url": "https://openalex.org/W4391815155",
+    "abstract": "Abstract This article details the theoretical foundation of haptics in consumer research. We structure the review using a continuum from proximal touch‐based interactions to increasingly distal interactions through devices, imagery, or language use. We begin with a focus on product/object touch in marketing highlighting touch for haptic information, touch for haptic pleasure, and touch for nonhaptic functional reasons. We then elaborate on research considering work compensating for actual touch through various mechanisms including device‐mediated touch and imagery processing. Next, we examine interpersonal touch followed by a discussion on touch in sensory words and textual paralanguage. The authors note various avenues for future research in haptics with the aim to encourage research in consumer psychology and marketing.",
+    "cited_by_count": 47,
+    "evidence_level": "cross_sectional",
+    "keywords": [
+      "Haptic technology",
+      "Pleasure",
+      "Psychology",
+      "Consumer research",
+      "Focus (optics)",
+      "Psychological research",
+      "Product (mathematics)",
+      "Cognitive science"
+    ],
+    "related_theories": [],
+    "fetched_at": "2026-10-01T07:11:34.939728Z",
     "relevance_score": 0.0
   }
 }
